@@ -1,0 +1,5 @@
+Name       = Item Crafting UI
+Version    = 1.2.2
+Essentials = 20.1
+Website    = https://reliccastle.com/resources/632/
+Credits    = ThatWelshOne_
