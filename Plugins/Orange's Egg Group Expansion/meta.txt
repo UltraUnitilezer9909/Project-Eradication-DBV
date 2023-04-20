@@ -1,0 +1,5 @@
+Name         = Orange's Egg Group Expansion
+Version      = 0.1
+Credits      = Orange Boi, wrigty12, Lucidious89, Vendily
+Optional     = Legendary Breeding,1.0.2
+Essentials   = 20.1

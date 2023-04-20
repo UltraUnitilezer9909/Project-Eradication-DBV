@@ -11,7 +11,7 @@ module Settings
 # The animation will not play if this setting is set to "false", or if the player
 # disabled battle animations in the Options.
 #-------------------------------------------------------------------------------
-  SHOW_ZUD_ANIM = true
+  SHOW_ZUD_ANIM = false
   
 #-------------------------------------------------------------------------------
 # Increases the size of Dynamax Pokemon's sprites and party icons by 50%.

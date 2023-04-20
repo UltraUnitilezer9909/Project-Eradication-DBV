@@ -1,4 +1,0 @@
-Name       = BW Pause Menu
-Version    = 1.1.0
-Essentials = 20.1
-Credits    = Base Script made by: Bhagya Jyoti, and Shiney570, and Modified by Tilles

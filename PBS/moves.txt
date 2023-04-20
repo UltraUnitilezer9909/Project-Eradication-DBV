@@ -9523,7 +9523,7 @@ TotalPP = 10
 Target = NearOther
 FunctionCode = CategoryDependsOnHigherDamageTera
 Flags = CanProtect,CanMirrorMove
-Description = Move type changes to match a Terastallized user's Tera Type. Deals damage based on user's higher stat.
+Description = If the user has Terastallized, it unleashes energy of its Tera Type. This move uses the higher of the user's Attack or Sp. Atk stat.
 #-------------------------------
 [TIDYUP]
 Name = Tidy Up

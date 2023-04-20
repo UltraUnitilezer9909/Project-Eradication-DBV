@@ -1,0 +1,6 @@
+Name         = Improved Item Text
+Version      = 1.0.1
+Essentials   = 20.1
+Requires     = Essentials Deluxe,1.2.1
+Website      = link
+Credits      = Maruno,Lucidious89
