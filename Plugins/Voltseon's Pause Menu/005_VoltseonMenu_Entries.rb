@@ -119,6 +119,23 @@ class MenuEntryTrainer < MenuEntry
   def selectable?; return true; end
 end
 #-------------------------------------------------------------------------------
+# Entry for MQS
+#-------------------------------------------------------------------------------
+class MenuEntryQuestsLog < MenuEntry
+  def initialize
+      @icon = "menuQuestsLog"
+      @name = "Quests"
+  end
+
+  def selected(menu)
+      pbFadeOutIn {
+        pbViewQuests
+      }
+  end
+
+  def selectable?; return hasAnyQuests?; end
+end
+#-------------------------------------------------------------------------------
 # Entry for Save Screen
 #-------------------------------------------------------------------------------
 class MenuEntrySave < MenuEntry
@@ -180,7 +197,7 @@ end
 #-------------------------------------------------------------------------------
 class MenuEntryDebug < MenuEntry
   def initialize
-    @icon = "menuDebug"
+    @icon = "menuDebugReal"
     @name = "Debug"
   end
 
