@@ -153,7 +153,6 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
       return
     end
     @battleButton.bitmap = @battleButtonBitmap[@chosen_button].bitmap
-    @battleButton.x = self.x + 120
     case @chosen_button
     when :style
       @battleButton.y = self.y - @battleButtonBitmap[@chosen_button].height / 6
@@ -169,8 +168,8 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
       @battleButton.src_rect.height = @battleButtonBitmap[@chosen_button].height / 2
       @battleButton.src_rect.y = (@mode - 1) * @battleButtonBitmap[@chosen_button].height / 2
     end
-    mode = @shiftMode + @focusMode
-    @battleButton.x = self.x + ((mode > 0) ? 204 : 120)
+    totalMode = @shiftMode + @focusMode
+    @battleButton.x = self.x + ((@shiftMode > 0) ? 204 : 120)
     @battleButton.z = self.z - 1
     @visibility["battleButton"] = (@mode > 0)
   end
@@ -327,7 +326,6 @@ class Battle::Scene
     data = mechanic_params(*params)
     battler = @battle.battlers[idxBattler]
     cw = @sprites["fightWindow"]
-    cw.battler = battler
     moveIndex  = 0
     if battler.moves[@lastMove[idxBattler]]&.id
       moveIndex = @lastMove[idxBattler]
@@ -342,6 +340,7 @@ class Battle::Scene
     if PluginManager.installed?("Terastal Phenomenon")
       cw.teraType = 0 if @battle.pbCanTerastallize?(idxBattler)
     end
+    cw.battler = battler
     mechanic = pbFightMenu_BattleMechanic(data, cw)
     cw.setIndexAndMode(moveIndex, (mechanic) ? 1 : 0)
     needFullRefresh = true

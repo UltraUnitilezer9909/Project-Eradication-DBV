@@ -268,6 +268,7 @@ class DynamaxAdventure
         @darkness_map = false if (!$DEBUG && lair_EndlessRecord[:floor] <= 1)
       end
       if @darkness_map
+        $stats.dark_lairs_entered += 1
         pbMessage(_INTL("#{g}This route seems particularly treacherous - visibility will be limited!\nPlease be careful!"))
       end
       if @boss_species
@@ -276,6 +277,8 @@ class DynamaxAdventure
       else
         pbMessage(_INTL("#{g}Good luck on your adventure!"))
       end
+      $stats.max_lairs_entered += 1
+      $stats.endless_lairs_entered += 1 if endlessMode?
       pbSEPlay("Door enter")
       @knockouts  = $player.party.length
       previousBGM = $game_system.getPlayingBGM
@@ -308,6 +311,7 @@ class DynamaxAdventure
     #---------------------------------------------------------------------------
     elsif endlessMode?
       if @lair_floor > lair_EndlessRecord[:floor]
+        $stats.endless_lair_records += 1
         pbMessage(_INTL("#{g}Now THAT is what I call a fine performance! You set a new record! I keep track, you know."))
         $PokemonGlobal.dynamax_adventure_record = {
           :map     => @map_name,
@@ -388,6 +392,7 @@ class DynamaxAdventure
     # Victory
     #---------------------------------------------------------------------------
     elsif victory?
+      $stats.max_lairs_cleared += 1
       if lair_SavedRoutes.has_key?(@boss_species)
         $PokemonGlobal.dynamax_adventure_routes.delete(@boss_species)
       end

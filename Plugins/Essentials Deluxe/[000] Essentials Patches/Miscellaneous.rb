@@ -10,15 +10,93 @@ module MessageTypes
   ItemPortionNames       = 100
   ItemPortionNamePlurals = 101
   ItemHeldDescriptions   = 102
-  GMaxNames              = 103
-  GMaxEntries            = 104
-  Birthsigns             = 105 
-  ZodiacPowers           = 106
-  Celestials             = 107
-  BirthsignEffects       = 108
-  ZodiacEffects          = 109
-  BirthsignLore          = 110
+  MementoTitles          = 103
+  GMaxNames              = 104
+  GMaxEntries            = 105
+  Birthsigns             = 106 
+  ZodiacPowers           = 107
+  Celestials             = 108
+  BirthsignEffects       = 109
+  ZodiacEffects          = 110
+  BirthsignLore          = 111
 end
+
+
+#-------------------------------------------------------------------------------
+# Placeholder game stat trackers for various plugin features.
+#-------------------------------------------------------------------------------
+class GameStats
+  attr_accessor :primal_reversion_count
+  # ZUD Plugin
+  attr_accessor :zmove_count, :status_zmove_count, :ultra_burst_count
+  attr_accessor :dynamax_count, :gigantamax_count
+  attr_accessor :total_dynamax_lvls_gained, :total_gmax_factors_given
+  attr_accessor :max_raid_dens_entered, :max_raid_dens_cleared
+  attr_accessor :max_lairs_entered, :dark_lairs_entered, :endless_lairs_entered
+  attr_accessor :max_lairs_cleared, :endless_lair_records
+  # PLA Battle Styles
+  attr_accessor :strong_style_count, :agile_style_count, :total_moves_mastered
+  # Terastal Phenomenon
+  attr_accessor :terastallize_count, :wild_tera_battles, :total_tera_types_changed
+  # Focus Meter System
+  attr_accessor :accuracy_focus_count, :evasion_focus_count, :critical_focus_count, 
+                :potency_focus_count, :passive_focus_count, :enraged_focus_count, :total_focus_styles_changed
+  # Pokemon Birthsigns
+  attr_accessor :zodiac_power_count, :cooldown_command_count, :total_times_blessed
+  # Legendary Breeding
+  attr_accessor :legendary_eggs_hatched, :paradox_pokemon_engineered
+  
+  alias dx_initialize initialize
+  def initialize
+    dx_initialize
+    @primal_reversion_count     = 0
+    #------------------------------
+    # ZUD Plugin
+    @zmove_count                = 0
+    @status_zmove_count         = 0
+    @ultra_burst_count          = 0
+    @dynamax_count              = 0
+    @gigantamax_count           = 0
+    @total_dynamax_lvls_gained  = 0
+    @total_gmax_factors_given   = 0
+    @max_raid_dens_entered      = 0
+    @max_raid_dens_cleared      = 0
+    @max_lairs_entered          = 0
+    @dark_lairs_entered         = 0
+    @endless_lairs_entered      = 0
+    @max_lairs_cleared          = 0
+    @endless_lair_records       = 0
+    #------------------------------
+    # PLA Battle Styles
+    @strong_style_count         = 0
+    @agile_style_count          = 0
+    @total_moves_mastered       = 0
+    #------------------------------
+    # Terastal Phenomenon
+    @terastallize_count         = 0
+    @wild_tera_battles          = 0
+    @total_tera_types_changed   = 0
+    #------------------------------
+    # Focus Meter System
+    @accuracy_focus_count       = 0
+    @evasion_focus_count        = 0
+    @critical_focus_count       = 0
+    @potency_focus_count        = 0
+    @passive_focus_count        = 0
+    @enraged_focus_count        = 0
+    @total_focus_styles_changed = 0
+    #------------------------------
+    # Pokemon Birthsigns
+    @zodiac_power_count         = 0
+    @cooldown_command_count     = 0
+    @total_times_blessed        = 0
+    #------------------------------
+    # Legendary Breeding
+    @legendary_eggs_hatched     = 0
+    @paradox_pokemon_engineered = 0
+  end
+end
+
 
 #-------------------------------------------------------------------------------
 # Placeholder item data for plugin compatibility.
@@ -74,125 +152,6 @@ module GameData
     def is_pinch_berry?;  return has_flag?("PinchBerry");      end
     def is_tera_shard?;   return !@flags.none? { |f| f[/^TeraShard_/i] }; end
   end
-end
-
-
-#-------------------------------------------------------------------------------
-# Placeholder for save file compatibility if ZUD Plugin removed.
-#-------------------------------------------------------------------------------
-class DynamaxAdventure; end
-
-
-#-------------------------------------------------------------------------------
-# Adds Ultra Space habitat for Ultra Beasts.
-#-------------------------------------------------------------------------------
-GameData::Habitat.register({
-  :id   => :UltraSpace,
-  :name => _INTL("Ultra Space")
-})
-
-
-#-------------------------------------------------------------------------------
-# Gets all eligible moves that a species's entire evolutionary line can learn.
-#-------------------------------------------------------------------------------
-module GameData
-  class Species
-    def get_family_moves
-      moves = []
-      baby = GameData::Species.get_species_form(get_baby_species, @form)
-      prev = GameData::Species.get_species_form(get_previous_species, @form)
-      if baby.species != @species
-        baby.moves.each { |m| moves.push(m[1]) }
-      end
-      if prev.species != @species && prev.species != baby.species
-        prev.moves.each { |m| moves.push(m[1]) }
-      end
-      @moves.each { |m| moves.push(m[1]) }
-      @tutor_moves.each { |m| moves.push(m) }
-      get_egg_moves.each { |m| moves.push(m) }
-      moves |= []
-      return moves
-    end
-  end
-end
-
-
-#-------------------------------------------------------------------------------
-# Orders Egg Groups numerically, including Legendary groups.
-#-------------------------------------------------------------------------------
-def egg_group_hash
-  data ={
-    :Monster      => 0,
-    :Water1       => 1,
-    :Bug          => 2,
-    :Flying       => 3,
-    :Field        => 4,
-    :Fairy        => 5,
-    :Grass        => 6,
-    :Humanlike    => 7,
-    :Water3       => 8,
-    :Mineral      => 9,
-    :Amorphous    => 10,
-    :Water2       => 11,
-    :Ditto        => 12,
-    :Dragon       => 13,
-    :Undiscovered => 14,
-    :Skycrest     => 15,
-    :Bestial      => 16,
-    :Titan        => 17,
-    :Overlord     => 18,
-    :Nebulous     => 19,
-    :Enchanted    => 20,
-    :Ancestor     => 21,
-    :Ultra        => 22,
-    :Unused1      => 23,
-    :Unused2      => 24,
-    :Unknown      => 25
-  }
-  return data
-end
-
-
-#-------------------------------------------------------------------------------
-# Rewrites Egg Generator to include plugin mechanics.
-#-------------------------------------------------------------------------------
-class DayCare
-  module EggGenerator
-    module_function
-    
-    def generate(mother, father)
-      if mother.male? || father.female? || mother.genderless?
-        mother, father = father, mother
-      end
-      mother_data = [mother, fluid_egg_group?(mother.species_data.egg_groups)]
-      father_data = [father, fluid_egg_group?(father.species_data.egg_groups)]
-      species_parent = (mother_data[1]) ? father : mother
-      baby_species = determine_egg_species(species_parent.species, mother, father)
-      mother_data.push(mother.species_data.breeding_can_produce?(baby_species))
-      father_data.push(father.species_data.breeding_can_produce?(baby_species))
-      egg = generate_basic_egg(baby_species)
-      inherit_form(egg, species_parent, mother_data, father_data)
-      inherit_nature(egg, mother, father)
-      inherit_ability(egg, mother_data, father_data)
-      inherit_moves(egg, mother_data, father_data)
-      inherit_IVs(egg, mother, father)
-      inherit_poke_ball(egg, mother_data, father_data)
-      inherit_birthsign(egg, mother, father) if PluginManager.installed?("Pokémon Birthsigns")
-      set_shininess(egg, mother, father)
-      set_pokerus(egg)
-      egg.calc_stats
-      return egg
-    end
-  end
-end
-
-def fluid_egg_group?(groups)
-  return groups.include?(:Ditto) || groups.include?(:Ancestor)
-end
-
-def legendary_egg_group?(groups)
-  egg_groups = egg_group_hash
-  return egg_groups[groups[0]] > 13 || (groups[1] && egg_groups[groups[1]] > 13)
 end
 
 
@@ -458,181 +417,6 @@ end
 
 
 #-------------------------------------------------------------------------------
-# Fixes to allow certain forms to be generated for wild battles without being
-# prompted to learn an exclusive move. (Moves are instead taught automatically)
+# Placeholder for save file compatibility if ZUD Plugin removed.
 #-------------------------------------------------------------------------------
-# Rotom forms.
-#-------------------------------------------------------------------------------
-MultipleForms.register(:ROTOM, {
-  "onSetForm" => proc { |pkmn, form, oldForm|
-    form_moves = [
-      :OVERHEAT,
-      :HYDROPUMP,
-      :BLIZZARD,
-      :AIRSLASH,
-      :LEAFSTORM
-    ]
-    old_move_index = -1
-    pkmn.moves.each_with_index do |move, i|
-      next if !form_moves.include?(move.id)
-      old_move_index = i
-      break
-    end
-    new_move_id = (form > 0) ? form_moves[form - 1] : nil
-    new_move_id = nil if !GameData::Move.exists?(new_move_id)
-    if $game_temp.dx_pokemon? || $game_temp.dx_midbattle?
-	  next if form == 0 && old_move_index == -1
-      new_move_id = :SHADOWBALL if !new_move_id
-      old_move_index = pkmn.moves.length - 1 if old_move_index < 0
-      pkmn.moves[old_move_index].id = new_move_id
-      next
-    end
-    if new_move_id.nil? && old_move_index >= 0 && pkmn.numMoves == 1
-      new_move_id = :THUNDERSHOCK
-      new_move_id = nil if !GameData::Move.exists?(new_move_id)
-      raise _INTL("Rotom is trying to forget its last move, but there isn't another move to replace it with.") if new_move_id.nil?
-    end
-    new_move_id = nil if pkmn.hasMove?(new_move_id)
-    if old_move_index >= 0
-      old_move_name = pkmn.moves[old_move_index].name
-      if new_move_id.nil?
-        pkmn.forget_move_at_index(old_move_index)
-        pbMessage(_INTL("{1} forgot {2}...", pkmn.name, old_move_name))
-      else
-        pkmn.moves[old_move_index].id = new_move_id
-        new_move_name = pkmn.moves[old_move_index].name
-        pbMessage(_INTL("{1} forgot {2}...\1", pkmn.name, old_move_name))
-        pbMessage(_INTL("\\se[]{1} learned {2}!\\se[Pkmn move learnt]\1", pkmn.name, new_move_name))
-      end
-    elsif !new_move_id.nil?
-      pbLearnMove(pkmn, new_move_id, true)
-    end
-  }
-})
-
-#-------------------------------------------------------------------------------
-# Necrozma forms.
-#-------------------------------------------------------------------------------
-MultipleForms.register(:NECROZMA, {
-  "getFormOnLeavingBattle" => proc { |pkmn, battle, usedInBattle, endBattle|
-    next pkmn.form - 2 if pkmn.form >= 3 && (pkmn.fainted? || endBattle)
-  },
-  "onSetForm" => proc { |pkmn, form, oldForm|
-    next if form > 2 || oldForm > 2
-    form_moves = [
-      :SUNSTEELSTRIKE,
-      :MOONGEISTBEAM
-    ]
-    inBattle = $game_temp.dx_pokemon? || $game_temp.dx_midbattle?
-    if form == 0
-      form_moves.each do |move|
-        next if !pkmn.hasMove?(move)
-        pkmn.forget_move(move)
-        pkmn.learn_move(:PSYCHIC) if inBattle
-        pbMessage(_INTL("{1} forgot {2}...", pkmn.name, GameData::Move.get(move).name)) if !inBattle
-      end
-      pbLearnMove(pkmn, :CONFUSION) if pkmn.numMoves == 0 && !inBattle
-    else
-      new_move_id = form_moves[form - 1]
-      if inBattle
-        old_move_index = -1
-        pkmn.moves.each_with_index do |move, i|
-          next if !form_moves.include?(move.id)
-          old_move_index = i
-          break
-        end
-        old_move_index = pkmn.moves.length - 1 if old_move_index < 0
-        pkmn.moves[old_move_index].id = new_move_id
-      else
-        pbLearnMove(pkmn, new_move_id, true)
-      end
-    end
-  }
-})
-
-#-------------------------------------------------------------------------------
-# Calyrex forms.
-#-------------------------------------------------------------------------------
-MultipleForms.register(:CALYREX, {
-  "onSetForm" => proc { |pkmn, form, oldForm|
-    form_moves = [
-      :GLACIALLANCE,
-      :ASTRALBARRAGE
-    ]
-    inBattle = $game_temp.dx_pokemon? || $game_temp.dx_midbattle?
-    if form == 0
-      form_moves.each do |move|
-        next if !pkmn.hasMove?(move)
-        pkmn.forget_move(move)
-        pkmn.learn_move(:PSYCHIC) if inBattle
-        pbMessage(_INTL("{1} forgot {2}...", pkmn.name, GameData::Move.get(move).name)) if !inBattle
-      end
-      sp_data = pkmn.species_data
-      pkmn.moves.each_with_index do |move, i|
-        next if sp_data.moves.any? { |learn_move| learn_move[1] == move.id }
-        next if sp_data.tutor_moves.include?(move.id)
-        next if sp_data.egg_moves.include?(move.id)
-        pbMessage(_INTL("{1} forgot {2}...", pkmn.name, move.name)) if !inBattle
-        pkmn.moves[i] = nil
-      end
-      pkmn.moves.compact!
-      if pkmn.numMoves == 0
-        (inBattle) ? pkmn.learn_move(:PSYCHIC) : pbLearnMove(pkmn, :CONFUSION)
-      end
-    else
-      new_move_id = form_moves[form - 1]
-      if inBattle
-        old_move_index = -1
-        pkmn.moves.each_with_index do |move, i|
-          next if !form_moves.include?(move.id)
-          old_move_index = i
-          break
-        end
-        old_move_index = pkmn.moves.length - 1 if old_move_index < 0
-        pkmn.moves[old_move_index].id = new_move_id
-      else
-        pbLearnMove(pkmn, new_move_id, true)
-      end
-    end
-  }
-})
-
-
-#===============================================================================
-# Transform
-#===============================================================================
-# Edited for compatibility with battle effects that alter battler sprites.
-#-------------------------------------------------------------------------------
-class Battle::Move::TransformUserIntoTarget < Battle::Move
-  def pbShowAnimation(id, user, targets, hitNum = 0, showAnimation = true)
-    super
-    user.effects[PBEffects::TransformPokemon] = targets[0].pokemon
-    @battle.scene.pbChangePokemon(user, targets[0].pokemon)
-  end
-end
-
-
-#===============================================================================
-# Imposter
-#===============================================================================
-# Edited for compatibility with battle effects that alter battler sprites.
-#-------------------------------------------------------------------------------
-Battle::AbilityEffects::OnSwitchIn.add(:IMPOSTER,
-  proc { |ability, battler, battle, switch_in|
-    next if !switch_in || battler.effects[PBEffects::Transform]
-    choice = battler.pbDirectOpposing
-    next if choice.fainted?
-    next if battler.dynamax? && !choice.dynamax_able?
-    next if choice.effects[PBEffects::Transform] ||
-            choice.effects[PBEffects::Illusion] ||
-            choice.effects[PBEffects::Substitute] > 0 ||
-            choice.effects[PBEffects::SkyDrop] >= 0 ||
-            choice.semiInvulnerable?
-    battle.pbShowAbilitySplash(battler, true)
-    battle.pbHideAbilitySplash(battler)
-    battler.effects[PBEffects::TransformPokemon] = choice.pokemon
-    battle.pbAnimation(:TRANSFORM, battler, choice)
-    battle.scene.pbChangePokemon(battler, choice.pokemon)
-    battler.pbTransform(choice)
-  }
-)
+class DynamaxAdventure; end

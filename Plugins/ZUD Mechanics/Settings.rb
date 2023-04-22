@@ -11,7 +11,7 @@ module Settings
 # The animation will not play if this setting is set to "false", or if the player
 # disabled battle animations in the Options.
 #-------------------------------------------------------------------------------
-  SHOW_ZUD_ANIM = false
+  SHOW_ZUD_ANIM = true
   
 #-------------------------------------------------------------------------------
 # Increases the size of Dynamax Pokemon's sprites and party icons by 50%.
@@ -39,6 +39,7 @@ module Settings
 #-------------------------------------------------------------------------------
 # An array of all the move types that receive a reduced boost in their base power
 # when converted into Max Moves, due to the strength of their effects.
+# (Default: Fighting, Poison)
 #-------------------------------------------------------------------------------  
   MOVE_TYPES_TO_WEAKEN = [:FIGHTING, :POISON]
   
@@ -128,18 +129,19 @@ module Settings
 # want to ban species from appearing from higher generations if you lack battle
 # sprites for those Pokemon.
 # This setting is set to Generation 5 by default, since Essentials only includes
-# sprites up to that generation.
+# sprites up to that generation. This automatically scales up to Gen 8 or Gen 9
+# if the Gen 8 Pack or Gen 9 Pack plugins are installed, respectively.
 #-------------------------------------------------------------------------------
   GENERATION_LIMIT = (PluginManager.installed?("Generation 9 Pack")) ? 9 : (PluginManager.installed?("Generation 8 Pack Scripts")) ? 8 : 5
   
 #-------------------------------------------------------------------------------
-# An array containing additional arrays, which each contain a regional form name 
+# An array containing additional arrays, each containing a regional form name 
 # and a region number for that regional form. This will allow for those regional 
 # forms to appear when the player is on a map that corresponds to the region number.
 #
 # For example, if the player is on a map with a region ID that matches the region 
 # number in the "Alolan" array, then any entry in pokemon_forms.txt with "Alolan"
-# in its form name will now appear in Raids. By default, all regionals are set to
+# as its form name will now appear in Raids. By default, all regionals are set to
 # appear in Region 1 (the Tiall region), so adjust the numbers for each regional
 # to suit your game.
 #-------------------------------------------------------------------------------

@@ -69,7 +69,7 @@ class MaxRaidBattle
     }
     Input.update
     BattleCreationHelperMethods.set_outcome(outcome, rules[:outcome])
-	$player.has_raid_database = true if Settings::UNLOCK_DATABASE_FROM_RAIDS
+    $player.has_raid_database = true if Settings::UNLOCK_DATABASE_FROM_RAIDS
     return outcome
   end
 
@@ -92,6 +92,7 @@ class MaxRaidBattle
       pokemon[:level]      = species.level
       pokemon[:form]       = species.form
       pokemon[:gender]     = species.gender
+      pokemon[:size]       = species.scale
       pokemon[:item]       = species.item_id
       pokemon[:ability]    = species.ability_index
       pokemon[:moves]      = species.moves
@@ -197,6 +198,7 @@ class MaxRaidBattle
       pokemon[:shiny] = false
       pokemon[:supershiny] = false
     end
+    pokemon[:size] = 200 + rand(56)
     pokemon[:dynamax] = true
     pokemon[:species] = species_id
     $game_temp.dx_pokemon = pokemon

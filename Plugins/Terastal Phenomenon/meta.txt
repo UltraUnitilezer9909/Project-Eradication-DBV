@@ -1,7 +1,7 @@
 Name         = Terastal Phenomenon
-Version      = 1.0.2
+Version      = 1.0.3
 Essentials   = 20.1
-Requires     = Essentials Deluxe,1.2.4
+Requires     = Essentials Deluxe,1.2.5
 Optional     = Improved Item Text,1.0
 Website      = https://www.pokecommunity.com/showthread.php?t=490973
 Credits      = Lucidious89,wrigty12

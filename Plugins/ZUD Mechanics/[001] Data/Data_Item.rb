@@ -14,9 +14,9 @@ module GameData
     def is_z_crystal?; return has_flag?("ZCrystal"); end
     def is_ultra_item?; return has_flag?("UltraItem"); end
       
+    alias zud_is_important? is_important? 
     def is_important?
-      return true if is_key_item? || is_HM? || is_TM? || is_z_crystal?
-      return false
+      return zud_is_important? || is_z_crystal?
     end
 	
     alias zud_unlosable? unlosable?
@@ -152,9 +152,11 @@ ItemHandlers::UseOnPokemon.add(:DYNAMAXCANDY, proc { |item, qty, pkmn, scene|
     pbSEPlay("Pkmn move learnt")
     if item == :DYNAMAXCANDYXL
       scene.pbDisplay(_INTL("{1}'s Dynamax level was increased to 10!", pkmn.name))
+      $stats.total_dynamax_lvls_gained += (10 - pkmn.dynamax_lvl)
       pkmn.dynamax_lvl = 10
     else
       scene.pbDisplay(_INTL("{1}'s Dynamax level was increased by 1!", pkmn.name))
+      $stats.total_dynamax_lvls_gained += 1
       pkmn.dynamax_lvl += 1
     end
     scene.pbHardRefresh
@@ -186,6 +188,7 @@ ItemHandlers::UseOnPokemon.add(:MAXSOUP, proc { |item, qty, pkmn, scene|
     else
       pbSEPlay("Pkmn move learnt")
       pkmn.gmax_factor = true
+      $stats.total_gmax_factors_given += 1
       scene.pbDisplay(_INTL("{1} is now bursting with Gigantamax energy!", pkmn.name))
     end
     scene.pbHardRefresh

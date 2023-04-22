@@ -145,6 +145,32 @@ end
 
 
 #-------------------------------------------------------------------------------
+# Animation used for a fleeing battler.
+#-------------------------------------------------------------------------------
+class Battle::Scene::Animation::BattlerFlee < Battle::Scene::Animation
+  def initialize(sprites, viewport, idxBattler, battle)
+    @idxBattler = idxBattler
+    @battle     = battle
+    super(sprites, viewport)
+  end
+
+  def createProcesses
+    delay = 0
+    batSprite = @sprites["pokemon_#{@idxBattler}"]
+    shaSprite = @sprites["shadow_#{@idxBattler}"]
+    battler = addSprite(batSprite, PictureOrigin::BOTTOM)
+    shadow  = addSprite(shaSprite, PictureOrigin::CENTER)
+    direction = (@battle.battlers[@idxBattler].opposes?(0)) ? batSprite.x : -batSprite.x    
+    shadow.setVisible(delay, false)
+    battler.setSE(delay, "Battle flee")
+    battler.moveOpacity(delay, 8, 0)
+    battler.moveDelta(delay, 28, direction, 0)
+    battler.setVisible(delay + 28, false)
+  end
+end
+
+
+#-------------------------------------------------------------------------------
 # Battle scene additions for midbattle speech.
 #-------------------------------------------------------------------------------
 class Battle::Scene
@@ -280,6 +306,25 @@ class Battle::Scene
       @sprites["messageWindow"].baseColor = colors[0]
       @sprites["messageWindow"].shadowColor = colors[1]
       @sprites["messageWindow"].z -= 1
+    end
+  end
+  
+  def pbBattlerFlee(battler, msg = nil)
+    @briefMessage = false
+    fleeAnim = Animation::BattlerFlee.new(@sprites, @viewport, battler.index, @battle)
+    dataBoxAnim = Animation::DataBoxDisappear.new(@sprites, @viewport, battler.index)
+    loop do
+      fleeAnim.update
+      dataBoxAnim.update
+      pbUpdate
+      break if fleeAnim.animDone? && dataBoxAnim.animDone?
+    end
+    fleeAnim.dispose
+    dataBoxAnim.dispose
+    if msg.is_a?(String)
+      @battle.pbDisplayPaused(_INTL("#{msg}", battler.pbThis))
+    else
+      @battle.pbDisplayPaused(_INTL("{1} fled!", battler.pbThis))
     end
   end
   

@@ -15,8 +15,13 @@ def pbAddSpriteOutline(param = [], color = Color.white, border = 2, opacity = 25
     when PokemonSprite
       @sprites[outline] = PokemonSprite.new(viewport)
       @sprites[outline].setOffset(offset)
-      @sprites[outline].setPokemonBitmap(object)
-      object.species_data.apply_metrics_to_sprite(@sprites[outline], 1, nil, object.gmax_factor? ? 2 : 1)
+      case object
+      when Pokemon
+        @sprites[outline].setPokemonBitmap(object)
+        object.species_data.apply_metrics_to_sprite(@sprites[outline], 1, nil, object.gmax_factor? ? 2 : 1)
+      when Symbol
+        @sprites[outline].setSpeciesBitmap(*object)
+      end
     when PokemonIconSprite
       @sprites[outline] = PokemonIconSprite.new(object, viewport)
       @sprites[outline].setOffset(offset)
@@ -157,12 +162,24 @@ end
 #-------------------------------------------------------------------------------
 # Updates outlines for Pokemon sprites.
 #-------------------------------------------------------------------------------
-def pbUpdateOutline(sprite, pokemon, battle = false)
+def pbUpdateOutline(sprite, pokemon)
   return if !@sprites || !@sprites.has_key?(sprite)
   for i in 0..7
     key = sprite + "_outline#{i}"
-    next if !@sprites[key] || !(@sprites[key].is_a?(PokemonSprite) || @sprites[key].is_a?(PokemonIconSprite))
-    @sprites[key].pokemon = pokemon
-    @sprites[key].applyIconEffects
+    next if !@sprites[key]
+    next if !(@sprites[key].is_a?(PokemonSprite) || @sprites[key].is_a?(PokemonIconSprite))
+    if pokemon.is_a?(Pokemon)
+      case @sprites[key]
+      when PokemonSprite
+        @sprites[key].setPokemonBitmap(pokemon)
+        pokemon.species_data.apply_metrics_to_sprite(@sprites[key], 1, nil, pokemon.gmax_factor? ? 2 : 1)
+        @sprites[key].applyEffects(pokemon)
+      when PokemonIconSprite
+        @sprites[key].pokemon = pokemon
+        @sprites[key].applyIconEffects
+      end
+    else
+      @sprites[key].setSpeciesBitmap(*pokemon)
+    end
   end
 end

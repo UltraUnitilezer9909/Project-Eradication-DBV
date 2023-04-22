@@ -39,7 +39,7 @@ class Battle::Move
         #-----------------------------------------------------------------------
         baseDmgMult = baseDmg * multipliers[:base_damage_multiplier]
         if baseDmgMult < 60 && @priority < 1 && !multiHitMove?
-         multipliers[:base_damage_multiplier] = 60 / baseDmg
+          multipliers[:base_damage_multiplier] = 60 / baseDmg
         end
         #-----------------------------------------------------------------------
         # Applies bonus STAB if move type matches the user's Tera Type and is 

@@ -287,6 +287,7 @@ class MaxRaidScene
           end
           $player.party = raid_party
           pbFadeOutIn {
+            $stats.max_raid_dens_entered += 1
             pbSEPlay("Door enter")
             pbDisposeSpriteHash(@sprites)
             @viewport.dispose
@@ -300,6 +301,7 @@ class MaxRaidScene
           $player.party = full_party
           @result = $game_variables[@rules[:outcome]]
           if @result == 1 || @result == 4
+            $stats.max_raid_dens_cleared += 1
             $player.party.each { |pkmn| pkmn.heal }
             @interp.setVariable(0)
           end

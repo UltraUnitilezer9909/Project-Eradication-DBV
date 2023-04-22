@@ -206,6 +206,7 @@ class Battle
     battler = @battlers[idxBattler]
     return if !battler || !battler.pokemon || battler.fainted?
     return if !battler.hasPrimal? || battler.primal?
+    $stats.primal_reversion_count += 1 if battler.pbOwnedByPlayer?
     triggers = ["primal", "primal" + battler.species.to_s]
     battler.pokemon.types.each { |t| triggers.push("primal" + t.to_s) }
     @scene.pbDeluxeTriggers(idxBattler, nil, triggers)

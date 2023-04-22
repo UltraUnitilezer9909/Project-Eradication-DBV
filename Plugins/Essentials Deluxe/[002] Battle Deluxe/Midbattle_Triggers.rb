@@ -99,16 +99,35 @@ class Battle
     dx_pbMessageOnRecall(battler)
   end
   
-  alias dx_pbMessagesOnReplace pbMessagesOnReplace
   def pbMessagesOnReplace(idxBattler, idxParty, withTriggers = true)
+    party = pbParty(idxBattler)
     if withTriggers
-      nextPoke = pbParty(idxBattler)[idxParty]
+	  nextPoke = party[idxParty]
       triggers = ["switchIn", "switchIn" + nextPoke.species.to_s]
       nextPoke.types.each { |t| triggers.push("switchIn" + t.to_s) }
       triggers.push("switchInLast") if pbAbleNonActiveCount(idxBattler) == 1
       @scene.pbDeluxeTriggers(idxBattler, nil, triggers)
     end
-    dx_pbMessagesOnReplace(idxBattler, idxParty)
+    newPkmnName = party[idxParty].name_title
+    if party[idxParty].ability == :ILLUSION && !pbCheckGlobalAbility(:NEUTRALIZINGGAS)
+      new_index = pbLastInTeam(idxBattler)
+      newPkmnName = party[new_index].name_title if new_index >= 0 && new_index != idxParty
+    end
+    if pbOwnedByPlayer?(idxBattler)
+      opposing = @battlers[idxBattler].pbDirectOpposing
+      if opposing.fainted? || opposing.hp == opposing.totalhp
+        pbDisplayBrief(_INTL("You're in charge, {1}!", newPkmnName))
+      elsif opposing.hp >= opposing.totalhp / 2
+        pbDisplayBrief(_INTL("Go for it, {1}!", newPkmnName))
+      elsif opposing.hp >= opposing.totalhp / 4
+        pbDisplayBrief(_INTL("Just a little more! Hang in there, {1}!", newPkmnName))
+      else
+        pbDisplayBrief(_INTL("Your opponent's weak! Get 'em, {1}!", newPkmnName))
+      end
+    else
+      owner = pbGetOwnerFromBattlerIndex(idxBattler)
+      pbDisplayBrief(_INTL("{1} sent out {2}!", owner.full_name, newPkmnName))
+    end
   end
   
   alias dx_pbReplace pbReplace
@@ -308,16 +327,23 @@ class Battle::Battler
   #-----------------------------------------------------------------------------
   alias dx_pbFaint pbFaint
   def pbFaint(showMessage = true, withTriggers = true)
-    dx_pbFaint(showMessage)
-    if withTriggers && fainted?
-      if @battle.pbAllFainted?(@index)
-        triggers = ["faintedLast", "faintedLast" + @species.to_s]
-        @pokemon.types.each { |t| triggers.push("faintedLast" + t.to_s) } 
-      else
-        triggers = ["fainted", "fainted" + @species.to_s]
-        @pokemon.types.each { |t| triggers.push("fainted" + t.to_s) }
+    return if @fainted
+    raidcapture = $game_temp.dx_rules? && $game_temp.dx_rules[:raidcapture]
+    if !pbOwnedByPlayer? && raidcapture && @battle.wildBattle? && @battle.decision == 0
+      self.hp += 1
+      pbRaidStyleCapture(self, raidcapture)
+    else
+      dx_pbFaint(showMessage)
+      if withTriggers && fainted?
+        if @battle.pbAllFainted?(@index)
+          triggers = ["faintedLast", "faintedLast" + @species.to_s]
+          @pokemon.types.each { |t| triggers.push("faintedLast" + t.to_s) } 
+        else
+          triggers = ["fainted", "fainted" + @species.to_s]
+          @pokemon.types.each { |t| triggers.push("fainted" + t.to_s) }
+        end
+        @battle.scene.pbDeluxeTriggers(self, nil, triggers)
       end
-      @battle.scene.pbDeluxeTriggers(self, nil, triggers)
     end
   end
 end
@@ -327,22 +353,14 @@ class Battle::Move
   #-----------------------------------------------------------------------------
   # Mid-battle triggers for type effectiveness of a used move.
   #-----------------------------------------------------------------------------
+  alias dx_pbEffectivenessMessage pbEffectivenessMessage
   def pbEffectivenessMessage(user, target, numTargets = 1)
+    dx_pbEffectivenessMessage(user, target, numTargets)
     return if target.damageState.disguise || target.damageState.iceFace
     if Effectiveness.super_effective?(target.damageState.typeMod)
-      if numTargets > 1
-        @battle.pbDisplay(_INTL("It's super effective on {1}!", target.pbThis(true)))
-      else
-        @battle.pbDisplay(_INTL("It's super effective!"))
-      end
       user_triggers = ["attackerSEdmg", "attackerSEdmg" + @id.to_s, "attackerSEdmg" + @type.to_s, "attackerSEdmg" + user.species.to_s]
       targ_triggers = ["defenderSEdmg", "defenderSEdmg" + @id.to_s, "defenderSEdmg" + @type.to_s, "defenderSEdmg" + target.species.to_s]
     elsif Effectiveness.not_very_effective?(target.damageState.typeMod)
-      if numTargets > 1
-        @battle.pbDisplay(_INTL("It's not very effective on {1}...", target.pbThis(true)))
-      else
-        @battle.pbDisplay(_INTL("It's not very effective..."))
-      end
       user_triggers = ["attackerNVEdmg", "attackerNVEdmg" + @id.to_s, "attackerNVEdmg" + @type.to_s, "attackerNVEdmg" + user.species.to_s]
       targ_triggers = ["defenderNVEdmg", "defenderNVEdmg" + @id.to_s, "defenderNVEdmg" + @type.to_s, "defenderNVEdmg" + target.species.to_s]
     else return

@@ -114,6 +114,7 @@ class Battle
     battler = @battlers[idxBattler]
     return if !battler || !battler.pokemon
     return if !battler.hasUltra? || battler.ultra?
+    $stats.ultra_burst_count += 1 if battler.pbOwnedByPlayer?
     triggers = ["ultra", "ultra" + battler.species.to_s]
     battler.pokemon.types.each { |t| triggers.push("ultra" + t.to_s) }
     @scene.pbDeluxeTriggers(idxBattler, nil, triggers)
@@ -150,9 +151,11 @@ class Battle
     return if !battler || !battler.pokemon
     return if !battler.hasDynamax? || battler.dynamax?
     return if @choices[idxBattler][2]==@struggle
+    $stats.dynamax_count += 1 if battler.pbOwnedByPlayer?
     triggers = ["dynamax", "dynamax" + battler.species.to_s]
     battler.pokemon.types.each { |t| triggers.push("dynamax" + t.to_s) }
     if battler.canGmax?
+      $stats.gigantamax_count += 1 if battler.pbOwnedByPlayer?
       triggers += ["gmax", "gmax" + battler.species.to_s]
       battler.pokemon.types.each { |t| triggers.push("gmax" + t.to_s) }
     end

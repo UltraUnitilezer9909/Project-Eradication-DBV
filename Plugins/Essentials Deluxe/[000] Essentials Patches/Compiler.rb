@@ -161,7 +161,9 @@ module Compiler
           f.write(sprintf("    EV = %s\r\n", evs_array.join(","))) if pkmn[:ev]
           f.write(sprintf("    Happiness = %d\r\n", pkmn[:happiness])) if pkmn[:happiness]
           f.write(sprintf("    Ball = %s\r\n", pkmn[:poke_ball])) if pkmn[:poke_ball]
+          f.write(sprintf("    Size = %d\r\n", pkmn[:size])) if pkmn[:size]
           f.write("    Ace = yes\r\n") if pkmn[:trainer_ace]
+          f.write(sprintf("    Memento = %s\r\n", pkmn[:memento])) if PluginManager.installed?("Improved Mementos") && pkmn[:memento]
           f.write(sprintf("    Focus = %s\r\n", pkmn[:focus])) if PluginManager.installed?("Focus Meter System") && pkmn[:focus]
           f.write(sprintf("    Birthsign = %s\r\n", pkmn[:birthsign])) if PluginManager.installed?("Pokémon Birthsigns") && pkmn[:birthsign]
           if PluginManager.installed?("ZUD Mechanics")
@@ -956,16 +958,17 @@ module PluginManager
   end
   
   # Used to ensure all plugins that rely on Essentials Deluxe are up to date.
-  def self.dx_plugin_check(version = "1.2.4")
+  def self.dx_plugin_check(version = "1.2.5")
     if self.installed?("Essentials Deluxe", version, true)
-      {"ZUD Mechanics"         => "1.1.9",
-       "Enhanced UI"           => "1.1",
-       "Focus Meter System"    => "1.1",
-       "PLA Battle Styles"     => "1.0.7",
+      {"ZUD Mechanics"         => "1.2",
+       "Enhanced UI"           => "1.1.1",
+       "Focus Meter System"    => "1.1.1",
+       "PLA Battle Styles"     => "1.0.8",
        "Improved Field Skills" => "1.0.4",
-       "Legendary Breeding"    => "1.0.2",
-       "Terastal Phenomenon"   => "1.0.2",
+       "Legendary Breeding"    => "1.0.3",
+       "Terastal Phenomenon"   => "1.0.3",
        "Improved Item Text"    => "1.0.1",
+       "Improved Mementos"     => "1.0",
        "Pokémon Birthsigns"    => "1.0"
       }.each do |p_name, v_num|
         next if !self.installed?(p_name)
@@ -978,58 +981,3 @@ module PluginManager
     end
   end
 end
-
-
-#-------------------------------------------------------------------------------
-# General debug menus.
-#-------------------------------------------------------------------------------
-MenuHandlers.add(:debug_menu, :dx_menu, {
-  "name"        => _INTL("Deluxe Plugins..."),
-  "parent"      => :main,
-  "description" => _INTL("Edit settings related to various plugins that utilize Essentials Deluxe.")
-})
-
-
-MenuHandlers.add(:debug_menu, :deluxe_menu, {
-  "name"        => _INTL("Essentials Deluxe..."),
-  "parent"      => :dx_menu,
-  "description" => _INTL("Edit settings related to the Essentials Deluxe plugin.")
-})
-
-
-MenuHandlers.add(:debug_menu, :debug_mega, {
-  "name"        => _INTL("Toggle Switch"),
-  "parent"      => :deluxe_menu,
-  "description" => _INTL("Toggles the availability of Mega Evolution functionality."),
-  "effect"      => proc {
-    $game_switches[Settings::NO_MEGA_EVOLUTION] = !$game_switches[Settings::NO_MEGA_EVOLUTION]
-    toggle = ($game_switches[Settings::NO_MEGA_EVOLUTION]) ? "disabled" : "enabled"
-    pbMessage(_INTL("Mega Evolution {1}.", toggle))
-  }
-})
-
-
-#-------------------------------------------------------------------------------
-# Pokemon debug menus.
-#-------------------------------------------------------------------------------
-MenuHandlers.add(:pokemon_debug_menu, :dx_pokemon_menu, {
-  "name"   => _INTL("Deluxe Options..."),
-  "parent" => :main
-})
-
-
-MenuHandlers.add(:pokemon_debug_menu, :set_ace, {
-  "name"   => _INTL("Toggle Ace"),
-  "parent" => :dx_pokemon_menu,
-  "effect" => proc { |pkmn, pkmnid, heldpoke, settingUpBattle, screen|
-    if pkmn.ace?
-      pkmn.ace = false
-      toggle = "unflagged"
-    else
-      pkmn.ace = true
-      toggle = "flagged"
-    end
-    screen.pbDisplay(_INTL("{1} is {2} as an ace Pokémon.", pkmn.name, toggle))
-    next false
-  }
-})

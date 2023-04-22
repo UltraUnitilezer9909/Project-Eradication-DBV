@@ -68,6 +68,7 @@ class Battle
     battler = @battlers[idxBattler]
     return if !battler || !battler.pokemon
     return if !battler.hasTera? || battler.tera?
+    $stats.terastallize_count += 1 if battler.pbOwnedByPlayer?
     triggers = ["tera", "tera" + battler.species.to_s, "tera" + battler.tera_type.to_s]
     @scene.pbDeluxeTriggers(idxBattler, nil, triggers)
     battler.effects[PBEffects::Type3] = nil
@@ -251,6 +252,7 @@ class Battle::AI
     battler = @battle.battlers[idxBattler]
     ace = (battler.wild?) ? battler.ace? : (battler.ace? || @battle.pbAbleCount(idxBattler) == 1)
     if @battle.pbCanTerastallize?(idxBattler) && ace
+      $stats.wild_tera_battles += 1 if battler.wild?
       PBDebug.log("[AI] #{battler.pbThis} (#{idxBattler}) will Terastallize")
       return true
     end

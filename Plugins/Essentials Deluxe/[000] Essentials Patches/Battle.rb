@@ -311,61 +311,6 @@ class Battle
     pbAttackPhaseCheer
     pbAttackPhaseMoves
   end
-  
-  #-----------------------------------------------------------------------------
-  # Edited to allow for battle intro text to be customized.
-  #-----------------------------------------------------------------------------
-  def pbStartBattleSendOut(sendOuts)
-    foes = @opponent || pbParty(1)
-    if $game_temp.dx_rules? && $game_temp.dx_rules[:introtext]
-      foe_names = []
-      foes.each do |foe|
-        name = (wildBattle?) ? foe.name : foe.full_name
-        foe_names.push(name)
-      end
-      pbDisplayPaused(_INTL("#{$game_temp.dx_rules[:introtext]}", *foe_names))
-    else
-      msg = (wildBattle?) ? "Oh! A wild " : "You are challenged by "
-      foes.each_with_index do |foe, i|
-        if i > 0
-          msg += (i == foes.length - 1) ? " and " : ", "
-        end
-        msg += (wildBattle?) ? foe.name : foe.full_name
-      end
-      msg += (wildBattle?) ? " appeared!" : "!"
-      pbDisplayPaused(_INTL("{1}", msg))
-    end
-    [1, 0].each do |side|
-      next if side == 1 && wildBattle?
-      msg = ""
-      toSendOut = []
-      trainers = (side == 0) ? @player.reverse : @opponent
-      trainers.each_with_index do |t, i|
-        msg += "\r\n" if msg.length > 0
-        if side == 0 && i == trainers.length - 1
-          msg += "Go! "
-          sent = sendOuts[side][trainers.length - 1]
-        else
-          msg += "#{t.full_name} sent out "
-          sent = sendOuts[side][i]
-        end
-        sent.each_with_index do |idxBattler, j|
-          if j > 0
-            msg += (j == sent.length - 1) ? " and " : ", "
-          end
-          msg += @battlers[idxBattler].name
-        end
-        msg += "!"
-        toSendOut.concat(sent)
-      end
-      pbDisplayBrief(_INTL("{1}", msg)) if msg.length > 0
-      animSendOuts = []
-      toSendOut.each do |idxBattler|
-        animSendOuts.push([idxBattler, @battlers[idxBattler].pokemon])
-      end
-      pbSendOut(animSendOuts, true)
-    end
-  end
 end
 
 

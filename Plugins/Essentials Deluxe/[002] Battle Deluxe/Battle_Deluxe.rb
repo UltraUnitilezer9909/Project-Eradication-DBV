@@ -107,10 +107,19 @@ class WildBattle
     oldTrainer = [$player.name, $player.outfit, $player.party]
     pbApplyBattleRules(foe_size, true)
     pkmn = []
-    for i in 0...foes.length / 2
-      species, level = foes[i * 2], foes[i * 2 + 1]
-      next if !GameData::Species.exists?(species)
-      pkmn.push(Pokemon.new(species, level))
+    species = level = nil
+    foes.each do |foe|
+      case foe
+      when Pokemon then pkmn.push(foe)
+      when Symbol  then species = foe
+      when Integer then level = foe
+      end
+      if species && level
+        next if !GameData::Species.exists?(species)
+        next if !(1..Settings::MAXIMUM_LEVEL).include?(level)
+        pkmn.push(Pokemon.new(species, level))
+        species = level = nil
+      end
     end
     pbApplyWildAttributes(pkmn)
     if $game_temp.dx_midbattle.is_a?(Symbol) && hasConst?(EssentialsDeluxe, $game_temp.dx_midbattle)
@@ -329,15 +338,76 @@ end
 
 
 #-------------------------------------------------------------------------------
-# Controls capture outcomes with the [:setcapture] rule.
+# Edits battle start text with the [:introtext] rule.
+#-------------------------------------------------------------------------------
+class Battle
+  def pbStartBattleSendOut(sendOuts)
+    foes = @opponent || pbParty(1)
+    if $game_temp.dx_rules? && $game_temp.dx_rules[:introtext]
+      foe_names = []
+      foes.each do |foe|
+        name = (wildBattle?) ? foe.name : foe.full_name
+        foe_names.push(name)
+      end
+      pbDisplayPaused(_INTL("#{$game_temp.dx_rules[:introtext]}", *foe_names))
+    else
+      msg = (wildBattle?) ? "Oh! A wild " : "You are challenged by "
+      foes.each_with_index do |foe, i|
+        if i > 0
+          msg += (i == foes.length - 1) ? " and " : ", "
+        end
+        msg += (wildBattle?) ? foe.name : foe.full_name
+      end
+      msg += (wildBattle?) ? " appeared!" : "!"
+      pbDisplayPaused(_INTL("{1}", msg))
+    end
+    [1, 0].each do |side|
+      next if side == 1 && wildBattle?
+      msg = ""
+      toSendOut = []
+      trainers = (side == 0) ? @player.reverse : @opponent
+      trainers.each_with_index do |t, i|
+        msg += "\r\n" if msg.length > 0
+        if side == 0 && i == trainers.length - 1
+          msg += "Go! "
+          sent = sendOuts[side][0]
+        else
+          msg += "#{t.full_name} sent out "
+          sent = (side == 0) ? sendOuts[0][1] : sendOuts[1][i]
+        end
+        sent.each_with_index do |idxBattler, j|
+          if j > 0
+            msg += (j == sent.length - 1) ? " and " : ", "
+          end
+          msg += @battlers[idxBattler].name_title
+        end
+        msg += "!"
+        toSendOut.concat(sent)
+      end
+      pbDisplayBrief(_INTL("{1}", msg)) if msg.length > 0
+      animSendOuts = []
+      toSendOut.each do |idxBattler|
+        animSendOuts.push([idxBattler, @battlers[idxBattler].pokemon])
+      end
+      pbSendOut(animSendOuts, true)
+    end
+  end
+end
+
+
+#-------------------------------------------------------------------------------
+# Edits capture outcomes with the [:setcapture] rule.
 #-------------------------------------------------------------------------------
 module Battle::CatchAndStoreMixin
   alias dx_pbCaptureCalc pbCaptureCalc
   def pbCaptureCalc(*args)
     if $game_temp.dx_rules? && !$game_temp.dx_rules[:setcapture].nil?
-      return ($game_temp.dx_rules[:setcapture]) ? 4 : 0
+      ret = ($game_temp.dx_rules[:setcapture]) ? 4 : 0
+    else
+      ret = dx_pbCaptureCalc(*args)
     end
-    dx_pbCaptureCalc(*args)
+    @poke_ball_failed = false if ret == 4
+    return ret
   end
   
   alias dx_pbRecordAndStoreCaughtPokemon pbRecordAndStoreCaughtPokemon
@@ -349,7 +419,69 @@ end
 
 
 #-------------------------------------------------------------------------------
-# Applies environment and background settings from the [:environ] rule.
+# Edits capture mechanics with the [:raidcapture] rule.
+#-------------------------------------------------------------------------------
+class Battle::Battler
+  def pbRaidStyleCapture(target, msg)
+    return if @battle.pbAllFainted?
+    fainted_count = 0
+    @battle.battlers.each do |b|
+      next if !b || !b.opposes?(target) || b.hp > 0
+      fainted_count += 1
+    end
+    return if fainted_count >= @battle.pbSideSize(0)
+    @battle.pbDisplayPaused(_INTL("{1} is weak!\nThrow a Poké Ball now!", target.name))
+    pbWait(30)
+    cmd = 0
+    cmd = @battle.pbShowCommands("", ["Catch", "Don't Catch"], 1)
+    case cmd
+    when 0
+      pbPlayDecisionSE
+      @battle.sendToBoxes = 1
+      if $PokemonStorage.full?
+        @battle.pbDisplay(_INTL("But there is no room left in the PC!"))
+        target.wild_boss_flee(msg)
+      else
+        ball = nil
+        $game_temp.battle_rules["disablePokeBalls"] = false
+        pbFadeOutIn {
+          scene  = PokemonBag_Scene.new
+          screen = PokemonBagScreen.new(scene, $bag)
+          ball   = screen.pbChooseItemScreen(Proc.new{ |item| GameData::Item.get(item).is_poke_ball? })
+        }
+        if ball
+          $bag.remove(ball, 1)
+          @battle.pbThrowPokeBall(target.index, ball)
+          target.wild_boss_flee(msg) if @battle.poke_ball_failed
+        else
+          target.wild_boss_flee(msg)
+        end
+      end
+    else
+      pbPlayDecisionSE
+      target.wild_boss_flee(msg)
+    end
+  end
+  
+  def wild_boss_flee(msg = nil)
+    @battle.scene.pbBattlerFlee(self, msg)
+    @hp = 0
+    pbInitEffects(false)
+    @status = :NONE
+    @statusCount = 0
+    @battle.pbClearChoice(@index)
+    if @battle.pbAbleCount(@index) > 1
+      @battle.pbEndPrimordialWeather
+      @battle.pbRemoveFromParty(@index, @pokemonIndex)
+    else
+      @battle.decision = 1
+    end
+  end
+end
+
+
+#-------------------------------------------------------------------------------
+# Edits environment and background settings with the [:environ] rule.
 #-------------------------------------------------------------------------------
 def pbSetBackdrop(environment)
   return if !GameData::Environment.exists?(environment)
@@ -389,9 +521,6 @@ def pbApplyWildAttributes(pkmn)
   settings = $game_temp.dx_pokemon
   settings.keys.each do |order|
     if multiple
-      break if !settings.has_key?(:first)
-      break if !settings.has_key?(:second) && pkmn.length == 2
-      break if !settings.has_key?(:third)  && pkmn.length == 3
       case order
       when :first  then pokemon = pkmn[0]
       when :second then pokemon = pkmn[1]
@@ -488,7 +617,7 @@ def pbApplyWildAttributes(pkmn)
       #-------------------------------------------------------------------------
       # Sets a particular ribbon, or an array of ribbons.
       #-------------------------------------------------------------------------
-      when :ribbon, :ribbons
+      when :ribbon, :ribbons, :mark, :marks
         if pkmn_hash[attribute].is_a?(Array)
           pkmn_hash[attribute].each { |r| pokemon.giveRibbon(r) }
         else
@@ -497,7 +626,9 @@ def pbApplyWildAttributes(pkmn)
       #-------------------------------------------------------------------------
       # Sets plugin-specific attributes.
       #-------------------------------------------------------------------------
+      when :size       then pokemon.scale         = pkmn_hash[attribute]
       when :ace        then pokemon.ace           = pkmn_hash[attribute]
+      when :memento    then pokemon.memento       = pkmn_hash[attribute] if PluginManager.installed?("Improved Mementos")
       when :focus      then pokemon.focus_style   = pkmn_hash[attribute] if PluginManager.installed?("Focus Meter System")
       when :birthsign  then pokemon.birthsign     = pkmn_hash[attribute] if PluginManager.installed?("Pokémon Birthsigns")
       when :blessed    then pokemon.blessing      = pkmn_hash[attribute] if PluginManager.installed?("Pokémon Birthsigns")

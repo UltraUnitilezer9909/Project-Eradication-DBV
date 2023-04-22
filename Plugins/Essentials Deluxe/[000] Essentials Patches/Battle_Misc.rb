@@ -1,5 +1,5 @@
 #===============================================================================
-# Revamps miscellaneous Pokemon and battle-related code in base Essentials to 
+# Revamps miscellaneous battle and battler related code in base Essentials to 
 # allow for plugin compatibility.
 #===============================================================================
 
@@ -17,34 +17,6 @@ module Battle::DebugVariables
   BATTLER_EFFECTS[PBEffects::FocusEnergy] = { name: "Critical Boost critical hit stages (0-4)", default: 0, max: 4 }
 end
 
-#-------------------------------------------------------------------------------
-# Pokemon data.
-#-------------------------------------------------------------------------------
-class Pokemon
-  def ace?; return @trainer_ace || false; end
-  def ace=(value); @trainer_ace = value;  end
-  
-  alias dx_baseStats baseStats
-  def baseStats
-	base_stats = dx_baseStats
-	form_stats = MultipleForms.call("baseStats", self)
-	form_stats = celestial_data["BaseStats"] if celestial?
-	return form_stats || base_stats
-  end
-  
-  alias dx_initialize initialize  
-  def initialize(*args)
-    dx_initialize(*args)
-    @trainer_ace = false
-  end
-  
-  # Compatibility across multiple plugins.
-  def dynamax?;   return false; end
-  def gmax?;      return false; end
-  def tera?;      return false; end
-  def celestial?; return false; end
-end
-
 
 #-------------------------------------------------------------------------------
 # Initializes battler effects.
@@ -54,6 +26,8 @@ class Battle::Battler
   attr_accessor :power_trigger
   
   def ace?; return @pokemon&.ace?; end
+  
+  def name_title; return self.name; end
   
   alias dx_pbInitEffects pbInitEffects  
   def pbInitEffects(batonPass)
@@ -295,6 +269,53 @@ end
 
 
 #-------------------------------------------------------------------------------
+# Correctly records seen shadow Pokemon.
+#-------------------------------------------------------------------------------
+class Battle
+  def pbSetSeen(battler)
+    return if !battler || !@internalBattle
+    if battler.is_a?(Battler)
+      pbPlayer.pokedex.register(battler.displaySpecies, battler.displayGender,
+                                battler.displayForm, battler.shiny?, 
+                                true, battler.gmax?, battler.shadowPokemon?)
+    else
+      pbPlayer.pokedex.register(battler)
+    end
+  end
+end
+
+
+#-------------------------------------------------------------------------------
+# Correctly records captured shadow Pokemon.
+#-------------------------------------------------------------------------------
+module Battle::CatchAndStoreMixin
+  def pbRecordAndStoreCaughtPokemon
+    @caughtPokemon.each do |pkmn|
+      pbSetCaught(pkmn)
+      pbSetSeen(pkmn)
+      if !pbPlayer.owned?(pkmn.species)
+        pbPlayer.pokedex.set_owned(pkmn.species)
+        if $player.has_pokedex
+          pbDisplayPaused(_INTL("{1}'s data was added to the Pokédex.", pkmn.name))
+          pbPlayer.pokedex.register_last_seen(pkmn)
+          @scene.pbShowPokedex(pkmn.species)
+        end
+      end
+      pbPlayer.pokedex.set_shadow_pokemon_owned(pkmn.species_data.id) if pkmn.shadowPokemon?
+      pbStorePokemon(pkmn)
+    end
+    @caughtPokemon.clear
+  end
+  
+  alias dx_pbStorePokemon pbStorePokemon
+  def pbStorePokemon(pkmn)
+    pkmn.ace = false
+    dx_pbStorePokemon(pkmn)
+  end
+end
+
+
+#-------------------------------------------------------------------------------
 # Adds shortened move names; rewrites critical hit to include new effect.
 #-------------------------------------------------------------------------------
 class Battle::Move
@@ -349,48 +370,41 @@ class Battle::Move
 end
 
 
+#===============================================================================
+# Transform
+#===============================================================================
+# Edited for compatibility with battle effects that alter battler sprites.
 #-------------------------------------------------------------------------------
-# Correctly records seen shadow Pokemon.
-#-------------------------------------------------------------------------------
-class Battle
-  def pbSetSeen(battler)
-    return if !battler || !@internalBattle
-    if battler.is_a?(Battler)
-      pbPlayer.pokedex.register(battler.displaySpecies, battler.displayGender,
-                                battler.displayForm, battler.shiny?, 
-                                true, battler.gmax?, battler.shadowPokemon?)
-    else
-      pbPlayer.pokedex.register(battler)
-    end
+class Battle::Move::TransformUserIntoTarget < Battle::Move
+  def pbShowAnimation(id, user, targets, hitNum = 0, showAnimation = true)
+    super
+    user.effects[PBEffects::TransformPokemon] = targets[0].pokemon
+    @battle.scene.pbChangePokemon(user, targets[0].pokemon)
   end
 end
 
 
+#===============================================================================
+# Imposter
+#===============================================================================
+# Edited for compatibility with battle effects that alter battler sprites.
 #-------------------------------------------------------------------------------
-# Correctly records captured shadow Pokemon.
-#-------------------------------------------------------------------------------
-module Battle::CatchAndStoreMixin
-  def pbRecordAndStoreCaughtPokemon
-    @caughtPokemon.each do |pkmn|
-      pbSetCaught(pkmn)
-      pbSetSeen(pkmn)
-      if !pbPlayer.owned?(pkmn.species)
-        pbPlayer.pokedex.set_owned(pkmn.species)
-        if $player.has_pokedex
-          pbDisplayPaused(_INTL("{1}'s data was added to the Pokédex.", pkmn.name))
-          pbPlayer.pokedex.register_last_seen(pkmn)
-          @scene.pbShowPokedex(pkmn.species)
-        end
-      end
-      pbPlayer.pokedex.set_shadow_pokemon_owned(pkmn.species_data.id) if pkmn.shadowPokemon?
-      pbStorePokemon(pkmn)
-    end
-    @caughtPokemon.clear
-  end
-  
-  alias dx_pbStorePokemon pbStorePokemon
-  def pbStorePokemon(pkmn)
-    pkmn.ace = false
-    dx_pbStorePokemon(pkmn)
-  end
-end
+Battle::AbilityEffects::OnSwitchIn.add(:IMPOSTER,
+  proc { |ability, battler, battle, switch_in|
+    next if !switch_in || battler.effects[PBEffects::Transform]
+    choice = battler.pbDirectOpposing
+    next if choice.fainted?
+    next if battler.dynamax? && !choice.dynamax_able?
+    next if choice.effects[PBEffects::Transform] ||
+            choice.effects[PBEffects::Illusion] ||
+            choice.effects[PBEffects::Substitute] > 0 ||
+            choice.effects[PBEffects::SkyDrop] >= 0 ||
+            choice.semiInvulnerable?
+    battle.pbShowAbilitySplash(battler, true)
+    battle.pbHideAbilitySplash(battler)
+    battler.effects[PBEffects::TransformPokemon] = choice.pokemon
+    battle.pbAnimation(:TRANSFORM, battler, choice)
+    battle.scene.pbChangePokemon(battler, choice.pokemon)
+    battler.pbTransform(choice)
+  }
+)

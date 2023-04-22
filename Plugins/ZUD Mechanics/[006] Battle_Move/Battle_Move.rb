@@ -62,6 +62,7 @@ class Battle::Move
   alias zud_pbDisplayUseMessage pbDisplayUseMessage
   def pbDisplayUseMessage(user)
     if zMove? && !@specialUseZMove
+      $stats.zmove_count += 1 if user.pbOwnedByPlayer?
       triggers = ["zmove", "zmove" + user.species.to_s, "zmove" + @type.to_s]
       @battle.scene.pbDeluxeTriggers(user.index, nil, triggers)
       if Settings::SHOW_ZUD_ANIM && $PokemonSystem.battlescene == 0
@@ -81,6 +82,7 @@ class Battle::Move
   # Gets the effects for a Z-Powered status move.
   #-----------------------------------------------------------------------------
   def status_zmove_effect(user)
+    $stats.status_zmove_count += 1 if user.pbOwnedByPlayer?
     curse_effect = (@id != :CURSE) ? 0 : (user.pbHasType?(:GHOST)) ? 1 : 2
     #---------------------------------------------------------------------------
     # Status Z-Moves that boost the stats of the user.

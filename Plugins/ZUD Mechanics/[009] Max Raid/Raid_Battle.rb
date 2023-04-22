@@ -25,7 +25,7 @@ class RaidBattle < Battle
     names = []
     toSendOut = []
     sent = sendOuts[0][0]
-    for i in sent; names.push(@battlers[i].name); end
+    for i in sent; names.push(@battlers[i].name_title); end
     case sent.length
     when 1; msg = _INTL("Go! {1}!", *names)
     when 2; msg = _INTL("Go! {1} and {2}!", *names)

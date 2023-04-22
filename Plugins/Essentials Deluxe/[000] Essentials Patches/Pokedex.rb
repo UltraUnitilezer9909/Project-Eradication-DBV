@@ -198,13 +198,13 @@ class PokemonPokedexInfo_Scene
   end
 end
 
-
 class PokemonPokedex_Scene
   def setIconBitmap(species)
     gender, form, shiny, gmax, shadow = $player.pokedex.last_form_seen(species)
     shiny = false if !Settings::POKEDEX_SHINY_FORMS
     shadow = false if !Settings::POKEDEX_SHADOW_FORMS
-    @sprites["icon"].setSpeciesBitmap(species, gender, form, shiny, shadow, false, false, false, gmax)
+    poke_data = [species, gender, form, shiny, shadow, false, false, false, gmax]
+    @sprites["icon"].setSpeciesBitmap(*poke_data)
     if PluginManager.installed?("Generation 8 Pack Scripts")
       @sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
     end
@@ -217,50 +217,11 @@ end
 #-------------------------------------------------------------------------------
 class Player < Trainer
   class Pokedex
-    SEEN_ARRAY = [ # Species
-      [            # Species[Male]   
-        [          # Species[Male][Non Shiny] 
-          [        # Species[Male][Non Shiny][Non G-max]
-            []     # Species[Male][Non Shiny][Non G-max][Form]
-          ], 
-          [        # Species[Male][Non Shiny][G-max]
-            []     # Species[Male][Non Shiny][G-max][Form]
-          ]
-        ], 
-        [          # Species[Male][Shiny]
-          [        # Species[Male][Shiny][Non G-max]
-            []     # Species[Male][Shiny][Non G-max][Form]
-          ], 
-          [        # Species[Male][Shiny][G-max]
-            []     # Species[Male][Shiny][G-max][Form]
-          ]
-        ] 
-      ],  
-      [            # Species[Female] 
-        [          # Species[Female][Non Shiny]
-          [        # Species[Female][Non Shiny][Non G-max]
-            []     # Species[Female][Non Shiny][Non G-max][Form]
-          ], 
-          [        # Species[Female][Non Shiny][G-max]
-            []     # Species[Female][Non Shiny][G-max][Form]
-          ]
-        ], 
-        [          # Species[Female][Shiny]  
-          [        # Species[Female][Shiny][Non G-max]
-            []     # Species[Female][Shiny][Non G-max][Form]
-          ], 
-          [        # Species[Female][Shiny][G-max]
-            []     # Species[Female][Shiny][G-max][Form]
-          ]
-        ] 
-      ]   
-    ]
-    
     def seen_form?(species, gender, form, shiny = nil, gmax = nil)
       species_id = GameData::Species.try_get(species)&.species
       return false if species_id.nil?
       shiny = nil if !Settings::POKEDEX_SHINY_FORMS
-      @seen_forms[species_id] ||= SEEN_ARRAY
+      @seen_forms[species_id] ||= [[[[], []], [[], []]], [[[], []], [[], []]]]
       if shiny.nil? && gmax.nil?
         return @seen_forms[species_id][gender][0][0][form] ||
                @seen_forms[species_id][gender][0][1][form] ||
@@ -276,7 +237,7 @@ class Player < Trainer
       species_id = GameData::Species.try_get(species)&.species
       return 0 if species_id.nil?
       ret = 0
-      @seen_forms[species_id] ||= SEEN_ARRAY
+      @seen_forms[species_id] ||= [[[[], []], [[], []]], [[[], []], [[], []]]]
       array = @seen_forms[species_id]
       [array[0].length, array[1].length].max.times do |i|
         ret += 1 if array[0][0][0][i] ||  # male, non-shiny, non-gmax
@@ -327,7 +288,7 @@ class Player < Trainer
       end
       form = 0 if species_data.form_name.nil? || species_data.form_name.empty?
       @seen[species] = true
-      @seen_forms[species] ||= SEEN_ARRAY
+      @seen_forms[species] ||= [[[[], []], [[], []]], [[[], []], [[], []]]]
       @seen_forms[species][gender][_shiny][_gmax][form] = true
       @last_seen_forms[species] ||= []
       @last_seen_forms[species] = [gender, form, shiny, gmax, shadow] if @last_seen_forms[species] == []

@@ -13,7 +13,7 @@ class Player < Trainer
     @tera_charged = value
   end
   
-  def has_pokemon_of_tera_type?(type)
+  def has_pokemon_tera_type?(type)
     return false if !GameData::Type.exists?(type)
     type = GameData::Type.get(type).id
     return pokemon_party.any? { |p| p&.tera_type == type }
