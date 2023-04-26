@@ -60,6 +60,10 @@ class QuestList_Scene
   
   def pbUpdate
     pbUpdateSpriteHash(@sprites)
+    if @sprites["bg"]
+      @sprites["bg"].ox-=1
+      @sprites["bg"].oy-=1
+    end
   end
 
   def pbStartScene

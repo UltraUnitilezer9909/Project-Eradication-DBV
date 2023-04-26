@@ -157,3 +157,28 @@ Scene_PlayAnimations:112:in `each'
 Scene_PlayAnimations:112:in `each_with_index'
 Scene_PlayAnimations:112:in `pbSendOutBattlers'
 Battle_ActionSwitching:290:in `pbSendOut'
+
+=================
+
+[2023-04-26 15:46:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Modern Quest System + UI]
+Exception: SyntaxError
+Message: [Modern Quest System + UI] 004_Quest_Data.rb:173: syntax error, unexpected end-of-input, expecting `end'
+# end
+     ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section387:28:in `mainFunctionDebug'
+Section387:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section387:18:in `mainFunction'
