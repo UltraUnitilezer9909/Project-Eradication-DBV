@@ -38,7 +38,7 @@ MENU_COMPONENTS = [
 DEFAULT_MENU_THEME = 0
 
 # Change Theme in the Options Menu
-CHANGE_THEME_IN_OPTIONS = true
+CHANGE_THEME_IN_OPTIONS = false
 
 #-------------------------------------------------------------------------------
 # Look and Feel
@@ -49,7 +49,7 @@ BACKGROUND_TINT = Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) app
 SHOW_MENU_NAMES = true # Whether or not the Menu option Names show on screen (true = show names)
 
 # Icon options
-ACTIVE_SCALE = 1.5
+ACTIVE_SCALE = 1.8
 
 MENU_TEXTCOLOR = [
             Color.new(248,248,248),

@@ -182,3 +182,252 @@ Section387:28:in `mainFunctionDebug'
 Section387:18:in `block in mainFunction'
 Section014:80:in `pbCriticalCode'
 Section387:18:in `mainFunction'
+
+=================
+
+[2023-04-26 17:23:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ripples' for #<GameData::TerrainTag>
+
+Backtrace:
+Sprite_Reflection:69:in `update'
+Sprite_Reflection:17:in `initialize'
+Sprite_Character:67:in `new'
+Sprite_Character:67:in `initialize'
+Sprite_DynamicShadows:131:in `initialize'
+Spriteset_Global:9:in `new'
+Spriteset_Global:9:in `initialize'
+Scene_Map:20:in `new'
+Scene_Map:20:in `createSpritesets'
+[v20.1 Hotfixes] Overworld bug fixes.rb:23:in `main'
+
+=================
+
+[2023-04-27 17:32:55 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 2 (coords 65,6), map 42 (Zeta's Personal Travel Ship)
+Exception: SyntaxError
+Message: (eval):1: syntax error, unexpected end-of-input, expecting ')'
+...vateQuest(:Quest1, yellow, true
+...                               ^
+
+
+***Full script:
+activateQuest(:Quest1, yellow, true
+
+=================
+
+[2023-04-27 17:46:19 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 2 (coords 65,6), map 42 (Zeta's Personal Travel Ship)
+Exception: NameError
+Message: undefined local variable or method `yellow' for #<Interpreter @event_id: 2>
+
+***Full script:
+activateQuest(:Quest1, yellow, true)
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-04-27 18:43:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 2 (coords 65,6), map 42 (Zeta's Personal Travel Ship)
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+***Full script:
+activateQuest(:Quest1, colorQuest("yellow"), true)
+
+Backtrace:
+[Modern Quest System + UI] 002_Quest_Main.rb:71:in `activateQuest'
+[Modern Quest System + UI] 002_Quest_Main.rb:200:in `activateQuest'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+
+=================
+
+[2023-04-27 20:23:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 2 (coords 65,6), map 42 (Zeta's Personal Travel Ship)
+Exception: ArgumentError
+Message: wrong number of arguments (given 4, expected 2)
+
+***Full script:
+activateQuest(:Quest1, colorQuest("yellow"), true)
+
+Backtrace:
+Game_Screen:51:in `start_tone_change'
+[Modern Quest System + UI] 002_Quest_Main.rb:74:in `activateQuest'
+[Modern Quest System + UI] 002_Quest_Main.rb:200:in `activateQuest'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+
+=================
+
+[2023-04-27 20:50:51 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Modern Quest System + UI]
+Exception: SyntaxError
+Message: [Modern Quest System + UI] 002_Quest_Main.rb:74: syntax error, unexpected integer literal, expecting ')'
+...ge(Tone.new(-30,-30,-30,130) 15)
+...                             ^~
+[Modern Quest System + UI] 002_Quest_Main.rb:76: syntax error, unexpected integer literal, expecting ')'
+...one_change(Tone.new(0,0,0,0) 15)
+...                             ^~
+[Modern Quest System + UI] 002_Quest_Main.rb:342: syntax error, unexpected end-of-input, expecting `end'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section387:28:in `mainFunctionDebug'
+Section387:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section387:18:in `mainFunction'
+
+=================
+
+[2023-04-27 20:54:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 2 (coords 65,6), map 42 (Zeta's Personal Travel Ship)
+Exception: NoMethodError
+Message: undefined method `start_tone_change' for #<Player_Quests>
+
+***Full script:
+activateQuest(:Quest1, colorQuest("yellow"), true)
+
+Backtrace:
+[Modern Quest System + UI] 002_Quest_Main.rb:74:in `activateQuest'
+[Modern Quest System + UI] 002_Quest_Main.rb:200:in `activateQuest'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+
+=================
+
+[2023-04-29 22:39:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: wrong number of arguments (given 3, expected 1..2)
+
+Backtrace:
+Messages:456:in `gsub!'
+Messages:456:in `pbMessageDisplay'
+Messages:719:in `pbMessage'
+Interpreter_Commands:201:in `command_101'
+Interpreter_Commands:21:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-04-30 15:43:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant Game_Player::SWITCH2
+
+Backtrace:
+Diagonal Movement:244:in `update'
+Scene_Map:161:in `block in update'
+Scene_Map:159:in `loop'
+Scene_Map:159:in `update'
+Unreal Time System:256:in `update'
+[Following Pokemon EX] Refresh.rb:165:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `main'
+Main:35:in `mainFunctionDebug'
+
+=================
+
+[2023-04-30 15:45:41 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbGetTerrainTag' for #<Game_Player>
+
+Backtrace:
+Diagonal Movement:243:in `update'
+Scene_Map:161:in `block in update'
+Scene_Map:159:in `loop'
+Scene_Map:159:in `update'
+Unreal Time System:256:in `update'
+[Following Pokemon EX] Refresh.rb:165:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `main'
+Main:35:in `mainFunctionDebug'
+
+=================
+
+[2023-04-30 15:50:50 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbGetTerrainTag' for #<Game_Player>
+
+Backtrace:
+Diagonal Movement:243:in `update'
+Scene_Map:161:in `block in update'
+Scene_Map:159:in `loop'
+Scene_Map:159:in `update'
+Unreal Time System:256:in `update'
+[Following Pokemon EX] Refresh.rb:165:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `main'
+Main:35:in `mainFunctionDebug'

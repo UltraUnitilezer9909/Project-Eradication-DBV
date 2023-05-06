@@ -68,7 +68,12 @@ class Player_Quests
       end
     end
     @active_quests.push(Quest.new(quest,color,story))
-    pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>New quest discovered!</c2>\nCheck your quest log for more details!</ac>",QUEST_JINGLE))
+    $game_system.message_position = 1
+    $game_system.message_frame    = 1
+    #pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>New quest discovered!</c2>\nCheck your quest log for more details!</ac>",QUEST_JINGLE))
+    $game_screen.start_tone_change(Tone.new(-136,-136,-136,130), 15)
+    pbMessage(_INTL("\\se[{1}]\\c[6]<ac>New quest discovered!\n\\c[12]Check your quest log for more details!</ac>",QUEST_JINGLE))
+    $game_screen.start_tone_change(Tone.new(0,0,0,0), 15)
   end
   
   def failQuest(quest,color,story)

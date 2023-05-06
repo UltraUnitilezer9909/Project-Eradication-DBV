@@ -8,13 +8,15 @@ module QuestModule
   
   Quest1 = {
     :ID => "1",
-    :Name => "Introductions",
-    :QuestGiver => "Little Boy",
-    :Stage1 => "Look for clues.",
-    :Location1 => "Lappet Town",
-    :QuestDescription => "Some wild Pokémon stole a little boy's favourite toy. Find those troublemakers and help him get it back.",
-    :RewardString => "Something shiny!"
+    :Name => "Chapter 1: Our galactic home",
+    :QuestGiver => "Alpha Zetanium XYZ",
+    :Stage1 => "Go to dad's lab!",
+    :Location1 => "SectoBase 9909",
+    :QuestDescription => "Where now living in space! Wonder if theres chores on it... Just do what your dad says!",
+    :RewardString => "Chapter 2!"
   }
+
+end
 
 #   # Here's the simplest example of a single-stage quest with everything specified
 #   Quest1 = {
@@ -170,4 +172,4 @@ module QuestModule
 #     :RewardString => "Food, glorious food!"
 #   }
 
-end
+
