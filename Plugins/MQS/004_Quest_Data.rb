@@ -9,9 +9,11 @@ module QuestModule
   Quest1 = {
     :ID => "1",
     :Name => "Chapter 1: Our galactic home",
-    :QuestGiver => "Alpha Zetanium XYZ",
+    :QuestGiver => "Alpha Zetanium XYZ: The Dev",
     :Stage1 => "Go to dad's lab!",
-    :Location1 => "SectoBase 9909",
+    :Location1 => "\PN's PT Ship",
+    :Stage2 => "Get Dad's Tablet his room!",
+    :Location2 => "\PN's PT Ship",
     :QuestDescription => "Where now living in space! Wonder if theres chores on it... Just do what your dad says!",
     :RewardString => "Chapter 2!"
   }

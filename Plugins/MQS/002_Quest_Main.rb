@@ -73,7 +73,10 @@ class Player_Quests
     #pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>New quest discovered!</c2>\nCheck your quest log for more details!</ac>",QUEST_JINGLE))
     $game_screen.start_tone_change(Tone.new(-136,-136,-136,130), 15)
     pbMessage(_INTL("\\se[{1}]\\c[6]<ac>New quest discovered!\n\\c[12]Check your quest log for more details!</ac>",QUEST_JINGLE))
+    $game_system.message_position = 2
+    $game_system.message_frame    = 0
     $game_screen.start_tone_change(Tone.new(0,0,0,0), 15)
+    
   end
   
   def failQuest(quest,color,story)
@@ -102,7 +105,13 @@ class Player_Quests
         @failed_quests.push(temp_quest)
         @active_quests.delete_at(i)
         found = true
-        pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>Quest failed!</c2>\nYour quest log has been updated!</ac>",QUEST_FAIL))
+        $game_system.message_position = 1
+        $game_system.message_frame    = 1
+        $game_screen.start_tone_change(Tone.new(-136,-136,-136,130), 15)
+        pbMessage(_INTL("\\se[{1}]\\c[2]<ac>Quest failed!</c2>\nToo bad...</ac>",QUEST_FAIL))
+        $game_system.message_position = 2 # trying to set it on default so stop the "$game_system.message_position " and
+        $game_system.message_frame    = 0 # "$game_system.message_frame" from overwriting "text command" outside the script
+        $game_screen.start_tone_change(Tone.new(0,0,0,0), 15)
         break
       end
     end
@@ -138,7 +147,13 @@ class Player_Quests
         @completed_quests.push(temp_quest)
         @active_quests.delete_at(i)
         found = true
-        pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>Quest completed!</c2>\nYour quest log has been updated!</ac>",QUEST_JINGLE))
+        $game_system.message_position = 1
+        $game_system.message_frame    = 1
+        $game_screen.start_tone_change(Tone.new(-136,-136,-136,130), 15)
+        pbMessage(_INTL("\\se[{1}]<ac>\\c[3]>Quest completed!</c2>\nHorray!</ac>",QUEST_JINGLE))
+        $game_system.message_position = 2
+        $game_system.message_frame    = 0
+        $game_screen.start_tone_change(Tone.new(0,0,0,0), 15)
         break
       end
     end
@@ -159,7 +174,13 @@ class Player_Quests
         @active_quests[i].color = color if color != nil
         @active_quests[i].new = true # Setting this back to true makes the "!" icon appear when the quest updates
         found = true
-        pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>New task added!</c2>\nYour quest log has been updated!</ac>",QUEST_JINGLE))
+        $game_system.message_position = 1
+        $game_system.message_frame    = 1
+        $game_screen.start_tone_change(Tone.new(-136,-136,-136,130), 15)
+        pbMessage(_INTL("\\se[{1}]\\c[6]<ac>New task added!</c2>\nCheck your quest log for more details!</ac>",QUEST_JINGLE))
+        $game_system.message_position = 2
+        $game_system.message_frame    = 0
+        $game_screen.start_tone_change(Tone.new(0,0,0,0), 15)
       end
       return if found
     end
@@ -338,5 +359,11 @@ def getCurrentStage(quest)
 end
 
 def taskCompleteJingle
-  pbMessage(_INTL("\\se[{1}]<ac><c2=#{colorQuest("red")}>Task completed!</c2>\nYour quest log has been updated!</ac>",QUEST_JINGLE))
+  $game_system.message_position = 1
+  $game_system.message_frame    = 1
+  $game_screen.start_tone_change(Tone.new(-136,-136,-136,130), 15)
+  pbMessage(_INTL("\\se[{1}]<ac>\\c[3]>Quest completed!</c2>\nHorray!</ac>",QUEST_JINGLE))
+  #$game_system.message_position = 0
+  #$game_system.message_frame    = 0
+  $game_screen.start_tone_change(Tone.new(0,0,0,0), 15)
 end
