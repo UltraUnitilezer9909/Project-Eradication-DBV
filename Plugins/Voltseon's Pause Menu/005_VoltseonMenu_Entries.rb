@@ -166,7 +166,8 @@ class MenuEntryMap < MenuEntry # Play Pokémon Splice
   end
 
   def selected(menu)
-    pbShowMap(-1,false)
+    pbBetterRegionMap(-1, true, false) 
+    #pbShowMap(-1,false)
   end
 
   def selectable?; return $bag.has?(:TOWNMAP); end

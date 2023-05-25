@@ -12,16 +12,8 @@ TrainerVictoryBGM = Battle victory trainer
 SurfBGM = Surfing
 BicycleBGM = Bicycle
 #-------------------------------
-[1]
-TrainerType = POKEMONTRAINER_Red
-WalkCharset = trainer_POKEMONTRAINER_Red
-RunCharset = boy_run
-CycleCharset = boy_bike
-SurfCharset = boy_surf
-FishCharset = boy_fish_offset
-#-------------------------------
 #Male
-[3] 
+[1] 
 TrainerType = Z-PLAYER_Eevee1
 WalkCharset = Z-PLAYER_Eevee
 RunCharset = Z-PLAYER_Eevee_Run
@@ -30,7 +22,7 @@ SurfCharset = Z-PLAYER_Eevee
 FishCharset = Z-PLAYER_Eevee
 #-------------------------------
 #Female
-[4] 
+[2] 
 TrainerType = Z-PLAYER_Eevee2
 WalkCharset = Z-PLAYER_Eevee
 RunCharset = Z-PLAYER_Eevee_Run

@@ -204,6 +204,13 @@ BicycleAlways = true
 MapPosition = 0,11,7
 MapSize = 1,111
 #-------------------------------
+[042]   # \PN's PT Ship
+Name = \PN's PT Ship
+Bicycle = false
+BicycleAlways = false
+SnapEdges = true
+Environment = Space
+#-------------------------------
 [044]   # Route 6
 Name = Route 6
 Outdoor = true

@@ -431,3 +431,424 @@ Unreal Time System:256:in `update'
 [v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
 [v20.1 Hotfixes] Overworld bug fixes.rb:25:in `main'
 Main:35:in `mainFunctionDebug'
+
+=================
+
+[2023-05-10 19:58:32 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 3 (coords 11,8), map 1 (Intro)
+Exception: NoMethodError
+Message: undefined method `pressex' for Input:Module
+
+***Full script:
+$DEBUG && Input.pressex(:LCTRL)
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:426:in `command_111'
+Interpreter_Commands:29:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-05-10 19:59:26 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 3 (coords 11,8), map 1 (Intro)
+Exception: NoMethodError
+Message: undefined method `press' for Input:Module
+
+***Full script:
+$DEBUG && Input.press(:LCTRL)
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:426:in `command_111'
+Interpreter_Commands:29:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-05-17 17:04:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Marin's Better Region Map] Marin's Better Region Map.rb:50:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Marin's Better Region Map] Marin's Better Region Map.rb:513:in `block (2 levels) in <main>'
+MessageConfig:570:in `pbFadeOutIn'
+[Marin's Better Region Map] Marin's Better Region Map.rb:512:in `block in <main>'
+UI_Pokegear:151:in `block in pbStartScreen'
+UI_Pokegear:145:in `loop'
+UI_Pokegear:145:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:96:in `block in selected'
+
+=================
+
+[2023-05-17 18:57:32 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Marin's Better Region Map] Marin's Better Region Map.rb:50:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:298:in `call_menu'
+
+=================
+
+[2023-05-17 19:15:54 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: Errno::ENOENT
+Message: File Graphics/Pictures/mapPlayer000 not found.
+
+Backtrace:
+[Marin's Scripting Utilities] script.rb:462:in `initialize'
+[Marin's Scripting Utilities] script.rb:462:in `new'
+[Marin's Scripting Utilities] script.rb:462:in `bmp'
+[Marin's Better Region Map] Marin's Better Region Map.rb:97:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+
+=================
+
+[2023-05-17 19:27:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: Errno::ENOENT
+Message: File Graphics/Pictures/mapPlayer000 not found.
+
+Backtrace:
+[Marin's Scripting Utilities] script.rb:462:in `initialize'
+[Marin's Scripting Utilities] script.rb:462:in `new'
+[Marin's Scripting Utilities] script.rb:462:in `bmp'
+[Marin's Better Region Map] Marin's Better Region Map.rb:97:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+
+=================
+
+[2023-05-17 19:44:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: Errno::ENOENT
+Message: File Graphics/Pictures/mapPlayer001 not found.
+
+Backtrace:
+[Marin's Scripting Utilities] script.rb:462:in `initialize'
+[Marin's Scripting Utilities] script.rb:462:in `new'
+[Marin's Scripting Utilities] script.rb:462:in `bmp'
+[Marin's Better Region Map] Marin's Better Region Map.rb:97:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+
+=================
+
+[2023-05-20 10:32:26 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in Common Event, map 42 (Ruquza's PT Ship)
+Exception: NameError
+Message: undefined local variable or method `pkmn' for #<Interpreter @event_id: 0>
+
+***Full script:
+pbAddPokemonSilent(:EEVEE, 10)
+pkmn.poke_ball = :LUXURYBALL
+pkmn = @player.first_able_pokemon
+pkmn.makeMale
+pkmn.item = :LEFTOVERS
+pkmn.iv[:DEFENSE] = 4
+pkmn.iv[:ATTACK] = 4
+pkmn.iv[:SPECIAL_ATTACK] = 4
+pkmn.iv[:SPECIAL_DEFENSE] = 4
+pkmn.iv[:SPEED] = 4
+pkmn.ev[:ATTACK] = 10
+pkmn.ev[:DEFENSE] = 10
+pkmn.ev[:SPECIAL_ATTACK] = 10
+pkmn.ev[:SPECIAL_DEFENSE] = 10
+pkmn.ev[:SPEED] = 10
+pkmn.shiny = false
+pkmn.cannot_trade = true
+pkmn.cannot_store = true
+pkmn.cannot_release = true
+pkmn.obtain_method = 1 
+pkmn.obtain_text = "Mom's House"
+pkmn.timeEggHatched=pbGetTimeNow.to_i
+pkmn.name = pkmn.ownew.name
+pkmn.changeHappiness("walking")
+pkmn.status = :NONE
+pkmn.calc_stats
+
+Backtrace:
+(eval):2:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-05-20 10:37:25 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in Common Event, map 42 (Ruquza's PT Ship)
+Exception: NoMethodError
+Message: undefined method `first_able_pokemon' for nil:NilClass
+
+***Full script:
+pbAddPokemonSilent(:EEVEE, 10)
+pkmn = @player.first_able_pokemon
+pkmn.poke_ball = :LUXURYBALL
+pkmn.makeMale
+pkmn.item = :LEFTOVERS
+pkmn.iv[:DEFENSE] = 4
+pkmn.iv[:ATTACK] = 4
+pkmn.iv[:SPECIAL_ATTACK] = 4
+pkmn.iv[:SPECIAL_DEFENSE] = 4
+pkmn.iv[:SPEED] = 4
+pkmn.ev[:ATTACK] = 10
+pkmn.ev[:DEFENSE] = 10
+pkmn.ev[:SPECIAL_ATTACK] = 10
+pkmn.ev[:SPECIAL_DEFENSE] = 10
+pkmn.ev[:SPEED] = 10
+pkmn.shiny = false
+pkmn.cannot_trade = true
+pkmn.cannot_store = true
+pkmn.cannot_release = true
+pkmn.obtain_method = 1 
+pkmn.obtain_text = "Mom's House"
+pkmn.timeEggHatched=pbGetTimeNow.to_i
+pkmn.name = pkmn.ownew.name
+pkmn.changeHappiness("walking")
+pkmn.status = :NONE
+pkmn.calc_stats
+
+Backtrace:
+(eval):2:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-05-20 11:02:04 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in Common Event, map 42 (Ruquza's PT Ship)
+Exception: NoMethodError
+Message: undefined method `first_able_pokemon' for nil:NilClass
+
+***Full script:
+pkmn = @player.first_able_pokemon
+pkmn.poke_ball = :LUXURYBALL
+pkmn.makeMale
+pkmn.item = :LEFTOVERS
+pkmn.iv[:DEFENSE] = 4
+pkmn.iv[:ATTACK] = 4
+pkmn.iv[:SPECIAL_ATTACK] = 4
+pkmn.iv[:SPECIAL_DEFENSE] = 4
+pkmn.iv[:SPEED] = 4
+pkmn.ev[:ATTACK] = 10
+pkmn.ev[:DEFENSE] = 10
+pkmn.ev[:SPECIAL_ATTACK] = 10
+pkmn.ev[:SPECIAL_DEFENSE] = 10
+pkmn.ev[:SPEED] = 10
+pkmn.shiny = false
+pkmn.cannot_trade = true
+pkmn.cannot_store = true
+pkmn.cannot_release = true
+pkmn.obtain_method = 1 
+pkmn.obtain_text = "Mom's House"
+pkmn.timeEggHatched=pbGetTimeNow.to_i
+pkmn.name = pkmn.ownew.name
+pkmn.changeHappiness("walking")
+pkmn.status = :NONE
+pkmn.calc_stats
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-05-20 12:40:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in Common Event, map 42 (Ruquza's PT Ship)
+Exception: NoMethodError
+Message: undefined method `ownew' for #<Pokemon EEVEE Lv.10>
+
+***Full script:
+pkmn = $player.first_able_pokemon
+pkmn.poke_ball = :LUXURYBALL
+pkmn.makeMale
+pkmn.item = :LEFTOVERS
+pkmn.iv[:DEFENSE] = 4
+pkmn.iv[:ATTACK] = 4
+pkmn.iv[:SPECIAL_ATTACK] = 4
+pkmn.iv[:SPECIAL_DEFENSE] = 4
+pkmn.iv[:SPEED] = 4
+pkmn.ev[:ATTACK] = 10
+pkmn.ev[:DEFENSE] = 10
+pkmn.ev[:SPECIAL_ATTACK] = 10
+pkmn.ev[:SPECIAL_DEFENSE] = 10
+pkmn.ev[:SPEED] = 10
+pkmn.shiny = false
+pkmn.cannot_trade = true
+pkmn.cannot_store = true
+pkmn.cannot_release = true
+pkmn.obtain_method = 1 
+pkmn.obtain_text = "Mom's House"
+pkmn.timeEggHatched=pbGetTimeNow.to_i
+pkmn.name = pkmn.ownew.name
+pkmn.changeHappiness("walking")
+pkmn.status = :NONE
+pkmn.calc_stats
+
+Backtrace:
+(eval):22:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-05-20 12:54:01 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in Common Event, map 42 (Ruquza's PT Ship)
+Exception: NoMethodError
+Message: undefined method `ownew' for #<Pokemon EEVEE Lv.10>
+
+***Full script:
+pkmn = $player.first_able_pokemon
+pkmn.poke_ball = :LUXURYBALL
+pkmn.makeFemale
+pkmn.item = :LEFTOVERS
+pkmn.iv[:DEFENSE] = 4
+pkmn.iv[:ATTACK] = 4
+pkmn.iv[:SPECIAL_ATTACK] = 4
+pkmn.iv[:SPECIAL_DEFENSE] = 4
+pkmn.iv[:SPEED] = 4
+pkmn.ev[:ATTACK] = 10
+pkmn.ev[:DEFENSE] = 10
+pkmn.ev[:SPECIAL_ATTACK] = 10
+pkmn.ev[:SPECIAL_DEFENSE] = 10
+pkmn.ev[:SPEED] = 10
+pkmn.shiny = false
+pkmn.cannot_trade = true
+pkmn.cannot_store = true
+pkmn.cannot_release = true
+pkmn.obtain_method = 1 
+pkmn.obtain_text = "Mom's House"
+pkmn.timeEggHatched=pbGetTimeNow.to_i
+pkmn.name = pkmn.ownew.name
+pkmn.changeHappiness("walking")
+pkmn.status = :NONE
+pkmn.calc_stats
+
+Backtrace:
+(eval):22:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-05-23 19:51:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Marin's Better Region Map] Marin's Better Region Map.rb:50:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:298:in `call_menu'
