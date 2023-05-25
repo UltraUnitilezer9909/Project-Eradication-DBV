@@ -11,11 +11,11 @@
  - #### Chapter 0: Far From Home
   > Outline: The game starts awkwardly in my unique style (by [me](https://github.com/UltraUnitilezer9909)). It gradually demonstrates the game's progression, leading to the [next chapter](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike#chapter-1-the-galactic-breach)
 
-  > Final: <nothing to see here yet>
+  > Final: (nothing to see here yet)
  - #### Chapter 1: The Galactic Breach
   > Outline: The game presents the player with numerous tasks that can be completed in any order. To progress the story, the player must complete the available tasks. However, there is a breach in the sectobase's laboratory at the end, where a living matter called "Arxiarus" breaks free from its container. Due to exposure to radiation from space and other substances in the lab, the matter mutates into a creature. It manages to escape by forcefully breaking through the thick walls made of "Titenomiunel" (a combination of titanium, tungsten, chromium, and Inconel). The breach causes the Sectobase to depressurize, and the creature escapes undetected into the vast depths of space. During the escape, most Pokémon are sucked out into space, while the others, including the player and their friends, are aboard the evacuation ship. leading to the [next chapter](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike#chapter-2-where-all-things-started)
 
-  > Final: <nothing to see here yet>
+  > Final: (nothing to see here yet)
  - #### Chapter 2: Where All Things Started
   > ...
  - #### Chapter 3: First Planetary Adventure
