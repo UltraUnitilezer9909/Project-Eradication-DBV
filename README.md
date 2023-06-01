@@ -4,7 +4,7 @@
 * [Pokémon: Alpha Strike](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) utilizes the same system (updated to v20.1) and resources from [Pokémon: Crystal Stone](https://github.com/UltraUnitilezer9909/PKMN--CS--ROTFK-discontinued). It features the same story, gameplay mechanics, and more, with new features and improved accessibility. The game size is **>3gb** in the development version and **>800mb** in the release version. It was created by [Alpha Zetanium XYZ](https://github.com/UltraUnitilezer9909), the same creator of Pokémon: Crystal Stone. The game is set in deep space and revolves around eight different factions based in various countries, including Japan (future), Japan (modern), USA, Philippines, Netherlands, UK, New Zealand, and Norway.
 
 # Story
-- ### Specific Story
+- ### General Story
 > ...
 
 - ### Specific Story
