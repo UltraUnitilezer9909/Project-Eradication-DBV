@@ -13,10 +13,12 @@
 
   > Final: (nothing to see here yet)
  - #### Chapter 1: The Galactic Breach
-  > Outline: The game presents the player with numerous tasks that can be completed in any order. To progress the story, the player must complete the available tasks. However, there is a breach in the sectobase's laboratory at the end, where a living matter called "Arxiarus" breaks free from its container. Due to exposure to radiation from space and other substances in the lab, the matter mutates into a creature. It manages to escape by forcefully breaking through the thick walls made of "Titenomiunel" (a combination of titanium, tungsten, chromium, and Inconel). The breach causes the Sectobase to depressurize, and the creature escapes undetected into the vast depths of space. During the escape, most Pokémon are sucked out into space, while the others, including the player and their friends, are aboard the evacuation ship. leading to the [next chapter](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike#chapter-2-where-all-things-started)
+  > Outline: The game presents the player with numerous tasks that can be completed in any order. To progress the story, the player must complete the available tasks. However, there is a breach in the sectobase's laboratory at the end, where a artificial Pokémon called "Arxiarus" breaks free from its container. Due to exposure to radiation from space and other substances in the lab, the it mutates into a Rayquaza-like Pokémon. It manages to escape by forcefully breaking through the thick walls made of "Titenomiunel" (a combination of titanium, tungsten, chromium, and Inconel). The breach causes the Sectobase to depressurize, and the Rayquaza-like Pokémon escapes undetected into the vast depths of space. During the escape, most Pokémon are sucked out into space, while the others are aboard the evacuation ship. But the Player and its friends are separated from the evacuation, drove to the nearest abounded Sectobase becausethey dont have enough fuel to go on an active Sectobase leading to the [next chapter](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike#chapter-2-where-all-things-started)
 
   > Final: (nothing to see here yet)
  - #### Chapter 2: Where All Things Started
+  > Outline: After that, there ship landed successfully and entered the inactive Sectobase. However its critically damaged needed repairs, but most of the essential machines are still working like the oxygen generator and power supply 
+
   > ...
  - #### Chapter 3: First Planetary Adventure
   > ...
