@@ -41,15 +41,15 @@ class PokemonSummary_Scene
       if @pokemon.dynamax_able? && !@pokemon.isSpecies?(:ETERNATUS) && !$game_switches[Settings::NO_DYNAMAX]
         path = "Graphics/Pictures/Summary/"
         meter = (SUMMARY_B2W2_STYLE) ? "overlay_dynamax_B2W2" : "overlay_dynamax"
-        xpos = Graphics.width - 262
-        imagepos = [[sprintf(path + meter), xpos, 322]]
+        xpos = Graphics.width - 515
+        imagepos = [[sprintf(path + meter), xpos, 322]] #322
         overlay = @sprites["zud_overlay"].bitmap
         pbSetSmallFont(overlay)
         pbDrawImagePositions(overlay, imagepos)
         dlevel = @pokemon.dynamax_lvl
         levels = AnimatedBitmap.new(_INTL(path + "dynamax_bar"))
         overlay.blt(xpos + 82, 352, levels.bitmap, Rect.new(0, 0, dlevel * 16, 14))
-        pbDrawTextPositions(overlay, [ [_INTL("Dynamax Lv."), Graphics.width - 102, 324, 2, Color.new(255, 255, 255), Color.new(123, 123, 123)] ])
+        pbDrawTextPositions(overlay, [ [_INTL("Dynamax Lv."), Graphics.width - 450, 324, 2, Color.new(255, 255, 255), Color.new(123, 123, 123)] ])
       end
     end
     zud_drawPageTwo

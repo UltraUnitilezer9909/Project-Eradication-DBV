@@ -8,14 +8,14 @@ module QuestModule
   
   Quest1 = {
     :ID => "1",
-    :Name => "Chapter 1: Our galactic home",
+    :Name => "<c3=940fff,6300b4>Chapter 1: Our galactic home",
     :QuestGiver => "Alpha Zetanium XYZ: The Dev",
     :Stage1 => "Go to dad's lab!",
-    :Location1 => "Somewhere in your PT Ship",
+    :Location1 => "Bring Dad's Tablet to Dad!",
+    :Location3 => "Somewhere in your PT Ship",
     :Stage2 => "Get Dad's Tablet his room!",
     :Location2 => "Somewhere in your PT Ship",
-    :Stage3 => "Bring Dad's Tablet to Dad!",
-    :Location3 => "Somewhere in your PT Ship",
+    :Stage3 => "Somewhere in your PT Ship",
     :Stage4 => "Find Nurse Rose",
     :Location4 => "Somewhere in your PT Ship",
     :Stage5 => "Check the reactor!",

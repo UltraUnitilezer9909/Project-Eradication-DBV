@@ -422,8 +422,6 @@ class PokemonBag_Scene
 
   def pbUpdate
     pbUpdateSpriteHash(@sprites)
-    @sprites["panorama"].x  = 0 if @sprites["panorama"].x == - 56
-    @sprites["panorama"].x -= 2 if BagScreenWiInParty::PANORAMA == true
   end
 
   def pbStartScene(bag, party, choosing = false, filterproc = nil, resetpocket = true)
@@ -472,18 +470,14 @@ class PokemonBag_Scene
     @sprites["background"].setBitmap("Graphics/Pictures/Bag Party/bg")
     @sprites["gradient"] = IconSprite.new(0, 0, @viewport)
     @sprites["gradient"].setBitmap("Graphics/Pictures/Bag Party/grad")
-    @sprites["panorama"] = IconSprite.new(0, 0, @viewport)
-    @sprites["panorama"].setBitmap("Graphics/Pictures/Bag Party/panorama")
     
     if BagScreenWiInParty::BGSTYLE == 1 # BW Style
       if $player.female?
         @sprites["background"].color = Color.new(243, 140, 169)
         @sprites["gradient"].color = Color.new(255, 37, 97)
-        @sprites["panorama"].color = Color.new(255, 37, 97)
       else
         @sprites["background"].color = Color.new(101, 230, 255)
         @sprites["gradient"].color = Color.new(37, 129, 255)
-        @sprites["panorama"].color = Color.new(37, 136, 255)
       end
     elsif BagScreenWiInParty::BGSTYLE == 2 # HGSS Style
       pbPocketColor
@@ -545,35 +539,27 @@ class PokemonBag_Scene
     when 1
       @sprites["background"].color = Color.new(233, 152, 189)
       @sprites["gradient"].color = Color.new(255, 37, 187)
-      @sprites["panorama"].color = Color.new(213, 89, 141)
     when 2
       @sprites["background"].color = Color.new(233, 161, 152)
       @sprites["gradient"].color = Color.new(255, 134, 37)
-      @sprites["panorama"].color = Color.new(224, 112, 56)
     when 3
       @sprites["background"].color = Color.new(233, 197, 152)
       @sprites["gradient"].color = Color.new(255, 177, 37)
-      @sprites["panorama"].color = Color.new(200, 136, 32)
     when 4
       @sprites["background"].color = Color.new(216, 233, 152)
       @sprites["gradient"].color = Color.new(194, 255, 37)
-      @sprites["panorama"].color = Color.new(128, 168, 32)
     when 5
       @sprites["background"].color = Color.new(175, 233, 152)
       @sprites["gradient"].color = Color.new(78, 255, 37)
-      @sprites["panorama"].color = Color.new(32, 160, 72)
     when 6
       @sprites["background"].color = Color.new(152, 220, 233)
       @sprites["gradient"].color = Color.new(37, 212, 255)
-      @sprites["panorama"].color = Color.new(24, 144, 176)
     when 7
       @sprites["background"].color = Color.new(152, 187, 233)
       @sprites["gradient"].color = Color.new(37, 125, 255)
-      @sprites["panorama"].color = Color.new(48, 112, 224)
     when 8
       @sprites["background"].color = Color.new(178, 152, 233)
       @sprites["gradient"].color = Color.new(145, 37, 255)
-      @sprites["panorama"].color = Color.new(144, 72, 216)
     end
   end
   

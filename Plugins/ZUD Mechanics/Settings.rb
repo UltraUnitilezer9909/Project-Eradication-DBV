@@ -34,7 +34,7 @@ module Settings
 #===============================================================================
 # Sets the number of turns Dynamax lasts before expiring. (Default 3)
 #-------------------------------------------------------------------------------
-  DYNAMAX_TURNS = 3
+  DYNAMAX_TURNS = 5
   
 #-------------------------------------------------------------------------------
 # An array of all the move types that receive a reduced boost in their base power

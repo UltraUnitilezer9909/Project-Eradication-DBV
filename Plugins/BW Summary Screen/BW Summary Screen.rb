@@ -458,7 +458,7 @@
       overlay = @sprites["overlay"].bitmap
       overlay.clear
       # Changes the color of the text, to the one used in BW
-      base   = Color.new(90, 82, 82)
+      base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
       # Set background image
       if SUMMARY_B2W2_STYLE
@@ -516,15 +516,19 @@
 
       if SUMMARY_B2W2_STYLE
         textpos = [
-          [@pokemon.name, 354, 52, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [@pokemon.level.to_s, 346, 86, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
+          #[@pokemon.name, 354, 52, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
+          [@pokemon.name, 354, 52, 0, base, shadow],
+          #[@pokemon.level.to_s, 346, 86, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
+          [@pokemon.level.to_s, 346, 86, 0, base, shadow],
           [_INTL("Item"), 298, 326, 0, base, shadow]
         ]
       else
         textpos = [
           [pagename, 26, 14, 0, Color.new(255, 255, 255), Color.new(132, 132, 132)],
-          [@pokemon.name, 354, 52, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [@pokemon.level.to_s, 344, 84, 0, Color.new(90,82,82),Color.new(165,165,173)],
+          #[@pokemon.name, 354, 52, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
+          [@pokemon.name, 354, 52, 0, Color.new(165, 165, 173), Color.new(90, 82, 82)],
+          #[@pokemon.level.to_s, 344, 84, 0, Color.new(90,82,82),Color.new(165,165,173)],
+          [@pokemon.level.to_s, 346, 86, 0, Color.new(165, 165, 173), Color.new(90, 82, 82)],
           [_INTL("Item"), 298, 328, 0, base, shadow]
         ]
       end
@@ -536,11 +540,13 @@
       end
       # Write the gender symbol
       if @pokemon.male?
-        textpos.push([_INTL("♂"), 486, 52, 0, Color.new(0, 0, 214), Color.new(15, 148, 255)])
+        #textpos.push([_INTL("♂"), 486, 52, 0, Color.new(0, 0, 214), Color.new(15, 148, 255)])
+        textpos.push([_INTL("♂"), 486, 52, 0, Color.new(15, 148, 255), Color.new(0, 0, 214)])
       elsif @pokemon.female?
-        textpos.push([_INTL("♀"), 486, 52, 0, Color.new(198, 0, 0), Color.new(255, 155, 155)])
+        #textpos.push([_INTL("♀"), 486, 52, 0, Color.new(198, 0, 0), Color.new(255, 155, 155)])
+        textpos.push([_INTL("♀"), 486, 52, 0, Color.new(255, 155, 155), Color.new(198, 0, 0)])
       end
-      # Draw all text
+      # Draw all text 
       pbDrawTextPositions(overlay, textpos)
       # Draw the Pokémon's markings
       if SUMMARY_B2W2_STYLE
@@ -564,8 +570,12 @@
       # Changes the color of the text, to the one used in BW
       base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
-      dexNumBase   = (@pokemon.shiny?) ? Color.new(198, 0, 0) : Color.new(90, 82, 82)
-      dexNumShadow = (@pokemon.shiny?) ? Color.new(255, 155, 155) : Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
+      #dexNumBase   = (@pokemon.shiny?) ? Color.new(198, 0, 0) : Color.new(90, 82, 82)
+      dexNumBase   = base 
+      #dexNumShadow = (@pokemon.shiny?) ? Color.new(255, 155, 155) : Color.new(165, 165, 173)
+      dexNumShadow = shadow
       # If a Shadow Pokémon, draw the heart gauge area and bar
       if @pokemon.shadowPokemon?
         shadowfract = @pokemon.heart_gauge.to_f / @pokemon.max_gauge_size
@@ -587,12 +597,12 @@
       # Write various bits of text. Changed various positions of the text
       if SUMMARY_B2W2_STYLE
         textpos = [
-          [_INTL("Dex No."), 34, 72, 0, base, shadow],
-          [_INTL("Species"), 34, 104, 0, base, shadow],
-          [@pokemon.speciesName, 162, 106, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [_INTL("Type"), 34, 136, 0, base, shadow],
-          [_INTL("OT"), 34, 168, 0, base, shadow],
-          [_INTL("ID No."), 34, 200, 0, base, shadow],
+          [_INTL("Dex No."), 34, 72, 0, base1, shadow1],
+          [_INTL("Species"), 34, 104, 0, base1, shadow1],
+          [@pokemon.speciesName, 162, 106, 0, Color.new(255, 155, 155), Color.new(198, 0, 0)],
+          [_INTL("Type"), 34, 136, 0, base1, shadow1],
+          [_INTL("OT"), 34, 168, 0, base1, shadow1],
+          [_INTL("ID No."), 34, 200, 0, base1, shadow1],
         ]
       else
         textpos = [
@@ -660,9 +670,9 @@
         end
         if SUMMARY_B2W2_STYLE
           # Write Trainer's name
-          textpos.push([@pokemon.owner.name, 164, 168, 0, ownerbase, ownershadow])
+          textpos.push([@pokemon.owner.name, 164, 168, 0, Color.new(15, 148, 255), Color.new(0, 0, 214)])
           # Write Pokémon's ID
-          textpos.push([sprintf("%05d", @pokemon.owner.public_id), 164, 200, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+          textpos.push([sprintf("%05d", @pokemon.owner.public_id), 164, 200, 0, Color.new(255, 155, 155), Color.new(198, 0, 0)])
         else
           # Write Trainer's name
           textpos.push([@pokemon.owner.name, 164, 170, 0, ownerbase, ownershadow])
@@ -688,10 +698,10 @@
         if SUMMARY_B2W2_STYLE
           textpos.push([_INTL("Exp. Points"), 34, 232, 0, base, shadow])
           # Changed the Positon of No. of Exp
-          textpos.push([@pokemon.exp.to_s_formatted, 215, 264, 2, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+          textpos.push([@pokemon.exp.to_s_formatted, 215, 264, 2, base1, shadow1])
           textpos.push([_INTL("To Next Lv."), 34, 296, 0, base, shadow])
           # Changed the Positon of No. of Exp to Next Level
-          textpos.push([(endexp-@pokemon.exp).to_s_formatted, 177, 328, 2, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+          textpos.push([(endexp-@pokemon.exp).to_s_formatted, 177, 328, 2, base1, shadow1])
         else
           textpos.push([_INTL("Exp. Points"), 34, 234, 0, base, shadow])
           # Changed the Positon of No. of Exp
@@ -731,8 +741,10 @@
       overlay = @sprites["overlay"].bitmap
       overlay.clear
       # Changes the color of the text, to the one used in BW
-      base   = Color.new(90, 82, 82)
+      base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
       # Set background image
       if SUMMARY_B2W2_STYLE
         @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background")
@@ -775,26 +787,26 @@
         month = pbGetMonthName(@pokemon.timeReceived.mon)
         year  = @pokemon.timeReceived.year
         # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=404040,B0B0B0>{1} {2}, {3}\n", date, month, year)
+        memo += _INTL("<c3=940fff,6300b4>{1} {2}, {3}\n", date, month, year)
       end
       # Write map name egg was received on
       mapname = pbGetMapNameFromId(@pokemon.obtain_map)
       mapname = @pokemon.obtain_text if @pokemon.obtain_text && !@pokemon.obtain_text.empty?
       if mapname && mapname != ""
         # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=404040,B0B0B0>A mysterious Pokémon Egg received from <c3=0000D6,7394FF>{1}<c3=404040,B0B0B0>.\n", mapname)
+        memo += _INTL("<c3=ffffff,a5a5ad>An Egg received from <c3=7394FF,0000D6>{1}<c3=ffffff,a5a5ad>...\n", mapname)
       else
         # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=404040,B0B0B0>A mysterious Pokémon Egg.\n", mapname)
+        memo += _INTL("<c3=ffffff,a5a5ad>A mysterious Pokémon Egg.\n", mapname)
       end
       memo += "\n" # Empty line
       # Write Egg Watch blurb
-      memo += _INTL("<c3=404040,B0B0B0>\"The Egg Watch\"\n")
+      memo += _INTL("<c3=7394FF,0000D6>\"The Egg Watch\"\n")
       eggstate = _INTL("It looks like this Egg will take a long time to hatch.")
       eggstate = _INTL("What will hatch from this? It doesn't seem close to hatching.") if @pokemon.steps_to_hatch < 10_200
       eggstate = _INTL("It appears to move occasionally. It may be close to hatching.") if @pokemon.steps_to_hatch < 2550
       eggstate = _INTL("Sounds can be heard coming from inside! It will hatch soon!") if @pokemon.steps_to_hatch < 1275
-      memo += sprintf("<c3=404040,B0B0B0>%s\n", eggstate)
+      memo += sprintf("<c3=ffffff,a5a5ad>%s\n", eggstate)
       # Draw all text
       drawFormattedTextEx(overlay, 10, 90, 268, memo)
       # Draw the Pokémon's markings
@@ -813,7 +825,7 @@
       if showNature
         natureName = @pokemon.nature.name
         # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=0000d6,7394ff>{1}<c3=404040,B0B0B0> nature.\n", natureName)
+        memo += _INTL("<c3=7394ff,0000d6>{1}<c3=ffffff,a5a5ad> nature.\n", natureName)
       end
       # Write date received
       if @pokemon.timeReceived
@@ -821,23 +833,23 @@
         month = pbGetMonthName(@pokemon.timeReceived.mon)
         year  = @pokemon.timeReceived.year
         # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=404040,B0B0B0>{1} {2}, {3}\n", date, month, year)
+        memo += _INTL("<c3=940fff,6300b4>{1} {2}, {3}\n", date, month, year)
       end
       # Write map name Pokémon was received on
       mapname = pbGetMapNameFromId(@pokemon.obtain_map)
       mapname = @pokemon.obtain_text if @pokemon.obtain_text && !@pokemon.obtain_text.empty?
-      mapname = _INTL("Faraway place") if !mapname || mapname==""
+      mapname = _INTL("<c3=7394ff,0000d6>Faraway place") if !mapname || mapname==""
       # Changed the color of the text, to the one used in BW
-      memo += sprintf("<c3=0000d6,7394ff>%s\n", mapname)
+      memo += sprintf("<c3=7394ff,0000d6>%s\n", mapname)
       # Write how Pokémon was obtained
-      mettext = [_INTL("Met at Lv. {1}.", @pokemon.obtain_level),
-                 _INTL("Egg received."),
-                 _INTL("Traded at Lv. {1}.", @pokemon.obtain_level),
+      mettext = [_INTL("<c3=ffffff,a5a5ad>Met at Lv. {1}.", @pokemon.obtain_level),
+                 _INTL("<c3=ffffff,a5a5ad>Egg received."),
+                 _INTL("<c3=ffffff,a5a5ad>Traded at Lv. {1}.", @pokemon.obtain_level),
                  "",
                  _INTL("Had a fateful encounter at Lv. {1}.", @pokemon.obtain_level)
                 ][@pokemon.obtain_method]
                 # Changed the color of the text, to the one used in BW
-      memo += sprintf("<c3=404040,B0B0B0>%s\n", mettext) if mettext && mettext!=""
+      memo += sprintf("<c3=ffffff,a5a5ad>%s\n", mettext) if mettext && mettext!=""
       # If Pokémon was hatched, write when and where it hatched
       if @pokemon.obtain_method == 1
         if @pokemon.timeEggHatched
@@ -845,16 +857,17 @@
           month = pbGetMonthName(@pokemon.timeEggHatched.mon)
           year  = @pokemon.timeEggHatched.year
           # Changed the color of the text, to the one used in BW
-          memo += _INTL("<c3=404040,B0B0B0>{1} {2}, {3}\n", date, month, year)
+          memo += _INTL("<c3=940fff,6300b4>{1} {2}, {3}\n", date, month, year)
         end
         mapname = pbGetMapNameFromId(@pokemon.hatched_map)
-        mapname = _INTL("Faraway place") if nil_or_empty?(mapname)
+        mapname = _INTL("<c3=7394ff,0000d6>Faraway place") if nil_or_empty?(mapname)
           # Changed the colors of the text, to the one used in BW
-        memo += sprintf("<c3=C60000,FF7373>%s\n", mapname)
-        memo += _INTL("<c3=404040,B0B0B0>Egg hatched.\n")
+        memo += sprintf("<c3=940fff,6300b4>%s\n", mapname)
+        memo += _INTL("<c3=ffffff,a5a5ad>Egg hatched.\n")
       else
         memo += "\n"   # Empty line
       end
+      #SPAWNPOINT: egg, this
       # Write characteristic
       if showNature
         best_stat = nil
@@ -869,38 +882,38 @@
           end
         end
         characteristics = {
-          :HP              => [_INTL("Loves to eat."),
-                               _INTL("Takes plenty of siestas."),
-                               _INTL("Nods off a lot."),
-                               _INTL("Scatters things often."),
-                               _INTL("Likes to relax.")],
-          :ATTACK          => [_INTL("Proud of its power."),
-                               _INTL("Likes to thrash about."),
-                               _INTL("A little quick tempered."),
-                               _INTL("Likes to fight."),
-                               _INTL("Quick tempered.")],
-          :DEFENSE         => [_INTL("Sturdy body."),
-                               _INTL("Capable of taking hits."),
-                               _INTL("Highly persistent."),
-                               _INTL("Good endurance."),
-                               _INTL("Good perseverance.")],
-          :SPECIAL_ATTACK  => [_INTL("Highly curious."),
-                               _INTL("Mischievous."),
-                               _INTL("Thoroughly cunning."),
-                               _INTL("Often lost in thought."),
-                               _INTL("Very finicky.")],
-          :SPECIAL_DEFENSE => [_INTL("Strong willed."),
-                               _INTL("Somewhat vain."),
-                               _INTL("Strongly defiant."),
-                               _INTL("Hates to lose."),
-                               _INTL("Somewhat stubborn.")],
-          :SPEED           => [_INTL("Likes to run."),
-                               _INTL("Alert to sounds."),
-                               _INTL("Impetuous and silly."),
-                               _INTL("Somewhat of a clown."),
-                               _INTL("Quick to flee.")]
+          :HP              => [_INTL("<c3=ff9b9b,c90000>Loves to eat."), 
+                               _INTL("<c3=ff9b9b,c90000>Takes plenty of siestas."),
+                               _INTL("<c3=ff9b9b,c90000>Nods off a lot."),
+                               _INTL("<c3=ff9b9b,c90000>Scatters things often."),
+                               _INTL("<c3=ff9b9b,c90000>Likes to relax.")],
+          :ATTACK          => [_INTL("<c3=ff9b9b,c90000>Proud of its power."),
+                               _INTL("<c3=ff9b9b,c90000>Likes to thrash about."),
+                               _INTL("<c3=ff9b9b,c90000>A little quick tempered."),
+                               _INTL("<c3=ff9b9b,c90000>Likes to fight."),
+                               _INTL("<c3=ff9b9b,c90000>Quick tempered.")],
+          :DEFENSE         => [_INTL("<c3=ff9b9b,c90000>Sturdy body."),
+                               _INTL("<c3=ff9b9b,c90000>Capable of taking hits."),
+                               _INTL("<c3=ff9b9b,c90000>Highly persistent."),
+                               _INTL("<c3=ff9b9b,c90000>Good endurance."),
+                               _INTL("<c3=ff9b9b,c90000>Good perseverance.")],
+          :SPECIAL_ATTACK  => [_INTL("<c3=ff9b9b,c90000>Highly curious."),
+                               _INTL("<c3=ff9b9b,c90000>Mischievous."),
+                               _INTL("<c3=ff9b9b,c90000>Thoroughly cunning."),
+                               _INTL("<c3=ff9b9b,c90000>Often lost in thought."),
+                               _INTL("<c3=ff9b9b,c90000>Very finicky.")],
+          :SPECIAL_DEFENSE => [_INTL("<c3=ff9b9b,c90000>Strong willed."),
+                               _INTL("<c3=ff9b9b,c90000>Somewhat vain."),
+                               _INTL("<c3=ff9b9b,c90000>Strongly defiant."),
+                               _INTL("<c3=ff9b9b,c90000>Hates to lose."),
+                               _INTL("<c3=ff9b9b,c90000>Somewhat stubborn.")],
+          :SPEED           => [_INTL("<c3=ff9b9b,c90000>Likes to run."),
+                               _INTL("<c3=ff9b9b,c90000>Alert to sounds."),
+                               _INTL("<c3=ff9b9b,c90000>Impetuous and silly."),
+                               _INTL("<c3=ff9b9b,c90000>Somewhat of a clown."),
+                               _INTL("<c3=ff9b9b,c90000>Quick to flee.")]
         }
-        memo += sprintf("<c3=404040,B0B0B0>%s\n", characteristics[best_stat][best_iv % 5])
+        memo += sprintf("<c3=ff9b9b,c90000>%s\n", characteristics[best_stat][best_iv % 5])
       end
       # Write all text
       drawFormattedTextEx(overlay, 12, 72, 300, memo)
@@ -909,8 +922,10 @@
     def drawPageThree
       overlay = @sprites["overlay"].bitmap
       # Changes the color of the text, to the one used in BW
-      base   = Color.new(90, 82, 82)
+      base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
       if SHOW_EV_IV
         # Set background image when showing EV/IV Stats
         @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background")
@@ -951,29 +966,29 @@
       if SHOW_EV_IV
         textpos = [
           [_INTL("HP"), 64, 82, 0, Color.new(255, 255, 255), statshadows[:HP]],
-          [sprintf("%d/%d", @pokemon.hp, @pokemon.totalhp), 182, 82, 2, base, shadow],
-          [sprintf("%d", @pokemon.ev[:HP]), 252, 82, 2, base, shadow],
-          [sprintf("%d" ,@pokemon.iv[:HP]), 296, 82, 2, base, shadow],
+          [sprintf("%d/%d", @pokemon.hp, @pokemon.totalhp), 182, 82, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.ev[:HP]), 252, 82, 2, base1, shadow1],
+          [sprintf("%d" ,@pokemon.iv[:HP]), 296, 82, 2, base1, shadow1],
           [_INTL("Attack"), 16, 132, 0, Color.new(255, 255, 255), statshadows[:ATTACK]],
-          [sprintf("%d", @pokemon.attack), 182, 132, 2, base, shadow],
-          [sprintf("%d", @pokemon.ev[:ATTACK]), 252, 132, 2, base, shadow],
-          [sprintf("%d", @pokemon.iv[:ATTACK]), 296, 132, 2, base, shadow],
+          [sprintf("%d", @pokemon.attack), 182, 132, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.ev[:ATTACK]), 252, 132, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.iv[:ATTACK]), 296, 132, 2, base1, shadow1],
           [_INTL("Defense"), 16, 164, 0, Color.new(255, 255, 255), statshadows[:DEFENSE]],
-          [sprintf("%d", @pokemon.defense), 182, 164, 2, base, shadow],
-          [sprintf("%d", @pokemon.ev[:DEFENSE]), 252, 164, 2, base, shadow],
-          [sprintf("%d", @pokemon.iv[:DEFENSE]), 296, 164, 2, base, shadow],
+          [sprintf("%d", @pokemon.defense), 182, 164, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.ev[:DEFENSE]), 252, 164, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.iv[:DEFENSE]), 296, 164, 2, base1, shadow1],
           [_INTL("Sp. Atk"), 16, 196, 0, Color.new(255, 255, 255), statshadows[:SPECIAL_ATTACK]],
-          [sprintf("%d", @pokemon.spatk), 182, 196, 2, base, shadow],
-          [sprintf("%d", @pokemon.ev[:SPECIAL_ATTACK]), 252, 196, 2, base, shadow],
-          [sprintf("%d", @pokemon.iv[:SPECIAL_ATTACK]), 296, 196, 2, base, shadow],
+          [sprintf("%d", @pokemon.spatk), 182, 196, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.ev[:SPECIAL_ATTACK]), 252, 196, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.iv[:SPECIAL_ATTACK]), 296, 196, 2, base1, shadow1],
           [_INTL("Sp. Def"), 16, 228, 0, Color.new(255, 255, 255), statshadows[:SPECIAL_DEFENSE]],
-          [sprintf("%d", @pokemon.spdef), 182, 228, 2, base, shadow],
-          [sprintf("%d", @pokemon.ev[:SPECIAL_DEFENSE]), 252, 228, 2, base, shadow],
-          [sprintf("%d", @pokemon.iv[:SPECIAL_DEFENSE]), 296, 228, 2, base, shadow],
+          [sprintf("%d", @pokemon.spdef), 182, 228, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.ev[:SPECIAL_DEFENSE]), 252, 228, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.iv[:SPECIAL_DEFENSE]), 296, 228, 2, base1, shadow1],
           [_INTL("Speed"), 16, 260, 0, Color.new(255, 255, 255), statshadows[:SPEED]],
-          [sprintf("%d", @pokemon.speed), 182, 260, 2, base, shadow],
-          [sprintf("%d", @pokemon.ev[:SPEED]), 252, 260, 2, base, shadow],
-          [sprintf("%d", @pokemon.iv[:SPEED]), 296, 260, 2, base, shadow],
+          [sprintf("%d", @pokemon.speed), 182, 260, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.ev[:SPEED]), 252, 260, 2, base1, shadow1],
+          [sprintf("%d", @pokemon.iv[:SPEED]), 296, 260, 2, base1, shadow1],
           [_INTL("Ability"), 38, 294, 0, Color.new(255, 255, 255), Color.new(165, 165, 173)],
         ]
       else
@@ -996,7 +1011,7 @@
       # Draw ability name and description
       ability = @pokemon.ability
       if ability
-        textpos.push([ability.name, 240, 294, 2, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+        textpos.push([ability.name, 240, 294, 2, base1, shadow1])
         drawTextEx(overlay, 12, 324, 282, 2, ability.description, base, shadow)
       end
       # Draw all text
@@ -1073,9 +1088,9 @@
       overlay.clear
       # Changes the color of the text, to the one used in BW
       base   = Color.new(255, 255, 255)
-      shadow = Color.new(123, 123, 123)
-      moveBase   = Color.new(255, 255, 255)
-      moveShadow = Color.new(123, 123, 123)
+      shadow = Color.new(165, 165, 173)
+      moveBase   = base
+      moveShadow = shadow
       ppBase   = [moveBase,                # More than 1/2 of total PP
                   Color.new(255, 214, 0),    # 1/2 of total PP or less
                   Color.new(255, 115, 0),   # 1/4 of total PP or less
@@ -1159,8 +1174,10 @@
       drawPageFourSelecting(move_to_learn)
       # Set various values
       overlay = @sprites["overlay"].bitmap
-      base   = Color.new(90, 82, 82)
+      base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
       @sprites["pokemon"].visible = false if @sprites["pokemon"]
       @sprites["pokeicon"].pokemon = @pokemon
       @sprites["pokeicon"].visible = true
@@ -1168,14 +1185,14 @@
       textpos = []
       # Write power and accuracy values for selected move
       case selected_move.display_damage(@pokemon)
-      when 0 then textpos.push(["---", 216, 162, 1, base, shadow])   # Status move
-      when 1 then textpos.push(["???", 216, 160, 1, base, shadow])   # Variable power move
-      else        textpos.push([selected_move.display_damage(@pokemon).to_s, 216, 160, 1, base, shadow])
+      when 0 then textpos.push(["---", 216, 162, 1, base1, shadow1])   # Status move
+      when 1 then textpos.push(["???", 216, 160, 1, base1, shadow1])   # Variable power move
+      else        textpos.push([selected_move.display_damage(@pokemon).to_s, 216, 160, 1, base1, shadow1])
       end
       if selected_move.display_accuracy(@pokemon) == 0
-        textpos.push(["---", 216, 194, 1, base, shadow])
+        textpos.push(["---", 216, 194, 1, base1, shadow1])
       else
-        textpos.push(["#{selected_move.display_accuracy(@pokemon)}%", 216 + overlay.text_size("%").width, 192, 1, base, shadow])
+        textpos.push(["#{selected_move.display_accuracy(@pokemon)}%", 216 + overlay.text_size("%").width, 192, 1, base1, shadow1])
       end
 
       #---------------------------------------------------------------------------
@@ -1185,17 +1202,21 @@
       imagepos = [["Graphics/Pictures/category", 166, 122, 0, selected_move.display_category(@pokemon) * 28, 64, 28]]
       pbDrawImagePositions(overlay, imagepos)
       # Draw selected move's description
-      drawTextEx(overlay, 4, 224, 230, 5, selected_move.description, base, shadow)
+      drawTextEx(overlay, 4, 224, 230, 5, selected_move.description, base1, shadow1)
     end
 
     def drawPageFive
+      base   = Color.new(255, 255, 255)
+      shadow = Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
       overlay = @sprites["overlay"].bitmap
       @sprites["uparrow"].visible   = false
       @sprites["downarrow"].visible = false
       # Write various bits of text
       textpos = [
-         [_INTL("No. of Ribbons:"), 38, 308, 0, Color.new(255, 255, 255), Color.new(165, 165, 173)],
-         [@pokemon.numRibbons.to_s, 157, 340, 1, Color.new(90, 82, 82), Color.new(165, 165, 173)],
+         [_INTL("No. of Ribbons:"), 38, 308, 0, base, shadow],
+         [@pokemon.numRibbons.to_s, 157, 340, 1, base1, shadow1],
       ]
       # Draw all text
       pbDrawTextPositions(overlay, textpos)
@@ -1221,10 +1242,10 @@
       # Set various values
       overlay = @sprites["overlay"].bitmap
       # Changes the color of the text, to the one used in BW
-      base   = Color.new(90, 82, 82)
+      base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
-      nameBase   = Color.new(248, 248, 248)
-      nameShadow = Color.new(104, 104, 104)
+      nameBase   = Color.new(148, 15, 255)
+      nameShadow = Color.new(99, 0, 180)
       # Get data for selected ribbon
       name = ribbonid ? GameData::Ribbon.get(ribbonid).name : ""
       desc = ribbonid ? GameData::Ribbon.get(ribbonid).description : ""
@@ -1424,8 +1445,8 @@
       @sprites["markingoverlay"].visible = true
       @sprites["markingsel"].visible     = true
       # Changed the color of the text, to the one used in BW
-      base   = Color.new(248, 248, 248)
-      shadow = Color.new(104, 104, 104)
+      base   = Color.new(255, 255, 255)
+      shadow = Color.new(165, 165, 173)
       ret = pokemon.markings.clone
       markings = pokemon.markings.clone
       mark_variants = @markingbitmap.bitmap.height / MARK_HEIGHT

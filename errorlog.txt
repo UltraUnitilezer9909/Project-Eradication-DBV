@@ -852,3 +852,608 @@ Backtrace:
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:298:in `call_menu'
+
+=================
+
+[2023-06-10 18:55:37 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 1 (coords 10,6), map 33 (Intro)
+Exception: RuntimeError
+Message: NAH BRO
+
+***Full script:
+raise _INTL("NAH BRO")
+pbExit
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-06-14 23:14:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:603: syntax error, unexpected integer literal, expecting ']'
+..."), 34, 136, 0, base1, shadow]1,
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:604: syntax error, unexpected ',', expecting `end'
+...), 34, 168, 0, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:605: syntax error, unexpected ',', expecting `end'
+...), 34, 200, 0, base1, shadow1],
+...                              ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-14 23:33:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base1' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:788:in `drawPageOneEgg'
+[BW Summary Screen] BW Summary Screen.rb:454:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:215:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1708:in `pbStartScreen'
+[BW Party Screen] BW Party Screen.rb:739:in `pbSummary'
+[BW Party Screen] BW Party Screen.rb:1352:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-06-15 14:20:13 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:982: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+...K]), 252, 196, 2, base1 shadow1],
+...                        ^~~~~~~
+[BW Summary Screen] BW Summary Screen.rb:983: syntax error, unexpected ',', expecting `end'
+..., 296, 196, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:984: syntax error, unexpected ',', expecting `end'
+...statshadows[:SPECIAL_DEFENSE]],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:985: syntax error, unexpected ',', expecting `end'
+..., 182, 228, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:986: syntax error, unexpected ',', expecting `end'
+..., 252, 228, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:987: syntax error, unexpected ',', expecting `end'
+..., 296, 228, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:988: syntax error, unexpected ',', expecting `end'
+...55, 255), statshadows[:SPEED]],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:989: syntax error, unexpected ',', expecting `end'
+..., 182, 260, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:990: syntax error, unexpected ',', expecting `end'
+..., 252, 260, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:991: syntax error, unexpected ',', expecting `end'
+..., 296, 260, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:992: syntax error, unexpected ',', expecting `end'
+...55), Color.new(165, 165, 173)],
+...                              ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 14:21:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:982: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+...K]), 252, 196, 2, base1 shadow1],
+...                        ^~~~~~~
+[BW Summary Screen] BW Summary Screen.rb:983: syntax error, unexpected ',', expecting `end'
+..., 296, 196, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:984: syntax error, unexpected ',', expecting `end'
+...statshadows[:SPECIAL_DEFENSE]],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:985: syntax error, unexpected ',', expecting `end'
+..., 182, 228, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:986: syntax error, unexpected ',', expecting `end'
+..., 252, 228, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:987: syntax error, unexpected ',', expecting `end'
+..., 296, 228, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:988: syntax error, unexpected ',', expecting `end'
+...55, 255), statshadows[:SPEED]],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:989: syntax error, unexpected ',', expecting `end'
+..., 182, 260, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:990: syntax error, unexpected ',', expecting `end'
+..., 252, 260, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:991: syntax error, unexpected ',', expecting `end'
+..., 296, 260, 2, base1, shadow1],
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:992: syntax error, unexpected ',', expecting `end'
+...55), Color.new(165, 165, 173)],
+...                              ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 14:37:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:1193: syntax error, unexpected integer literal, expecting ')'
+....width, 192, 1, base1, shadow]1)
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:1764: syntax error, unexpected end-of-input, expecting `end'
+  end
+     ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 14:38:38 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base1' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:1186:in `drawSelectedMove'
+[ZUD Mechanics] UI_Summary.rb:31:in `drawSelectedMove'
+[PLA Battle Styles] [004] Summary UI.rb:64:in `drawSelectedMove'
+[BW Summary Screen] BW Summary Screen.rb:1299:in `pbMoveSelection'
+[BW Summary Screen] BW Summary Screen.rb:1648:in `block in pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1634:in `loop'
+[BW Summary Screen] BW Summary Screen.rb:1634:in `pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1714:in `pbStartScreen'
+[BW Party Screen] BW Party Screen.rb:739:in `pbSummary'
+[BW Party Screen] BW Party Screen.rb:1352:in `block in <main>'
+
+=================
+
+[2023-06-15 15:25:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:524:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 15:33:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:527:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 15:35:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `x' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:527:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 15:38:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `x' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:520:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 16:25:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:527:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 16:28:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:535:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 16:32:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:538:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 20:51:16 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `x' for #<AnimatedPlane>
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:531:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 20:52:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `x' for #<AnimatedPlane>
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:531:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-15 20:59:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:1601: syntax error, unexpected end-of-input, expecting `end'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 21:01:45 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:531: syntax error, unexpected `return', expecting `end'
+...prites["partybg"].oy-= 0 return @sprites["partybg"].oy-= 100
+...                         ^~~~~~
+[BW Party Screen] BW Party Screen.rb:532: syntax error, unexpected `return', expecting `end'
+...prites["partybg"].ox+= 0 return @sprites["partybg"].ox+= 100
+...                         ^~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 21:02:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:531: syntax error, unexpected `then', expecting `end'
+...@sprites["partybg"].oy-= 0 then @sprites["partybg"].oy-= 100
+...                           ^~~~
+[BW Party Screen] BW Party Screen.rb:532: syntax error, unexpected `then', expecting `end'
+...@sprites["partybg"].ox+= 0 then @sprites["partybg"].ox+= 100
+...                           ^~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 21:03:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:531: syntax error, unexpected `then', expecting `end'
+...@sprites["partybg"].oy-= 0 then @sprites["partybg"].oy-= 100...
+...                           ^~~~
+[BW Party Screen] BW Party Screen.rb:532: syntax error, unexpected `then', expecting `end'
+...@sprites["partybg"].ox+= 0 then @sprites["partybg"].ox+= 100...
+...                           ^~~~
+[BW Party Screen] BW Party Screen.rb:579: syntax error, unexpected `end', expecting end-of-input
+  end
+  ^~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-15 21:03:35 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:531: syntax error, unexpected `then', expecting `end'
+...@sprites["partybg"].oy-= 0 then @sprites["partybg"].oy-= 100...
+...                           ^~~~
+[BW Party Screen] BW Party Screen.rb:532: syntax error, unexpected `then', expecting end-of-input
+...@sprites["partybg"].ox+= 0 then @sprites["partybg"].ox+= 100...
+...                           ^~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-16 16:43:54 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:531:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-17 15:00:41 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Marin's Better Region Map] Marin's Better Region Map.rb:50:in `initialize'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `new'
+[Marin's Better Region Map] Marin's Better Region Map.rb:18:in `pbBetterRegionMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:298:in `call_menu'
