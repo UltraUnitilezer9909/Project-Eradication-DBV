@@ -9,6 +9,6 @@ module BagScreenWiInParty
  # 0 for only orange (newer gens style);
  # 1 for a color matching the player's character gender (BW style);
  # 2 for a different color for each pocket (HGSS style).
-  BGSTYLE = 1
+  BGSTYLE = 0
 
 end

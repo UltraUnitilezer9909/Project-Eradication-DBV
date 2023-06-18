@@ -1457,3 +1457,66 @@ Backtrace:
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:298:in `call_menu'
+
+=================
+
+[2023-06-17 22:09:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addbgPlane' for #<PokemonBag_Scene>
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:477:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-18 13:13:25 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBackgrectPlane' for #<PokemonBag_Scene>
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:477:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-18 13:14:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: Argument 2: Expected fixnum
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:354:in `initialize'
+[Bag Screen w/int. Party] Script.rb:354:in `new'
+[Bag Screen w/int. Party] Script.rb:354:in `refresh'
+[Bag Screen w/int. Party] Script.rb:215:in `initialize'
+[Bag Screen w/int. Party] Script.rb:495:in `new'
+[Bag Screen w/int. Party] Script.rb:495:in `block in pbStartScene'
+[Bag Screen w/int. Party] Script.rb:493:in `each'
+[Bag Screen w/int. Party] Script.rb:493:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'

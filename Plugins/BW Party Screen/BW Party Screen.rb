@@ -508,6 +508,15 @@ end
 # Pokémon party visuals
 #===============================================================================
 class PokemonParty_Scene
+
+  def pbUpdate
+    pbUpdateSpriteHash(@sprites)
+    if @sprites["bg"]
+      @sprites["bg"].ox-= -1
+      @sprites["bg"].oy-= -1
+    end
+  end
+
   def pbStartScene(party, starthelptext, annotations = nil, multiselect = false, can_access_storage = false)
     @sprites = {}
     @party = party
@@ -516,9 +525,9 @@ class PokemonParty_Scene
     @multiselect = multiselect
     @can_access_storage = can_access_storage
     if PARTY_B2W2_STYLE
-      addBackgroundPlane(@sprites, "partybg", "Party/bg_B2W2", @viewport)
+      addBackgroundPlane(@sprites, "bg", "Party/bg_B2W2", @viewport)
     else
-      addBackgroundPlane(@sprites, "partybg", "Party/bg", @viewport)
+      addBackgroundPlane(@sprites, "bg", "Party/bg", @viewport)
     end
     @sprites["messagebox"] = Window_AdvancedTextPokemon.new("")
     @sprites["messagebox"].z              = 50

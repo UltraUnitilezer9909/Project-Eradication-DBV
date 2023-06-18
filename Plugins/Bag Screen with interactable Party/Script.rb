@@ -412,16 +412,20 @@ end
 # Bag visuals
 #===============================================================================
 class PokemonBag_Scene
-  ITEMLISTBASECOLOR      = Color.new(80,80,88)
-  ITEMLISTSHADOWCOLOR    = Color.new(160,160,168)
-  ITEMTEXTBASECOLOR      = Color.new(239,239,239)
-  ITEMTEXTSHADOWCOLOR    = ITEMLISTSHADOWCOLOR
-  POCKETNAMEBASECOLOR    = Color.new(255,255,255)
-  POCKETNAMEOUTLINECOLOR = Color.new(78,83,100)
+  ITEMLISTBASECOLOR      = Color.new(148, 15, 255)
+  ITEMLISTSHADOWCOLOR    = Color.new(99, 0, 180)
+  ITEMTEXTBASECOLOR      = Color.new(255, 255, 255)
+  ITEMTEXTSHADOWCOLOR    = Color.new(165, 165, 173)
+  POCKETNAMEBASECOLOR    = ITEMLISTBASECOLOR 
+  POCKETNAMEOUTLINECOLOR = ITEMLISTSHADOWCOLOR
   ITEMSVISIBLE           = 6
 
   def pbUpdate
     pbUpdateSpriteHash(@sprites)
+    if @sprites["bg"]
+      @sprites["bg"].ox-= -1
+      @sprites["bg"].oy-= -1
+    end
   end
 
   def pbStartScene(bag, party, choosing = false, filterproc = nil, resetpocket = true)
@@ -431,6 +435,7 @@ class PokemonBag_Scene
     @choosing   = choosing
     @filterproc = filterproc
     @party      = party
+    @sprites = {}
     
     pbRefreshFilter
     lastpocket = @bag.last_viewed_pocket
@@ -466,18 +471,16 @@ class PokemonBag_Scene
     @pocketbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/Bag Party/icon_pocket"))
     
     @sprites = {}
-    @sprites["background"] = IconSprite.new(0, 0, @viewport)
-    @sprites["background"].setBitmap("Graphics/Pictures/Bag Party/bg")
-    @sprites["gradient"] = IconSprite.new(0, 0, @viewport)
-    @sprites["gradient"].setBitmap("Graphics/Pictures/Bag Party/grad")
+    @sprites["bg"] = IconSprite.new(0, 0, @viewport)
+    #@sprites["bg"].setBitmap("Graphics/Pictures/Bag Party/bg")
+    #addbgPlane(@sprites, "bg", "Graphics/Pictures/Bag Party/bg", @viewport)
+    addBackgroundPlane(@sprites, "bg", "Bag Party/bg", @viewport) #"Trainer Card/bg"
     
     if BagScreenWiInParty::BGSTYLE == 1 # BW Style
       if $player.female?
-        @sprites["background"].color = Color.new(243, 140, 169)
-        @sprites["gradient"].color = Color.new(255, 37, 97)
+        @sprites["bg"].color = Color.new(243, 140, 169) 
       else
-        @sprites["background"].color = Color.new(101, 230, 255)
-        @sprites["gradient"].color = Color.new(37, 129, 255)
+        @sprites["bg"].color = Color.new(101, 230, 255)
       end
     elsif BagScreenWiInParty::BGSTYLE == 2 # HGSS Style
       pbPocketColor
@@ -537,29 +540,21 @@ class PokemonBag_Scene
   def pbPocketColor
     case @bag.last_viewed_pocket
     when 1
-      @sprites["background"].color = Color.new(233, 152, 189)
-      @sprites["gradient"].color = Color.new(255, 37, 187)
+      @sprites["bg"].color = Color.new(233, 152, 189)
     when 2
-      @sprites["background"].color = Color.new(233, 161, 152)
-      @sprites["gradient"].color = Color.new(255, 134, 37)
+      @sprites["bg"].color = Color.new(233, 161, 152)
     when 3
-      @sprites["background"].color = Color.new(233, 197, 152)
-      @sprites["gradient"].color = Color.new(255, 177, 37)
+      @sprites["bg"].color = Color.new(233, 197, 152)
     when 4
-      @sprites["background"].color = Color.new(216, 233, 152)
-      @sprites["gradient"].color = Color.new(194, 255, 37)
+      @sprites["bg"].color = Color.new(216, 233, 152)
     when 5
-      @sprites["background"].color = Color.new(175, 233, 152)
-      @sprites["gradient"].color = Color.new(78, 255, 37)
+      @sprites["bg"].color = Color.new(175, 233, 152)
     when 6
-      @sprites["background"].color = Color.new(152, 220, 233)
-      @sprites["gradient"].color = Color.new(37, 212, 255)
+      @sprites["bg"].color = Color.new(152, 220, 233)
     when 7
-      @sprites["background"].color = Color.new(152, 187, 233)
-      @sprites["gradient"].color = Color.new(37, 125, 255)
+      @sprites["bg"].color = Color.new(152, 187, 233)
     when 8
-      @sprites["background"].color = Color.new(178, 152, 233)
-      @sprites["gradient"].color = Color.new(145, 37, 255)
+      @sprites["bg"].color = Color.new(178, 152, 233)
     end
   end
   
@@ -619,6 +614,10 @@ class PokemonBag_Scene
 
   def update
     pbUpdateSpriteHash(@sprites)
+    if @sprites["bg"]
+      @sprites["bg"].ox-= -1
+      @sprites["bg"].oy-= -1
+    end
   end
   
   def pbConfirm(msg)
