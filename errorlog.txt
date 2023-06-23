@@ -1520,3 +1520,224 @@ Backtrace:
 [Bag Screen w/int. Party] Script.rb:493:in `pbStartScene'
 [Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
 [Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+
+=================
+
+[2023-06-20 13:22:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonParty_Scene::Window_FormattedTextPokemon
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:540:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-20 13:42:41 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `setSkin' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:540:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-20 13:51:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:542: syntax error, unexpected `else', expecting ':'
+    else
+    ^~~~
+[BW Party Screen] BW Party Screen.rb:947: syntax error, unexpected `end', expecting end-of-input
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-20 13:53:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:540: syntax error, unexpected ')'
+...ext"] = (@can_access_storage ?) bDrawTextPositions(@sprites[...
+...                              ^
+[BW Party Screen] BW Party Screen.rb:540: syntax error, unexpected ':', expecting ')'
+...or.new(132, 132, 132),true]]) : bDrawTextPositions(@sprites[...
+...                              ^
+[BW Party Screen] BW Party Screen.rb:579: syntax error, unexpected `end', expecting ')'
+  end
+  ^~~
+[BW Party Screen] BW Party Screen.rb:944: syntax error, unexpected `end', expecting ')'
+[BW Party Screen] BW Party Screen.rb:949: class definition in method body
+class PokemonPartyScreen
+^~~~~~~~~~~~~~~~~~~~~~~~
+[BW Party Screen] BW Party Screen.rb:1599: syntax error, unexpected end-of-input, expecting ')'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-20 13:55:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Party Screen]
+Exception: SyntaxError
+Message: [BW Party Screen] BW Party Screen.rb:540: syntax error, unexpected ')'
+...xt"] = ((@can_access_storage ?) bDrawTextPositions(@sprites[...
+...                              ^
+[BW Party Screen] BW Party Screen.rb:540: syntax error, unexpected ':', expecting ')'
+...or.new(132, 132, 132),true]]) : bDrawTextPositions(@sprites[...
+...                              ^
+[BW Party Screen] BW Party Screen.rb:579: syntax error, unexpected `end', expecting ')'
+  end
+  ^~~
+[BW Party Screen] BW Party Screen.rb:944: syntax error, unexpected `end', expecting ')'
+[BW Party Screen] BW Party Screen.rb:949: class definition in method body
+class PokemonPartyScreen
+^~~~~~~~~~~~~~~~~~~~~~~~
+[BW Party Screen] BW Party Screen.rb:1599: syntax error, unexpected end-of-input, expecting ')'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section388:28:in `mainFunctionDebug'
+Section388:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section388:18:in `mainFunction'
+
+=================
+
+[2023-06-20 13:57:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:541:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-20 14:04:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:541:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-20 14:12:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap=' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:539:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-06-20 14:20:24 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[BW Party Screen] BW Party Screen.rb:539:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:570:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'

@@ -174,7 +174,7 @@ class PokemonPartyPanel < Sprite
     TEXT_BASE_COLOR    = Color.new(255, 255, 255)
     TEXT_SHADOW_COLOR  = Color.new(132, 132, 132)
     HP_BAR_WIDTH       = 96
-    STATUS_ICON_WIDTH  = 44
+    STATUS_ICON_WIDTH  = 48
     STATUS_ICON_HEIGHT = 16
 
   def initialize(pokemon, index, viewport = nil)
@@ -517,7 +517,7 @@ class PokemonParty_Scene
     end
   end
 
-  def pbStartScene(party, starthelptext, annotations = nil, multiselect = false, can_access_storage = false)
+  def pbStartScene(party, starthelptext, annotations = nil, multiselect = false,can_access_storage = false)
     @sprites = {}
     @party = party
     @viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
@@ -538,7 +538,7 @@ class PokemonParty_Scene
     @sprites["messagebox"].letterbyletter = true
     pbBottomLeftLines(@sprites["messagebox"], 2)
     @sprites["storagetext"] = Window_UnformattedTextPokemon.new(
-      @can_access_storage ? _INTL("[Special]: To Boxes") : ""
+      @can_access_storage ? _INTL("[Special]: To Boxes",) : ""
     )
     @sprites["storagetext"].x           = 32
     @sprites["storagetext"].y           = Graphics.height - @sprites["messagebox"].height - 16

@@ -7,7 +7,7 @@ class Window_Quest < Window_DrawableCommand
     @quests = []
     super(x,y,width,height,viewport)
     self.windowskin = nil
-    @selarrow = AnimatedBitmap.new("Graphics/Pictures/selarrow")
+    @selarrow = AnimatedBitmap.new("Graphics/Pictures/selarrow_white")
     RPG::Cache.retain("Graphics/Pictures/selarrow")
   end
   
