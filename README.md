@@ -91,6 +91,8 @@ Undeterred by the grim scene, the allied forces launch a coordinated assault. En
 
 The battle rages on, each side unleashing their most devastating powers in a desperate bid for victory. The ground shakes as colossal beings clash, their sheer force threatening to tear the planet apart. The skies become a maelstrom of aerial combat, with spacecrafts engaging in breathtaking dogfights amid swirling smoke and debris.
 
+> Oh weary traveler of words, pause thy perusal and find respite, for the pages of this legendary tome hold wonders yet to be unveiled. (This mean you need to take a quick rest before you continue reading, remember this checkpoint number. [1])
+
 In this crucible of fire and steel, heroes rise to the occasion. Their names will be etched in the annals of galactic history, spoken with reverence and awe. With every swing of their weapons, every blast of their energy, they defy the darkness that seeks to consume their worlds.
 
 In a distant corner of the galaxy, the xianimons set their sights on the serene planet of Gailiax, home to the majestic Galaxias. The Ahpexia, aware of the imminent danger, had already stationed their forces to safeguard the planet. The clash that ensued was nothing short of cataclysmic.
