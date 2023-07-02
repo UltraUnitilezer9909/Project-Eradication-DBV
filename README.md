@@ -1,5 +1,6 @@
 # **Pokémon: Alpha Strike**
 
+
 > ***[Pokémon: Alpha Strike](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) is a recreation of [Pokémon: Crystal Stone](https://github.com/UltraUnitilezer9909/PKMN--CS--ROTFK-discontinued), which was shut down due to poor development.***
 
 * [Pokémon: Alpha Strike](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) utilizes the same system (updated to v20.1) and resources from [Pokémon: Crystal Stone](https://github.com/UltraUnitilezer9909/PKMN--CS--ROTFK-discontinued). It features the same story, gameplay mechanics, and more, with new features and improved accessibility. It was created by [Alpha Zetanium XYZ](https://github.com/UltraUnitilezer9909), the same creator of Pokémon: Crystal Stone. The game is set in deep space and revolves around eight different factions based in various countries, including Japan (future), Japan (modern), the USA, the Philippines, the Netherlands, the UK, New Zealand, and Norway.
