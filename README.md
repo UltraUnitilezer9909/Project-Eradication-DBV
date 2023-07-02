@@ -23,7 +23,7 @@ The investigation team delves deeper into the remnants of SectoBase 360AV's sect
 
 Returning to Earth, the team lands at the headquarters of the SIA, eager to uncover the truth. After thorough analysis of the battery's files, they stumble upon a shocking revelation—the existence of a Xianimon-related project known as "Project Xia." It becomes clear that the workers had not only created a monstrous creature with the potential to threaten entire solar systems but had also weaponized it. Even more unsettling is the claim that the Xianimon possesses the ability to transform other Pokemon into Xianimons.
 
-The government is left dumbfounded by these discoveries, as the true orchestrators behind this sinister operation remain a mystery. It appears that those responsible for Project Xia have already met their demise, leaving a trail of destruction and unanswered questions in their wake. The SIA is now faced with the daunting task of devising a plan to neutralize this intergalactic menace and prevent further chaos from unfolding. The legend of SectoBase 360AV and the Xianimon becomes etched in the annals of sci-fi history, a cautionary tale of scientific ambition gone awry, a testament to the consequences of meddling with forces beyond our comprehension.
+The government is left dumbfounded by these discoveries, as the true orchestrators behind this sinister operation remain a mystery. It appears that those responsible for Project Xia have already met their demise, leaving a trail of destruction and unanswered questions in their wake. The SIA is now faced with the daunting task of devising a plan to neutralize this intergalactic menace and prevent further chaos from unfolding.
 
 As the SIA delves deeper into the files, they uncover more terrifying details about the Xianimon. Not only can these creatures transform other Pokemon into Xianimons, but they possess incredible speed, capable of traveling at 80% the speed of light. Their attacks are devastating, and they exhibit resistance to all known Pokemon types. The SIA realizes they are dealing with a formidable war machine, a force that threatens the very fabric of existence.
 
@@ -37,11 +37,9 @@ Over time, more of Ahrazxia's eggs hatch, and her children, now sentient beings,
 
 The Xianimon revere Ahrazxia as their queen, an embodiment of power and wisdom. Together, they form the faction known as the "Xians." Strengthened by unity, they erect formidable defensive systems around their planet, ensuring their safety and autonomy. As their knowledge expands, they master space travel, constructing their own spacecraft. Technological progress surges at an astonishing pace, with the Xians' creations evolving in complexity and sophistication.
 
-Ahrazxia observes her children's growth with a sense of pride, her mind filled with ambitious plans. She envisions expanding their dominion beyond the confines of Areoz, conquering the universe under her command. The stage is set for an epic clash of civilizations, as the Xians prepare to venture forth into the cosmos, their sights firmly set on dominance and the realization of their legendary destiny.
+Ahrazxia observes her children's growth with a sense of pride, her mind filled with ambitious plans. She envisions expanding their dominion beyond the confines of Areoz, conquering the universe under her command.
 
-Despite her growing power and ambitions, Ahrazxia chooses not to commence her conquest just yet. She revels in the thrill of her newfound dominance and observes as the hunters from the IEN embark on a relentless search for her throughout the vastness of galaxies.
-
-Ahrazxia understands the importance of patience, biding her time as the hunters traverse the cosmos, driven by a fierce determination to locate and neutralize her. With each passing moment, the legend of Ahrazxia spreads across the stars, captivating the imaginations of those who hear her tale. Her presence becomes a whispered rumor, a cautionary tale of a formidable force waiting in the shadows.
+Despite her growing power and ambitions, Ahrazxia chooses not to commence her conquest just yet. She revels in the thrill of her newfound dominance and observes as the hunters from the IEN embark on a relentless search for her throughout the vastness of galaxies. Ahrazxia understands the importance of patience, biding her time as the hunters traverse the cosmos, driven by a fierce determination to locate and neutralize her. 
 
 As the hunters face countless challenges and encounter various cosmic wonders during their quest, they remain vigilant, fueled by the knowledge that their mission holds the fate of the universe in balance. Each celestial body they explore and each encounter they face only serves to heighten the anticipation of the inevitable clash between Ahrazxia and those who seek to halt her reign.
 
@@ -49,7 +47,7 @@ After enduring weeks of grueling search efforts, the hunters find themselves dis
 
 While enjoying a well-deserved lunch break, the scanner unexpectedly detects anomalous readings originating from a galaxy known as Ahzeos. Intrigued by this unforeseen development, the hunters analyze the data further, pinpointing a particular planet named Areoz as the source of the peculiar energy signatures. Realizing the significance of their discovery, they swiftly relay the information to the SIA and IEN headquarters.
 
-The commanding officers at both organizations recognize the urgency of the situation and issue a direct order: investigate the mysterious planet without delay. With renewed purpose, the hunters embark on a mission that will test their mettle and shape the course of the legendary saga unfolding before them.
+The commanding officers at both organizations recognize the urgency of the situation and issue a direct order: investigate the mysterious planet without delay.
 
 Bound by the weight of destiny, the hunters set their course for Areoz, determined to uncover the truth hidden within its enigmatic depths. They brace themselves for the unknown, fully aware that their journey will bring them face to face with the formidable Ahrazxia and her legion of Xians.
 
@@ -59,7 +57,6 @@ With each step closer to their destination, the hunters sense an air of unease e
 The ship's radar blares a warning, signaling the presence of imminent threats closing in on their position. Panic seizes the hunters, their hearts pounding with trepidation. Realizing the gravity of the situation, they hastily relay the distress call to both the SIA and IEN, detailing the relentless assault they face at the hands of unknown entities.
 
 Meanwhile, unbeknownst to the hunters and the incoming danger, Ahrazxia continues to devote her time to nurturing and bonding with her offspring. Oblivious to the encroaching conflict, she relishes the joy of motherhood, unaware that the universe around her teeters on the brink of an epic clash.
-
 
 In a desperate bid for survival, the hunters find themselves locked in a harrowing battle for their lives. With every ounce of strength and determination, they retaliate against their unknown assailants. One among them harnesses a formidable attack, unleashing a torrent of energy upon their adversaries, striking back with unwavering resolve.
 
@@ -177,7 +174,6 @@ The fleets defending the designated landing sites eagerly awaited the arrival of
 
 Much to their satisfaction, the Guardian withstood the onslaught, stubbornly resisting the xianimons' advances. And then, true to the legends of old, the Guardian unleashed its true power. Opening a portal to a dimension untouched by the xianimons, it beckoned forth the aid of Latricia, a faction renowned for their spiritual-based technologies. Joy surged through the ranks of the allied factions, their spirits rekindled by this newfound reinforcement. They knew that their cause was not lost, that hope still flickered in the face of adversity.
 
-
 As the factions of Earth fought valiantly against the xianimons, Ahrazxia, the powerful matriarch of the invaders, observed their resistance with a mix of surprise and disdain. Confident in the strength of her offspring, she dismissed the initial setbacks, believing her children would ultimately overpower their adversaries.
 
 Back on Earth, the tide was turning. The combined might of the eight factions gradually diminished the xianimon forces, eroding their dominance. Yet, a formidable challenge remained—the towering giantic xianimons, their sheer size and power a formidable obstacle. The war beacon they guarded continued to spew forth endless waves of xianimons, posing a persistent threat.
@@ -236,8 +232,6 @@ As the Actilance ventured eastward, their friendly xianimon companion directed t
 
 Meanwhile, the other team successfully restored power to the fortress and activated its defenses once again. However, unbeknownst to them, the broken turret near the first team unexpectedly powered on and began attacking the xianimons in its vicinity. This sudden display of aggression drew the attention of the nearby xianimons, who swiftly turned their focus towards the first team, now accompanied by their xianimon friend.
 
-Alarmed and under attack, the Actilance teams found themselves facing an intensified battle as the legendary tale of their encounter with the xianimon and the war beacon unfolded. The clash between the courageous Actilance and the relentless xianimon forces became the stuff of sci-fi legend, forever etched in the annals of intergalactic lore.
-
 United as one, the Actilance teams fought valiantly against the hordes of xianimons guarding the war beacon. With their weapons falling to pieces against the formidable foes, they called for reinforcements. The Dragance responded swiftly, deploying more Actilance soldiers through the portal along with a mobile eradicator mounted on a formidable metal Avalugg, increasing their firepower and maneuverability.
 
 The earlier team, accompanied by their friendly xianimon, held their ground while awaiting support. The reinforcements arrived just in time, launching a daring aerial assault on the giant xianimon that guarded the war beacon. Though the aircraft was brought down, all the soldiers emerged unharmed. Simultaneously, the other team engaged the large xianimon with the mobile eradicator, but the thick weather provided the creature with an advantage, hiding it from sight and making it difficult to target.
@@ -246,7 +240,9 @@ Fortunately, the friendly xianimon once again proved invaluable, pointing out th
 
 Back on Earth, Ahrazxia watched in fury as her third war beacon was dismantled. Enraged, she shattered the large television screen displaying the defeat, vowing to reclaim each territory and make the entire universe bow to her command. Meanwhile, the team from Icia, accompanied by their loyal xianimon friend, safely returned home. The Actilance expressed their heartfelt gratitude to the Dragance for liberating their beloved planet.
 
-With Icia now secure, the Dragance turned their attention to the next mission: retaking the planet Vial, which had fallen into the hands of the xians, originally belonging to the Creselians. The legends of the Actilance's heroic exploits and their ongoing battle against the xianimon horde spread far and wide, inspiring hope and resistance against Ahrazxia's tyrannical reign.
+With Icia now secure, the Dragance turned their attention to the next mission: retaking the planet Vial, which had fallen into the hands of the xians, originally belonging to the Creselians. 
+
+> (want more? then stay tuned for the next story update.)
 
 
 # **Features** <!--DONT EDIT THIS CHATGPT-->
