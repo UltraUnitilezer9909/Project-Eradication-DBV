@@ -49,9 +49,6 @@ While enjoying a well-deserved lunch break, the scanner unexpectedly detects ano
 
 The commanding officers at both organizations recognize the urgency of the situation and issue a direct order: investigate the mysterious planet without delay.
 
-Bound by the weight of destiny, the hunters set their course for Areoz, determined to uncover the truth hidden within its enigmatic depths. They brace themselves for the unknown, fully aware that their journey will bring them face to face with the formidable Ahrazxia and her legion of Xians.
-
-
 With each step closer to their destination, the hunters sense an air of unease enveloping the planet. Their keen eyes discern a peculiar sight—a mysterious space station orbiting Areoz. Strangely, it bears no recognizable insignia of the SIA or IEN but instead features inscriptions in an unfamiliar, cryptic language. A foreboding silence blankets the hunters' ship as its sensors pick up an unusual energy signature emanating from the station, locking onto their vessel like a malevolent gaze.
 
 The ship's radar blares a warning, signaling the presence of imminent threats closing in on their position. Panic seizes the hunters, their hearts pounding with trepidation. Realizing the gravity of the situation, they hastily relay the distress call to both the SIA and IEN, detailing the relentless assault they face at the hands of unknown entities.
@@ -166,6 +163,8 @@ Amidst the chaotic battle, their united forces tirelessly fought, pushing back t
 
 However, the Aphexia faction, driven by their unwavering confidence, sought to make their task seem effortless. They retraced their steps to the place where it all began, SectoBase 360AV. Once there, they meticulously scanned the area, hoping to retrieve any remaining data. Their efforts proved fruitful as they discovered a mysterious blueprint—an enigmatic design devoid of description or name. Recognizing its potential, they set it aside, reserving it for future use.
 
+> Hark, oh avid reader! Let fatigue relinquish its grip upon thee, and allow thy weary eyes a momentary reprieve. Fear not, for the realm of knowledge within this mythical book awaits thy return. (This mean you need to take a quick rest before you continue reading, remember this checkpoint number. [2])
+
 Meanwhile, the xianimons on Earth continued to grow in strength, overpowering a fleet that had rushed to recover their belongings. Concerned and curious, the factions turned their attention to the enigmatic blueprint. Through careful analysis, they unraveled its secrets. It was a device from Project Xia, specifically designed to counter xianimons in dire circumstances. Realizing that their current situation demanded such measures, they swiftly constructed the device under the guidance of the Elite—the chosen one entrusted with the task of halting the invasion.
 
 United by their common goal of reclaiming their homelands, the factions unleashed their full force against the xianimons. Each faction utilized their unique specialties and expertise to combat the invaders. Determined not to be outdone, they constructed their own war beacons, christened "the Guardians," as a symbol of their resolve to retake what was rightfully theirs.
@@ -241,6 +240,44 @@ Fortunately, the friendly xianimon once again proved invaluable, pointing out th
 Back on Earth, Ahrazxia watched in fury as her third war beacon was dismantled. Enraged, she shattered the large television screen displaying the defeat, vowing to reclaim each territory and make the entire universe bow to her command. Meanwhile, the team from Icia, accompanied by their loyal xianimon friend, safely returned home. The Actilance expressed their heartfelt gratitude to the Dragance for liberating their beloved planet.
 
 With Icia now secure, the Dragance turned their attention to the next mission: retaking the planet Vial, which had fallen into the hands of the xians, originally belonging to the Creselians. 
+
+Before launching their mission to retake the land of Creselians, the Dragance turned their attention to the enigmatic friendly xianimon. This dragon-like creature stood at an impressive height of 7.83 feet and possessed incredible power. With caution, the Dragance brought her to their lab for further study, surrounded by armed pokemons ready to intervene if needed.
+
+> Gather thy strength, noble reader, and grant thyself a respite from the arduous task of unraveling the secrets concealed within these sacred pages. Then, with renewed vigor, resume thy quest for enlightenment. (This mean you need to take a quick rest before you continue reading, remember this checkpoint number. [3])
+
+Meanwhile, back on Earth, the Dragance dedicated their time to recharge and repair their ships while constructing a new fourth guardian for the upcoming mission. However, they soon discovered that the target planet, Vial, was a dense forest world, with trees towering up to 450 feet. The grass was unusually tall, and even the caves were overgrown. The dense forest posed a unique challenge: it emitted a healing aura, rapidly rejuvenating everyone, including the xianimons. This healing effect not only benefited their forces but also made the enemy xianimons more resilient, as the aura repaired any damage sustained. Additionally, the forest's density rendered GPS satellites useless, forcing the Dragance to rely on blind navigation once again, just as they had done on Icia.
+
+Despite the difficulties posed by Vial's environment, the Dragance completed their fleet's preparations, including the construction of the fourth guardian. With their trusters charged, weapons heated, sensors widened, and hyperspace engines roaring, the fleet embarked on a week-long hyperspace travel to reach Vial. As they approached the planet, the towering trees became visible from space, a testament to the planet's remarkable size.
+
+Following their established protocol, the Dragance deployed a ship to land on Vial's surface. The troops found themselves surrounded by giant trees and long, tall grass, with their initial landing in a swampy area, hindering their progress. The team discovered a dilapidated and burned treehouse, remnants of the xians' destructive presence. With caution, they scouted the area, finding no immediate sign of xianimons. However, they faced a pressing issue: the vastness of the forest made it challenging to locate a suitable landing site for the guardian.
+
+Reporting the problem to the Dragance, they received a response and the necessary tools to cut through the dense forest. A second team was deployed to aid in this endeavor, eventually reuniting with the initial team. Together, they began the arduous task of cutting down trees. The sound of woodcutters echoed ceaselessly through the infinite expanse of the forest, heard by the xianimons but disregarded.
+
+After hours that felt like an eternity, a significant clearing was made, providing enough space for the guardian to land. The Dragance deployed the guardian towards the team's location. Simultaneously, at the xianimons' war beacon, one of them unleashed a terrifying scream, causing alarm among the troops on the ground. The scream held a strange and eerie quality that struck fear into their hearts.
+
+As the guardian made its descent into Vial's atmosphere, the xianimons near the war beacon spotted it and raised the alarm. The guardian landed safely, opening its portal as usual. The troops from the portal emerged, only to be met with a wave of xianimon assailants. The towering trees obstructed their view, and the xianimons, utilizing the strong, thick vines like agile monkeys, proved difficult to hit. The xianimons deployed a spider-like vehicle that took advantage of the forest's cover, firing upon the guardian and inflicting damage. Despite their best efforts, the team fell victim to an electrification trap set by the xianimons, rendering them unconscious.
+
+Realizing the urgency, the Dragance sent new troops through the portal to defend the guardian. Shots rang out, and a fierce battle ensued. The xianimons eventually retreated, leaving a few injured members among the Dragance troops. After days of traversing the dense forest, the team settled on the nearest mountain, a landmark towering above the dense foliage. Taking a brief respite, they allowed the forest's aura to gradually heal their wounds, regaining their strength.
+
+With their energies replenished, the team resumed their journey under the cover of darkness, hoping to spot the war beacon's glow amidst the thick forest. After traveling for some time, they finally caught sight of the beacon, surrounded by hordes of xianimons, including the towering giants that guarded it. Calculations were made, and the Dragance called for reinforcements, but their conversation alerted the xianimons, leading to an immediate confrontation.
+
+In the chaos of battle, the reinforcements arrived, supporting the team from behind. The xianimons fought fiercely, but the combined forces of the Dragance and the reinforcements prevailed. Only a few injured xianimons managed to retreat, leaving the large guardian still intact. Employing explosives and strategic tree felling, the team immobilized the giant creature, ultimately defeating it. With the war beacon destroyed, the mission on Vial was successfully accomplished.
+
+The Dragance celebrated the victory while the grateful Creselians expressed their heartfelt gratitude for the return of their homeland. Meanwhile, on the planet Areoz, Ahrazxia seethed in anger, demanding updates on the realm-based technologies. Frustrated by the progress, she mistakenly dismissed one of her xianimon attendants from her room.
+
+With Vial now reclaimed by the Creselians, the Dragance turned their attention to their next mission: retaking the planet Vulcyan from the xianimons and restoring it to the Vurolins.
+
+Meanwhile, deep within Aphexia's laboratory, the brilliant Pokemon scientists had achieved a groundbreaking feat: the invention of a translator specifically designed for the friendly xianimons. After carefully setting up the device, they placed it around the neck of their xianimon companion and activated it, eagerly awaiting the first comprehensible words from her.
+
+Time seemed to stand still as everyone held their breath. the female xianimon joyfully exclaimed "hi" in a language that all could understand. The atmosphere in the laboratory became electric with excitement, but the scientists quickly composed themselves and resumed their tasks. They began asking basic questions, yet the translator failed to convert their words into the xianimon's language, leaving her perplexed.
+
+Just as the scientists were about to deem the experiment a partial success, the female xianimon started exploring the lab, expressing her preference for water. To everyone's astonishment, she vocalized her desire and proceeded to drink water. The Pokemon scientists were astounded by this breakthrough and immediately delved into intensive research to unravel the intricacies of the xianimon language.
+
+After three arduous days of studying and analyzing, the researchers finally made a breakthrough. It was as if time itself had stretched into eternity during their relentless pursuit of understanding. They decided to test the translator once more, and this time, it flawlessly translated the thoughts and words of the xianimon. Two days later, she introduced herself as Kynia and became an invaluable member of Aphexia's team.
+
+News of this remarkable technology spread to the Dragance, captivating their interest. They were fascinated by the translator's potential and decided to equip their fleet, the very one they intended to deploy in their mission to reclaim Vulcyan, with this groundbreaking invention. Meanwhile, on the planet Areoz, more ships docked and stood ready for deployment. The xianimon war beacon there had grown stronger and larger, a formidable force in its own right.
+
+Simultaneously, the realm-based technology Ahrazxia had been eagerly anticipating was finally completed. Filled with unwavering confidence, she commanded her forces to prepare for the imminent conflict. Ahrazxia had devised a plan: if the two remaining war beacons fell, she would unleash a surprise counterattack, leveraging the power of the newly developed realm-based technology.
 
 > (want more? then stay tuned for the next story update.)
 
