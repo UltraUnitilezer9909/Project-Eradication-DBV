@@ -5,7 +5,7 @@
 
 * [Pokémon: Eradication](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) utilizes the same system (updated to v20.1) and resources from [Pokémon: Crystal Stone](https://github.com/UltraUnitilezer9909/PKMN--CS--ROTFK-discontinued). It features the same story, gameplay mechanics, and more, with new features and improved accessibility. It was created by [Alpha Zetanium XYZ](https://github.com/UltraUnitilezer9909), the same creator of Pokémon: Crystal Stone. The game is set in deep space and revolves around eight different factions based in various countries, including Japan (future), Japan (modern), the USA, the Philippines, the Netherlands, the UK, New Zealand, and Norway.
 
-# **Story**
+# **Story (Narrator version)**
 
 In the vast depths of space lies the legendary space station known as "SectoBase 360AV." This station, created by Pokemon scientists, stands as the pinnacle of technological advancement. However, a dark secret hides within its core—a secretive laboratory accessible only to the most brilliant minds. Here, the scientists are developing an artificial Pokemon called the "Xianimon," intended to be a weapon of control and corruption over planet Earth.
 
