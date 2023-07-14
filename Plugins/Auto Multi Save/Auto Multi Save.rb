@@ -53,7 +53,13 @@ module SaveData
   # They change the actual save file names though, so it would take some extra work to use the translation system on them.
   AUTO_SLOTS = [
     'Auto 1',
-    'Auto 2'
+    'Auto 2',
+    'Auto 3',
+    'Auto 4',
+    'Auto 5',
+    'Auto 6',
+    'Auto 7',
+    'Auto 8'
   ]
   MANUAL_SLOTS = [
     'File A',
