@@ -55,6 +55,7 @@ class VoltseonsPauseMenu_Scene
     else
       filename = MENU_FILE_PATH + "Backgrounds/arrow_left_#{DEFAULT_MENU_THEME}"
     end
+    @scene = SummaryScreen.new(10, 180) #==================
     @sprites["leftarrow"] = AnimatedSprite.new(filename,8,40,28,2,@viewport)
     @sprites["leftarrow"].x       = Graphics.width/2 - @sprites["leftarrow"].bitmap.width - ($game_temp.menu_icon_width/4 * 3)
     @sprites["leftarrow"].y       = Graphics.height - 56
@@ -269,6 +270,7 @@ class VoltseonsPauseMenu_Scene
       component.dispose
     end
     pbDisposeSpriteHash(@sprites)
+    @scene.dispose  #=======================================
     @viewport.dispose
   end
 end

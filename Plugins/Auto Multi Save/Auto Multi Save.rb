@@ -278,7 +278,7 @@ class PokemonLoadScreen
       end
       commands = []
       cmd_continue     = -1
-      cmd_new_game     = -1
+      cmd_new_game     = -100
       cmd_options      = -1
       cmd_language     = -1
       cmd_mystery_gift = -1
@@ -286,18 +286,18 @@ class PokemonLoadScreen
       cmd_quit         = -1
       show_continue = !@save_data.empty?
       if show_continue
-        commands[cmd_continue = commands.length] = " <- #{@selected_file} -> "
+        commands[cmd_continue = commands.length] = " <= #{@selected_file} => "
         if @save_data[:player].mystery_gift_unlocked
           commands[cmd_mystery_gift = commands.length] = _INTL('Mystery Gift') # Honestly I have no idea how to make Mystery Gift work well with this.
         end
       end
-      commands[cmd_new_game = commands.length]  = _INTL('New Game')
-      commands[cmd_options = commands.length]   = _INTL('Options')
-      commands[cmd_language = commands.length]  = _INTL('Language') if Settings::LANGUAGES.length >= 2
-      commands[cmd_debug = commands.length]     = _INTL('Debug') if $DEBUG
-      commands[cmd_quit = commands.length]      = _INTL('Quit Game')
-      cmd_left = -3
-      cmd_right = -2
+      commands[cmd_new_game = commands.length]  = _INTL("New Game")
+      commands[cmd_options = commands.length]   = _INTL("Options")
+      commands[cmd_language = commands.length]  = _INTL("Language") if Settings::LANGUAGES.length >= 2
+      commands[cmd_debug = commands.length]     = _INTL("Debug") if $DEBUG
+      commands[cmd_quit = commands.length]      = _INTL("Quit Game")
+      cmd_left = -3 #3
+      cmd_right = -2 #2
 
       map_id = show_continue ? @save_data[:map_factory].map.map_id : 0
       @scene.pbStartScene(commands, show_continue, @save_data[:player],

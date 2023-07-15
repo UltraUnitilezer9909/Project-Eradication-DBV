@@ -1741,3 +1741,24 @@ MessageConfig:570:in `pbFadeOutIn'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `loop'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:215:in `update'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:307:in `pbStartPokemonMenu'
+
+=================
+
+[2023-07-14 21:03:50 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant VoltseonsPauseMenu_Scene::SummaryScreen
+
+Backtrace:
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:58:in `initialize'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:288:in `new'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:288:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+[Updated Quicksave] Quicksave.rb:38:in `update'
+[Following Pokemon EX] Refresh.rb:165:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
