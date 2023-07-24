@@ -1762,3 +1762,108 @@ Unreal Time System:256:in `update'
 [Following Pokemon EX] Refresh.rb:165:in `update'
 [v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
 [v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+
+=================
+
+[2023-07-20 20:53:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: undefined class/module ControlConfig
+
+Backtrace:
+<internal:marshal>:34:in `load'
+SaveData:28:in `load'
+SaveData:28:in `block in get_data_from_file'
+SaveData:27:in `open'
+SaveData:27:in `get_data_from_file'
+SaveData:45:in `read_from_file'
+[Auto Multi Save] Auto Multi Save.rb:125:in `block in get_newest_save_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `block in each_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each_slot'
+
+=================
+
+[2023-07-20 20:56:38 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: undefined class/module ControlConfig
+
+Backtrace:
+<internal:marshal>:34:in `load'
+SaveData:28:in `load'
+SaveData:28:in `block in get_data_from_file'
+SaveData:27:in `open'
+SaveData:27:in `get_data_from_file'
+SaveData:45:in `read_from_file'
+[Auto Multi Save] Auto Multi Save.rb:125:in `block in get_newest_save_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `block in each_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each_slot'
+
+=================
+
+[2023-07-20 20:59:02 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: undefined class/module ControlConfig
+
+Backtrace:
+<internal:marshal>:34:in `load'
+SaveData:28:in `load'
+SaveData:28:in `block in get_data_from_file'
+SaveData:27:in `open'
+SaveData:27:in `get_data_from_file'
+SaveData:45:in `read_from_file'
+[Auto Multi Save] Auto Multi Save.rb:125:in `block in get_newest_save_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `block in each_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each_slot'
+
+=================
+
+[2023-07-20 21:00:19 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: undefined class/module ControlConfig
+
+Backtrace:
+<internal:marshal>:34:in `load'
+SaveData:28:in `load'
+SaveData:28:in `block in get_data_from_file'
+SaveData:27:in `open'
+SaveData:27:in `get_data_from_file'
+SaveData:45:in `read_from_file'
+[Auto Multi Save] Auto Multi Save.rb:125:in `block in get_newest_save_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `block in each_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each_slot'
+
+=================
+
+[2023-07-20 21:38:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant Input::V
+
+Backtrace:
+Quicksave by Marin, updated by CrystalSt:39:in `update'
+[Following Pokemon EX] Refresh.rb:165:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'

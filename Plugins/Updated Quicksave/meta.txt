@@ -1,5 +1,0 @@
-Name         = Updated Quicksave
-Essentials   = 20.1,21
-Version      = 1.0
-Website      = https://reliccastle.com/resources/1091/
-Credits      = Marin, CrystalStar
