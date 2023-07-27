@@ -68,8 +68,8 @@ module Settings
   #-----------------------------------------------------------------------------
   # Keys used to toggle the display of in-battle UI windows.
   #-----------------------------------------------------------------------------
-  MOVE_INFO_KEY   = :N
-  BATTLE_INFO_KEY = :M
+  MOVE_INFO_KEY   = :M
+  BATTLE_INFO_KEY = :N
   
   #-----------------------------------------------------------------------------
   # Type Displays (Battle UI)

@@ -1867,3 +1867,45 @@ Main:18:in `block in mainFunction'
 Errors:80:in `pbCriticalCode'
 Main:18:in `mainFunction'
 Main:45:in `block in <main>'
+
+=================
+
+[2023-07-27 16:19:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: EOFError
+Message: end of file reached
+
+Backtrace:
+<internal:marshal>:34:in `load'
+SaveData:28:in `load'
+SaveData:28:in `block in get_data_from_file'
+SaveData:27:in `open'
+SaveData:27:in `get_data_from_file'
+SaveData:45:in `read_from_file'
+[Auto Multi Save] Auto Multi Save.rb:125:in `block in get_newest_save_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `block in each_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each_slot'
+
+=================
+
+[2023-07-27 16:20:32 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: EOFError
+Message: end of file reached
+
+Backtrace:
+<internal:marshal>:34:in `load'
+SaveData:28:in `load'
+SaveData:28:in `block in get_data_from_file'
+SaveData:27:in `open'
+SaveData:27:in `get_data_from_file'
+SaveData:45:in `read_from_file'
+[Auto Multi Save] Auto Multi Save.rb:125:in `block in get_newest_save_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `block in each_slot'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each'
+[Auto Multi Save] Auto Multi Save.rb:85:in `each_slot'
