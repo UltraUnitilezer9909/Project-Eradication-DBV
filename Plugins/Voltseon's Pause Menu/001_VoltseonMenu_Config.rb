@@ -44,7 +44,7 @@ CHANGE_THEME_IN_OPTIONS = false
 # Look and Feel
 #-------------------------------------------------------------------------------
 # Background options
-BACKGROUND_TINT = Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) applied to the background/map.
+BACKGROUND_TINT = Color.new(-5,-5,-5, 0) #Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) applied to the background/map.
 
 SHOW_MENU_NAMES = true # Whether or not the Menu option Names show on screen (true = show names)
 
@@ -93,6 +93,6 @@ LOCATION_TEXTOUTLINE = [
           ]
 
 # Sound Options
-MENU_OPEN_SOUND   = "GUI menu open"
-MENU_CLOSE_SOUND  = "GUI menu close"
+MENU_OPEN_SOUND   = "Z - Access Non PC"
+MENU_CLOSE_SOUND  = "Z - Access Quit PC"
 MENU_CURSOR_SOUND = "GUI sel cursor"

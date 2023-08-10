@@ -402,12 +402,12 @@ VictoryBGM = Battle victory leader
 #-------------------------------
 #ALPHA STRIKE
 #-------------------------------
-[Z-PLAYER_Eevee1]
+[Z-PLAYER_Eevee_male]
 Name = Pokéxplorer
 Gender = Male
 BaseMoney = 60
 #-------------------------------
-[Z-PLAYER_Eevee2]
+[Z-PLAYER_Eevee_female]
 Name = Pokéxplorer
 Gender = Female
 BaseMoney = 60

@@ -12,20 +12,20 @@ TrainerVictoryBGM = Battle victory trainer
 SurfBGM = Surfing
 BicycleBGM = Bicycle
 #-------------------------------
-#Male
+#Male Vee
 [1] 
-TrainerType = Z-PLAYER_Eevee1
-WalkCharset = Z-PLAYER_Eevee
-RunCharset = Z-PLAYER_Eevee_Run
-CycleCharset = Z-PLAYER_Eevee_Hover
-SurfCharset = Z-PLAYER_Eevee
-FishCharset = Z-PLAYER_Eevee
+TrainerType = Z-PLAYER_Eevee_male
+WalkCharset = Z-PLAYER_Eevee_Walk_male
+RunCharset = Z-PLAYER_Eevee_Run_male
+CycleCharset = Z-PLAYER_Eevee_Hover_male
+SurfCharset = Z-PLAYER_Eevee_Walk_male
+FishCharset = Z-PLAYER_Eevee_Walk_male
 #-------------------------------
-#Female
+#Female Vee
 [2] 
-TrainerType = Z-PLAYER_Eevee2
-WalkCharset = Z-PLAYER_Eevee
-RunCharset = Z-PLAYER_Eevee_Run
-CycleCharset = Z-PLAYER_Eevee_Hover
-SurfCharset = Z-PLAYER_Eevee
-FishCharset = Z-PLAYER_Eevee
+TrainerType = Z-PLAYER_Eevee_female
+WalkCharset = Z-PLAYER_Eevee_Walk_female
+RunCharset = Z-PLAYER_Eevee_Run_female
+CycleCharset = Z-PLAYER_Eevee_Hover_female
+SurfCharset = Z-PLAYER_Eevee_Walk_female
+FishCharset = Z-PLAYER_Eevee_Walk_female
