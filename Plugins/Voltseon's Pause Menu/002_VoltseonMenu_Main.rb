@@ -81,8 +81,6 @@ class VoltseonsPauseMenu_Scene
   end
 
   def pbStartScene
-    $player.outfit = 1 #here
-    $game_switches[74] = true
     @viewport.z = 99999
     @components = []
     @componentNames = []
@@ -104,8 +102,6 @@ class VoltseonsPauseMenu_Scene
   end
 
   def pbHideMenu
-    $player.outfit = 0 #here
-    $game_switches[74] = false
     duration = Graphics.frame_rate/6
     duration.times do
       @sprites.each do |key,sprite|
@@ -136,8 +132,6 @@ class VoltseonsPauseMenu_Scene
   end
 
   def pbShowMenu
-    $player.outfit = 1 #here
-    $game_switches[74] = true
     xvals = {}
     yvals = {}
     if !@hidden

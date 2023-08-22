@@ -1,4 +1,0 @@
-Name       = Persistent Switches and Variables
-Version    = 1.0
-Essentials = 20.1
-Credits    = wrigty12
