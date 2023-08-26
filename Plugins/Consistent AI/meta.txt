@@ -1,9 +1,0 @@
-Name         = Consistent AI
-Version      = 1.0.1
-Essentials   = 20.1
-Requires     = v20.1 Hotfixes,1.0.7
-Optional     = Improved AI,1.0
-Credits      = DemICE
-#
-#v1.0.1
-#-Fixed an error when the AI tried to switch while having only 1 pokemon alive.

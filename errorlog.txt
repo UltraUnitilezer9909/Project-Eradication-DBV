@@ -192,3 +192,206 @@ Message: (eval):1: syntax error, unexpected ',', expecting ')'
 
 ***Full script:
 advanceQuestToStage(:Quest1, 7,, true)
+
+=================
+
+[2023-08-24 18:23:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 170 (coords 86,34), map 48 (Capital SectoBase 369001AV)
+Exception: SyntaxError
+Message: (eval):1: syntax error, unexpected ',', expecting ')'
+(2,0.45,zoom="in")
+  ^
+
+***Line '(2,0.45,zoom="in")' shouldn't begin with '('. Try putting the '('
+at the end of the previous line instead, or using 'extendtext.exe'.
+
+***Full script:
+(2,0.45,zoom="in")
+
+=================
+
+[2023-08-24 18:27:25 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 170 (coords 86,34), map 48 (Capital SectoBase 369001AV)
+Exception: SyntaxError
+Message: (eval):2: syntax error, unexpected ',', expecting ')'
+(2,0.45,zoom="in")
+  ^
+
+***Line '(2,0.45,zoom="in")' shouldn't begin with '('. Try putting the '('
+at the end of the previous line instead, or using 'extendtext.exe'.
+
+***Full script:
+#(2,0.45,zoom="in")
+(2,0.45,zoom="in")
+
+=================
+
+[2023-08-24 18:31:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 170 (coords 86,34), map 48 (Capital SectoBase 369001AV)
+Exception: SyntaxError
+Message: (eval):2: syntax error, unexpected ',', expecting ')'
+(2,0.45,zoom="in")
+  ^
+
+***Line '(2,0.45,zoom="in")' shouldn't begin with '('. Try putting the '('
+at the end of the previous line instead, or using 'extendtext.exe'.
+
+***Full script:
+#(2,0.45,zoom="in")
+(2,0.45,zoom="in")
+
+=================
+
+[2023-08-24 18:59:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `zoom' for #<Sprite>
+
+Backtrace:
+Cam Zoom - TechSkyLander:45:in `update'
+Cam Zoom - TechSkyLander:93:in `block in <main>'
+Event_Handlers:89:in `block in trigger'
+Event_Handlers:89:in `each_value'
+Event_Handlers:89:in `trigger'
+Event_HandlerCollections:63:in `trigger'
+Scene_Map:155:in `updateSpritesets'
+Scene_Map:169:in `update'
+Unreal Time System:256:in `update'
+Quicksave - Marin, CrystalSt:41:in `update'
+
+=================
+
+[2023-08-25 12:50:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: min argument must be smaller than max argument
+
+Backtrace:
+Battle_ExpAndMoveLearning:85:in `clamp'
+Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
+Stat:25:in `block in each_main'
+GameData:117:in `block in each'
+GameData:117:in `each_value'
+GameData:117:in `each'
+Stat:25:in `each_main'
+Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
+Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
+Battle:411:in `block in eachInTeam'
+
+=================
+
+[2023-08-25 12:53:12 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: min argument must be smaller than max argument
+
+Backtrace:
+Battle_ExpAndMoveLearning:85:in `clamp'
+Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
+Stat:25:in `block in each_main'
+GameData:117:in `block in each'
+GameData:117:in `each_value'
+GameData:117:in `each'
+Stat:25:in `each_main'
+Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
+Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
+Battle:411:in `block in eachInTeam'
+
+=================
+
+[2023-08-25 12:53:18 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: min argument must be smaller than max argument
+
+Backtrace:
+Battle_ExpAndMoveLearning:85:in `clamp'
+Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
+Stat:25:in `block in each_main'
+GameData:117:in `block in each'
+GameData:117:in `each_value'
+GameData:117:in `each'
+Stat:25:in `each_main'
+Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
+Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
+Battle:411:in `block in eachInTeam'
+
+=================
+
+[2023-08-25 12:53:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: min argument must be smaller than max argument
+
+Backtrace:
+Battle_ExpAndMoveLearning:85:in `clamp'
+Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
+Stat:25:in `block in each_main'
+GameData:117:in `block in each'
+GameData:117:in `each_value'
+GameData:117:in `each'
+Stat:25:in `each_main'
+Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
+Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
+Battle:411:in `block in eachInTeam'
+
+=================
+
+[2023-08-25 12:53:25 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: min argument must be smaller than max argument
+
+Backtrace:
+Battle_ExpAndMoveLearning:85:in `clamp'
+Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
+Stat:25:in `block in each_main'
+GameData:117:in `block in each'
+GameData:117:in `each_value'
+GameData:117:in `each'
+Stat:25:in `each_main'
+Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
+Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
+Battle:411:in `block in eachInTeam'
+
+=================
+
+[2023-08-25 12:53:33 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: min argument must be smaller than max argument
+
+Backtrace:
+Battle_ExpAndMoveLearning:85:in `clamp'
+Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
+Stat:25:in `block in each_main'
+GameData:117:in `block in each'
+GameData:117:in `each_value'
+GameData:117:in `each'
+Stat:25:in `each_main'
+Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
+Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
+Battle:411:in `block in eachInTeam'

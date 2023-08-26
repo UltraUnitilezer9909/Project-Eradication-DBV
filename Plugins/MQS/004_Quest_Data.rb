@@ -8,8 +8,8 @@ module QuestModule
   
   Quest1 = {
     :ID        => "1",
-    :Stage1    => "Bring Dad's Tablet to Dad!",
-    :Location1 => "Go to dad's lab!",
+    :Stage1    => "Go to  Dad's Lab!",
+    :Location1 => "Dad's lab, bruh",
     :Stage2    => "Get Dad's Tablet his room!",
     :Location2 => "Somewhere in your dad's room",
     :Stage3    => "Bring Tabdab to dad!",
@@ -26,8 +26,8 @@ module QuestModule
     :Location8 => "How do I know?",
     :Stage9    => "Bring Crizhia's case to her room",
     :Location9 => "Sheesh...",
-    :Name      => "<c3=940fff,6300b4>Chapter 1: Our galactic home",
-    :QuestDescription => "Living in an empty space with my family! Definitely the best thing that happend to my life! I hope the oxygen here wont ran out...",
+    :Name      => "<c3=940fff,6300b4>Chapter 1: New Start",
+    :QuestDescription => "Living in an vast space with my family! Definitely the best thing that happend to my life! I hope the oxygen here won't ran out...",
     :QuestGiver => "Alpha Zetanium XYZ: The Dev",
     :RewardString => "Chapter 2!"
   }
