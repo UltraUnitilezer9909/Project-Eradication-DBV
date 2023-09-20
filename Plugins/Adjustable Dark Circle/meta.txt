@@ -1,0 +1,10 @@
+Name         = Adjustable Dark Circle
+Version      = 1
+Essentials   = 20.1
+Credits      = Mej71
+#=============================================================
+# This script was ported to Essentials v20.1 by Derxwna
+# Kapsyla, and turned into a plugin. Credit for the script 
+# goes to Mej71 for making it initially. I, Derxwna, do not
+# need credit for what amounted to like, 10 minutes of work.
+#=============================================================

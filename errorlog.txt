@@ -1,18 +1,377 @@
-
-=================
-
-[2023-08-10 14:25:38 +0800]
+[2023-09-09 13:56:55 +0800]
 [Pokémon Essentials version 20.1]
 [v20.1 Hotfixes 1.0.7]
 
-Error in Plugin: [Voltseon's Pause Menu]
+Exception: ArgumentError
+Message: comparison of Integer with nil failed
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:550:in `set_up_system'
+Main:31:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'
+Main:44:in `<main>'
+-e:in `eval'
+
+=================
+
+[2023-09-09 21:36:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 161 (coords 66,35), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `params' for #<FakeMapNameWindow>
+
+***Full script:
+$scene.spriteset.addUserSprite(FakeMapNameWindow.new("Landing Lobby A1"))
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 002 - Zeta's Fake Map Name (overworld).rb:14:in `create_window'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 002 - Zeta's Fake Map Name (overworld).rb:10:in `initialize'
+(eval):1:in `new'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+
+=================
+
+[2023-09-09 21:54:04 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 161 (coords 66,35), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `window' for #<FakeMapNameWindow>
+
+***Full script:
+$scene.spriteset.addUserSprite(FakeMapNameWindow.new("Landing Lobby A1"))
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 002 - Zeta's Fake Map Name (overworld).rb:9:in `initialize'
+(eval):1:in `new'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+
+=================
+
+[2023-09-10 17:03:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: comparison of Integer with nil failed
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:550:in `set_up_system'
+Main:31:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'
+Main:44:in `<main>'
+-e:in `eval'
+
+=================
+
+[2023-09-11 22:22:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Survival Mode]
+Exception: NameError
+Message: undefined local variable or method `truex' for SurvivalModeConfig:Module
+
+Backtrace:
+[Survival Mode] 001 Survival Settings.rb:10:in `<module:SurvivalModeConfig>'
+[Survival Mode] 001 Survival Settings.rb:1:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-09-11 22:25:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RuntimeError
+Message: Undefined value Skycrest in GameData::EggGroup
+File PBS/pokemon.txt, section ARTICUNO, key EggGroups
+Skycrest
+
+
+
+Backtrace:
+Compiler:345:in `checkEnumField'
+Compiler:320:in `csvEnumField!'
+Compiler:523:in `block (2 levels) in pbGetCsvRecord'
+Compiler:415:in `each'
+Compiler:415:in `block in pbGetCsvRecord'
+Compiler:413:in `loop'
+Compiler:413:in `pbGetCsvRecord'
+Compiler_CompilePBS:633:in `block (3 levels) in compile_pokemon'
+Compiler_CompilePBS:626:in `each_key'
+Compiler_CompilePBS:626:in `block (2 levels) in compile_pokemon'
+
+=================
+
+[2023-09-11 22:38:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 185 (coords 67,8), map 42 (Zeta♐'s PT Ship)
+Exception: NoMethodError
+Message: undefined method `>=' for nil:NilClass
+
+***Full script:
+SurvivalCardStart.cardwindow
+
+Backtrace:
+[Survival Mode] 004 Survival Mode UI.rb:57:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:40:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:218:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:230:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:227:in `cardwindow'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+
+=================
+
+[2023-09-11 22:52:11 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 185 (coords 67,8), map 42 (Zeta♐'s PT Ship)
+Exception: NoMethodError
+Message: undefined method `>' for nil:NilClass
+
+***Full script:
+SurvivalCardStart.cardwindow
+
+Backtrace:
+[Survival Mode] 004 Survival Mode UI.rb:57:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:40:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:218:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:230:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:227:in `cardwindow'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+
+=================
+
+[2023-09-11 22:56:19 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 185 (coords 67,8), map 42 (Zeta♐'s PT Ship)
+Exception: NoMethodError
+Message: undefined method `>' for nil:NilClass
+
+***Full script:
+SurvivalCardStart.cardwindow
+
+Backtrace:
+[Survival Mode] 004 Survival Mode UI.rb:57:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:40:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:218:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:230:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:227:in `cardwindow'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+
+=================
+
+[2023-09-11 22:59:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 185 (coords 67,8), map 42 (Zeta♐'s PT Ship)
+Exception: NoMethodError
+Message: undefined method `>=' for nil:NilClass
+
+***Full script:
+SurvivalCardStart.cardwindow
+
+Backtrace:
+[Survival Mode] 004 Survival Mode UI.rb:57:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:40:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:218:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:230:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:227:in `cardwindow'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+
+=================
+
+[2023-09-11 23:02:12 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 3 (coords 9,8), map 1 (Intro)
+Exception: NoMethodError
+Message: undefined method `iv' for nil:NilClass
+
+***Full script:
+pkmn = $player.first_able_pokemon
+pkmn.iv[:DEFENSE] = 31
+pkmn.iv[:ATTACK] = 31
+pkmn.iv[:SPECIAL_ATTACK] = 31
+pkmn.iv[:SPECIAL_DEFENSE] = 31
+pkmn.iv[:SPEED] = 31
+pkmn.iv[:HP] = 31
+pkmn.ev[:ATTACK] = 252
+pkmn.ev[:DEFENSE] = 252
+pkmn.ev[:SPECIAL_ATTACK] = 252
+pkmn.ev[:SPECIAL_DEFENSE] = 252
+pkmn.ev[:HP] = 252
+pkmn.ev[:SPEED] = 252
+pkmn.poke_ball = :LUXURYBALL
+pkmn.makeMale
+pkmn.learn_move(:SWIFT)
+pkmn.learn_move(:TACKLE)
+pkmn.learn_move(:QUICKATTACK)
+pkmn.learn_move(:SANDATTACK)
+pkmn.happiness = 255
+pkmn.ability_index = 2
+pkmn.item = :LEFTOVERS
+pkmn.shiny = false
+pkmn.cannot_trade = true
+pkmn.cannot_store = true
+pkmn.cannot_release = true
+pkmn.obtain_method = 1 
+pkmn.obtain_text = "Mom's House"
+pkmn.timeEggHatched=pbGetTimeNow.to_i
+pkmn.name = $player.name
+pkmn.changeHappiness("walking")
+pkmn.status = :NONE
+pkmn.calc_stats
+
+Backtrace:
+(eval):2:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-09-11 23:04:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 185 (coords 67,8), map 42 (Zeta♐'s PT Ship)
+Exception: NoMethodError
+Message: undefined method `>=' for nil:NilClass
+
+***Full script:
+SurvivalCardStart.cardwindow
+
+Backtrace:
+[Survival Mode] 004 Survival Mode UI.rb:57:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:40:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:218:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:230:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:227:in `cardwindow'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+
+=================
+
+[2023-09-12 20:09:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 185 (coords 67,8), map 42 (Zeta♐'s PT Ship)
+Exception: NoMethodError
+Message: undefined method `>=' for nil:NilClass
+
+***Full script:
+SurvivalCardStart.cardwindow
+
+Backtrace:
+[Survival Mode] 004 Survival Mode UI.rb:57:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:40:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:218:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:230:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:227:in `cardwindow'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+
+=================
+
+[2023-09-13 19:53:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Survival Mode]
 Exception: SyntaxError
-Message: [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:84: syntax error, unexpected '=', expecting `end'
-    $player.outfit() = 1 #HERE
-                     ^
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:263: syntax error, unexpected '=', expecting `end'
-  $player.outfit() = 0  #HERE
-                   ^
+Message: [Survival Mode] 004 Survival Mode UI.rb:57: dynamic constant assignment
+    Good = Color.new(15,255,28)
+    ^~~~
+[Survival Mode] 004 Survival Mode UI.rb:58: dynamic constant assignment
+    Good1 = Color.new(0,175,9)
+    ^~~~~
+[Survival Mode] 004 Survival Mode UI.rb:59: dynamic constant assignment
+    Fine = Color.new(255,188,15)
+    ^~~~
+[Survival Mode] 004 Survival Mode UI.rb:60: dynamic constant assignment
+    Fine1 = Color.new(175,126,0)
+    ^~~~~
+[Survival Mode] 004 Survival Mode UI.rb:61: dynamic constant assignment
+    Bad = Color.new(255,108,15)
+    ^~~
+[Survival Mode] 004 Survival Mode UI.rb:62: dynamic constant assignment
+    Bad1 = Color.new(175,68,0)
+    ^~~~
+[Survival Mode] 004 Survival Mode UI.rb:63: dynamic constant assignment
+    Critical = Color.new(255,28,15)
+    ^~~~~~~~
+[Survival Mode] 004 Survival Mode UI.rb:64: dynamic constant assignment
+    Critical1 = Color.new(175,9,0)
+    ^~~~~~~~~
 
 
 Backtrace:
@@ -22,376 +381,132 @@ Section008:643:in `each'
 Section008:643:in `block in runPlugins'
 Section008:634:in `each'
 Section008:634:in `runPlugins'
-Section390:28:in `mainFunctionDebug'
-Section390:18:in `block in mainFunction'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
 Section014:80:in `pbCriticalCode'
-Section390:18:in `mainFunction'
+Section391:18:in `mainFunction'
 
 =================
 
-[2023-08-12 13:33:40 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: NoMethodError
-Message: undefined method `outfit=' for nil:NilClass
-
-Backtrace:
-UI_Load:121:in `pbStartScene'
-[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
-[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
-[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
-Main:6:in `main'
-Main:35:in `mainFunctionDebug'
-Main:18:in `block in mainFunction'
-Errors:80:in `pbCriticalCode'
-Main:18:in `mainFunction'
-Main:45:in `block in <main>'
-
-=================
-
-[2023-08-12 13:35:09 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: NoMethodError
-Message: undefined method `outfit=' for nil:NilClass
-
-Backtrace:
-UI_Load:121:in `pbStartScene'
-[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
-[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
-[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
-Main:6:in `main'
-Main:35:in `mainFunctionDebug'
-Main:18:in `block in mainFunction'
-Errors:80:in `pbCriticalCode'
-Main:18:in `mainFunction'
-Main:45:in `block in <main>'
-
-=================
-
-[2023-08-12 14:46:05 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Script error in event 165 (coords 2,1), map 42 (Lily's PT Ship)
-Exception: NoMethodError
-Message: undefined method `switch' for nil:NilClass
-
-***Full script:
-$player.outfit = 1 && $Game.switch[74]
-Backtrace:
-(eval):1:in `execute_script'
-Interpreter:143:in `eval'
-Interpreter:143:in `execute_script'
-Interpreter_Commands:426:in `command_111'
-Interpreter_Commands:29:in `execute_command'
-Interpreter:133:in `block in update'
-Interpreter:90:in `loop'
-Interpreter:90:in `update'
-[Following Pokemon EX] Refresh.rb:255:in `update'
-Game_Event:277:in `update'
-
-=================
-
-[2023-08-12 15:00:16 +0800]
+[2023-09-13 21:22:50 +0800]
 [Pokémon Essentials version 20.1]
 [v20.1 Hotfixes 1.0.7]
 
 Exception: NameError
-Message: uninitialized constant PBMoveRoute::SWITCH_ON
+Message: undefined local variable or method `trainerhealth' for #<SurvivalModeCard_Scene>
 
 Backtrace:
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:85:in `pbStartScene'
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:314:in `pbStartPokemonMenu'
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:306:in `call_menu'
-[Following Pokemon EX] Refresh.rb:128:in `call_menu'
-Scene_Map:203:in `update'
-Unreal Time System:256:in `update'
-Quicksave by Marin, updated by CrystalSt:41:in `update'
+[Survival Mode] 004 Survival Mode UI.rb:53:in `pbDrawSurvivalCard'
+[Survival Mode] 004 Survival Mode UI.rb:41:in `pbStartScene'
+[Survival Mode] 004 Survival Mode UI.rb:241:in `pbStartScreen'
+[Survival Mode] 004 Survival Mode UI.rb:253:in `block in cardwindow'
+MessageConfig:571:in `pbFadeOutIn'
+[Survival Mode] 004 Survival Mode UI.rb:250:in `cardwindow'
+Shortcuts - Zeta:64:in `block in update'
+Shortcuts - Zeta:52:in `loop'
+Shortcuts - Zeta:52:in `update'
 [Following Pokemon EX] Refresh.rb:165:in `update'
-[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
-[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
 
 =================
 
-[2023-08-12 15:11:03 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: NameError
-Message: uninitialized constant VoltseonsPauseMenu_Scene::ON
-
-Backtrace:
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:85:in `pbStartScene'
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:314:in `pbStartPokemonMenu'
-[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:306:in `call_menu'
-[Following Pokemon EX] Refresh.rb:128:in `call_menu'
-Scene_Map:203:in `update'
-Unreal Time System:256:in `update'
-Quicksave by Marin, updated by CrystalSt:41:in `update'
-[Following Pokemon EX] Refresh.rb:165:in `update'
-[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
-[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
-
-=================
-
-[2023-08-12 15:25:47 +0800]
+[2023-09-14 19:08:35 +0800]
 [Pokémon Essentials version 20.1]
 [v20.1 Hotfixes 1.0.7]
 
 Exception: NoMethodError
-Message: undefined method `outfit=' for nil:NilClass
+Message: undefined method `playerfoodSteps' for #<PokemonGlobalMetadata>
 
 Backtrace:
-UI_Load:147:in `pbStartScene2'
-[Auto Multi Save] Auto Multi Save.rb:307:in `block in pbStartLoadScreen'
-[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
-[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
-Main:6:in `main'
-Main:35:in `mainFunctionDebug'
-Main:18:in `block in mainFunction'
-Errors:80:in `pbCriticalCode'
-Main:18:in `mainFunction'
-Main:45:in `block in <main>'
-
-=================
-
-[2023-08-13 13:58:42 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: NoMethodError
-Message: undefined method `[]=' for nil:NilClass
-
-Backtrace:
-UI_Load:121:in `pbStartScene'
-[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
-[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
-[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
-Main:6:in `main'
-Main:35:in `mainFunctionDebug'
-Main:18:in `block in mainFunction'
-Errors:80:in `pbCriticalCode'
-Main:18:in `mainFunction'
-Main:45:in `block in <main>'
-
-=================
-
-[2023-08-13 18:15:20 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Script error in event 2 (coords 37,24), map 48 (Capital SectoBase 369001AV)
-Exception: SyntaxError
-Message: (eval):1: syntax error, unexpected ',', expecting ')'
-...dvanceQuestToStage(:Quest1, 7,, true)
-...                              ^
-
-
-***Full script:
-advanceQuestToStage(:Quest1, 7,, true)
-
-=================
-
-[2023-08-24 18:23:39 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Script error in event 170 (coords 86,34), map 48 (Capital SectoBase 369001AV)
-Exception: SyntaxError
-Message: (eval):1: syntax error, unexpected ',', expecting ')'
-(2,0.45,zoom="in")
-  ^
-
-***Line '(2,0.45,zoom="in")' shouldn't begin with '('. Try putting the '('
-at the end of the previous line instead, or using 'extendtext.exe'.
-
-***Full script:
-(2,0.45,zoom="in")
-
-=================
-
-[2023-08-24 18:27:25 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Script error in event 170 (coords 86,34), map 48 (Capital SectoBase 369001AV)
-Exception: SyntaxError
-Message: (eval):2: syntax error, unexpected ',', expecting ')'
-(2,0.45,zoom="in")
-  ^
-
-***Line '(2,0.45,zoom="in")' shouldn't begin with '('. Try putting the '('
-at the end of the previous line instead, or using 'extendtext.exe'.
-
-***Full script:
-#(2,0.45,zoom="in")
-(2,0.45,zoom="in")
-
-=================
-
-[2023-08-24 18:31:48 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Script error in event 170 (coords 86,34), map 48 (Capital SectoBase 369001AV)
-Exception: SyntaxError
-Message: (eval):2: syntax error, unexpected ',', expecting ')'
-(2,0.45,zoom="in")
-  ^
-
-***Line '(2,0.45,zoom="in")' shouldn't begin with '('. Try putting the '('
-at the end of the previous line instead, or using 'extendtext.exe'.
-
-***Full script:
-#(2,0.45,zoom="in")
-(2,0.45,zoom="in")
-
-=================
-
-[2023-08-24 18:59:17 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: NoMethodError
-Message: undefined method `zoom' for #<Sprite>
-
-Backtrace:
-Cam Zoom - TechSkyLander:45:in `update'
-Cam Zoom - TechSkyLander:93:in `block in <main>'
+[Survival Mode] 003 Survival Mode Handlers (Player).rb:4:in `block in <main>'
 Event_Handlers:89:in `block in trigger'
 Event_Handlers:89:in `each_value'
 Event_Handlers:89:in `trigger'
 Event_HandlerCollections:63:in `trigger'
-Scene_Map:155:in `updateSpritesets'
-Scene_Map:169:in `update'
-Unreal Time System:256:in `update'
-Quicksave - Marin, CrystalSt:41:in `update'
+Game_Character:932:in `update_move'
+Terrain Tag Side Stairs:99:in `update_move'
+Game_Player:497:in `update_move'
+Game_Character:872:in `update'
+Game_Player:422:in `update'
 
 =================
 
-[2023-08-25 12:50:27 +0800]
+[2023-09-14 21:16:41 +0800]
 [Pokémon Essentials version 20.1]
 [v20.1 Hotfixes 1.0.7]
 
-Exception: ArgumentError
-Message: min argument must be smaller than max argument
+Error in Plugin: [Game Over]
+Exception: NoMethodError
+Message: undefined method `[]=' for nil:NilClass
 
 Backtrace:
-Battle_ExpAndMoveLearning:85:in `clamp'
-Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
-Stat:25:in `block in each_main'
-GameData:117:in `block in each'
-GameData:117:in `each_value'
-GameData:117:in `each'
-Stat:25:in `each_main'
-Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
-Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
-Battle:411:in `block in eachInTeam'
+[Game Over] Script.rb:13:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
 
 =================
 
-[2023-08-25 12:53:12 +0800]
+[2023-09-15 22:33:34 +0800]
 [Pokémon Essentials version 20.1]
 [v20.1 Hotfixes 1.0.7]
 
-Exception: ArgumentError
-Message: min argument must be smaller than max argument
+Exception: NameError
+Message: uninitialized constant MenuEntrySurvivalCard::SurvivalModeCard_Scene
 
 Backtrace:
-Battle_ExpAndMoveLearning:85:in `clamp'
-Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
-Stat:25:in `block in each_main'
-GameData:117:in `block in each'
-GameData:117:in `each_value'
-GameData:117:in `each'
-Stat:25:in `each_main'
-Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
-Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
-Battle:411:in `block in eachInTeam'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:323:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:322:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
 
 =================
 
-[2023-08-25 12:53:18 +0800]
+[2023-09-20 21:58:54 +0800]
 [Pokémon Essentials version 20.1]
 [v20.1 Hotfixes 1.0.7]
 
+Script error in event 284 (coords 135,91), map 48 (Capital SectoBase 36900AV)
 Exception: ArgumentError
-Message: min argument must be smaller than max argument
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
 
 Backtrace:
-Battle_ExpAndMoveLearning:85:in `clamp'
-Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
-Stat:25:in `block in each_main'
-GameData:117:in `block in each'
-GameData:117:in `each_value'
-GameData:117:in `each'
-Stat:25:in `each_main'
-Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
-Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
-Battle:411:in `block in eachInTeam'
-
-=================
-
-[2023-08-25 12:53:22 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: ArgumentError
-Message: min argument must be smaller than max argument
-
-Backtrace:
-Battle_ExpAndMoveLearning:85:in `clamp'
-Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
-Stat:25:in `block in each_main'
-GameData:117:in `block in each'
-GameData:117:in `each_value'
-GameData:117:in `each'
-Stat:25:in `each_main'
-Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
-Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
-Battle:411:in `block in eachInTeam'
-
-=================
-
-[2023-08-25 12:53:25 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: ArgumentError
-Message: min argument must be smaller than max argument
-
-Backtrace:
-Battle_ExpAndMoveLearning:85:in `clamp'
-Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
-Stat:25:in `block in each_main'
-GameData:117:in `block in each'
-GameData:117:in `each_value'
-GameData:117:in `each'
-Stat:25:in `each_main'
-Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
-Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
-Battle:411:in `block in eachInTeam'
-
-=================
-
-[2023-08-25 12:53:33 +0800]
-[Pokémon Essentials version 20.1]
-[v20.1 Hotfixes 1.0.7]
-
-Exception: ArgumentError
-Message: min argument must be smaller than max argument
-
-Backtrace:
-Battle_ExpAndMoveLearning:85:in `clamp'
-Battle_ExpAndMoveLearning:85:in `block in pbGainEVsOne'
-Stat:25:in `block in each_main'
-GameData:117:in `block in each'
-GameData:117:in `each_value'
-GameData:117:in `each'
-Stat:25:in `each_main'
-Battle_ExpAndMoveLearning:83:in `pbGainEVsOne'
-Battle_ExpAndMoveLearning:38:in `block (2 levels) in pbGainExp'
-Battle:411:in `block in eachInTeam'
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:723:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:715:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:715:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'

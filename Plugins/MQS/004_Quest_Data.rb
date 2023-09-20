@@ -26,8 +26,10 @@ module QuestModule
     :Location8 => "How do I know?",
     :Stage9    => "Bring Crizhia's case to her room",
     :Location9 => "Sheesh...",
-    :Name      => "<c3=940fff,6300b4>Chapter 1: New Start",
-    :QuestDescription => "Living in an vast space with my family! Definitely the best thing that happend to my life! I hope the oxygen here won't ran out...",
+    :Stage10   => "Explore & Crizhia's case",
+    :Location10 => "Neither left nor right, Idk",
+    :Name      => "<c3=940fff,6300b4>CH 0: Where The Genesis of Chaos began",
+    :QuestDescription => "In the place where all origins converged, the initial semblance of normalcy was but a deceptive veneer. On this fateful day, a cosmic dance was set into motion, one that would plunge this universe into the abyss of chaos and uncertainty.",
     :QuestGiver => "Alpha Zetanium XYZ: The Dev",
     :RewardString => "Chapter 2!"
   }

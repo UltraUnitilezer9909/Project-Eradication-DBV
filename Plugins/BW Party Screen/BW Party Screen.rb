@@ -509,14 +509,6 @@ end
 #===============================================================================
 class PokemonParty_Scene
 
-  def pbUpdate
-    pbUpdateSpriteHash(@sprites)
-    if @sprites["bg"]
-      @sprites["bg"].ox-= -1
-      @sprites["bg"].oy-= -1
-    end
-  end
-
   def pbStartScene(party, starthelptext, annotations = nil, multiselect = false,can_access_storage = false)
     @sprites = {}
     @party = party
@@ -938,6 +930,10 @@ class PokemonParty_Scene
 
   def update
     pbUpdateSpriteHash(@sprites)
+    if @sprites["bg"]
+      @sprites["bg"].ox-= -1
+      @sprites["bg"].oy-= -1
+    end
   end
 end
 

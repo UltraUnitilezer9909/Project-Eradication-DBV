@@ -6115,6 +6115,126 @@ Price = 50
 Flags = IconMail
 Description = Stationery featuring a print of a tough-looking brick pattern. Let a Pokémon hold it for delivery.
 #-------------------------------
+[BRIDGETMAIL]
+Name = Bridge Mail T
+NamePlural = Bridge Mail T
+PortionName = piece of Bridge Mail T
+PortionNamePlural = pieces of Bridge Mail T
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery featuring a print of a steel suspension bridge. Let a Pokémon hold it for use.
+#-------------------------------
+[BRIDGEDMAIL]
+Name = Bridge Mail D
+NamePlural = Bridge Mail D
+PortionName = piece of Bridge Mail D
+PortionNamePlural = pieces of Bridge Mail D
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery featuring a print of a red drawbridge. Let a Pokémon hold it for use.
+#-------------------------------
+[BRIDGESMAIL]
+Name = Bridge Mail S
+NamePlural = Bridge Mail S
+PortionName = piece of Bridge Mail S
+PortionNamePlural = pieces of Bridge Mail S
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery featuring a print of a sky-piercing bridge. Let a Pokémon hold it for use.
+#-------------------------------
+[BRIDGEVMAIL]
+Name = Bridge Mail V
+NamePlural = Bridge Mail V
+PortionName = piece of Bridge Mail V
+PortionNamePlural = pieces of Bridge Mail V
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery featuring a print of a brick bridge. Let a Pokémon hold it for use.
+#-------------------------------
+[BRIDGEMMAIL]
+Name = Bridge Mail M
+NamePlural = Bridge Mail M
+PortionName = piece of Bridge Mail M
+PortionNamePlural = pieces of Bridge Mail M
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery featuring a print of an arched bridge. Let a Pokémon hold it for use.
+#-------------------------------
+[FAVOREDMAIL]
+Name = Favored Mail
+NamePlural = Favored Mail
+PortionName = piece of Favored Mail
+PortionNamePlural = pieces of Favored Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for writing about your favorite things. Let a Pokémon hold it for use.
+#-------------------------------
+[THANKSMAIL]
+Name = Thanks Mail
+NamePlural = Thanks Mail
+PortionName = piece of Thanks Mail
+PortionNamePlural = pieces of Thanks Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for a thank-you note. Let a Pokémon hold it for use.
+#-------------------------------
+[INQUIRYMAIL]
+Name = Inquiry Mail
+NamePlural = Inquiry Mail
+PortionName = piece of Inquiry Mail
+PortionNamePlural = pieces of Inquiry Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for writing questions. Let a Pokémon hold it for use.
+#-------------------------------
+[GREETMAIL]
+Name = Greet Mail
+NamePlural = Greet Mail
+PortionName = piece of Greet Mail
+PortionNamePlural = pieces of Greet Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for introductory greetings. Let a Pokémon hold it for use.
+#-------------------------------
+[RSVPMAIL]
+Name = RSVP Mail
+NamePlural = RSVP Mail
+PortionName = piece of RSVP Mail
+PortionNamePlural = pieces of RSVP Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for invitations. Let a Pokémon hold it for use.
+#-------------------------------
+[LIKEMAIL]
+Name = Like Mail
+NamePlural = Like Mail
+PortionName = piece of Like Mail
+PortionNamePlural = pieces of Like Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for writing recommendations. Let a Pokémon hold it for use.
+#-------------------------------
+[REPLYMAIL]
+Name = Reply Mail
+NamePlural = Reply Mail
+PortionName = piece of Reply Mail
+PortionNamePlural = pieces of Reply Mail
+Pocket = 6
+Price = 50
+Flags = Mail
+Description = Stationery designed for writing a reply. Let a Pokémon hold it for use.
+#-------------------------------
 [XATTACK]
 Name = X Attack
 NamePlural = X Attacks
@@ -7920,3 +8040,13 @@ Price = 20000
 SellPrice = 1000
 Flags = Fling_90
 Description = A man-made attempt at creating a Divine Plate. The odd power it emits may be harnessed to create new life.
+#-------------------------------
+[NOTEBOOK]
+Name = Notebook
+NamePlural = Notebooks
+Pocket = 8
+Price = 0
+FieldUse = Direct
+Flags = KeyItem
+Description = A notebook where you can write and view notes during your journey.
+#-------------------------------
