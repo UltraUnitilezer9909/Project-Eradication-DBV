@@ -176,15 +176,15 @@ class Window_PokemonMart < Window_DrawableCommand
     rect = drawCursor(index, rect)
     ypos = rect.y
     if index == count - 1
-      textpos.push([_INTL("CANCEL"), rect.x, ypos + 2, false, self.baseColor, self.shadowColor])
+      textpos.push([_INTL("CANCEL"), rect.x, ypos + 2, false, Color.new(255, 155, 155), Color.new(198, 0, 0)])
     else
       item = @stock[index]
       itemname = @adapter.getDisplayName(item)
       qty = @adapter.getDisplayPrice(item)
       sizeQty = self.contents.text_size(qty).width
       xQty = rect.x + rect.width - sizeQty - 2 - 16
-      textpos.push([itemname, rect.x, ypos + 2, false, self.baseColor, self.shadowColor])
-      textpos.push([qty, xQty, ypos + 2, false, self.baseColor, self.shadowColor])
+      textpos.push([itemname, rect.x, ypos + 2, false, Color.new(255, 255, 255), Color.new(165, 165, 173)])
+      textpos.push([qty, xQty, ypos + 2, false, Color.new(148, 15, 255), Color.new(99, 0, 180)])
     end
     pbDrawTextPositions(self.contents, textpos)
   end
@@ -208,11 +208,11 @@ class PokemonMart_Scene
       @sprites["itemtextwindow"].text =
         (itemwindow.item) ? @adapter.getDescription(itemwindow.item) : _INTL("Quit shopping.")
       @sprites["qtywindow"].visible = !itemwindow.item.nil?
-      @sprites["qtywindow"].text    = _INTL("In Bag:<r>{1}", @adapter.getQuantity(itemwindow.item))
+      @sprites["qtywindow"].text    = _INTL("In Bag:<c3=940fff,6300b4><r>{1}", @adapter.getQuantity(itemwindow.item))
       @sprites["qtywindow"].y       = Graphics.height - 102 - @sprites["qtywindow"].height
       itemwindow.refresh
     end
-    @sprites["moneywindow"].text = _INTL("Money:\r\n<r>{1}", @adapter.getMoneyString)
+    @sprites["moneywindow"].text = _INTL("Money:\r\n<c3=940fff,6300b4><r>{1}", @adapter.getMoneyString)
   end
 
   def pbStartBuyOrSellScene(buying, stock, adapter)
@@ -262,7 +262,7 @@ class PokemonMart_Scene
     @sprites["qtywindow"].viewport = @viewport
     @sprites["qtywindow"].width = 190
     @sprites["qtywindow"].height = 64
-    @sprites["qtywindow"].baseColor = Color.new(90, 82, 82)
+    @sprites["qtywindow"].baseColor = Color.new(255, 255, 255)
     @sprites["qtywindow"].shadowColor = Color.new(165, 165, 173)
     @sprites["qtywindow"].text = _INTL("In Bag:<r>{1}", @adapter.getQuantity(@sprites["itemwindow"].item))
     @sprites["qtywindow"].y    = Graphics.height - 102 - @sprites["qtywindow"].height
@@ -297,7 +297,7 @@ class PokemonMart_Scene
       Graphics.update
       Input.update
     end
-    @subscene.pbStartScene(bag)
+    @subscene.pbStartScene(bag, $player.party)
     @viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
     @viewport.z = 99999
     @sprites = {}
@@ -708,10 +708,14 @@ def pbPokemonMart(stock, speech = nil, cantsell = false)
   cmdBuy  = -1
   cmdSell = -1
   cmdQuit = -1
-  commands[cmdBuy = commands.length]  = _INTL("I'm here to buy")
+  commands[cmdBuy = commands.length]  = _INTL("I'm here to purchase")
   commands[cmdSell = commands.length] = _INTL("I'm here to sell") if !cantsell
-  commands[cmdQuit = commands.length] = _INTL("No, thanks")
-  cmd = pbMessage(speech || _INTL("Welcome! How may I help you?"), commands, cmdQuit + 1)
+  commands[cmdQuit = commands.length] = _INTL("No, thank you")
+  if $game_switches[60] == true
+    cmd = pbMessage(speech || _INTL("\\c[1]Welcome! How can I assist you today, young man?"), commands, cmdQuit + 1)
+  elsif $game_switches[61] == true
+    cmd = pbMessage(speech || _INTL("\\c[1]Welcome! How can I assist you today, young lady?"), commands, cmdQuit + 1)
+  end
   loop do
     if cmdBuy >= 0 && cmd == cmdBuy
       scene = PokemonMart_Scene.new
@@ -722,10 +726,14 @@ def pbPokemonMart(stock, speech = nil, cantsell = false)
       screen = PokemonMartScreen.new(scene, stock)
       screen.pbSellScreen
     else
-      pbMessage(_INTL("Do come again!"))
+      pbMessage(_INTL("\\c[1]We look forward to welcoming you back again in the future!"))
       break
     end
-    cmd = pbMessage(_INTL("Is there anything else I can do for you?"), commands, cmdQuit + 1)
+    if $game_switches[60] == true
+      cmd = pbMessage(_INTL("\\c[1]Is there anything else I may assist you with, young man?"), commands, cmdQuit + 1)
+    elsif $game_switches[61] == true
+      cmd = pbMessage(_INTL("\\c[1]Is there anything else I may assist you with, young lady?"), commands, cmdQuit + 1)
+    end
   end
   $game_temp.clear_mart_prices
 end

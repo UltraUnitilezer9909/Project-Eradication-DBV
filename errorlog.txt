@@ -510,3 +510,517 @@ Backtrace:
 (eval):1:in `execute_script'
 Interpreter:143:in `eval'
 Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-21 21:52:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 284 (coords 135,91), map 48 (Capital SectoBase 36900AV)
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[BW PokéMart Screen] BWMartScreen.rb:719:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+
+=================
+
+[2023-09-21 22:07:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `stock' for #<Interpreter @event_id: 291>
+
+***Full script:
+scene = PokemonMart_Scene.new
+screen = PokemonMartScreen.new(scene, stock)
+screen.pbSellScreen
+
+Backtrace:
+(eval):2:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-09-21 22:11:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: Encoding::CompatibilityError
+Message: incompatible character encodings: UTF-8 and ASCII-8BIT
+
+Backtrace:
+PluginManager:390:in `+'
+PluginManager:390:in `pluginErrorMsg'
+PluginManager:657:in `rescue in block (2 levels) in runPlugins'
+PluginManager:652:in `block (2 levels) in runPlugins'
+PluginManager:643:in `each'
+PluginManager:643:in `block in runPlugins'
+PluginManager:634:in `each'
+PluginManager:634:in `runPlugins'
+Main:28:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+
+=================
+
+[2023-09-21 22:12:04 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: Encoding::CompatibilityError
+Message: incompatible character encodings: UTF-8 and ASCII-8BIT
+
+Backtrace:
+PluginManager:390:in `+'
+PluginManager:390:in `pluginErrorMsg'
+PluginManager:657:in `rescue in block (2 levels) in runPlugins'
+PluginManager:652:in `block (2 levels) in runPlugins'
+PluginManager:643:in `each'
+PluginManager:643:in `block in runPlugins'
+PluginManager:634:in `each'
+PluginManager:634:in `runPlugins'
+Main:28:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+
+=================
+
+[2023-09-21 22:13:33 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+***Full script:
+pbPokemonMart([
+  :FRESHWATER
+])
+
+Backtrace:
+[BW PokéMart Screen] BWMartScreen.rb:707:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+
+=================
+
+[2023-09-21 22:18:12 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+***Full script:
+pbPokemonMart([
+  :FRESHWATER
+])
+
+Backtrace:
+[BW PokéMart Screen] BWMartScreen.rb:711:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+
+=================
+
+[2023-09-21 22:20:32 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `pbSellScreen' for #<Interpreter @event_id: 291>
+
+***Full script:
+pbSellScreen
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Interpreter:103:in `block in update'
+
+=================
+
+[2023-09-21 22:25:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 284 (coords 135,91), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `cmd' for #<Interpreter @event_id: 284>
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[BW PokéMart Screen] BWMartScreen.rb:715:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+
+=================
+
+[2023-09-21 22:27:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 284 (coords 135,91), map 48 (Capital SectoBase 36900AV)
+Exception: ArgumentError
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:722:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-21 22:29:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 284 (coords 135,91), map 48 (Capital SectoBase 36900AV)
+Exception: ArgumentError
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:722:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-22 20:48:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: ArgumentError
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:722:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-22 20:55:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: ArgumentError
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:722:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-22 21:02:51 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: ArgumentError
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:722:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:714:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-22 21:09:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 291 (coords 139,98), map 48 (Capital SectoBase 36900AV)
+Exception: ArgumentError
+Message: wrong number of arguments (given 1, expected 2..5)
+
+***Full script:
+pbPokemonMart([
+  :MOOMOOMILK,
+  :LEMONADE,
+  :SODAPOP,
+  :FRESHWATER,
+  :LAVACOOKIE,
+  :CASTELIACONE, 
+  :LUMIOSEGALETTE,
+  :SHALOURSABLE, 
+  :RAGECANDYBAR, 
+  :PEWTERCRUNCHIES,
+  :BIGMALASADA,
+  :BERRYJUICE,
+  :SWEETHEART,
+  :FRESHWATER
+])
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:431:in `pbStartScene'
+[BW PokéMart Screen] BWMartScreen.rb:300:in `pbStartSellScene2'
+[BW PokéMart Screen] BWMartScreen.rb:281:in `pbStartSellScene'
+[BW PokéMart Screen] BWMartScreen.rb:661:in `pbSellScreen'
+[BW PokéMart Screen] BWMartScreen.rb:723:in `block in pbPokemonMart'
+[BW PokéMart Screen] BWMartScreen.rb:715:in `loop'
+[BW PokéMart Screen] BWMartScreen.rb:715:in `pbPokemonMart'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+
+=================
+
+[2023-09-25 20:31:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 283 (coords 137,85), map 48 (Capital SectoBase 36900AV)
+Exception: NoMethodError
+Message: undefined method `experience?' for #<Interpreter @event_id: 283>
+
+***Full script:
+Hows the experience?
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-09-25 20:58:04 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `times' for 0.1:Float
+
+Backtrace:
+Overworld:551:in `pbWait'
+(eval):1:in `move_type_custom'
+Game_Character:537:in `eval'
+Game_Character:537:in `move_type_custom'
+Game_Character:379:in `force_move_route'
+Interpreter_Commands:827:in `command_209'
+Interpreter_Commands:62:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
