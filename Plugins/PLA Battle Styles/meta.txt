@@ -1,6 +1,0 @@
-Name         = PLA Battle Styles
-Version      = 1.0.8
-Essentials   = 20.1
-Requires     = Essentials Deluxe,1.2.5
-Website      = https://www.pokecommunity.com/showthread.php?t=485053
-Credits      = Lucidious89
