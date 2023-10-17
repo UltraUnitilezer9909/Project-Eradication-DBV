@@ -33,11 +33,11 @@
 #   It would be nice if the file select arrows used nicer animated graphics, kind of like the Bag.
 #   Maybe auto-save slots should act like a queue instead of cycling around.
 
-# Autosave every 100 steps
+# Autosave every 200 steps
 EventHandlers.add(:on_player_step_taken, :auto_save, proc {
   $player.autosave_steps = 0 if !$player.autosave_steps
   $player.autosave_steps += 1
-  if $player.autosave_steps >= 100
+  if $player.autosave_steps >= 200
     echo("Autosaving...")
     $player.autosave_steps = 0
     Game.auto_save
@@ -52,24 +52,18 @@ module SaveData
   # You can rename these slots or change the amount of them
   # They change the actual save file names though, so it would take some extra work to use the translation system on them.
   AUTO_SLOTS = [
-    'Auto 1',
-    'Auto 2',
-    'Auto 3',
-    'Auto 4',
-    'Auto 5',
-    'Auto 6',
-    'Auto 7',
-    'Auto 8'
+    'Game.save - Auto 1',
+    'Game.save - Auto 2'
   ]
   MANUAL_SLOTS = [
-    'File A',
-    'File B',
-    'File C',
-    'File D',
-    'File E',
-    'File F',
-    'File G',
-    'File H'
+    'Game.save - File A',
+    'Game.save - File B',
+    'Game.save - File C',
+    'Game.save - File D',
+    'Game.save - File E',
+    'Game.save - File F',
+    'Game.save - File G',
+    'Game.save - File H'
   ]
 
   # For compatibility with games saved without this plugin
