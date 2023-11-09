@@ -1,0 +1,146 @@
+            Galactic Map has a "Class", (Universe > Galaxy Clusters > Galaxies > Planets > Continent > Country > Cities > Town > Villages > Hamlets) Each "Class" has its own map.
+            Continent, Country, Cities, Town, Villages & Hamlets are too small so they are not included here, File Format: <Id> - <Class>
+                - Universe
+                    - Laniakea Supercluster: Vast cosmic structure containing numerous galaxies, among the largest known structures in the universe.
+                        - Virgo Cluster: A rich galaxy cluster located in the Virgo constellation, known for its numerous member galaxies.
+                            - Messier 87 (M87): A large elliptical galaxy and the brightest galaxy in the Virgo Cluster.
+                            - Messier 49 (M49): Another prominent elliptical galaxy in the cluster.
+                            - Messier 60 (M60): An elliptical galaxy in the Virgo Cluster.
+                            - Messier 90 (M90): A spiral galaxy in the Virgo Cluster.
+                            - Messier 86 (M86): An elliptical galaxy in the Virgo Cluster.
+                            - NGC 4438 (The Eyes Galaxies): A pair of interacting galaxies in the Virgo Cluster.
+                            - NGC 4435 (The Eyes Galaxies): A pair of interacting galaxies in the Virgo Cluster.
+                        - Milky Way - a barred spiral galaxy that serves as our cosmic home, containing our Solar System. It is known for its countless stars, gas clouds, and spiral arms, including the Orion Arm where our Sun is located.
+                            - Solar System (Milky Way): Our own planetary system, including the Sun and its planets, moons, asteroids, and other celestial objects.
+                                - Sun: The central star of the Solar System, providing warmth and energy to the planets.
+                                - Mercury: The closest planet to the Sun, with extreme temperature variations.
+                                - Venus: Often referred to as Earth's "sister planet," known for its thick, toxic atmosphere and scorching surface temperatures.
+                                - Earth: Our home planet, known for its abundant life and diverse ecosystems.
+                                    - Moon: Earth's only natural satellite, influencing tides and lunar phases.
+                                - Mars: Often called the "Red Planet," known for its reddish appearance and potential for future human exploration.
+                                    - Phobos: The larger of Mars' two moons, named after the Greek god Phobos (Fear).
+                                    - Deimos: The smaller of Mars' two moons, named after the Greek god Deimos (Terror).
+                                - Jupiter: The largest planet in the solar system, known for its massive size and prominent storms like the Great Red Spot.
+                                    - Io: The most volcanically active body in the solar system, with hundreds of volcanoes.
+                                    - Europa: An icy moon with a subsurface ocean that could harbor extraterrestrial life.
+                                    - Ganymede: The largest moon in the solar system and the only one with its magnetic field.
+                                    - Callisto: A heavily cratered moon, believed to be one of the oldest bodies in the solar system.
+                                    - Amalthea: One of Jupiter's small moons, discovered by E. E. Barnard in 1892.
+                                    - Himalia: A moon with an irregular shape, named after a nymph in Greek mythology.
+                                    - Elara: One of Jupiter's outer moons, named after a lover of Zeus.
+                                    - Pasiphae: A retrograde irregular moon, named after a character in Greek mythology.
+                                    - Sinope: A distant moon with a highly inclined orbit, named after a Greek mythological character.
+                                    - Lysithea: A small moon, named after one of Zeus' lovers in Greek mythology.
+                                    - Carme: A prograde irregular moon, named after one of Zeus' lovers.
+                                    - Ananke: A retrograde moon, named after the personification of necessity in Greek mythology.
+                                    - Leda: A moon with a highly elliptical orbit, named after a queen of Sparta in Greek mythology.
+                                    - Thebe: A small, irregular moon, named after a nymph in Greek mythology.
+                                    - Adrastea: A tiny, irregular moon, named after a Greek mythological figure.
+                                    - Metis: A small inner moon, named after the first wife of Zeus in Greek mythology.
+                                - Saturn: Known for its stunning ring system composed of icy particles.
+                                    - Titan: Saturn's largest moon, known for its thick atmosphere and lakes of liquid methane and ethane.
+                                    - Rhea: The second-largest moon of Saturn, covered in water ice.
+                                    - Iapetus: A moon with a two-toned appearance, featuring a dark and a bright hemisphere.
+                                    - Dione: A heavily cratered moon with wispy streaks on its surface.
+                                    - Tethys: A moon with a prominent impact feature called Odysseus.
+                                    - Enceladus: A small moon famous for its geysers of water vapor and ice.
+                                    - Mimas: Known for its massive Herschel Crater, which gives it the appearance of the Death Star.
+                                    - Hyperion: An irregularly shaped moon with a spongy appearance.
+                                    - Phoebe: A distant moon with a retrograde orbit, likely a captured object.
+                                    - Helene: A small moon that shares an orbit with Dione.
+                                    - Telesto: One of Saturn's co-orbital moons that shares an orbit with Tethys.
+                                    - Calypso: Another co-orbital moon, sharing an orbit with Tethys.
+                                    - Atlas: A small, irregular moon of Saturn, named after a Titan of Greek mythology.
+                                    - Prometheus: A moon known for its role in shaping Saturn's F ring.
+                                    - Pandora: Another moon with an influential role in shaping Saturn's F ring.
+                                    - Epimetheus: A moon that shares an orbit with Janus and occasionally swaps positions with it.
+                                    - Janus: A co-orbital moon that shares an orbit with Epimetheus.
+                                    - Methone: A small moon near Saturn's A ring, discovered by the Cassini spacecraft.
+                                    - Anthe: A moon in the same orbital group as Methone and Pallene, with a chaotic orbit.
+                                    - Pallene: Another moon in the same orbital group as Methone and Anthe, named after the sea goddess.
+                                - Uranus: A gas giant planet that rotates on its side, giving it a unique appearance.
+                                    - Titania: The largest moon of Uranus, known for its diverse terrains and canyons.
+                                    - Oberon: The second-largest moon of Uranus, with a heavily cratered surface.
+                                    - Umbriel: A moon known for its bright, icy plains and dark, ancient impact craters.
+                                    - Ariel: A moon with the youngest and brightest surface among Uranus' moons.
+                                    - Miranda: A moon with a varied landscape, including tall cliffs and strange-looking features.
+                                    - Caliban: An irregular, distant moon with a highly inclined orbit.
+                                    - Sycorax: A retrograde moon in a distant orbit around Uranus.
+                                    - Prospero: Named after a character in William Shakespeare's "The Tempest."
+                                    - Setebos: A distant moon with a highly inclined and retrograde orbit.
+                                    - Stephano: A small moon with a highly inclined and retrograde orbit.
+                                    - Trinculo: A tiny moon with an irregular, chaotic orbit.
+                                    - Margaret: An outer moon of Uranus with a highly inclined and retrograde orbit.
+                                    - Perdita: A small moon discovered by the Voyager 2 spacecraft.
+                                    - Portia: A moon known for its close association with the Uranian rings.
+                                    - Rosalind: A small moon with an irregular, chaotic orbit.
+                                    - Cressida: Named after a character in William Shakespeare's "Troilus and Cressida."
+                                    - Desdemona: A moon with a chaotic orbit influenced by its interactions with other moons.
+                                    - Belinda: Named after a character in Alexander Pope's poem "The Rape of the Lock."
+                                    - Cordelia: A moon that acts as a shepherd moon for Uranus' ε (epsilon) ring.
+                                    - Ophelia: Another shepherd moon for Uranus' ε (epsilon) ring.
+                                    - Bianca: A moon associated with Uranus' rings and named after a character in "The Taming of the Shrew."
+                                    - Juliet: A small moon named after the female protagonist in William Shakespeare's "Romeo and Juliet."
+                                - Neptune: The farthest planet from the Sun and a frigid, blue-hued world.
+                                    - Triton: Neptune's largest moon, known for its retrograde orbit and geysers of nitrogen.
+                                    - Nereid: A highly eccentric moon with a chaotic orbit around Neptune.
+                                    - Proteus: One of Neptune's largest inner moons, known for its irregular shape.
+                                    - Larissa: A small inner moon of Neptune with a regular shape.
+                                    - Despina: A moon that acts as a shepherd moon for Neptune's rings.
+                                    - Galatea: Another shepherd moon for Neptune's rings.
+                                    - Thalassa: A moon named after a sea nymph in Greek mythology.
+                                    - Halimede: A moon with a highly inclined, irregular orbit around Neptune.
+                                    - Sao: Named after a sea goddess in Greek mythology.
+                                    - Laomedeia: A moon that orbits Neptune in a prograde direction.
+                                    - Psamathe: A distant, irregular moon with a retrograde orbit around Neptune.
+                                    - Neso: The most distant known moon of Neptune, with a highly eccentric orbit.
+                                - Pluto: Once considered the ninth planet, it's now classified as a dwarf planet in the Kuiper Belt.
+                                    - Charon: Pluto's largest moon, known for its size relative to Pluto and a shared center of mass.
+                                    - Styx: One of Pluto's five known moons, named after the river in Greek mythology.
+                                    - Nix: A moon of Pluto, named after the goddess of darkness and night.
+                                    - Kerberos: Named after the three-headed dog in Greek mythology guarding the underworld.
+                                    - Hydra: Pluto's outermost moon, known for its irregular shape and small size.
+                                - Eris: Another Kuiper Belt dwarf planet, known for its large size and highly elliptical orbit.
+                                    - Dysnomia: Eris' only known moon, named after the daughter of the goddess Eris.
+                                - Haumea: A dwarf planet in the Kuiper Belt known for its unusual elongated shape.
+                                    - Hi'iaka: One of Haumea's two known moons, named after the Hawaiian goddess of dance.
+                                    - Namaka: The smaller moon of Haumea, named after another Hawaiian mythological figure.
+                                - Makemake: Another dwarf planet in the Kuiper Belt, known for its lack of significant atmosphere.
+                                - Ceres: The largest object in the asteroid belt between Mars and Jupiter and the first dwarf planet to be visited by a spacecraft.
+                            - Kepler-186 System: A distant star system known for Kepler-186f, the first Earth-sized exoplanet discovered in the habitable zone of another star.
+                                - Kepler-186f: The first Earth-sized exoplanet discovered in the habitable zone of another star, with potential for liquid water and habitability.
+                            - TRAPPIST-1 System: A planetary system that includes seven Earth-sized planets, with some potentially in the habitable zone.
+                                - TRAPPIST-1: A red dwarf star with a system of seven known exoplanets, each designated by a letter (b through h).
+                            - Proxima Centauri System: The closest known star system to our Sun, with at least one exoplanet in the habitable zone.
+                                - Proxima Centauri B: An exoplanet located in the habitable zone of Proxima Centauri, making it a target for potential habitability studies.
+                            - HD 209458 System: This system is home to one of the first exoplanets detected transiting its parent star, HD 209458b.
+                                - HD 209458b: A hot Jupiter exoplanet known for being one of the first exoplanets with a confirmed transit.
+                        - Andromeda Galaxy (M31): A spiral galaxy and the nearest major galaxy to our Milky Way.
+                            - Andromeda: The Andromeda Galaxy, also known as M31, is the largest spiral galaxy in our local group and a future collision target with the Milky Way.
+                        - Triangulum Galaxy (M33): Another spiral galaxy and a member of our Local Group.
+                            - Triangulum: The Triangulum Galaxy, also known as M33, is a relatively small spiral galaxy in our local group.
+                    - Coma Cluster: A rich galaxy cluster located in the Coma Berenices constellation, known for its numerous member galaxies.
+                        - NGC 4889: A massive elliptical galaxy in the Coma Cluster.
+                        - NGC 4874: Another significant elliptical galaxy within the cluster.
+                        - NGC 4839: An elliptical galaxy in the Coma Cluster.
+                        - NGC 4907: A lenticular galaxy in the Coma Cluster.
+                        - NGC 4921: A barred spiral galaxy in the Coma Cluster.
+                        - NGC 4836: An elliptical galaxy in the Coma Cluster.
+                        - NGC 4845: A spiral galaxy in the Coma Cluster.
+                    - Fornax Cluster: A galaxy cluster situated in the Fornax constellation, containing a variety of galaxies.
+                        - NGC 1316 (Fornax A): An elliptical galaxy with prominent radio emissions.
+                        - NGC 1365: A barred spiral galaxy located in the Fornax Cluster.
+                        - NGC 1399: An elliptical galaxy in the Fornax Cluster.
+                        - NGC 1427: Another elliptical galaxy in the Fornax Cluster.
+                        - NGC 1425: A barred spiral galaxy in the Fornax Cluster.
+                        - NGC 1374: An elliptical galaxy in the Fornax Cluster.
+                        - NGC 1404: Another elliptical galaxy in the Fornax Cluster.
+                    - Isolated/Field Galaxies: Galaxies that exist independently in space, not part of larger galactic clusters or groups.                      
+                        - M81 (Bode's Galaxy): A spiral galaxy in the constellation Ursa Major.
+                            - M81: Also known as Bode's Galaxy, M81 is a spiral galaxy in the Ursa Major constellation.
+                        - M101 (Pinwheel Galaxy): A grand design spiral galaxy in Ursa Major.
+                            - M101: The Pinwheel Galaxy, also known as M101, is a beautiful grand design spiral galaxy located in Ursa Major.
+                        - IC 342: A barred spiral galaxy in the Camelopardalis constellation.
+                        - NGC 628 (Messier 74): A spiral galaxy in the Pisces constellation.
+                        - NGC 1232: A barred spiral galaxy in the Eridanus constellation.
+                        - NGC 6946 (Fireworks Galaxy): A spiral galaxy in the Cepheus constellation.

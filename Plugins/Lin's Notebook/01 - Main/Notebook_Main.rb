@@ -13,7 +13,9 @@
 class PokemonSystem
   attr_accessor :notebook
 
+  alias _plugin_initialize initialize
   def initialize
+    _plugin_initialize
     @notebook              = nil
   end
 end

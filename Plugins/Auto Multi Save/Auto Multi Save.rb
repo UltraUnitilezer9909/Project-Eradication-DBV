@@ -52,18 +52,24 @@ module SaveData
   # You can rename these slots or change the amount of them
   # They change the actual save file names though, so it would take some extra work to use the translation system on them.
   AUTO_SLOTS = [
-    'Game.save - Auto 1',
-    'Game.save - Auto 2'
+    'Auto 1',
+    'Auto 2',
+    'Auto 3',
+    'Auto 4',
+    'Auto 5',
+    'Auto 6',
+    'Auto 7',
+    'Auto 8'
   ]
   MANUAL_SLOTS = [
-    'Game.save - File A',
-    'Game.save - File B',
-    'Game.save - File C',
-    'Game.save - File D',
-    'Game.save - File E',
-    'Game.save - File F',
-    'Game.save - File G',
-    'Game.save - File H'
+    'File A',
+    'File B',
+    'File C',
+    'File D',
+    'File E',
+    'File F',
+    'File G',
+    'File H'
   ]
 
   # For compatibility with games saved without this plugin
@@ -548,6 +554,7 @@ module Game
       pbLoadMessages('Data/' + Settings::LANGUAGES[$PokemonSystem.language][1])
     end
   end
+
 
   # Saves the game. Returns whether the operation was successful.
   # @param save_file [String] the save file path

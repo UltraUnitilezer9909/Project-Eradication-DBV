@@ -1,0 +1,84 @@
+
+=================
+
+[2023-10-19 19:40:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: comparison of Integer with nil failed
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:550:in `set_up_system'
+Main:31:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'
+Main:44:in `<main>'
+-e:in `eval'
+
+=================
+
+[2023-10-22 17:25:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 415 (coords 162,92), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `ture' for #<Interpreter @event_id: 415>
+
+***Full script:
+pbSetSelfSwitch(391, "A", true)
+pbWait(1)
+pbSetSelfSwitch(391, "B", true)
+pbWait(1)
+pbSetSelfSwitch(391, "C", ture)
+pbWait(1)
+pbSetSelfSwitch(391, "D", ture)
+pbWait(1)
+
+Backtrace:
+(eval):5:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-10-22 17:31:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 415 (coords 162,92), map 48 (Capital SectoBase 36900AV)
+Exception: NameError
+Message: undefined local variable or method `ture' for #<Interpreter @event_id: 415>
+
+***Full script:
+pbSetSelfSwitch(391, "A", true)
+pbWait(1)
+pbSetSelfSwitch(391, "B", true)
+pbWait(1)
+pbSetSelfSwitch(391, "C", true)
+pbWait(1)
+pbSetSelfSwitch(391, "D", ture)
+pbWait(1)
+
+Backtrace:
+(eval):7:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
