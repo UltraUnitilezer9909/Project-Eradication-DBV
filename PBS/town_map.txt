@@ -37,4 +37,4 @@ Point = 13,16,Here,,,,,
 #-------------------------------
 [2]
 Name = Astrifia Galaxy
-Filename = mapRegion2.png
+Filename = mapRegion00.png

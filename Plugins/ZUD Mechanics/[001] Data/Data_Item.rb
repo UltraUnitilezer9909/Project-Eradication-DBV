@@ -63,7 +63,7 @@ module Settings
   
   def self.bag_pocket_names
     names = self.bag_pocket_names_zud
-    names.push(_INTL("Z-Crystals"))
+    names.push(_INTL("Z-Crystal Elements"))
     return names
   end
    

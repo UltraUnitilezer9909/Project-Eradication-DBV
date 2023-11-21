@@ -82,3 +82,1623 @@ Interpreter:90:in `loop'
 Interpreter:90:in `update'
 [Following Pokemon EX] Refresh.rb:255:in `update'
 Scene_Map:160:in `block in update'
+
+=================
+
+[2023-11-13 21:49:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbBetterRegionMap' for #<MenuEntryMap>
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+
+=================
+
+[2023-11-14 09:33:45 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `setBitmap' for nil:NilClass
+
+Backtrace:
+UI_TrainerCard:17:in `pbStartScene'
+UI_TrainerCard:111:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-14 12:29:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbBetterRegionMap' for #<MenuEntryMap>
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+
+=================
+
+[2023-11-15 11:10:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `refresh_ball_graphic' for #<PokemonPartyPanel>
+
+Backtrace:
+UI_Party:460:in `refresh'
+UI_Party:241:in `initialize'
+UI_Party:521:in `new'
+UI_Party:521:in `block in pbStartScene'
+UI_Party:519:in `times'
+UI_Party:519:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+
+=================
+
+[2023-11-15 11:11:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `refresh_ball_graphic' for #<PokemonPartyPanel>
+
+Backtrace:
+UI_Party:460:in `refresh'
+UI_Party:241:in `initialize'
+UI_Party:521:in `new'
+UI_Party:521:in `block in pbStartScene'
+UI_Party:519:in `times'
+UI_Party:519:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+
+=================
+
+[2023-11-15 11:43:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: Can't convert TrueClass into Color
+
+Backtrace:
+DrawText:1158:in `=='
+DrawText:1158:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+UI_Party:398:in `draw_level'
+UI_Party:379:in `refresh_overlay_information'
+UI_Party:471:in `refresh'
+UI_Party:241:in `initialize'
+UI_Party:524:in `new'
+UI_Party:524:in `block in pbStartScene'
+
+=================
+
+[2023-11-15 20:13:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `viewport=' for nil:NilClass
+
+Backtrace:
+UI_Party:516:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-15 20:14:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonParty_Scene::FormattedTextPokemon
+
+Backtrace:
+UI_Party:515:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-16 18:38:19 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `angle=' for nil:NilClass
+
+Backtrace:
+UI_Party:514:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-16 20:54:42 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:505:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-16 20:57:29 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+MessageConfig:420:in `pbSetSmallFont'
+UI_Party:506:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-16 21:06:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+MessageConfig:420:in `pbSetSmallFont'
+UI_Party:506:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-16 21:09:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonParty_Scene::TEXT_BASE_COLOR
+
+Backtrace:
+UI_Party:507:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-16 21:12:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+MessageConfig:420:in `pbSetSmallFont'
+UI_Party:513:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-16 21:13:35 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `text_size' for nil:NilClass
+
+Backtrace:
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+UI_Party:514:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-16 21:14:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `text_size' for nil:NilClass
+
+Backtrace:
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+UI_Party:514:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-16 21:17:25 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `text_size' for nil:NilClass
+
+Backtrace:
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+UI_Party:514:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-17 11:04:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bit' for #<ChangelingSprite>
+
+Backtrace:
+UI_Party:19:in `initialize'
+UI_Party:82:in `initialize'
+UI_Party:550:in `new'
+UI_Party:550:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-17 11:06:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `map' for #<PokemonPartyCancelSprite>
+
+Backtrace:
+UI_Party:19:in `initialize'
+UI_Party:82:in `initialize'
+UI_Party:550:in `new'
+UI_Party:550:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-17 11:07:29 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `width' for nil:NilClass
+
+Backtrace:
+UI_Party:19:in `initialize'
+UI_Party:82:in `initialize'
+UI_Party:550:in `new'
+UI_Party:550:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-17 11:10:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `width' for nil:NilClass
+
+Backtrace:
+UI_Party:19:in `initialize'
+UI_Party:82:in `initialize'
+UI_Party:550:in `new'
+UI_Party:550:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-17 18:00:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonParty_Scene::PokemonPartyBlankPanel
+
+Backtrace:
+UI_Party:479:in `block in pbStartScene'
+UI_Party:475:in `times'
+UI_Party:475:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-17 18:13:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:194:in `initialize'
+UI_Party:477:in `new'
+UI_Party:477:in `block in pbStartScene'
+UI_Party:475:in `times'
+UI_Party:475:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 18:15:34 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:194:in `initialize'
+UI_Party:477:in `new'
+UI_Party:477:in `block in pbStartScene'
+UI_Party:475:in `times'
+UI_Party:475:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 18:18:13 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:194:in `initialize'
+UI_Party:477:in `new'
+UI_Party:477:in `block in pbStartScene'
+UI_Party:475:in `times'
+UI_Party:475:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 18:19:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:194:in `initialize'
+UI_Party:477:in `new'
+UI_Party:477:in `block in pbStartScene'
+UI_Party:475:in `times'
+UI_Party:475:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 18:25:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:194:in `initialize'
+UI_Party:477:in `new'
+UI_Party:477:in `block in pbStartScene'
+UI_Party:475:in `times'
+UI_Party:475:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 18:28:35 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for #<PokemonPartyPanel>
+
+Backtrace:
+UI_Party:480:in `block in pbStartScene'
+UI_Party:473:in `times'
+UI_Party:473:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-17 18:35:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for #<PokemonPartyPanel>
+
+Backtrace:
+UI_Party:480:in `block in pbStartScene'
+UI_Party:473:in `times'
+UI_Party:473:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-17 18:38:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `triggerEx' for Input:Module
+
+Backtrace:
+UI_Party:851:in `block in pbChoosePokemon'
+UI_Party:846:in `loop'
+UI_Party:846:in `pbChoosePokemon'
+[Essentials Deluxe] Miscellaneous.rb:218:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 19:12:08 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:144:in `initialize'
+UI_Party:481:in `new'
+UI_Party:481:in `block in pbStartScene'
+UI_Party:477:in `times'
+UI_Party:477:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-17 21:24:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+MessageConfig:420:in `pbSetSmallFont'
+UI_Party:466:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 09:52:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:206:in `initialize'
+UI_Party:484:in `new'
+UI_Party:484:in `block in pbStartScene'
+UI_Party:482:in `times'
+UI_Party:482:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-18 09:53:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:206:in `initialize'
+UI_Party:484:in `new'
+UI_Party:484:in `block in pbStartScene'
+UI_Party:482:in `times'
+UI_Party:482:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-18 10:34:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+UI_Party:504:in `pbSetSmallFont'
+UI_Party:469:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 10:36:23 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+UI_Party:504:in `pbSetSmallFont'
+UI_Party:469:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 11:45:21 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:478:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-18 11:46:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+281:UI_Party:478:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+082:MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-18 11:47:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+MessageConfig:413:in `pbSetSystemFont'
+UI_Party:479:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 11:52:35 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `text_size' for "storagetext":String
+
+Backtrace:
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+UI_Party:470:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-18 11:53:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `text_size' for nil:NilClass
+
+Backtrace:
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+UI_Party:470:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-18 16:45:24 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RGSSError
+Message: failed to create bitmap
+
+Backtrace:
+SpriteWrapper:100:in `initialize'
+SpriteWrapper:100:in `new'
+SpriteWrapper:100:in `initialize'
+[Bag Screen w/int. Party] Script.rb:505:in `new'
+[Bag Screen w/int. Party] Script.rb:505:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-18 19:07:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `pocket_name' for #<PokemonBag_Scene>
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:694:in `pbRefreshIndexChanged'
+[Essentials Deluxe] Interactable Bag Screen.rb:38:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:545:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-18 19:56:54 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonBag_Scene::Setting
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:685:in `pbRefreshIndexChanged'
+[Essentials Deluxe] Interactable Bag Screen.rb:38:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:535:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-18 20:01:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonBag_Scene::Setting
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:685:in `pbRefreshIndexChanged'
+[Essentials Deluxe] Interactable Bag Screen.rb:38:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:535:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-18 20:23:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials Deluxe] Interactable Bag Screen.rb:12:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:535:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 20:30:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+AnimatedBitmap:14:in `initialize'
+[Bag Screen w/int. Party] Script.rb:471:in `new'
+[Bag Screen w/int. Party] Script.rb:471:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-18 20:32:38 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials Deluxe] Interactable Bag Screen.rb:36:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:535:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 20:35:46 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials Deluxe] Interactable Bag Screen.rb:12:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:535:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 20:44:45 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials Deluxe] Interactable Bag Screen.rb:12:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:535:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-18 21:26:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `viewport' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:463:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-18 21:28:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `viewport' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:463:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-18 21:30:20 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for #<BitmapSprite>
+
+Backtrace:
+MessageConfig:420:in `pbSetSmallFont'
+UI_Party:466:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-19 11:01:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `overlayspritetext' for PokemonPartyBlankPanel:Class
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:02:33 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `overlayspritetext' for PokemonPartyBlankPanel:Class
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:06:20 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `overlaysprite' for PokemonPartyBlankPanel:Class
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:07:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `overlaysprite' for PokemonPartyPanel:Class
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:11:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `draw_level' for PokemonPartyPanel:Class
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:15:20 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `viewport' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:463:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:20:11 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `viewport' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:22:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `viewport' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:453:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 11:24:01 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `z' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:464:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 12:19:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `z' for #<PokemonParty_Scene>
+
+Backtrace:
+UI_Party:467:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-19 18:04:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RuntimeError
+Message: Filename is nil (missing graphic).
+
+Backtrace:
+AnimatedBitmap:6:in `initialize'
+[Bag Screen w/int. Party] Script.rb:470:in `new'
+[Bag Screen w/int. Party] Script.rb:470:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-19 18:06:37 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials Deluxe] Interactable Bag Screen.rb:36:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:539:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-19 18:08:08 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials Deluxe] Interactable Bag Screen.rb:36:in `pbRefresh'
+[Bag Screen w/int. Party] Script.rb:539:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-11-19 18:14:16 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+AnimatedBitmap:14:in `initialize'
+[Bag Screen w/int. Party] Script.rb:470:in `new'
+[Bag Screen w/int. Party] Script.rb:470:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-20 14:08:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Bag Screen w/int. Party]
+Exception: SyntaxError
+Message: [Bag Screen w/int. Party] Script.rb:338: dynamic constant assignment
+      TEXT_BASE_COLOR     = Color.new(255, 255, 25...
+      ^~~~~~~~~~~~~~~
+[Bag Screen w/int. Party] Script.rb:339: dynamic constant assignment
+      TEXT_SHADOW_COLOR   = Color.new(165, 165, 173)
+      ^~~~~~~~~~~~~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-11-20 14:10:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Bag Screen w/int. Party]
+Exception: SyntaxError
+Message: [Bag Screen w/int. Party] Script.rb:341: dynamic constant assignment
+      TEXT_BASE_COLOR     = Color.new(255, 255, 25...
+      ^~~~~~~~~~~~~~~
+[Bag Screen w/int. Party] Script.rb:342: dynamic constant assignment
+      TEXT_SHADOW_COLOR   = Color.new(165, 165, 173)
+      ^~~~~~~~~~~~~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-11-20 14:12:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Bag Screen w/int. Party]
+Exception: SyntaxError
+Message: [Bag Screen w/int. Party] Script.rb:344: dynamic constant assignment
+      TEXT_BASE_COLOR     = Color.new(255, 255, 25...
+      ^~~~~~~~~~~~~~~
+[Bag Screen w/int. Party] Script.rb:345: dynamic constant assignment
+      TEXT_SHADOW_COLOR   = Color.new(165, 165, 173)
+      ^~~~~~~~~~~~~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-11-20 14:16:11 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Bag Screen w/int. Party]
+Exception: SyntaxError
+Message: [Bag Screen w/int. Party] Script.rb:347: dynamic constant assignment
+      TEXT_BASE_COLOR     = Color.new(255, 255, 25...
+      ^~~~~~~~~~~~~~~
+[Bag Screen w/int. Party] Script.rb:348: dynamic constant assignment
+      TEXT_SHADOW_COLOR   = Color.new(165, 165, 173)
+      ^~~~~~~~~~~~~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-11-20 14:47:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: Invalid argument passed to method.
+Expected nil to be one of [Symbol, GameData::Item, String], but got NilClass.
+
+Backtrace:
+Validation:29:in `validate'
+GameData:92:in `get'
+[Notebook] Notebook_Main.rb:27:in `initialize'
+[Notebook] Notebook_Notes.rb:34:in `new'
+[Notebook] Notebook_Notes.rb:34:in `writeNote'
+[Notebook] Notebook_Item.rb:14:in `block in <main>'
+Event_Handlers:227:in `trigger'
+Item_Utilities:61:in `triggerUseFromBag'
+[Improved Item Text] [001] Messages.rb:174:in `pbUseItem'
+[Essentials Deluxe] Interactable Bag Screen.rb:333:in `block in pbStartScreen'
+
+=================
+
+[2023-11-20 17:28:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Bag Screen w/int. Party]
+Exception: SyntaxError
+Message: [Bag Screen w/int. Party] Script.rb:383: syntax error, unexpected backtick literal, expecting ']'
+...textpos.push([_INTL("♂"), 72``, 16, 0, Color.new(120, 184,...
+...                              ^
+[Bag Screen w/int. Party] Script.rb:383: syntax error, unexpected ',', expecting `end'
+...6, 0, Color.new(120, 184, 232), Color.new(0, 112, 248), true...
+...                              ^
+[Bag Screen w/int. Party] Script.rb:383: syntax error, unexpected ',', expecting `end'
+..., 232), Color.new(0, 112, 248), true, Graphics.width]) #text...
+...                              ^
+[Bag Screen w/int. Party] Script.rb:383: Can't assign to true
+...), Color.new(0, 112, 248), true, Graphics.width]) #textpos.p...
+...                           ^~~~
+[Bag Screen w/int. Party] Script.rb:383: syntax error, unexpected ']', expecting '.' or &. or :: or '['
+...12, 248), true, Graphics.width]) #textpos.push([_INTL("♂")...
+...                              ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-11-20 17:30:29 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `addBitmap' for nil:NilClass
+
+Backtrace:
+UI_Party:206:in `initialize'
+UI_Party:494:in `new'
+UI_Party:494:in `block in pbStartScene'
+UI_Party:492:in `times'
+UI_Party:492:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-11-21 14:48:51 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `outline=' for #<Window_UnformattedTextPokemon>
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:537:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'

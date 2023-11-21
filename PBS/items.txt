@@ -8050,3 +8050,12 @@ FieldUse = Direct
 Flags = KeyItem
 Description = A notebook where you can write and view notes during your journey.
 #-------------------------------
+[XXX]
+Name = Test Item
+NamePlural = Test Itemz
+Pocket = 8
+Price = 0
+FieldUse = Direct
+Flags = KeyItem
+Description = X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X.
+#-------------------------------

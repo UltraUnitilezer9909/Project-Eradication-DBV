@@ -1,6 +1,13 @@
 #===============================================================================
 # Creating specific Bag and Party functionalities
 #===============================================================================
+module System
+  TEXT_BASE_COLOR     = Color.new(255, 255, 255)
+  TEXT_SHADOW_COLOR   = Color.new(165, 165, 173)
+end
+
+
+
 class Window_PokemonBag < Window_DrawableCommand
   attr_reader :pocket
   attr_accessor :sorting
@@ -14,9 +21,9 @@ class Window_PokemonBag < Window_DrawableCommand
     @partysel = false
     @adapter  = PokemonMartAdapter.new
     super(x, y, width, height)
-    @selarrow   = AnimatedBitmap.new("Graphics/Pictures/Bag Party/cursor")
-    @swaparrow  = AnimatedBitmap.new("Graphics/Pictures/Bag Party/cursor_swap")
-    @partyarrow = AnimatedBitmap.new("Graphics/Pictures/Bag Party/cursor_party")
+    @selarrow   = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor")
+    @swaparrow  = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor_swap")
+    @partyarrow = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor_party")
     self.windowskin = nil
   end
 
@@ -92,12 +99,12 @@ class Window_PokemonBag < Window_DrawableCommand
         if @bag.registered?(item)
           pbDrawImagePositions(
             self.contents,
-            [["Graphics/Pictures/Bag Party/icon_register", rect.x + rect.width - 72, rect.y + 10, 0, 0, -1, 24]]
+            [["Graphics/Pictures/UI/BagUI/icon_register", rect.x + rect.width - 72, rect.y + 10, 0, 0, -1, 24]]
           )
         elsif pbCanRegisterItem?(item)
           pbDrawImagePositions(
             self.contents,
-            [["Graphics/Pictures/Bag Party/icon_register", rect.x + rect.width - 72, rect.y + 10, 0, 24, -1, 24]]
+            [["Graphics/Pictures/UI/BagUI/icon_register", rect.x + rect.width - 72, rect.y + 10, 0, 24, -1, 24]]
           )
         end
       else
@@ -138,7 +145,7 @@ class PokemonBagPartyBlankPanel < SpriteWrapper
     super(viewport)
     self.x = (index % 2) * 112 + 4
     self.y = (index % 2) + 96 + 2
-    @panelbgsprite = AnimatedBitmap.new("Graphics/Pictures/Bag Party/ptpanel_blank")
+    @panelbgsprite = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/ptpanel_blank")
     self.bitmap = @panelbgsprite.bitmap
     @text = nil
   end
@@ -165,47 +172,49 @@ class PokemonBagPartyPanel < SpriteWrapper
   attr_reader :switching
   attr_reader :text
 
+
+
   def initialize(pokemon, index, viewport=nil)
     super(viewport)
     @pokemon = pokemon
     @active = (index == 0)   # true = rounded panel, false = rectangular panel
     @refreshing = true
-    self.x = (index % 2) * 112 + 4
-    self.y = 96 * (index / 2) + 2
+    self.x = (index % 2) * 242 + 2 #(index % 2) * 112 + 4
+    self.y = 84 * (index / 2) + 2 #96 * (index / 2) + 2
     @panelbgsprite = ChangelingSprite.new(0, 0, viewport)
     @panelbgsprite.z = self.z
-    if @active   # Rounded panel
-      @panelbgsprite.addBitmap("able", "Graphics/Pictures/Bag Party/ptpanel_round_desel")
-      @panelbgsprite.addBitmap("ablesel", "Graphics/Pictures/Bag Party/ptpanel_round_sel")
-      @panelbgsprite.addBitmap("fainted", "Graphics/Pictures/Bag Party/ptpanel_round_faint")
-      @panelbgsprite.addBitmap("faintedsel", "Graphics/Pictures/Bag Party/ptpanel_round_faint_sel")
-      @panelbgsprite.addBitmap("swap", "Graphics/Pictures/Bag Party/ptpanel_round_move")
-      @panelbgsprite.addBitmap("swapsel", "Graphics/Pictures/Bag Party/ptpanel_round_move_sel")
-      @panelbgsprite.addBitmap("swapsel2", "Graphics/Pictures/Bag Party/ptpanel_round_move_sel")
-    else   # Rectangular panel
-      @panelbgsprite.addBitmap("able", "Graphics/Pictures/Bag Party/ptpanel_rect_desel")
-      @panelbgsprite.addBitmap("ablesel", "Graphics/Pictures/Bag Party/ptpanel_rect_sel")
-      @panelbgsprite.addBitmap("fainted", "Graphics/Pictures/Bag Party/ptpanel_rect_faint")
-      @panelbgsprite.addBitmap("faintedsel", "Graphics/Pictures/Bag Party/ptpanel_rect_faint_sel")
-      @panelbgsprite.addBitmap("swap", "Graphics/Pictures/Bag Party/ptpanel_rect_move")
-      @panelbgsprite.addBitmap("swapsel", "Graphics/Pictures/Bag Party/ptpanel_rect_move_sel")
-      @panelbgsprite.addBitmap("swapsel2", "Graphics/Pictures/Bag Party/ptpanel_rect_move_sel")
-    end
+    #if @active   # Rounded panel
+      #@panelbgsprite.addBitmap("able", "Graphics/Pictures/UI/BagUI/ptpanel_round_desel")
+      #@panelbgsprite.addBitmap("ablesel", "Graphics/Pictures/UI/BagUI/ptpanel_round_sel")
+      #@panelbgsprite.addBitmap("fainted", "Graphics/Pictures/UI/BagUI/ptpanel_round_faint")
+      #@panelbgsprite.addBitmap("faintedsel", "Graphics/Pictures/UI/BagUI/ptpanel_round_faint_sel")
+      #@panelbgsprite.addBitmap("swap", "Graphics/Pictures/UI/BagUI/ptpanel_round_move")
+      #@panelbgsprite.addBitmap("swapsel", "Graphics/Pictures/UI/BagUI/ptpanel_round_move_sel")
+      #@panelbgsprite.addBitmap("swapsel2", "Graphics/Pictures/UI/BagUI/ptpanel_round_move_sel")
+    #else   # Rectangular panel
+    @panelbgsprite.addBitmap("able", "Graphics/Pictures/UI/BagUI/ptpanel_rect_desel")
+    @panelbgsprite.addBitmap("ablesel", "Graphics/Pictures/UI/BagUI/ptpanel_rect_sel")
+    @panelbgsprite.addBitmap("fainted", "Graphics/Pictures/UI/BagUI/ptpanel_rect_faint")
+    @panelbgsprite.addBitmap("faintedsel", "Graphics/Pictures/UI/BagUI/ptpanel_rect_faint_sel")
+    @panelbgsprite.addBitmap("swap", "Graphics/Pictures/UI/BagUI/ptpanel_rect_move")
+    @panelbgsprite.addBitmap("swapsel", "Graphics/Pictures/UI/BagUI/ptpanel_rect_move_sel")
+    @panelbgsprite.addBitmap("swapsel2", "Graphics/Pictures/UI/BagUI/ptpanel_rect_move_sel")
+    #end
     @pkmnsprite = PokemonIconSprite.new(pokemon, viewport)
     @pkmnsprite.setOffset(PictureOrigin::CENTER)
     @pkmnsprite.active = @active
     @pkmnsprite.z      = self.z + 1
     @hpbgsprite = ChangelingSprite.new(0, 0, viewport)
     @hpbgsprite.z = self.z + 2
-    @hpbgsprite.addBitmap("able", "Graphics/Pictures/Bag Party/overlay_hp_back")
-    @hpbgsprite.addBitmap("fainted", "Graphics/Pictures/Bag Party/overlay_hp_back")
-    @hpbgsprite.addBitmap("swap", "Graphics/Pictures/Bag Party/overlay_hp_back")
+    @hpbgsprite.addBitmap("able", "Graphics/Pictures/Z - None")
+    @hpbgsprite.addBitmap("fainted", "Graphics/Pictures/Z - None")
+    @hpbgsprite.addBitmap("swap", "Graphics/Pictures/Z - None")
     @helditemsprite = HeldItemIconSprite.new(0, 0, @pokemon, viewport)
     @helditemsprite.z = self.z + 3
     @overlaysprite = BitmapSprite.new(Graphics.width, Graphics.height, viewport)
     @overlaysprite.z = self.z + 4
-    @hpbar    = AnimatedBitmap.new("Graphics/Pictures/Bag Party/overlay_hp")
-    @statuses = AnimatedBitmap.new(_INTL("Graphics/Pictures/Bag Party/statuses"))
+    @hpbar    = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/overlay_hp")
+    @statuses = AnimatedBitmap.new(_INTL("Graphics/Pictures/UI/BagUI/statuses"))
     @selected      = false
     @preselected   = false
     @switching     = false
@@ -333,26 +342,28 @@ class PokemonBagPartyPanel < SpriteWrapper
     if @refreshBitmap
       @refreshBitmap = false
       @overlaysprite.bitmap.clear if @overlaysprite.bitmap
-      baseColor   = Color.new(248, 248, 248)
-      outlineColor = Color.new(0, 0, 0)
+      baseColor           = Color.new(248, 248, 248)
+      outlineColor        = Color.new(0, 0, 0)
+#      TEXT_BASE_COLOR     = Color.new(255, 255, 255)
+#      TEXT_SHADOW_COLOR   = Color.new(165, 165, 173)
       pbSetSystemFont(@overlaysprite.bitmap)
       pbSetSmallFont(@overlaysprite.bitmap)
       textpos = []
       if !@pokemon.egg?
         if !@text || @text.length == 0
           # Draw HP numbers
-          textpos.push([sprintf("% 3d /% 3d", @pokemon.hp, @pokemon.totalhp), 52, 76, 2, baseColor, Color.new(40, 40, 40), true, Graphics.width]) if !@text || @text.length == 0
+          textpos.push([sprintf("% 3d /% 3d", @pokemon.hp, @pokemon.totalhp), 10, 55, 0, System::TEXT_BASE_COLOR, System::TEXT_SHADOW_COLOR, true, Graphics.width]) if !@text || @text.length == 0 #textpos.push([sprintf("% 3d /% 3d", @pokemon.hp, @pokemon.totalhp), 52, 76, 2, baseColor, Color.new(40, 40, 40), true, Graphics.width]) if !@text || @text.length == 0
         end
           # Draw HP bar
           if @pokemon.hp > 0
-            w = @pokemon.hp * 94 / @pokemon.totalhp.to_f
+            w = @pokemon.hp * 338 / @pokemon.totalhp.to_f
             w = 1 if w < 1
             w = ((w / 2).round) * 2
             hpzone = 0
             hpzone = 1 if @pokemon.hp <= (@pokemon.totalhp / 2).floor
             hpzone = 2 if @pokemon.hp <= (@pokemon.totalhp / 4).floor
-            hprect = Rect.new(0, hpzone * 8, w, 8)
-            @overlaysprite.bitmap.blt(8, 62, @hpbar.bitmap, hprect)
+            hprect = Rect.new(0, hpzone * 24, w, 24) #Rect.new(0, hpzone * 8, w, 8)
+            @overlaysprite.bitmap.blt( 12, 56, @hpbar.bitmap, hprect) #@overlaysprite.bitmap.blt(8, 62, @hpbar.bitmap, hprect)
           end
           # Draw status
           status = -1
@@ -364,36 +375,32 @@ class PokemonBagPartyPanel < SpriteWrapper
             status = GameData::Status.count + 1
           end
           if status >= 0
-            statusrect = Rect.new(0, 18 * status, 52, 18)
-            @overlaysprite.bitmap.blt(52, 26, @statuses.bitmap, statusrect)
+            statusrect = Rect.new(0, 18 * status, 52, 18)#Rect.new(0, 18 * status, 52, 18)
+            @overlaysprite.bitmap.blt(182, 32, @statuses.bitmap, statusrect) #@overlaysprite.bitmap.blt(52, 26, @statuses.bitmap, statusrect)
           end
         # Draw gender symbol
         if @pokemon.male?
-          textpos.push([_INTL("♂"), 92, 8, 0, Color.new(116, 162, 237), outlineColor, true, Graphics.width])
+          textpos.push([_INTL("♂"), 70, 16, 0, Color.new(120, 184, 232), Color.new(0, 112, 248), true, Graphics.width]) #textpos.push([_INTL("♂"), 92, 8, 0, Color.new(116, 162, 237), outlineColor, true, Graphics.width])
         elsif @pokemon.female?
-          textpos.push([_INTL("♀"), 92, 8, 0, Color.new(237, 116, 140), outlineColor, true, Graphics.width])
+          textpos.push([_INTL("♀"), 70, 16, 0, Color.new(248, 168, 184), Color.new(232, 32, 16), true, Graphics.width]) #textpos.push([_INTL("♀"), 92, 8, 0, Color.new(237, 116, 140), outlineColor, true, Graphics.width])
         end
         # Draw shiny icon
         if @pokemon.shiny?
-          pbDrawImagePositions(@overlaysprite.bitmap,
-                               [["Graphics/Pictures/shiny", 76, 44, 0, 0, 16, 16]])
+          pbDrawImagePositions(@overlaysprite.bitmap,[["Graphics/Pictures/shiny", 92, 8, 0, 0, 16, 16]])
         end
       end
       pbDrawTextPositions(@overlaysprite.bitmap, textpos)
       # Draw level text
       if !@pokemon.egg?
-        pbDrawImagePositions(@overlaysprite.bitmap,
-                             [["Graphics/Pictures/Bag Party/overlay_lv", 34, 10, 0, 0, 22, 14]])
+        #pbDrawImagePositions(@overlaysprite.bitmap, [["Graphics/Pictures/UI/BagUI/overlay_lv", 34, 10, 0, 0, 22, 14]])
         pbSetSmallFont(@overlaysprite.bitmap)
-        pbDrawTextPositions(@overlaysprite.bitmap,
-                            [[@pokemon.level.to_s, 58, 8, 0, baseColor, outlineColor, true, Graphics.width]])
+        pbDrawTextPositions(@overlaysprite.bitmap,[["Lv.#{@pokemon.level.to_s}", 234, 10, 1, System::TEXT_BASE_COLOR, System::TEXT_SHADOW_COLOR, true, Graphics.width]]) #pbDrawTextPositions(@overlaysprite.bitmap,[["Lv.#{@pokemon.level.to_s}", 58, 8, 0, baseColor, outlineColor, true, Graphics.width]])
       end
       # Draw annotation text
       if @text && @text.length > 0
         pbSetSystemFont(@overlaysprite.bitmap)
         pbSetSmallFont(@overlaysprite.bitmap)
-        pbDrawTextPositions(@overlaysprite.bitmap,
-                            [[@text,56,76,2,baseColor,Color.new(40, 40, 40), true, Graphics.width]])
+        pbDrawTextPositions(@overlaysprite.bitmap,[[@text,56,76,2,baseColor,Color.new(40, 40, 40), true, Graphics.width]])
       end
     end
     @refreshing = false
@@ -418,7 +425,7 @@ class PokemonBag_Scene
   ITEMTEXTSHADOWCOLOR    = Color.new(165, 165, 173)
   POCKETNAMEBASECOLOR    = ITEMLISTBASECOLOR 
   POCKETNAMEOUTLINECOLOR = ITEMLISTSHADOWCOLOR
-  ITEMSVISIBLE           = 6
+  ITEMSVISIBLE           = 10 #6
 
   def pbUpdate
     pbUpdateSpriteHash(@sprites)
@@ -467,14 +474,16 @@ class PokemonBag_Scene
     end
     @bag.last_viewed_pocket = lastpocket
     
-    @sliderbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/Bag Party/icon_slider"))
-    @pocketbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/Bag Party/icon_pocket"))
+    @sliderbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/Z - None"))
+    @pocketbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/Z - None"))
+   #@sliderbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/UI/BagUI/icon_slider"))
+    #@pocketbitmap = AnimatedBitmap.new(_INTL("Graphics/Pictures/UI/BagUI/icon_pocket"))
     
     @sprites = {}
     @sprites["bg"] = IconSprite.new(0, 0, @viewport)
-    #@sprites["bg"].setBitmap("Graphics/Pictures/Bag Party/bg")
-    #addbgPlane(@sprites, "bg", "Graphics/Pictures/Bag Party/bg", @viewport)
-    addBackgroundPlane(@sprites, "bg", "Bag Party/bg", @viewport) #"Trainer Card/bg"
+    #@sprites["bg"].setBitmap("Graphics/Pictures/UI/BagUI/bg")
+    #addbgPlane(@sprites, "bg", "Graphics/Pictures/UI/BagUI/bg", @viewport)
+    addBackgroundPlane(@sprites, "bg", "UI/BagUI/bg", @viewport) #"Trainer Card/bg"
     
     if BagScreenWiInParty::BGSTYLE == 1 # BW Style
       if $player.female?
@@ -485,10 +494,10 @@ class PokemonBag_Scene
     elsif BagScreenWiInParty::BGSTYLE == 2 # HGSS Style
       pbPocketColor
     end
-    @sprites["ui1"] = IconSprite.new(0, 0, @viewport)
-    @sprites["ui1"].setBitmap("Graphics/Pictures/Bag Party/ui1")
+    #@sprites["ui1"] = IconSprite.new(0, 0, @viewport)
+    #@sprites["ui1"].setBitmap("Graphics/Pictures/UI/BagUI/ui1")
     @sprites["ui2"] = IconSprite.new(0, 0, @viewport)
-    @sprites["ui2"].setBitmap("Graphics/Pictures/Bag Party/ui2")
+    @sprites["ui2"].setBitmap("Graphics/Pictures/UI/BagUI/Layout")
     
     for i in 0...Settings::MAX_PARTY_SIZE
       if @party[i]
@@ -502,24 +511,32 @@ class PokemonBag_Scene
     pbSetSystemFont(@sprites["overlay"].bitmap)
     rbvar = 0
     
-    @sprites["pocketicon"] = BitmapSprite.new(130, 52, @viewport)
-    @sprites["pocketicon"].x = 372
-    @sprites["pocketicon"].y = 0
+    @sprites["pocketicon"]            = BitmapSprite.new(1, 1, @viewport) #BitmapSprite.new(130, 52, @viewport)
+    @sprites["pocketicon"].x          = 0 #372
+    @sprites["pocketicon"].y          = 0
+    @sprites["pocketicon"].visible    = false
     
-    @sprites["itemlist"] = Window_PokemonBag.new(@bag, @filterlist, lastpocket, 204, 40, 314, 72 + ITEMSVISIBLE * 32)
+    #@sprites["itemlist"] = Window_PokemonBag.new(@bag, @filterlist, lastpocket, 204, 40, 314, 72 + ITEMSVISIBLE * 32)
+    @sprites["itemlist"] = Window_PokemonBag.new(@bag, @filterlist, lastpocket, 460, 54, 332, 70 + ITEMSVISIBLE * 32)
     @sprites["itemlist"].viewport    = @viewport
     @sprites["itemlist"].pocket      = lastpocket
     @sprites["itemlist"].index       = @bag.last_viewed_index(lastpocket)
     @sprites["itemlist"].baseColor   = ITEMLISTBASECOLOR
     @sprites["itemlist"].shadowColor = ITEMLISTSHADOWCOLOR
     @sprites["itemicon"] = ItemIconSprite.new(48, Graphics.height - 46, nil, @viewport)
-    @sprites["itemtext"] = Window_UnformattedTextPokemon.newWithSize(
-      "", 72, 274, Graphics.width - 72 - 24, 128, @viewport
-    )
+    #@overlaysprite = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
+    #@overlaysprite.z = 11
+    #pbSetSmallFont(@overlaysprite.bitmap)
+    #pbDrawTextPositions(@overlaysprite.bitmap,[["Recruit list: [X]", 766, 4, 1, TEXT_BASE_COLOR, TEXT_SHADOW_COLOR]])
+    #pbSetSystemFont(@overlaysprite.bitmap)
+    #@sprites["itemtext"] = Window_UnformattedTextPokemon.newWithSize("", 72, 274, Graphics.width - 72 - 24, 128, @viewport)
+    @sprites["itemtext"] = Window_UnformattedTextPokemon.newWithSize("", 72, 322, Graphics.width/2 + 50, 128, @viewport)
     @sprites["itemtext"].baseColor   = ITEMTEXTBASECOLOR
     @sprites["itemtext"].shadowColor = ITEMTEXTSHADOWCOLOR
     @sprites["itemtext"].visible     = true
+    #@sprites["itemtext"].outline     = true
     @sprites["itemtext"].windowskin  = nil
+
     @sprites["helpwindow"] = Window_UnformattedTextPokemon.new("")
     @sprites["helpwindow"].visible  = false
     @sprites["helpwindow"].viewport = @viewport
@@ -633,21 +650,31 @@ class PokemonBag_Scene
   end
 
   def pbRefresh
+    x_position = 1 #pocketX[pocketAcc - 1]
+    y_position = 1 #(pocketAcc % 2) * 26
     # Draw the pocket icons
-    pocketX = [0, 0, 2, 2, 4, 4, 6, 6]      # Each pocket's X coordinates (following a pattern of adding +2 every 2 values)
+    pocketX = [1,1,2,2,4,4,6,6]      # Each pocket's X coordinates (following a pattern of adding +2 every 2 values)
     pocketAcc = @sprites["itemlist"].pocket # Current pocket
     @sprites["pocketicon"].bitmap.clear
+  
     if @choosing && @filterlist
       (1...@bag.pockets.length).each do |i|
         next if @filterlist[i].length > 0
         pocketValue = i - 1
+        x_position = pocketX[pocketValue]
+        y_position = (i % 2) * 26
         @sprites["pocketicon"].bitmap.blt(
-          (i - 1) * 14 + pocketX[pocketValue], (i % 2) * 26, @pocketbitmap.bitmap,
-          Rect.new((i - 1) * 28, 28, 28, 28)) #Blocked icons
+          x_position, y_position,
+          @pocketbitmap.bitmap, Rect.new((i - 1) * 28, 28, 28, 28)
+        ) # Blocked icons
       end
     end
-    @sprites["pocketicon"].bitmap.blt((pocketAcc - 1) * 14 + pocketX[pocketAcc - 1], (pocketAcc % 2) * 26,
-       @pocketbitmap.bitmap,Rect.new((pocketAcc - 1) * 28, 0, 28, 28)) #Unblocked icons
+  
+    @sprites["pocketicon"].bitmap.blt(
+      x_position, y_position,
+      @pocketbitmap.bitmap, Rect.new((pocketAcc - 1) * 28, 0, 28, 28)
+    ) # Unblocked icons
+  
     # Refresh the item window
     @sprites["itemlist"].refresh
     # Refresh more things
@@ -671,13 +698,14 @@ class PokemonBag_Scene
     overlay = @sprites["overlay"].bitmap
     overlay.clear
     # Draw the pocket name
-    pbDrawTextPositions(
-      overlay,
-      [[PokemonBag.pocket_names[@bag.last_viewed_pocket - 1], 297, 18, 2, POCKETNAMEBASECOLOR, POCKETNAMEOUTLINECOLOR, true, Graphics.width]]
-    )
+    #[[PokemonBag.pocket_names[@bag.last_viewed_pocket - 1], 297, 18, 2, POCKETNAMEBASECOLOR, POCKETNAMEOUTLINECOLOR, true, Graphics.width])
+    pbDrawTextPositions(overlay,[["#{PokemonBag.pocket_names[@bag.last_viewed_pocket - 1]}", 758, 8, 1, System::TEXT_BASE_COLOR, System::TEXT_SHADOW_COLOR, true, Graphics.width]])
+    pbDrawTextPositions(overlay,[["#{BagScreenWiInParty.bag_pocket_num[@bag.last_viewed_pocket - 1]}", 758, 38, 1, POCKETNAMEBASECOLOR, POCKETNAMEOUTLINECOLOR, true, Graphics.width]])
     # Draw slider arrows
     showslider = false
     if itemlist.top_row > 0
+      #@sprites["itemlist"] = Window_PokemonBag.new(@bag, @filterlist, lastpocket, 204, 40, 314, 72 + ITEMSVISIBLE * 32)
+      #@sprites["itemlist"] = Window_PokemonBag.new(@bag, @filterlist, lastpocket, 460, 54, 314, 70 + ITEMSVISIBLE * 32)
       overlay.blt(356, 16, @sliderbitmap.bitmap, Rect.new(0, 0, 36, 38))
       showslider = true
     end
@@ -705,8 +733,7 @@ class PokemonBag_Scene
     # Set the selected item's icon
     @sprites["itemicon"].item = itemlist.item
     # Set the selected item's description
-    @sprites["itemtext"].text =
-      (itemlist.item) ? GameData::Item.get(itemlist.item).description : _INTL("Close bag.")
+    @sprites["itemtext"].text = (itemlist.item) ? GameData::Item.get(itemlist.item).description : _INTL("Close bag.")
   end
 
   def pbRefreshFilter

@@ -76,9 +76,9 @@ module SaveData
   OLD_SAVE_SLOT = 'Game'
 
   SAVE_DIR = if File.directory?(System.data_directory)
-               System.data_directory
+               System.data_directory + "/Saves"
              else
-              '.'
+              './Saves'
              end
 
   def self.each_slot

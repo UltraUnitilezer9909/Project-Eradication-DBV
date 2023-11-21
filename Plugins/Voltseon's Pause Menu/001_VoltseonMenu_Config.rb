@@ -17,7 +17,7 @@
 # Menu Options
 #-------------------------------------------------------------------------------
 # Main file path for the menu
-MENU_FILE_PATH = "Graphics/Pictures/Voltseon's Pause Menu/"
+MENU_FILE_PATH = "Graphics/Pictures/UI/PauseMenuUI/"
 
 # An array of aLL the Menu Entry Classes from 005_VoltseonMenu_Entries that
 # need to be loaded
@@ -44,7 +44,7 @@ CHANGE_THEME_IN_OPTIONS = false
 # Look and Feel
 #-------------------------------------------------------------------------------
 # Background options
-BACKGROUND_TINT = Color.new(-5,-5,-5, 0) #Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) applied to the background/map.
+BACKGROUND_TINT = Color.new(-10,-10,-10, 0) #Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) applied to the background/map.
 
 SHOW_MENU_NAMES = true # Whether or not the Menu option Names show on screen (true = show names)
 

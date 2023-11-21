@@ -57,7 +57,7 @@
     // as opposed to stretch-to-fill
     // (default: enabled)
     //
-    // "fixedAspectRatio": true,
+     "fixedAspectRatio": true,
 
 
     // Apply linear interpolation when game screen
@@ -79,7 +79,7 @@
     // in RGSS2 or higher).
     // (default: 0)
     //
-    "defScreenW": 512,
+    "defScreenW":  768,
 
 
     // Specify the window height on startup. If set to 0,
@@ -88,7 +88,7 @@
     // in RGSS2 or higher).
     // (default: 0)
     //
-    "defScreenH": 384,
+    "defScreenH": 432,
 
 
     // Override the game window title
@@ -223,7 +223,7 @@
     // (emulates windows case insensitivity)
     // (default: enabled)
     //
-    // "pathCache": true,
+    "pathCache": true,
 
 
     // Add 'rtp1', 'rtp2.zip' and 'game.rgssad' to the

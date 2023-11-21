@@ -69,7 +69,7 @@ class PokemonPartyHud < Component
     @status    = AnimatedBitmap.new(MENU_FILE_PATH + "overlayStatus")
     @infobmp   = Bitmap.new(MENU_FILE_PATH + "overlayInfo")
     @itembmp   = Bitmap.new(MENU_FILE_PATH + "overlayItem")
-    @shinybmp  = Bitmap.new(MENU_FILE_PATH + "overlayShiny")
+    @shinybmp  = Bitmap.new("Graphics/Pictures/shiny")
   end
 
   def shouldDraw?; return $Trainer.party_count > 0; end
@@ -77,7 +77,7 @@ class PokemonPartyHud < Component
   def refresh
     # Iterate through all the player's Pokémon
     @sprites["overlay"].bitmap.clear
-    for i in 0...6
+    for i in 0...6 #6
       next if !@sprites["pokemon#{i}"]
       @sprites["pokemon#{i}"].dispose
       @sprites["pokemon#{i}"] = nil
@@ -86,24 +86,25 @@ class PokemonPartyHud < Component
     for i in 0...$Trainer.party.length
       pokemon = $Trainer.party[i]
       next if !pokemon
-      spacing = (Graphics.width/8) * i
+      #spacing = (Graphics.width/8) * i  * ========================================================================================================
+      spacing = (Graphics.width/10) * i
       # Pokémon Icon
       @sprites["pokemon#{i}"] = PokemonIconSprite.new(pokemon,@viewport) if !@sprites["pokemon#{i}"]
-      @sprites["pokemon#{i}"].x = spacing + (Graphics.width/8)
+      @sprites["pokemon#{i}"].x = spacing + (Graphics.width/10)
       @sprites["pokemon#{i}"].y = Graphics.height - 164
       @sprites["pokemon#{i}"].z = -2
       next if pokemon.egg?
       # Information Overlay
-      @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/8) + 16, Graphics.height/2 - 102,
+      @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/10) + 16, Graphics.height/2 - 102,
                           @infobmp, Rect.new(0, 0, @infobmp.width, @infobmp.height))
       # Shiny Icon
       if pokemon.shiny?
-        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/8) + 52, Graphics.height/2 - 142,
+        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/10) + 52, Graphics.height/2 - 142,
                           @shinybmp,Rect.new(0, 0, @shinybmp.width, @shinybmp.height))
       end
       # Item Icon
       if pokemon.hasItem?
-        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/8) + 52, Graphics.height/2 - 116,
+        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/10) + 52, Graphics.height/2 - 116,
                                        @itembmp,Rect.new(0, 0, @itembmp.width, @itembmp.height))
       end
       # Health
@@ -115,7 +116,7 @@ class PokemonPartyHud < Component
         hpzone = 1 if pokemon.hp<=(pokemon.totalhp/2).floor
         hpzone = 2 if pokemon.hp<=(pokemon.totalhp/4).floor
         hprect = Rect.new(0, hpzone * 4, w, 4)
-        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/8) + 18, Graphics.height/2 - 100, @hpbar.bitmap, hprect)
+        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/10) + 18, Graphics.height/2 - 100, @hpbar.bitmap, hprect)
       end
       # EXP
       if pokemon.exp>0
@@ -127,7 +128,7 @@ class PokemonPartyHud < Component
         w = 0 if w.is_a?(Float) && w.nan?
         w = ((w/2).round) * 2 if w > 0 # I heard Pokémon Beekeeper was good
         exprect = Rect.new(0, 0, w, 2)
-        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/8) + 22, Graphics.height/2 - 94, @expbar.bitmap, exprect)
+        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/10) + 22, Graphics.height/2 - 94, @expbar.bitmap, exprect)
       end
       # Status
       status = 0
@@ -141,7 +142,7 @@ class PokemonPartyHud < Component
       status -= 1
       if status >= 0
         statusrect = Rect.new(0,8*status,8,8)
-        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/8) + 48, Graphics.height/2 - 106, @status.bitmap, statusrect)
+        @sprites["overlay"].bitmap.blt(spacing + (Graphics.width/10) + 48, Graphics.height/2 - 106, @status.bitmap, statusrect)
       end
     end
   end
