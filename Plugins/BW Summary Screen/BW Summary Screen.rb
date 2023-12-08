@@ -8,9 +8,9 @@
       super(viewport)
       # Sets the Move Selection Cursor
       if SUMMARY_B2W2_STYLE
-        @movesel = AnimatedBitmap.new("Graphics/Pictures/Summary/cursor_move_B2W2")
+        @movesel = AnimatedBitmap.new("Graphics/Pictures/UI/SummaryUI/cursor_move_B2W2")
       else
-        @movesel = AnimatedBitmap.new("Graphics/Pictures/Summary/cursor_move")
+        @movesel = AnimatedBitmap.new("Graphics/Pictures/UI/SummaryUI/cursor_move")
       end
       @frame = 0
       @index = 0
@@ -66,9 +66,9 @@
       super(viewport)
       # Sets the Ribbon Selection Cursor
       if SUMMARY_B2W2_STYLE
-        @movesel = AnimatedBitmap.new("Graphics/Pictures/Summary/cursor_ribbon_B2W2")
+        @movesel = AnimatedBitmap.new("Graphics/Pictures/UI/SummaryUI/cursor_ribbon_B2W2")
       else
-        @movesel = AnimatedBitmap.new("Graphics/Pictures/Summary/cursor_ribbon")
+        @movesel = AnimatedBitmap.new("Graphics/Pictures/UI/SummaryUI/cursor_ribbon")
       end
 
       @frame = 0
@@ -115,6 +115,15 @@
     MARK_WIDTH  = 16
     MARK_HEIGHT = 16
 
+    base   = Color.new(255, 255, 255)
+    shadow = Color.new(165, 165, 173)
+    base1   = Color.new(148, 15, 255)
+    shadow1 = Color.new(99, 0, 180)
+    base2 = Color.new(120, 184, 232)
+    shadow2 = Color.new(0, 112, 248)
+    base3 = Color.new(248, 168, 184)
+    shadow3 = Color.new(232, 32, 16)
+
     def pbUpdate
       pbUpdateSpriteHash(@sprites)
       # Sets the Moving Background
@@ -132,7 +141,7 @@
       @inbattle   = inbattle
       @page = 1
       @typebitmap    = AnimatedBitmap.new(_INTL("Graphics/Pictures/types"))
-      @markingbitmap = AnimatedBitmap.new("Graphics/Pictures/Summary/markings")
+      @markingbitmap = AnimatedBitmap.new("Graphics/Pictures/UI/SummaryUI/markings")
       @sprites = {}
       # Sets the Summary Background
       # Background glitch fixed by Shashu-Greninja
@@ -150,14 +159,14 @@
       @sprites["pokemon"] = PokemonSprite.new(@viewport)
       @sprites["pokemon"].setOffset(PictureOrigin::CENTER)
       # Changed the position of Pokémon Battler
-      @sprites["pokemon"].x = 414
-      @sprites["pokemon"].y = 208
+      @sprites["pokemon"].x = 384 #@sprites["pokemon"].x = 414
+      @sprites["pokemon"].y = 216 #@sprites["pokemon"].y = 208
       @sprites["pokemon"].setPokemonBitmap(@pokemon)
       @sprites["pokeicon"] = PokemonIconSprite.new(@pokemon, @viewport)
       @sprites["pokeicon"].setOffset(PictureOrigin::CENTER)
       # Changed the position of Pokémon Icon
-      @sprites["pokeicon"].x       = 46
-      @sprites["pokeicon"].y       = 92
+      @sprites["pokeicon"].x       = 200 #@sprites["pokeicon"].x       = 46
+      @sprites["pokeicon"].y       = 92 #@sprites["pokeicon"].y       = 92
       @sprites["pokeicon"].visible = false
       # Changed the position of the held Item icon
       @sprites["itemicon"] = ItemIconSprite.new(485, 358, @pokemon.item_id, @viewport)
@@ -191,7 +200,7 @@
       @sprites["downarrow"].visible = false
       # Sets the Marking Overlay
       @sprites["markingbg"] = IconSprite.new(260, 88, @viewport)
-      @sprites["markingbg"].setBitmap("Graphics/Pictures/Summary/overlay_marking")
+      @sprites["markingbg"].setBitmap("Graphics/Pictures/UI/SummaryUI/overlay_marking")
       @sprites["markingbg"].visible = false
       @sprites["markingoverlay"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
       @sprites["markingoverlay"].visible = false
@@ -199,9 +208,9 @@
       # Sets the Marking Selector
       @sprites["markingsel"] = IconSprite.new(0, 0, @viewport)
       if SUMMARY_B2W2_STYLE
-        @sprites["markingsel"].setBitmap("Graphics/Pictures/Summary/cursor_marking_B2W2")
+        @sprites["markingsel"].setBitmap("Graphics/Pictures/UI/SummaryUI/cursor_marking_B2W2")
       else
-        @sprites["markingsel"].setBitmap("Graphics/Pictures/Summary/cursor_marking")
+        @sprites["markingsel"].setBitmap("Graphics/Pictures/UI/SummaryUI/cursor_marking")
       end
       @sprites["markingsel"].src_rect.height = @sprites["markingsel"].bitmap.height / 2
       @sprites["markingsel"].visible = false
@@ -352,12 +361,12 @@
   #	Updated to v19 by Shashu-Greninja
   #===============================================================================
     def pbDisplayIVRating
-      ratingf  = sprintf("Graphics/Pictures/Summary/RatingF")
-      ratingd  = sprintf("Graphics/Pictures/Summary/RatingD")
-      ratingc  = sprintf("Graphics/Pictures/Summary/RatingC")
-      ratingb  = sprintf("Graphics/Pictures/Summary/RatingB")
-      ratinga  = sprintf("Graphics/Pictures/Summary/RatingA")
-      ratings  = sprintf("Graphics/Pictures/Summary/RatingS")
+      ratingf  = sprintf("Graphics/Pictures/UI/SummaryUI/RatingF")
+      ratingd  = sprintf("Graphics/Pictures/UI/SummaryUI/RatingD")
+      ratingc  = sprintf("Graphics/Pictures/UI/SummaryUI/RatingC")
+      ratingb  = sprintf("Graphics/Pictures/UI/SummaryUI/RatingB")
+      ratinga  = sprintf("Graphics/Pictures/UI/SummaryUI/RatingA")
+      ratings  = sprintf("Graphics/Pictures/UI/SummaryUI/RatingS")
       overlay  = @sprites["overlay"].bitmap
       imagepos = []
       # HP
@@ -460,18 +469,24 @@
       # Changes the color of the text, to the one used in BW
       base   = Color.new(255, 255, 255)
       shadow = Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
+      base2 = Color.new(120, 184, 232)
+      shadow2 = Color.new(0, 112, 248)
+      base3 = Color.new(248, 168, 184)
+      shadow3 = Color.new(232, 32, 16)
       # Set background image
       if SUMMARY_B2W2_STYLE
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background_B2W2")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_#{page}_B2W2")
+        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background_B2W2")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_page_#{page}")
       else
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_#{page}")
+        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_#{page}")
       end
       imagepos = []
       # Show the Poké Ball containing the Pokémon
-      ballimage = sprintf("Graphics/Pictures/Summary/icon_ball_%s", @pokemon.poke_ball)
-      imagepos.push([ballimage, 320, 44])
+      #ballimage = sprintf("Graphics/Pictures/UI/SummaryUI/icon_ball_%s", @pokemon.poke_ball)
+      #imagepos.push([ballimage, 250-32, 4, 2])
       #AAAAA
       # Show status/fainted/Pokérus infected icon
       status = -1
@@ -484,14 +499,14 @@
       end
       status -= 1
       if status >= 0
-        imagepos.push(["Graphics/Pictures/statuses", 410, 88, 0, 16 * status, 46, 16])
+        imagepos.push(["Graphics/Pictures/statuses", 8, 64+28+28+4, 0, 16 * status, 46, 16])
       end
       # Show Pokérus cured icon
       if @pokemon.pokerusStage == 2
         if SUMMARY_B2W2_STYLE
-          imagepos.push([sprintf("Graphics/Pictures/Summary/icon_pokerus"), 376, 303])
+          imagepos.push([sprintf("Graphics/Pictures/UI/SummaryUI/icon_pokerus"), 376, 303])
         else
-          imagepos.push([sprintf("Graphics/Pictures/Summary/icon_pokerus"), 376, 305])
+          imagepos.push([sprintf("Graphics/Pictures/UI/SummaryUI/icon_pokerus"), 376, 305])
         end
       end
       # Show shininess star
@@ -504,58 +519,35 @@
       end
       # Draw all images
       pbDrawImagePositions(overlay,imagepos)
-      # Write various bits of text
-      pagename = [_INTL("POKéMON INFO"),
-                  _INTL("TRAINER MEMO"),
-                  _INTL("SKILLS"),
-                  _INTL("MOVES"),
-                  _INTL("RIBBONS")][page - 1]
-
-      #============================================================================
-      # Changed various positions of the text
-      #============================================================================
-
-      if SUMMARY_B2W2_STYLE
-        textpos = [
-          #[@pokemon.name, 354, 52, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [@pokemon.name, 354, 52, 0, base, shadow],
-          #[@pokemon.level.to_s, 346, 86, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [@pokemon.level.to_s, 346, 86, 0, base, shadow],
-          [_INTL("Item"), 298, 326, 0, base, shadow]
-        ]
-      else
-        textpos = [
-          [pagename, 26, 14, 0, Color.new(255, 255, 255), Color.new(132, 132, 132)],
-          #[@pokemon.name, 354, 52, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [@pokemon.name, 354, 52, 0, Color.new(165, 165, 173), Color.new(90, 82, 82)],
-          #[@pokemon.level.to_s, 344, 84, 0, Color.new(90,82,82),Color.new(165,165,173)],
-          [@pokemon.level.to_s, 346, 86, 0, Color.new(165, 165, 173), Color.new(90, 82, 82)],
-          [_INTL("Item"), 298, 328, 0, base, shadow]
-        ]
-      end
+      # Draw the Pokémon's markings
+      textpos = []
+      pagename = [_INTL("#{@pokemon.name}'s Info"),
+      _INTL("#{@pokemon.owner.name}'s Memo"),
+      _INTL("#{@pokemon.name}'s Skills"),
+      _INTL("#{@pokemon.name}'s Moves"),
+      _INTL("#{@pokemon.name}'s Ribbons")][page - 1]
+    
+      textpos.push([pagename, Graphics.width / 2, 8, 2, base, shadow, true])
+      textpos.push(["Name: " + @pokemon.name, 8, 8, 0, base1, shadow1, true])
+      textpos.push(["Level: " + @pokemon.level.to_s, 8, 36, 0, base2, shadow2, true])
       # Write the held item's name
       if @pokemon.hasItem?
-        textpos.push([@pokemon.item.name, 290, 356, 0, base, shadow])
+        textpos.push(["Item: " + @pokemon.item.name.to_s, 8, 64, 0, base2, shadow2, true])
       else
-        textpos.push([_INTL("None"), 290, 356, 0, base, shadow])
+        textpos.push([_INTL("Item: None"), 8, 64, 0, base3, shadow3, true])
       end
       # Write the gender symbol
       if @pokemon.male?
-        #textpos.push([_INTL("♂"), 486, 52, 0, Color.new(0, 0, 214), Color.new(15, 148, 255)])
-        textpos.push([_INTL("♂"), 486, 52, 0, Color.new(15, 148, 255), Color.new(0, 0, 214)])
+        textpos.push([_INTL("Gender: ♀"), 8, 64+28, 0,base2, shadow2, true])
       elsif @pokemon.female?
-        #textpos.push([_INTL("♀"), 486, 52, 0, Color.new(198, 0, 0), Color.new(255, 155, 155)])
-        textpos.push([_INTL("♀"), 486, 52, 0, Color.new(255, 155, 155), Color.new(198, 0, 0)])
+        textpos.push([_INTL("Gender: ♂"), 8, 64+28, 0, base3, shadow3, true])
+      else 
+      textpos.push([_INTL("Gender: X"), 8, 64+28, 0,  base, shadow, true])
       end
       # Draw all text 
       pbDrawTextPositions(overlay, textpos)
-      # Draw the Pokémon's markings
-      if SUMMARY_B2W2_STYLE
-        drawMarkings(overlay, 370, 302)
-      else
-        drawMarkings(overlay, 416, 306)
-      end
-
+      #I like this one actually: drawMarkings(overlay,  Graphics.width / 2 - 96/2, 32)
+      drawMarkings(overlay,  8, 64+28+28+28)
       # Draw page-specific information
       case page
       when 1 then drawPageOne
@@ -573,48 +565,17 @@
       shadow = Color.new(165, 165, 173)
       base1   = Color.new(148, 15, 255)
       shadow1 = Color.new(99, 0, 180)
+      base2 = Color.new(120, 184, 232)
+      shadow2 = Color.new(0, 112, 248)
+      base3 = Color.new(248, 168, 184)
+      shadow3 = Color.new(232, 32, 16)
       #dexNumBase   = (@pokemon.shiny?) ? Color.new(198, 0, 0) : Color.new(90, 82, 82)
       dexNumBase   = base 
       #dexNumShadow = (@pokemon.shiny?) ? Color.new(255, 155, 155) : Color.new(165, 165, 173)
       dexNumShadow = shadow
-      # If a Shadow Pokémon, draw the heart gauge area and bar
-      if @pokemon.shadowPokemon?
-        shadowfract = @pokemon.heart_gauge.to_f / @pokemon.max_gauge_size
-        if SUMMARY_B2W2_STYLE
-          imagepos = [
-            ["Graphics/Pictures/Summary/overlay_shadow_B2W2",0, 228],
-            ["Graphics/Pictures/Summary/overlay_shadowbar", 90, 266, 0, 0,(shadowfract * 248).floor, -1]
-          ]
-        else
-          imagepos = [
-            ["Graphics/Pictures/Summary/overlay_shadow", 0, 228],
-            ["Graphics/Pictures/Summary/overlay_shadowbar", 90, 268, 0, 0,(shadowfract * 248).floor, -1]
-          ]
-        end
-
-        pbDrawImagePositions(overlay, imagepos)
-
-      end
-      # Write various bits of text. Changed various positions of the text
-      if SUMMARY_B2W2_STYLE
-        textpos = [
-          [_INTL("Dex No."), 34, 72, 0, base1, shadow1],
-          [_INTL("Species"), 34, 104, 0, base1, shadow1],
-          [@pokemon.speciesName, 162, 106, 0, Color.new(255, 155, 155), Color.new(198, 0, 0)],
-          [_INTL("Type"), 34, 136, 0, base1, shadow1],
-          [_INTL("OT"), 34, 168, 0, base1, shadow1],
-          [_INTL("ID No."), 34, 200, 0, base1, shadow1],
-        ]
-      else
-        textpos = [
-          [_INTL("Dex No."), 34, 74, 0, base, shadow],
-          [_INTL("Species"), 34, 106, 0, base, shadow],
-          [@pokemon.speciesName, 164, 106, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)],
-          [_INTL("Type"), 34, 139, 0, base, shadow],
-          [_INTL("OT"), 34, 170, 0, base, shadow],
-          [_INTL("ID No."), 34, 202, 0, base, shadow],
-        ]
-      end
+      # Write various bits of text
+      textpos = []
+      textpos.push(["Specie: " + @pokemon.speciesName, 8, 276 + 28, 0, base2, shadow2,true])
 
       # Write the Regional/National Dex number
       dexnumshift = false
@@ -633,106 +594,62 @@
         end
       end
       if dexnum <= 0
-        if SUMMARY_B2W2_STYLE
-          # Write ??? if Pokémon is not found in the Dex
-          textpos.push(["???", 164, 72, 0, dexNumBase, dexNumShadow])
-        else
-          textpos.push(["???", 164, 74, 0, dexNumBase, dexNumShadow])
-        end
+        textpos.push(["Dex ID: ???",8, 270, 0, base3, shadow3,true])
       else
         dexnum -= 1 if dexnumshift
         # Write the Dex Number
-        if SUMMARY_B2W2_STYLE
-          textpos.push([sprintf("%03d", dexnum), 164, 72, 0, dexNumBase, dexNumShadow])
-        else
-          textpos.push([sprintf("%03d", dexnum), 164, 74, 0, dexNumBase, dexNumShadow])
-        end
+        #textpos.push([sprintf("Dex ID: " + "%03d", dexnum), 8, 64+28+28, 0, base2, shadow2,true])
+        textpos.push([sprintf("Dex ID: " + "%03d", dexnum), 8, 270, 0, base2, shadow2,true])
       end
       # Write Original Trainer's name and ID number
-      if @pokemon.owner.name.empty?
-        if SUMMARY_B2W2_STYLE
-          textpos.push([_INTL("RENTAL"), 164, 156, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-          textpos.push(["?????", 164, 186, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-        else
-          textpos.push([_INTL("RENTAL"), 164, 158, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-          textpos.push(["?????", 164, 188, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-        end
-      else
+      # if @pokemon.owner.name.empty?
+      #   if SUMMARY_B2W2_STYLE
+      #     #textpos.push([_INTL("RENTAL"), 164, 156, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+      #     #textpos.push(["?????", 164, 186, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+      #   else
+      #     #textpos.push([_INTL("RENTAL"), 164, 158, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+      #     #textpos.push(["?????", 164, 188, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
+      #   end
+      # else
         # Changes the color of the text, to the one used in BW
-        ownerbase   = Color.new(90, 82, 82)
-        ownershadow = Color.new(165, 165, 173)
-        case @pokemon.owner.gender
-        when 0
-          ownerbase = Color.new(0, 0, 214)
-          ownershadow = Color.new(15, 148, 255)
-        when 1
-          ownerbase = Color.new(198, 0, 0)
-          ownershadow = Color.new(255, 155, 155)
-        end
-        if SUMMARY_B2W2_STYLE
-          # Write Trainer's name
-          textpos.push([@pokemon.owner.name, 164, 168, 0, Color.new(15, 148, 255), Color.new(0, 0, 214)])
-          # Write Pokémon's ID
-          textpos.push([sprintf("%05d", @pokemon.owner.public_id), 164, 200, 0, Color.new(255, 155, 155), Color.new(198, 0, 0)])
-        else
-          # Write Trainer's name
-          textpos.push([@pokemon.owner.name, 164, 170, 0, ownerbase, ownershadow])
-          # Write Pokémon's ID
-          textpos.push([sprintf("%05d", @pokemon.owner.public_id), 164, 202, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-        end
-      end
+        # ownerbase   = Color.new(90, 82, 82)
+        # ownershadow = Color.new(165, 165, 173)
+        # case @pokemon.owner.gender
+        # when 0
+        #   ownerbase = Color.new(0, 0, 214)
+        #   ownershadow = Color.new(15, 148, 255)
+        # when 1
+        #   ownerbase = Color.new(198, 0, 0)
+        #   ownershadow = Color.new(255, 155, 155)
+        # end
+      textpos.push([sprintf("Public ID: " + "%05d", @pokemon.owner.public_id), 8, 276 + 28 + 28, 0, base,  shadow, true])     
       # Write Exp text OR heart gauge message (if a Shadow Pokémon)
-      if @pokemon.shadowPokemon?
-        textpos.push([_INTL("Heart Gauge"), 33, 234, 0, base, shadow])
-        heartmessage = [_INTL("The door to its heart is open! Undo the final lock!"),
-                        _INTL("The door to its heart is almost fully open."),
-                        _INTL("The door to its heart is nearly open."),
-                        _INTL("The door to its heart is opening wider."),
-                        _INTL("The door to its heart is opening up."),
-                        _INTL("The door to its heart is tightly shut.")][@pokemon.heartStage]
-         # Changed the text color, to the one used in BW
-         memo = sprintf("<c3=404040,B0B0B0>%s\n", heartmessage)
-         y_coord = SUMMARY_B2W2_STYLE ? 294 : 296
-         drawFormattedTextEx(overlay, 16, y_coord, 264, memo)
-      else
-        endexp = @pokemon.growth_rate.minimum_exp_for_level(@pokemon.level + 1)
-        if SUMMARY_B2W2_STYLE
-          textpos.push([_INTL("Exp. Points"), 34, 232, 0, base, shadow])
-          # Changed the Positon of No. of Exp
-          textpos.push([@pokemon.exp.to_s_formatted, 215, 264, 2, base1, shadow1])
-          textpos.push([_INTL("To Next Lv."), 34, 296, 0, base, shadow])
-          # Changed the Positon of No. of Exp to Next Level
-          textpos.push([(endexp-@pokemon.exp).to_s_formatted, 177, 328, 2, base1, shadow1])
-        else
-          textpos.push([_INTL("Exp. Points"), 34, 234, 0, base, shadow])
-          # Changed the Positon of No. of Exp
-          textpos.push([@pokemon.exp.to_s_formatted, 215, 266, 2, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-          textpos.push([_INTL("To Next Lv."),34,298,0,base,shadow])
-          # Changed the Positon of No. of Exp to Next Level
-          textpos.push([(endexp-@pokemon.exp).to_s_formatted, 177, 330, 2, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-        end
-      end
+
+      endexp = @pokemon.growth_rate.minimum_exp_for_level(@pokemon.level + 1)
+      #textpos.push([_INTL("Exp. Points"), 34, 232, 0, base, shadow])
+      # Changed the Positon of No. of Exp
+      textpos.push(["Exp. Points: " + @pokemon.exp.to_s_formatted, 8,276 + 28 + 28+ 28, 0, base1, shadow1, true])
+      #textpos.push([_INTL("To Next Lv."), 34, 296, 0, base, shadow])
+      # Changed the Positon of No. of Exp to Next Level
+      textpos.push(["To Next Lv: " + (endexp-@pokemon.exp).to_s_formatted, 8, 276 + 28 + 28+ 28+ 28, 0, base2, shadow2, true])
       # Draw all text
       pbDrawTextPositions(overlay, textpos)
       # Draw Pokémon type(s)
       @pokemon.types.each_with_index do |type, i|
-        type_number = GameData::Type.get(type).icon_position
-        type_rect = Rect.new(0, type_number * 28, 64, 28)
-        type_x = (@pokemon.types.length == 1) ? 162 : 162 + (66 * i)
-        if SUMMARY_B2W2_STYLE
-                overlay.blt(type_x, 132, @typebitmap.bitmap, type_rect)
-              else
-                overlay.blt(type_x, 134, @typebitmap.bitmap, type_rect)
-        end
+      type_number = GameData::Type.get(type).icon_position
+      #type_rect = Rect.new(0, type_number * 28, 30, 28)
+      type_rect = Rect.new(0, type_number * 28, 30, 28)
+      type_x = (@pokemon.types.length == 1) ? 182-6+30 : 182-6 + (30 * i)
+      overlay.blt(type_x, 266, @typebitmap.bitmap, type_rect)
       end
       # Draw Exp bar
       if @pokemon.level < GameData::GrowthRate.max_level
         w = @pokemon.exp_fraction * 128
         w = ((w/2).round) * 2
         if SUMMARY_B2W2_STYLE
-          pbDrawImagePositions(overlay, [["Graphics/Pictures/Summary/overlay_exp", 140, 358 ,0, 0, w, 6]])
+          pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 140, 358 ,0, 0, w, 6]])
         else
-          pbDrawImagePositions(overlay, [["Graphics/Pictures/Summary/overlay_exp", 140, 360, 0, 0, w, 6]])
+          pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 140, 360, 0, 0, w, 6]])
         end
       end
     end
@@ -742,26 +659,22 @@
       overlay = @sprites["overlay"].bitmap
       overlay.clear
       # Changes the color of the text, to the one used in BW
-      base   = Color.new(255, 255, 255)
-      shadow = Color.new(165, 165, 173)
-      base1   = Color.new(148, 15, 255)
-      shadow1 = Color.new(99, 0, 180)
       # Set background image
       if SUMMARY_B2W2_STYLE
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_egg_B2W2")
+        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_egg_B2W2")
       else
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_egg")
+        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_egg")
       end
       imagepos = []
       # Show the Poké Ball containing the Pokémon
-      ballimage = sprintf("Graphics/Pictures/Summary/icon_ball_%s", @pokemon.poke_ball)
+      ballimage = sprintf("Graphics/Pictures/UI/SummaryUI/icon_ball_%s", @pokemon.poke_ball)
       imagepos.push([ballimage, 320, 50])
       # Draw all images
       pbDrawImagePositions(overlay, imagepos)
       # Write various bits of text
-      if SUMMARY_B2W2_STYLE
+      if !SUMMARY_B2W2_STYLE
         textpos = [
           [@pokemon.name, 354, 52, 0, base, shadow],
           [_INTL("Item"), 298, 326, 0, base, shadow]
@@ -929,14 +842,14 @@
       shadow1 = Color.new(99, 0, 180)
       if SHOW_EV_IV
         # Set background image when showing EV/IV Stats
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_hidden")
+        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_hidden")
       end
 
       if SHOW_EV_IV && SUMMARY_B2W2_STYLE
         # Set background image when showing EV/IV Stats
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/Summary/background_B2W2")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_hidden_B2W2")
+        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background_B2W2")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_hidden_B2W2")
       end
 
       # Show IV Letters Grades
@@ -1026,9 +939,9 @@
         hpzone = 1 if @pokemon.hp <= (@pokemon.totalhp / 2).floor
         hpzone = 2 if @pokemon.hp <= (@pokemon.totalhp / 4).floor
         if SHOW_EV_IV
-          imagepos = [["Graphics/Pictures/Summary/overlay_hp", 190, 112, 0, hpzone * 6, w, 6]]
+          imagepos = [["Graphics/Pictures/UI/SummaryUI/overlay_hp", 190, 112, 0, hpzone * 6, w, 6]]
         else
-          imagepos = [["Graphics/Pictures/Summary/overlay_hp", 168, 112, 0, hpzone * 6, w, 6]]
+          imagepos = [["Graphics/Pictures/UI/SummaryUI/overlay_hp", 168, 112, 0, hpzone * 6, w, 6]]
         end
         pbDrawImagePositions(overlay, imagepos)
       end
@@ -1102,12 +1015,12 @@
                   Color.new(123, 8, 49)]   # Zero PP
       # Set background image
       if move_to_learn
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_learnmove")
+        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_learnmove")
       else
         if SUMMARY_B2W2_STYLE
-          @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_movedetail_B2W2")
+          @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_movedetail_B2W2")
         else
-          @sprites["menuoverlay"].setBitmap("Graphics/Pictures/Summary/bg_movedetail")
+          @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_movedetail")
         end
       end
       # Write various bits of text
@@ -1252,9 +1165,9 @@
       desc = ribbonid ? GameData::Ribbon.get(ribbonid).description : ""
       # Draw the description box
       if SUMMARY_B2W2_STYLE
-        imagepos = [["Graphics/Pictures/Summary/overlay_ribbon_B2W2", 0, 280]]
+        imagepos = [["Graphics/Pictures/UI/SummaryUI/overlay_ribbon_B2W2", 0, 280]]
       else
-        imagepos = [["Graphics/Pictures/Summary/overlay_ribbon", 0, 280]]
+        imagepos = [["Graphics/Pictures/UI/SummaryUI/overlay_ribbon", 0, 280]]
       end
       pbDrawImagePositions(overlay, imagepos)
 

@@ -6460,18 +6460,18 @@ ShadowSize = 2
 #-------------------------------
 [BRAMBLEGHAST]
 BackSprite = 0,54
-FrontSprite = 0,15
+FrontSprite = 0,26
 ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [BRAMBLIN]
 BackSprite = 0,64
-FrontSprite = -1,19
+FrontSprite = 0,31
 ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [BRUTEBONNET]
-BackSprite = 0,0
+BackSprite = 0,50
 FrontSprite = 0,23
 ShadowX = 0
 ShadowSize = 2
@@ -6513,7 +6513,7 @@ ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [CHIENPAO]
-BackSprite = 0,0
+BackSprite = 14,63
 FrontSprite = -5,25
 ShadowX = 0
 ShadowSize = 3
@@ -6531,7 +6531,7 @@ ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [CYCLIZAR]
-BackSprite = 0,0
+BackSprite = 0,59
 FrontSprite = 2,18
 ShadowX = 0
 ShadowSize = 2
@@ -6627,7 +6627,7 @@ ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [GRAFAIAI]
-BackSprite = 0,0
+BackSprite = 0,53
 FrontSprite = 3,25
 ShadowX = 0
 ShadowSize = 1
@@ -6651,7 +6651,7 @@ ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [IRONBUNDLE]
-BackSprite = 0,0
+BackSprite = 0,45
 FrontSprite = 2,22
 ShadowX = 0
 ShadowSize = 2
@@ -6669,7 +6669,7 @@ ShadowX = 0
 ShadowSize = 3
 #-------------------------------
 [IRONTREADS]
-BackSprite = 0,0
+BackSprite = 0,51
 FrontSprite = -2,26
 ShadowX = 0
 ShadowSize = 2
@@ -6681,7 +6681,7 @@ ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [KLAWF]
-BackSprite = 0,0
+BackSprite = 0,58
 FrontSprite = -2,32
 ShadowX = 0
 ShadowSize = 3
@@ -6801,13 +6801,13 @@ ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [SCREAMTAIL]
-BackSprite = 0,0
+BackSprite = 0,50
 FrontSprite = 5,30
 ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [SHROODLE]
-BackSprite = 0,0
+BackSprite = 0,55
 FrontSprite = -1,37
 ShadowX = 0
 ShadowSize = 1
@@ -6861,13 +6861,13 @@ ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [TINGLU]
-BackSprite = 0,0
+BackSprite = 0,42
 FrontSprite = -18,10
 ShadowX = 0
 ShadowSize = 3
 #-------------------------------
 [TINKATON]
-BackSprite = 0,0
+BackSprite = 0,42
 FrontSprite = 12,16
 ShadowX = 0
 ShadowSize = 2
@@ -6927,13 +6927,13 @@ ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [GLIMMORA]
-BackSprite = 0,0
+BackSprite = 0,51
 FrontSprite = 0,6
 ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [GLIMMET]
-BackSprite = 0,0
+BackSprite = 0,44
 FrontSprite = -4,10
 ShadowX = 0
 ShadowSize = 1
@@ -6945,13 +6945,13 @@ ShadowX = 0
 ShadowSize = 3
 #-------------------------------
 [ORTHWORM]
-BackSprite = 0,0
+BackSprite = -8,57
 FrontSprite = 0,27
 ShadowX = 0
 ShadowSize = 3
 #-------------------------------
 [RABSCA]
-BackSprite = 0,0
+BackSprite = 0,33
 FrontSprite = 0,0
 ShadowX = 0
 ShadowSize = 1
@@ -7011,13 +7011,13 @@ ShadowX = 0
 ShadowSize = 2
 #-------------------------------
 [TINKATINK]
-BackSprite = 0,0
+BackSprite = 0,49
 FrontSprite = 4,34
 ShadowX = 0
 ShadowSize = 1
 #-------------------------------
 [TINKATUFF]
-BackSprite = 0,0
+BackSprite = -8,47
 FrontSprite = 3,30
 ShadowX = 0
 ShadowSize = 2

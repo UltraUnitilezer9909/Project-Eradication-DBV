@@ -22,8 +22,8 @@ class Window_PokemonBag < Window_DrawableCommand
     @adapter  = PokemonMartAdapter.new
     super(x, y, width, height)
     @selarrow   = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor")
-    @swaparrow  = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor_swap")
-    @partyarrow = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor_party")
+    @swaparrow  = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor")
+    @partyarrow = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/cursor")
     self.windowskin = nil
   end
 
@@ -74,7 +74,7 @@ class Window_PokemonBag < Window_DrawableCommand
       else
         bmp = @selarrow.bitmap
       end
-      pbCopyBitmap(self.contents, bmp, rect.x, rect.y + 2)
+      pbCopyBitmap(self.contents, bmp, rect.x + 10, rect.y + 2)
     end
   end
 
@@ -375,7 +375,7 @@ class PokemonBagPartyPanel < SpriteWrapper
             status = GameData::Status.count + 1
           end
           if status >= 0
-            statusrect = Rect.new(0, 18 * status, 52, 18)#Rect.new(0, 18 * status, 52, 18)
+            statusrect = Rect.new(0, 16 * status, 52, 16)#Rect.new(0, 18 * status, 52, 18)
             @overlaysprite.bitmap.blt(182, 32, @statuses.bitmap, statusrect) #@overlaysprite.bitmap.blt(52, 26, @statuses.bitmap, statusrect)
           end
         # Draw gender symbol

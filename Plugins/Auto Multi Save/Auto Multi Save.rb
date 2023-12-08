@@ -286,7 +286,7 @@ class PokemonLoadScreen
       cmd_quit         = -1
       show_continue = !@save_data.empty?
       if show_continue
-        commands[cmd_continue = commands.length] = " <= #{@selected_file} => "
+        commands[cmd_continue = commands.length] = "[#{@selected_file}]"
         if @save_data[:player].mystery_gift_unlocked
           commands[cmd_mystery_gift = commands.length] = _INTL('Mystery Gift') # Honestly I have no idea how to make Mystery Gift work well with this.
         end
@@ -383,6 +383,25 @@ end
 #
 #===============================================================================
 class PokemonSaveScreen
+  attr_accessor :selected_save_index
+
+#===============================================================================
+  #pbHow lol
+  # Worked with ChatGPT, but I decided to stop working because it's not good practice.
+
+  def initialize(scene)
+    @scene = scene
+  end
+
+=begin
+  def pbScreenCapturePreview
+    return if @selected_save_index.nil? # No save file selected
+    capturefile = RTP.getSaveFileName("#{SaveData::MANUAL_SLOTS[@selected_save_index]}.png")
+    Graphics.screenshot(capturefile)
+    pbSEPlay("Pkmn exp full") if FileTest.audio_exist?("Audio/SE/Pkmn exp full")
+  end
+=end
+
   def doSave(slot)
     if Game.save(slot)
       pbMessage(_INTL("\\se[]{1} saved the game.\\me[GUI save game]\\wtnp[30]", $player.name))
@@ -392,6 +411,7 @@ class PokemonSaveScreen
       return false
     end
   end
+#===============================================================================
 
   # Return true if pause menu should close after this is done (if the game was saved successfully)
   def pbSaveScreen(exiting=false)

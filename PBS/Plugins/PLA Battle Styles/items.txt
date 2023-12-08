@@ -1,0 +1,9 @@
+#-------------------------------
+[SEEDOFMASTERY]
+Name = Seed of Mastery
+NamePlural = Seeds of Mastery
+Pocket = 2
+Price = 3000
+FieldUse = OnPokemon
+Flags = Fling_30
+Description = A rare seed that can be used to master a Pokémon move so it can be used in the agile or strong styles.

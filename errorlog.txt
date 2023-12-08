@@ -1702,3 +1702,2550 @@ MessageConfig:571:in `pbFadeOutIn'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-22 19:31:32 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `male' for nil:NilClass
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:289:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'
+
+=================
+
+[2023-11-22 19:33:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `male?' for nil:NilClass
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:289:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'
+
+=================
+
+[2023-11-22 19:34:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `male?' for nil:NilClass
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:289:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'
+
+=================
+
+[2023-11-22 20:55:08 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `rank_names' for LoadSys:Module
+
+Backtrace:
+UI_Load:99:in `refresh'
+UI_Load:44:in `initialize'
+UI_Load:150:in `new'
+UI_Load:150:in `block in pbStartScene'
+UI_Load:149:in `times'
+UI_Load:149:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-11-22 20:56:26 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `rank_names' for LoadSys:Module
+
+Backtrace:
+UI_Load:99:in `refresh'
+UI_Load:44:in `initialize'
+UI_Load:150:in `new'
+UI_Load:150:in `block in pbStartScene'
+UI_Load:149:in `times'
+UI_Load:149:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-11-22 20:57:37 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion of String into Integer
+
+Backtrace:
+UI_Load:99:in `refresh'
+UI_Load:44:in `initialize'
+UI_Load:150:in `new'
+UI_Load:150:in `block in pbStartScene'
+UI_Load:149:in `times'
+UI_Load:149:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-11-22 20:58:51 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion of String into Integer
+
+Backtrace:
+UI_Load:99:in `refresh'
+UI_Load:44:in `initialize'
+UI_Load:150:in `new'
+UI_Load:150:in `block in pbStartScene'
+UI_Load:149:in `times'
+UI_Load:149:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-11-22 20:59:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion of String into Integer
+
+Backtrace:
+UI_Load:99:in `refresh'
+UI_Load:44:in `initialize'
+UI_Load:150:in `new'
+UI_Load:150:in `block in pbStartScene'
+UI_Load:149:in `times'
+UI_Load:149:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-11-22 21:48:50 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonLoad_Scene::TEXT_BASE_COLOR
+
+Backtrace:
+UI_Load:148:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+
+=================
+
+[2023-11-22 21:49:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonLoad_Scene::TEXTCOLOR
+
+Backtrace:
+UI_Load:148:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:311:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+
+=================
+
+[2023-11-23 11:23:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion of Regexp into Integer
+
+Backtrace:
+090:DrawText:914:in `slice!'
+090:DrawText:914:in `getLineBrokenChunks'
+090:DrawText:1081:in `drawTextEx'
+252:Item_Mail:79:in `pbDisplayMail'
+281:UI_Party:1361:in `block (2 levels) in <main>'
+082:MessageConfig:571:in `pbFadeOutIn'
+281:UI_Party:1360:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-11-23 11:46:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: wrong number of arguments (given 3, expected 2)
+
+Backtrace:
+DrawText:1147:in `pbDrawTextPositions'
+UI_TrainerCard:68:in `pbDrawTrainerCardFront'
+UI_TrainerCard:27:in `pbStartScene'
+UI_TrainerCard:110:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-11-23 11:56:01 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:446:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-23 11:57:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `x' for nil:NilClass
+
+Backtrace:
+[Bag Screen w/int. Party] Script.rb:446:in `pbStartScene'
+[Essentials Deluxe] Interactable Bag Screen.rb:285:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:71:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:68:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-23 18:09:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `pbScreenCapturePreview' for #<PokemonSaveScreen>
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:398:in `doSave'
+[Auto Multi Save] Auto Multi Save.rb:422:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-11-23 18:20:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Auto Multi Save]
+Exception: NameError
+Message: undefined local variable or method `pbScreenCapturePreview' for PokemonSaveScreen:Class
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:407:in `<class:PokemonSaveScreen>'
+[Auto Multi Save] Auto Multi Save.rb:385:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+
+=================
+
+[2023-11-23 18:22:25 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: SDLError
+Message: Couldn't open D:\ultra's file\games\pokemon\AAA - project\001 - PKMN ERADICATION\
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:393:in `screenshot'
+[Auto Multi Save] Auto Multi Save.rb:393:in `pbScreenCapturePreview'
+[Auto Multi Save] Auto Multi Save.rb:400:in `doSave'
+[Auto Multi Save] Auto Multi Save.rb:423:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-11-23 21:04:23 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `gsub' for nil:NilClass
+
+Backtrace:
+DrawText:162:in `getFormattedTextForDims'
+SpriteWindow_text:236:in `resizeToFitInternal'
+SpriteWindow_text:214:in `resizeToFit'
+SpriteWindow_text:143:in `initialize'
+UI_Save:64:in `new'
+UI_Save:64:in `pbStartScreen'
+[Auto Multi Save] Auto Multi Save.rb:419:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-23 21:19:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `gsub' for nil:NilClass
+
+Backtrace:
+DrawText:162:in `getFormattedTextForDims'
+SpriteWindow_text:236:in `resizeToFitInternal'
+SpriteWindow_text:214:in `resizeToFit'
+SpriteWindow_text:143:in `initialize'
+UI_Save:64:in `new'
+UI_Save:64:in `pbStartScreen'
+[Auto Multi Save] Auto Multi Save.rb:419:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-11-23 21:22:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `loctext' for #<PokemonSave_Scene>
+
+Backtrace:
+UI_Save:46:in `pbStartScreen'
+[Auto Multi Save] Auto Multi Save.rb:419:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-11-23 21:23:34 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `loctext' for #<PokemonSave_Scene>
+
+Backtrace:
+UI_Save:46:in `pbStartScreen'
+[Auto Multi Save] Auto Multi Save.rb:419:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-11-23 21:31:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+UI_Save:44:in `pbStartScreen'
+[Auto Multi Save] Auto Multi Save.rb:419:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-11-24 18:44:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbBetterRegionMap' for #<MenuEntryMap>
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+
+=================
+
+[2023-11-26 18:17:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `origin=' for #<PokemonSprite>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:155:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1721:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+
+=================
+
+[2023-11-26 23:11:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbBetterRegionMap' for #<MenuEntryMap>
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+
+=================
+
+[2023-11-26 23:34:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbRegionMap' for #<MenuEntryMap>
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+
+=================
+
+[2023-11-26 23:39:24 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: wrong number of arguments (given 3, expected 0..2)
+
+Backtrace:
+UI_RegionMap:357:in `pbShowMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+Scene_Map:203:in `update'
+
+=================
+
+[2023-11-28 16:30:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RuntimeError
+Message: Unknown ID SANDWICH.
+
+Backtrace:
+GameData:95:in `get'
+[BW PokéMart Screen] BWMartScreen.rb:22:in `getName'
+[BW PokéMart Screen] BWMartScreen.rb:30:in `getDisplayName'
+[Bag Screen w/int. Party] Script.rb:96:in `drawItem'
+[Bag Screen w/int. Party] Script.rb:129:in `block in refresh'
+[Bag Screen w/int. Party] Script.rb:127:in `times'
+[Bag Screen w/int. Party] Script.rb:127:in `refresh'
+SpriteWindow_text:950:in `priv_update_cursor_rect'
+SpriteWindow_text:753:in `index='
+[Bag Screen w/int. Party] Script.rb:39:in `pocket='
+
+=================
+
+[2023-11-29 20:54:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: SDLError
+Message: Error loading image 'Saves/File A': Unsupported image format
+
+Backtrace:
+RPG_Cache:118:in `initialize'
+RPG_Cache:118:in `initialize'
+RPG_Cache:42:in `new'
+RPG_Cache:42:in `load_bitmap'
+AnimatedBitmap:154:in `initialize'
+AnimatedBitmap:17:in `new'
+AnimatedBitmap:17:in `initialize'
+UI_Load:136:in `new'
+UI_Load:136:in `initialize_bitmap'
+UI_Load:43:in `initialize'
+
+=================
+
+[2023-11-29 20:57:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: SDLError
+Message: Error loading image 'Saves/S File A': Unsupported image format
+
+Backtrace:
+RPG_Cache:118:in `initialize'
+RPG_Cache:118:in `initialize'
+RPG_Cache:42:in `new'
+RPG_Cache:42:in `load_bitmap'
+AnimatedBitmap:154:in `initialize'
+AnimatedBitmap:17:in `new'
+AnimatedBitmap:17:in `initialize'
+UI_Load:136:in `new'
+UI_Load:136:in `initialize_bitmap'
+UI_Load:43:in `initialize'
+
+=================
+
+[2023-11-29 21:03:19 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: SDLError
+Message: Error loading image 'Saves/File A': Unsupported image format
+
+Backtrace:
+RPG_Cache:118:in `initialize'
+RPG_Cache:118:in `initialize'
+RPG_Cache:42:in `new'
+RPG_Cache:42:in `load_bitmap'
+AnimatedBitmap:154:in `initialize'
+AnimatedBitmap:17:in `new'
+AnimatedBitmap:17:in `initialize'
+UI_Load:136:in `new'
+UI_Load:136:in `initialize_bitmap'
+UI_Load:43:in `initialize'
+
+=================
+
+[2023-11-30 18:37:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion from nil to integer
+
+Backtrace:
+UI_Load:165:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+
+=================
+
+[2023-11-30 18:47:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion from nil to integer
+
+Backtrace:
+UI_Load:166:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+
+=================
+
+[2023-12-01 18:01:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:904: syntax error, unexpected end-of-input, expecting `end'
+  end
+     ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-01 18:29:02 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `initialize_scene_variables' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:145:in `pbStartScene'
+UI_Summary:1339:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+
+=================
+
+[2023-12-01 19:09:01 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion from nil to integer
+
+Backtrace:
+UI_Load:167:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+
+=================
+
+[2023-12-01 19:50:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `pbScreenCapturePreview' for #<PokemonSaveScreen>
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:410:in `doSave'
+[Auto Multi Save] Auto Multi Save.rb:434:in `pbSaveScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:151:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-12-02 12:04:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pb_set_system_font' for #<PokemonLoadPanel>
+
+Backtrace:
+UI_Load:72:in `create_bitmap_if_needed'
+UI_Load:60:in `refresh'
+UI_Load:34:in `initialize'
+UI_Load:291:in `new'
+UI_Load:291:in `block in pbStartScene'
+UI_Load:290:in `times'
+UI_Load:290:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+
+=================
+
+[2023-12-02 12:06:37 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `render' for #<AnimatedBitmap>
+
+Backtrace:
+UI_Load:87:in `draw_continue_panel'
+UI_Load:78:in `draw_panel'
+UI_Load:61:in `refresh'
+UI_Load:34:in `initialize'
+UI_Load:291:in `new'
+UI_Load:291:in `block in pbStartScene'
+UI_Load:290:in `times'
+UI_Load:290:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+
+=================
+
+[2023-12-02 12:27:23 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pb_set_system_font' for #<PokemonLoadPanel>
+
+Backtrace:
+UI_Load:64:in `refresh'
+UI_Load:34:in `initialize'
+UI_Load:276:in `new'
+UI_Load:276:in `block in pbStartScene'
+UI_Load:275:in `times'
+UI_Load:275:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-02 12:45:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `initialize_bitmap' for #<PokemonLoadPanel>
+
+Backtrace:
+UI_Load:39:in `initialize'
+UI_Load:266:in `new'
+UI_Load:266:in `block in pbStartScene'
+UI_Load:265:in `times'
+UI_Load:265:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+
+=================
+
+[2023-12-02 13:26:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `hour' for #<PokemonLoadPanel>
+
+Backtrace:
+UI_Load:87:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:258:in `new'
+UI_Load:258:in `block in pbStartScene'
+UI_Load:257:in `times'
+UI_Load:257:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-02 13:38:20 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `public_ID' for nil:NilClass
+
+Backtrace:
+UI_Load:88:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:262:in `new'
+UI_Load:262:in `block in pbStartScene'
+UI_Load:261:in `times'
+UI_Load:261:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-02 13:39:51 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `id' for nil:NilClass
+
+Backtrace:
+UI_Load:88:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:262:in `new'
+UI_Load:262:in `block in pbStartScene'
+UI_Load:261:in `times'
+UI_Load:261:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-02 14:40:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant MenuEntryTrainer::PokemonTrainerCard_Scene
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:113:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-12-02 14:45:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant MenuEntryTrainer::PokemonTrainerCard_Scene
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:113:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-12-02 14:55:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant MenuEntryTrainer::PokemonCardUIScreene
+
+Backtrace:
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:113:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:128:in `call_menu'
+
+=================
+
+[2023-12-02 15:20:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `id' for nil:NilClass
+
+Backtrace:
+UI_Load:88:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:262:in `new'
+UI_Load:262:in `block in pbStartScene'
+UI_Load:261:in `times'
+UI_Load:261:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-02 15:22:01 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `public_ID' for nil:NilClass
+
+Backtrace:
+UI_Load:88:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:262:in `new'
+UI_Load:262:in `block in pbStartScene'
+UI_Load:261:in `times'
+UI_Load:261:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-03 11:58:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:412: syntax error, unexpected `if' modifier, expecting ']'
+...yUI/icon_pokerus", 376, 303] if @pokemon.pokerusStage == 2,
+...                             ^~
+[BW Summary Screen] BW Summary Screen.rb:412: syntax error, unexpected ',', expecting `end'
+... if @pokemon.pokerusStage == 2,
+...                              ^
+[BW Summary Screen] BW Summary Screen.rb:414: syntax error, unexpected ']', expecting `end'
+      ]
+      ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section391:18:in `mainFunction'
+
+=================
+
+[2023-12-03 12:06:26 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:338: Invalid break
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb
+
+=================
+
+[2023-12-03 12:25:16 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:342: Invalid break
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb
+
+=================
+
+[2023-12-03 12:28:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:1333: Invalid break
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb
+
+=================
+
+[2023-12-03 12:31:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `public_ID' for nil:NilClass
+
+Backtrace:
+UI_Load:88:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:262:in `new'
+UI_Load:262:in `block in pbStartScene'
+UI_Load:261:in `times'
+UI_Load:261:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-03 12:48:42 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `public_ID' for nil:NilClass
+
+Backtrace:
+UI_Load:89:in `refresh'
+UI_Load:41:in `initialize'
+UI_Load:263:in `new'
+UI_Load:263:in `block in pbStartScene'
+UI_Load:262:in `times'
+UI_Load:262:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-03 12:52:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `public_ID' for nil:NilClass
+
+Backtrace:
+UI_Load:89:in `refresh'
+UI_Load:41:in `initialize'
+UI_Load:263:in `new'
+UI_Load:263:in `block in pbStartScene'
+UI_Load:262:in `times'
+UI_Load:262:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-03 12:58:46 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `public_ID' for #<PokemonLoadPanel>
+
+Backtrace:
+289:UI_Load:39:in `initialize'
+289:UI_Load:264:in `new'
+289:UI_Load:264:in `block in pbStartScene'
+289:UI_Load:263:in `times'
+289:UI_Load:263:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+391:Main:6:in `main'
+391:Main:35:in `mainFunctionDebug'
+
+=================
+
+[2023-12-03 13:00:02 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `public_ID' for #<PokemonLoadPanel>
+
+Backtrace:
+UI_Load:39:in `initialize'
+UI_Load:263:in `new'
+UI_Load:263:in `block in pbStartScene'
+UI_Load:262:in `times'
+UI_Load:262:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+
+=================
+
+[2023-12-03 13:24:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `public_ID' for nil:NilClass
+
+Backtrace:
+UI_Load:88:in `refresh'
+UI_Load:40:in `initialize'
+UI_Load:262:in `new'
+UI_Load:262:in `block in pbStartScene'
+UI_Load:261:in `times'
+UI_Load:261:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-03 13:29:13 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]=' for nil:NilClass
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:198:in `initialize_background'
+[BW Summary Screen] BW Summary Screen.rb:183:in `initialize_sprites'
+[BW Summary Screen] BW Summary Screen.rb:129:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1584:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1549:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-03 13:33:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]=' for nil:NilClass
+
+Backtrace:
+082:MessageConfig:725:in `addBackgroundPlane'
+[BW Summary Screen] BW Summary Screen.rb:200:in `initialize_background'
+[BW Summary Screen] BW Summary Screen.rb:183:in `initialize_sprites'
+[BW Summary Screen] BW Summary Screen.rb:129:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1584:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1549:in `pbStartScreen'
+281:UI_Party:693:in `pbSummary'
+281:UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+
+=================
+
+[2023-12-03 16:08:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base3' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:539:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1712:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+
+=================
+
+[2023-12-03 16:11:42 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base3' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:539:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1712:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+
+=================
+
+[2023-12-03 16:13:23 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base3' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:547:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1720:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+
+=================
+
+[2023-12-03 16:44:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:780:in `drawPageOneEgg'
+[BW Summary Screen] BW Summary Screen.rb:463:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1728:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-03 17:20:13 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RuntimeError
+Message: Unknown ID MYSTERYTERAJEWEL.
+
+Backtrace:
+GameData:95:in `get'
+[BW Summary Screen] BW Summary Screen.rb:1585:in `block (2 levels) in pbOptions'
+[Bag Screen w/int. Party] Script.rb:747:in `block (2 levels) in pbRefreshFilter'
+[Bag Screen w/int. Party] Script.rb:746:in `times'
+[Bag Screen w/int. Party] Script.rb:746:in `block in pbRefreshFilter'
+[Bag Screen w/int. Party] Script.rb:744:in `each'
+[Bag Screen w/int. Party] Script.rb:744:in `pbRefreshFilter'
+[Bag Screen w/int. Party] Script.rb:447:in `pbStartScene'
+[Bag Screen w/int. Party] Script.rb:1402:in `pbChooseItemScreen'
+[BW Summary Screen] BW Summary Screen.rb:1585:in `block in pbOptions'
+
+=================
+
+[2023-12-04 20:35:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: wrong number of arguments (given 4, expected 3)
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:345:in `drawMarkings'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1722:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-04 20:48:02 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `pagename' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:587:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:560:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1745:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-04 20:49:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `page' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:582:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1745:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-04 21:00:42 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `textpos' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:586:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:556:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1677:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-04 21:03:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: Argument 0: Expected string
+
+Backtrace:
+DrawText:1149:in `text_size'
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+[BW Summary Screen] BW Summary Screen.rb:679:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:556:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1679:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+
+=================
+
+[2023-12-04 21:06:11 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `page' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:585:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:556:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1661:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-04 21:06:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: Argument 0: Expected string
+
+Backtrace:
+DrawText:1149:in `text_size'
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+[BW Summary Screen] BW Summary Screen.rb:661:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:556:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1661:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+
+=================
+
+[2023-12-04 21:13:11 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: Argument 0: Expected string
+
+Backtrace:
+DrawText:1149:in `text_size'
+DrawText:1149:in `block in pbDrawTextPositions'
+DrawText:1148:in `each'
+DrawText:1148:in `pbDrawTextPositions'
+[BW Summary Screen] BW Summary Screen.rb:604:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:556:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1662:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+
+=================
+
+[2023-12-04 21:17:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `textpos' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:601:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:576:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1658:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-04 21:43:21 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:1705: syntax error, unexpected end-of-input, expecting `end'
+  end
+     ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section391:18:in `mainFunction'
+
+=================
+
+[2023-12-04 21:44:42 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `type_x' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:665:in `block in drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:661:in `each'
+[BW Summary Screen] BW Summary Screen.rb:661:in `each_with_index'
+[BW Summary Screen] BW Summary Screen.rb:661:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:576:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:19:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1655:in `pbStartScreen'
+UI_Party:693:in `pbSummary'
+UI_Party:1319:in `block in <main>'
+
+=================
+
+[2023-12-06 21:20:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `light_color' for #<PokemonLoadPanel>
+
+Backtrace:
+UI_Load:113:in `refresh'
+UI_Load:59:in `initialize'
+UI_Load:293:in `new'
+UI_Load:293:in `block in pbStartScene'
+UI_Load:292:in `times'
+UI_Load:292:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-07 21:24:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: SyntaxError
+Message: [<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:54: syntax error, unexpected integer literal, expecting ']'
+    1 => "Challenging"
+    ^
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:57: syntax error, unexpected ']', expecting `end'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section391:18:in `mainFunction'
+
+=================
+
+[2023-12-07 21:25:20 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+UI_Load:288:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-07 21:27:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+UI_Load:288:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-07 21:40:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+UI_Load:288:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-07 21:48:46 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+UI_Load:288:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-07 21:50:50 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `*' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:65:in `diff_colors'
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+UI_Load:288:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+
+=================
+
+[2023-12-07 21:53:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `rank_colors'
+UI_Load:109:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+
+=================
+
+[2023-12-07 21:56:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `rank_colors'
+UI_Load:109:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:289:in `new'
+UI_Load:289:in `block in pbStartScene'
+UI_Load:288:in `times'
+
+=================
+
+[2023-12-07 22:01:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `rank_colors'
+UI_Load:109:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:295:in `new'
+UI_Load:295:in `block in pbStartScene'
+UI_Load:294:in `times'
+
+=================
+
+[2023-12-07 22:01:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `rank_colors'
+UI_Load:109:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:295:in `new'
+UI_Load:295:in `block in pbStartScene'
+UI_Load:294:in `times'
+
+=================
+
+[2023-12-08 10:30:08 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:45:in `rank_colors'
+UI_Load:109:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:295:in `new'
+UI_Load:295:in `block in pbStartScene'
+UI_Load:294:in `times'
+
+=================
+
+[2023-12-08 10:35:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:288:in `new'
+UI_Load:288:in `block in pbStartScene'
+UI_Load:287:in `times'
+UI_Load:287:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-08 10:35:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `diff_colors' for SysFixData:Module
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:288:in `new'
+UI_Load:288:in `block in pbStartScene'
+UI_Load:287:in `times'
+UI_Load:287:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-08 10:36:53 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `diff_colors' for SysFixData:Module
+
+Backtrace:
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:288:in `new'
+UI_Load:288:in `block in pbStartScene'
+UI_Load:287:in `times'
+UI_Load:287:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-08 10:41:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+289:UI_Load:111:in `refresh'
+289:UI_Load:61:in `initialize'
+289:UI_Load:288:in `new'
+289:UI_Load:288:in `block in pbStartScene'
+289:UI_Load:287:in `times'
+289:UI_Load:287:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+391:Main:6:in `main'
+
+=================
+
+[2023-12-08 10:43:24 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:60:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:60:in `diff_colors'
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:288:in `new'
+UI_Load:288:in `block in pbStartScene'
+UI_Load:287:in `times'
+
+=================
+
+[2023-12-08 10:44:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:60:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:60:in `diff_colors'
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:288:in `new'
+UI_Load:288:in `block in pbStartScene'
+UI_Load:287:in `times'
+
+=================
+
+[2023-12-08 10:53:26 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `message' for "Wrong type of argument given!":String
+
+Backtrace:
+Errors:18:in `pbGetExceptionMessage'
+Errors:32:in `pbPrintException'
+RubyUtilities:180:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:60:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:60:in `diff_colors'
+UI_Load:111:in `refresh'
+UI_Load:61:in `initialize'
+UI_Load:288:in `new'
+UI_Load:288:in `block in pbStartScene'
+UI_Load:287:in `times'
+
+=================
+
+[2023-12-08 11:35:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 11:36:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 11:38:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `nil' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:68:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 11:42:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 11:44:55 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 11:45:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 12:08:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 12:11:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 13:59:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: ArgumentError
+Message: wrong number of arguments
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `save_data'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+
+=================
+
+[2023-12-08 14:02:14 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: ArgumentError
+Message: wrong number of arguments
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `save_data'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+
+=================
+
+[2023-12-08 14:04:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: SyntaxError
+Message: [<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71: syntax error, unexpected local variable or method, expecting ']'
+Difficulties = save_data[15s].game_variables[15] #Var
+                           ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section391:18:in `mainFunction'
+
+=================
+
+[2023-12-08 14:04:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: ArgumentError
+Message: wrong number of arguments
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `save_data'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+
+=================
+
+[2023-12-08 14:06:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: ArgumentError
+Message: wrong number of arguments
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `save_data'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+
+=================
+
+[2023-12-08 14:08:50 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: ArgumentError
+Message: wrong number of arguments
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `save_data'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:71:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+
+=================
+
+[2023-12-08 14:16:51 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NameError
+Message: uninitialized constant DataStorage::Gvar
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 14:18:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NoMethodError
+Message: undefined method `Gvar' for PokemonLoadPanel:Class
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section391:28:in `mainFunctionDebug'
+Section391:18:in `block in mainFunction'
+
+=================
+
+[2023-12-08 14:35:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: ArgumentError
+Message: wrong number of arguments (given 0, expected 7..8)
+
+Backtrace:
+Section289:24:in `initialize'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `new'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `<module:DataStorage>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:66:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+
+=================
+
+[2023-12-08 14:42:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: wrong number of arguments
+
+Backtrace:
+UI_Load:34:in `save_data'
+UI_Load:34:in `initialize'
+UI_Load:269:in `new'
+UI_Load:269:in `block in pbStartScene'
+UI_Load:268:in `times'
+UI_Load:268:in `pbStartScene'
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+
+=================
+
+[2023-12-08 15:15:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant DataStorage::Difficulties
+
+Backtrace:
+UI_TrainerCard:54:in `pbDrawCardUIFront'
+UI_TrainerCard:27:in `pbStartScene'
+UI_TrainerCard:112:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-08 15:19:30 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 4 (coords 22,21), map 76 (< Unknown >)
+Exception: NoMethodError
+Message: undefined method `Difficulties' for DataStorage:Module
+
+***Full script:
+pbMessage("#{DataStorage.Difficulties}")
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-12-08 15:26:08 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `*' for nil:NilClass
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:67:in `diff_colors'
+UI_TrainerCard:54:in `pbDrawCardUIFront'
+UI_TrainerCard:27:in `pbStartScene'
+UI_TrainerCard:112:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-12-08 15:52:26 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 4 (coords 22,21), map 76 (< Unknown >)
+Exception: NameError
+Message: uninitialized constant Interpreter::DataStorage
+
+***Full script:
+DataStorage.difficulties = 0
+
+Backtrace:
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+[Following Pokemon EX] Refresh.rb:255:in `update'
+Scene_Map:160:in `block in update'
+
+=================
+
+[2023-12-08 15:55:11 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `diff_light_color' for #<PokemonCardUI_Scene>
+
+Backtrace:
+UI_TrainerCard:56:in `pbDrawCardUIFront'
+UI_TrainerCard:27:in `pbStartScene'
+UI_TrainerCard:112:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-08 20:40:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbStartScene' for #<PokemonLoad_Scene>
+
+Backtrace:
+[Auto Multi Save] Auto Multi Save.rb:303:in `block in pbStartLoadScreen'
+[Auto Multi Save] Auto Multi Save.rb:273:in `loop'
+[Auto Multi Save] Auto Multi Save.rb:273:in `pbStartLoadScreen'
+Main:6:in `main'
+Main:35:in `mainFunctionDebug'
+Main:18:in `block in mainFunction'
+Errors:80:in `pbCriticalCode'
+Main:18:in `mainFunction'
+Main:45:in `block in <main>'
+Main:44:in `loop'

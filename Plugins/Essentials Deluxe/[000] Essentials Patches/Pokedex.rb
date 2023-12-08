@@ -26,10 +26,10 @@ class PokemonPokedexInfo_Scene
     if PluginManager.installed?("Generation 8 Pack Scripts")
       return if defined?(EliteBattle)
       sp_data = GameData::SpeciesMetrics.get_species_form(@species, @form)
-      @sprites["infosprite"].constrict([208, 200])
-      @sprites["formfront"].constrict([200, 196]) if @sprites["formfront"]
+      #@sprites["infosprite"].constrict([208, 200])
+      #@sprites["formfront"].constrict([200, 196]) if @sprites["formfront"]
       return if !@sprites["formback"]
-      @sprites["formback"].constrict([300, 294])
+      #@sprites["formback"].constrict([300, 294])
       return if sp_data.back_sprite_scale == sp_data.front_sprite_scale
       @sprites["formback"].setOffset(PictureOrigin::CENTER)
       @sprites["formback"].y = @sprites["formfront"].y if @sprites["formfront"]
@@ -206,7 +206,7 @@ class PokemonPokedex_Scene
     poke_data = [species, gender, form, shiny, shadow, false, false, false, gmax]
     @sprites["icon"].setSpeciesBitmap(*poke_data)
     if PluginManager.installed?("Generation 8 Pack Scripts")
-      @sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
+      #@sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
     end
   end
 end

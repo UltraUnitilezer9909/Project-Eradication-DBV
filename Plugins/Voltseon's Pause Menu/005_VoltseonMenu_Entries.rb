@@ -110,8 +110,8 @@ class MenuEntryTrainer < MenuEntry
 
   def selected(menu)
     pbFadeOutIn(99999) {
-      scene = PokemonTrainerCard_Scene.new
-      screen = PokemonTrainerCardScreen.new(scene)
+      scene = PokemonCardUI_Scene.new
+      screen = PokemonCardUIScreen.new(scene)
       screen.pbStartScreen
     }
   end
@@ -166,7 +166,7 @@ class MenuEntryMap < MenuEntry # Play Pokémon Splice
   end
 
   def selected(menu)
-    pbBetterRegionMap(-1, true, false) 
+    pbShowMap #(-1, true, false) 
     #pbShowMap(-1,false)
   end
 
