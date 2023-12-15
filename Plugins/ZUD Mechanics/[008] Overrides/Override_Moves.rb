@@ -481,11 +481,10 @@ end
 # Forced switch fails to trigger if target is Dynamaxed, or user is Raid Boss.
 #-------------------------------------------------------------------------------
 class Battle::Move::SwitchOutTargetDamagingMove < Battle::Move
+  alias zud_pbEffectAgainstTarget pbEffectAgainstTarget
   def pbEffectAgainstTarget(user, target)
-    if @battle.wildBattle? && target.level <= user.level && @battle.canRun && !@battle.raid_battle &&
-       (target.effects[PBEffects::Substitute] == 0 || ignoresSubstitute?(user))
-      @battle.decision = 3
-    end
+    return if @battle.raid_battle
+	zud_pbEffectAgainstTarget(user, target)
   end
   
   def pbSwitchOutTargetEffect(user, targets, numHits, switched_battlers)
@@ -494,7 +493,8 @@ class Battle::Move::SwitchOutTargetDamagingMove < Battle::Move
     targets.each do |b|
       next if b.fainted? || b.damageState.unaffected || b.damageState.substitute || b.dynamax?
       next if b.effects[PBEffects::Ingrain]
-      next if b.hasActiveAbility?(:SUCTIONCUPS) && !@battle.moldBreaker
+      next if b.hasActiveAbility?([:SUCTIONCUPS, :GUARDDOG]) && !@battle.moldBreaker
+	  next if defined?(b.isCommander?) && b.isCommander?
       newPkmn = @battle.pbGetReplacementPokemonIndex(b.index, true)
       next if newPkmn < 0
       @battle.pbRecallAndReplace(b.index, newPkmn, true)

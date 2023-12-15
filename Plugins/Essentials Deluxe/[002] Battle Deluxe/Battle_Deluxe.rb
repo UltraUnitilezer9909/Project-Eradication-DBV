@@ -422,14 +422,20 @@ end
 # Edits capture mechanics with the [:raidcapture] rule.
 #-------------------------------------------------------------------------------
 class Battle::Battler
-  def pbRaidStyleCapture(target, msg)
+  def pbRaidStyleCapture(target, chance = 0, msg = nil, bgm = nil)
     return if @battle.pbAllFainted?
+    return if @battle.raid_battle && target.effects[PBEffects::KnockOutCount] <= 0
     fainted_count = 0
     @battle.battlers.each do |b|
       next if !b || !b.opposes?(target) || b.hp > 0
       fainted_count += 1
     end
     return if fainted_count >= @battle.pbSideSize(0)
+    if pbResolveAudioFile(bgm)
+      pbBGMFade(0.2)
+      pbWait((0.2 * 60).round)
+      pbBGMPlay(bgm)
+    end
     @battle.pbDisplayPaused(_INTL("{1} is weak!\nThrow a Poké Ball now!", target.name))
     pbWait(30)
     cmd = 0
@@ -443,7 +449,6 @@ class Battle::Battler
         target.wild_boss_flee(msg)
       else
         ball = nil
-        $game_temp.battle_rules["disablePokeBalls"] = false
         pbFadeOutIn {
           scene  = PokemonBag_Scene.new
           screen = PokemonBagScreen.new(scene, $bag)
@@ -451,6 +456,11 @@ class Battle::Battler
         }
         if ball
           $bag.remove(ball, 1)
+          if chance > 0
+            r = rand(100)
+            capture = r < chance || ball == :MASTERBALL || ($DEBUG && Input.press?(Input::CTRL))
+            $game_temp.dx_rules[:setcapture] = capture
+          end
           @battle.pbThrowPokeBall(target.index, ball)
           target.wild_boss_flee(msg) if @battle.poke_ball_failed
         else

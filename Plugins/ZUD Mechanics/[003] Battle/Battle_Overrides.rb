@@ -48,21 +48,6 @@ class Battle
   end
   
   #-----------------------------------------------------------------------------
-  # Edited for G-Max forms.
-  #-----------------------------------------------------------------------------
-  # Registers seen G-Max forms to the Pokedex.
-  #-----------------------------------------------------------------------------
-  def pbSetSeen(battler)
-    return if !battler || !@internalBattle
-    if battler.is_a?(Battler)
-      pbPlayer.pokedex.register(battler.displaySpecies, battler.displayGender,
-                                battler.displayForm, battler.shiny?, battler.gmax?)
-    else
-      pbPlayer.pokedex.register(battler)
-    end
-  end
-  
-  #-----------------------------------------------------------------------------
   # Edited for Encore.
   #-----------------------------------------------------------------------------
   # Returns the user's Encore state after executing a Z-Move.

@@ -158,6 +158,7 @@ Battle::AbilityEffects::OnBeingHit.add(:WANDERINGSPIRIT,
     next if !move.pbContactMove?(user)
     next if user.dynamax?
     next if user.ungainableAbility? || [:RECEIVER, :WONDERGUARD].include?(user.ability_id)
+	next if user.hasActiveItem?(:ABILITYSHIELD) || target.hasActiveItem?(:ABILITYSHIELD)
     oldUserAbil   = nil
     oldTargetAbil = nil
     battle.pbShowAbilitySplash(target) if user.opposes?(target)

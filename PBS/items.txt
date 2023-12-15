@@ -8078,7 +8078,7 @@ NamePlural = Divine Plates
 Pocket = 1
 Price = 20000
 SellPrice = 1000
-Flags = Fling_90
+Flags = Fling_90,Plate
 Description = The merged form of all 17 Arceus plates. The divine power it emits may be harnessed to create new life.
 #-------------------------------
 [FALSEPLATE]
@@ -8087,5 +8087,5 @@ NamePlural = False Plates
 Pocket = 1
 Price = 20000
 SellPrice = 1000
-Flags = Fling_90
+Flags = Fling_90,Plate
 Description = A man-made attempt at creating a Divine Plate. The odd power it emits may be harnessed to create new life.

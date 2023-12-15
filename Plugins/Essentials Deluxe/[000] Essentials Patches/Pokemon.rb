@@ -35,6 +35,47 @@ class Pokemon
   def gmax?;      return false; end
   def tera?;      return false; end
   def celestial?; return false; end
+  
+  # All-in-one attribute checker.
+  def check_for_attribute(attribute, value)
+    case attribute
+    when :level     then return level == value
+    when :form      then return form == value
+    when :pokerus   then return pokerusStage == value
+    when :ball      then return @poke_ball == value
+    when :teratype  then return tera_type == value
+    when :focus     then return focus_id == value
+    when :shiny     then return (value) ? shiny? : !shiny?
+    when :shadow    then return (value) ? shadowPokemon? : !shadowPokemon?
+    when :hatched   then return (value) ? !timeEggHatched.nil? : !timeEggHatched
+    when :foreign   then return (value) ? foreign? : !foreign?
+    when :gmax      then return (value) ? gmax_factor? : !gmax_factor?
+    when :blessed   then return (value) ? blessed? : !blessed?
+    when :celestial then return (value) ? celestial? : !celestial?
+    when :gender    then return (value == 1) ? female? : male?
+    when :item      then return hasItem?(value)
+    when :move      then return hasMove?(value)
+    when :ribbon    then return hasRibbon?(value)
+    when :nature    then return hasNature?(value)
+    when :ability   then return hasAbility?(value)
+    when :birthsign then return hasBirthsign?(value)
+    else return true
+    end
+  end
+end
+
+
+#-------------------------------------------------------------------------------
+# Returns the number of Pokemon owned that match the entered criteria.
+#-------------------------------------------------------------------------------
+def pbNumOwnedSpecies(species = nil, attribute = nil, value = nil)
+  count = 0
+  pbEachNonEggPokemon { |p|
+    next unless species.nil? || p&.isSpecies?(species)
+    next if !p.check_for_attribute(attribute, value)
+    count += 1  
+  }
+  return count
 end
 
 

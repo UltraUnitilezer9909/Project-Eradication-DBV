@@ -5,31 +5,21 @@ class PokemonPokedexInfo_Scene
   #-----------------------------------------------------------------------------
   # Adds G-Max forms to a species's form list.
   #-----------------------------------------------------------------------------
-  def pbAddGmaxForms(species, form_array)
+  def pbAddGmaxForms(species, form_array, checks = 1)
     if GameData::PowerMove.species_list("G-Max").include?(species.id)
       case species.species
-        when :TOXTRICITY then gmax_form = 1
-        when :ALCREMIE   then gmax_form = 62
-        else                  gmax_form = species.form
+      when :TOXTRICITY then gmax_form = 1
+      when :ALCREMIE   then gmax_form = 62
+      else                  gmax_form = species.form
       end
       return form_array if gmax_form > species.form
       gmax_name = (species.gmax_form_name) ? species.gmax_form_name : _INTL("Gigantamax #{species.name}")
-      #-------------------------------------------------------------------------
-      # G-Max
-      #-------------------------------------------------------------------------
-      if $player.pokedex.seen_form?(@species, 0, species.form, false, true) || 
-         $player.pokedex.seen_form?(@species, 1, species.form, false, true) || Settings::DEX_SHOWS_ALL_FORMS
-        data = [gmax_name, 99, gmax_form, false, true]
-        form_array.push(data) if !form_array.include?(data)
-      end
-      #-------------------------------------------------------------------------
-      # Shiny G-Max
-      #-------------------------------------------------------------------------
-      if Settings::POKEDEX_SHINY_FORMS
-        if $player.pokedex.seen_form?(@species, 0, species.form, true, true) || 
-           $player.pokedex.seen_form?(@species, 1, species.form, true, true)
-          data = [gmax_name, 99, gmax_form, true, true]
-          form_array.push(data) if !form_array.include?(data)
+      2.times do |real_gender|
+        for i in 0..checks
+          if $player.pokedex.seen_form?(@species, real_gender, species.form, i, 2) || Settings::DEX_SHOWS_ALL_FORMS
+            data = [gmax_name, 3, gmax_form, i, 2]
+            form_array.push(data) if !form_array.include?(data) && species.bitmap_exists?("Front", real_gender == 1, i, 2)
+          end
         end
       end
     end
@@ -88,7 +78,8 @@ class PokemonPokedexInfo_Scene
         if Settings::DEX_SHOWS_FOOTPRINTS
           footprintfile = GameData::Species.footprint_filename(@species, @form, @gmax)
         else
-          footprintfile = GameData::Species.icon_filename(@species, @form, @gender, @shiny, @shadow, false, false, @gmax, @celestial)
+		  shiny = (@shiny == 2) ? :super_shiny : (@shiny == 1) ? true : false
+          footprintfile = GameData::Species.icon_filename(@species, @form, @gender, shiny, @shadow, false, false, @gmax, @celestial)
         end
       else
         footprintfile = GameData::Species.footprint_filename(@species, @form, @gmax)
@@ -130,36 +121,5 @@ class PokemonPokedexInfo_Scene
     end
     pbDrawTextPositions(overlay, textpos)
     pbDrawImagePositions(overlay, imagepos)
-  end
-end
-
-
-#-------------------------------------------------------------------------------
-# Displays G-Max sprites in the Pokedex.
-#-------------------------------------------------------------------------------
-class PokemonPokedex_Scene
-  def pbGetDexList
-    region = pbGetPokedexRegion
-    regionalSpecies = pbAllRegionalSpecies(region)
-    if !regionalSpecies || regionalSpecies.length == 0
-      regionalSpecies = []
-      GameData::Species.each_species { |s| regionalSpecies.push(s.id) }
-    end
-    shift = Settings::DEXES_WITH_OFFSETS.include?(region)
-    ret = []
-    regionalSpecies.each_with_index do |species, i|
-      next if !species
-      next if !pbCanAddForModeList?($PokemonGlobal.pokedexMode, species)
-      _gender, form, _shiny, _gmax = $player.pokedex.last_form_seen(species)
-      species_data = GameData::Species.get_species_form(species, form)
-      color  = species_data.color
-      type1  = species_data.types[0]
-      type2  = species_data.types[1] || type1
-      shape  = species_data.shape
-      height = species_data.height
-      weight = species_data.weight
-      ret.push([species, species_data.name, height, weight, i + 1, shift, type1, type2, color, shape])
-    end
-    return ret
   end
 end

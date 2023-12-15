@@ -10,26 +10,29 @@
 class PokemonPokedexInfo_Scene
   def pbUpdateDummyPokemon
     @species = @dexlist[@index][0]
-    @gender, @form, @shiny, @gmax, @shadow = $player.pokedex.last_form_seen(@species)
-    @shiny = false if !Settings::POKEDEX_SHINY_FORMS
-    @shadow = false if !Settings::POKEDEX_SHADOW_FORMS
-    @celestial = false
+    @gender, @form, @shiny, @special = $player.pokedex.last_form_seen(@species)
+    @shiny = 0 if !Settings::POKEDEX_SHINY_FORMS
+    @special = 0 if @special == 1 && !Settings::POKEDEX_SHADOW_FORMS
+    @shadow = (@special == 1)
+    @gmax = (@special == 2)
+    @celestial = (@special == 3)
+    shiny = (@shiny == 2) ? :super_shiny : (@shiny == 1) ? true : false
     metrics_data = GameData::SpeciesMetrics.get_species_form(@species, @form)
-    @sprites["infosprite"].setSpeciesBitmap(@species, @gender, @form, @shiny, @shadow, false, false, false, @gmax, @celestial)
-    @sprites["formfront"]&.setSpeciesBitmap(@species, @gender, @form, @shiny, @shadow, false, false, false, @gmax, @celestial)
+    @sprites["infosprite"].setSpeciesBitmap(@species, @gender, @form, shiny, @shadow, false, false, false, @gmax, @celestial)
+    @sprites["formfront"]&.setSpeciesBitmap(@species, @gender, @form, shiny, @shadow, false, false, false, @gmax, @celestial)
     if @sprites["formback"]
-      @sprites["formback"].setSpeciesBitmap(@species, @gender, @form, @shiny, @shadow, true, false, false, @gmax, @celestial)
+      @sprites["formback"].setSpeciesBitmap(@species, @gender, @form, shiny, @shadow, true, false, false, @gmax, @celestial)
       @sprites["formback"].y = 256
       @sprites["formback"].y += metrics_data.back_sprite[1] * 2
     end
-    @sprites["formicon"]&.pbSetParams(@species, @gender, @form, @shiny, @shadow, false, @gmax, @celestial)
+    @sprites["formicon"]&.pbSetParams(@species, @gender, @form, shiny, @shadow, false, @gmax, @celestial)
     if PluginManager.installed?("Generation 8 Pack Scripts")
       return if defined?(EliteBattle)
       sp_data = GameData::SpeciesMetrics.get_species_form(@species, @form)
-      #@sprites["infosprite"].constrict([208, 200])
-      #@sprites["formfront"].constrict([200, 196]) if @sprites["formfront"]
+      @sprites["infosprite"].constrict([208, 200])
+      @sprites["formfront"].constrict([200, 196]) if @sprites["formfront"]
       return if !@sprites["formback"]
-      #@sprites["formback"].constrict([300, 294])
+      @sprites["formback"].constrict([300, 294])
       return if sp_data.back_sprite_scale == sp_data.front_sprite_scale
       @sprites["formback"].setOffset(PictureOrigin::CENTER)
       @sprites["formback"].y = @sprites["formfront"].y if @sprites["formfront"]
@@ -44,6 +47,8 @@ class PokemonPokedexInfo_Scene
   def pbGetAvailableForms
     ret = []
     multiple_forms = false
+    shiny_checks = (Settings::POKEDEX_SHINY_FORMS) ? 2 : 0
+    special_checks = (Settings::POKEDEX_SHADOW_FORMS) ? 2 : 1
     GameData::Species.each do |sp|
       next if sp.species != @species
       next if sp.form != 0 && (!sp.real_form_name || sp.real_form_name.empty?)
@@ -51,76 +56,72 @@ class PokemonPokedexInfo_Scene
       multiple_forms = true if sp.form > 0
       if sp.single_gendered?
         real_gender = (sp.gender_ratio == :AlwaysFemale) ? 1 : 0
-        form_gender = (sp.gender_ratio == :Genderless)   ? 2 : real_gender
-        #-----------------------------------------------------------------------
-        # Single-gendered
-        #-----------------------------------------------------------------------
-        if $player.pokedex.seen_form?(@species, real_gender, sp.form, false, false) || Settings::DEX_SHOWS_ALL_FORMS
-          ret.push([sp.form_name, form_gender, sp.form, false, false])
-        end
-        #-----------------------------------------------------------------------
-        # Shiny single-gendered
-        #-----------------------------------------------------------------------
-        if $player.pokedex.seen_form?(@species, real_gender, sp.form, true, false) && Settings::POKEDEX_SHINY_FORMS
-          ret.push([sp.form_name, form_gender, sp.form, true, false])
-        end
-        #-----------------------------------------------------------------------
-        # Shadow single-gendered
-        #-----------------------------------------------------------------------
-        if $player.pokedex.owned_shadow_species?(sp.id) && Settings::POKEDEX_SHADOW_FORMS
-          ret.push([sp.form_name, form_gender, sp.form, false, false, true])
+        form_gender = (sp.gender_ratio == :Genderless)   ? 2 : real_gender + 3
+        for i in 0...special_checks
+          for j in 0..shiny_checks
+            if $player.pokedex.seen_form?(@species, real_gender, sp.form, j, i)
+              ret.push([sp.form_name, form_gender, sp.form, j, i]) if sp.bitmap_exists?("Front", false, j, i)
+            end
+          end
         end
       else
         2.times do |real_gender|
-          #---------------------------------------------------------------------
-          # Male/Female
-          #---------------------------------------------------------------------
-          if $player.pokedex.seen_form?(@species, real_gender, sp.form, false, false) || Settings::DEX_SHOWS_ALL_FORMS
-            ret.push([sp.form_name, real_gender, sp.form, false, false])
-          end
-          #---------------------------------------------------------------------
-          # Shiny Male/Female
-          #---------------------------------------------------------------------
-          if $player.pokedex.seen_form?(@species, real_gender, sp.form, true, false) && Settings::POKEDEX_SHINY_FORMS
-            ret.push([sp.form_name, real_gender, sp.form, true, false])
-          end
-          #---------------------------------------------------------------------
-          # Shadow Male/Female
-          #---------------------------------------------------------------------
-          if $player.pokedex.owned_shadow_species?(sp.id) && Settings::POKEDEX_SHADOW_FORMS
-            ret.push([sp.form_name, real_gender, sp.form, false, false, true])
+          show_all_forms = true
+          for i in 0...special_checks
+            form_gender = (sp.bitmap_exists?("Front", true, 0, i)) ? real_gender : real_gender + 3
+            for j in 0..shiny_checks
+              if $player.pokedex.seen_form?(@species, real_gender, sp.form, j, i) || (Settings::DEX_SHOWS_ALL_FORMS && show_all_forms)
+                ret.push([sp.form_name, form_gender, sp.form, j, i]) if sp.bitmap_exists?("Front", real_gender == 1, j, i)
+              end
+              show_all_forms = false
+            end
           end
         end
       end
       #-------------------------------------------------------------------------
-      # Gigantamax forms
+      # Plugin-specific forms
       #-------------------------------------------------------------------------
       if PluginManager.installed?("ZUD Mechanics")
-        ret = pbAddGmaxForms(sp, ret)
+        ret = pbAddGmaxForms(sp, ret, shiny_checks)
+      end
+      if PluginManager.installed?("Pokémon Birthsigns")
+        ret = pbAddCelestialForms(sp, ret, shiny_checks)
       end
     end
     ret.compact!
     ret.uniq!
     ret.each do |entry|
-      prefix = ""
-      prefix += "Shiny "  if entry[3]
-      prefix += "Shadow " if entry[5]
-	  case entry[1]
-	  when 0 then suffix = "Male"
-	  when 1 then suffix = "Female"
-	  else        suffix = ""
-	  end
-      if !entry[0] || entry[0].empty?
-        prefix += "Gigantamax " if entry[4]
-        if entry[1] < 2
-          entry[0] = _INTL("#{prefix + suffix}")
-        else
-          entry[0] = (multiple_forms) ? _INTL("#{prefix}One Form") : _INTL("#{prefix}Genderless")
+      form_name = ""
+      case entry[3]
+      when 1 then form_name += _INTL("Shiny")
+      when 2 then form_name += _INTL("Super Shiny")
+      end
+      if nil_or_empty?(entry[0])
+        case entry[4]
+        when 1 then special_form = _INTL("Shadow")
+        when 2 then special_form = _INTL("Gigantamax")
+        when 3 then special_form = _INTL("Celestial")
+        end
+        if !nil_or_empty?(special_form)
+          form_name += " " if !nil_or_empty?(form_name)
+          form_name += special_form 
         end
       else
-        entry[0] = _INTL("#{prefix + entry[0] + " " + suffix}")
+        form_name += " " if !nil_or_empty?(form_name)
+        form_name += entry[0]
+      end		
+      case entry[1]
+      when 0 then gender_form = _INTL("Male")
+      when 1 then gender_form = _INTL("Female")
+      when 2 then gender_form = _INTL("One Form") if nil_or_empty?(entry[0]) && multiple_forms
       end
-      entry[1] = 0 if entry[1] == 2
+      if !nil_or_empty?(gender_form)
+        form_name += " " if !nil_or_empty?(form_name)
+        form_name += gender_form
+      end
+      entry[0]  = _INTL("{1}", form_name)
+      entry[1] -= 3 if entry[1] > 2
+      entry[1]  = 0 if entry[1] >= 2
     end
     return ret
   end
@@ -131,8 +132,7 @@ class PokemonPokedexInfo_Scene
       if @available[i][1] == @gender && 
          @available[i][2] == @form   &&
          @available[i][3] == @shiny  &&
-         @available[i][4] == @gmax   &&
-         @available[i][5] == @shadow
+         @available[i][4] == @special
         index = i
         break
       end
@@ -144,13 +144,12 @@ class PokemonPokedexInfo_Scene
           @available[index][1], # Gender
           @available[index][2], # Form
           @available[index][3], # Shiny
-          @available[index][4], # Gigantamax
-          @available[index][5]  # Shadow
+          @available[index][4]  # Special
         )
         pbUpdateDummyPokemon
         drawPage(@page)
         @sprites["uparrow"].visible   = (index > 0)
-        @sprites["downarrow"].visible = (index<@available.length - 1)
+        @sprites["downarrow"].visible = (index < @available.length - 1)
         oldindex = index
       end
       Graphics.update
@@ -184,8 +183,7 @@ class PokemonPokedexInfo_Scene
       if i[1] == @gender && 
          i[2] == @form   &&
          i[3] == @shiny  &&
-         i[4] == @gmax   &&
-         i[5] == @shadow
+         i[4] == @special
         formname = i[0]
         break
       end
@@ -200,14 +198,43 @@ end
 
 class PokemonPokedex_Scene
   def setIconBitmap(species)
-    gender, form, shiny, gmax, shadow = $player.pokedex.last_form_seen(species)
-    shiny = false if !Settings::POKEDEX_SHINY_FORMS
-    shadow = false if !Settings::POKEDEX_SHADOW_FORMS
-    poke_data = [species, gender, form, shiny, shadow, false, false, false, gmax]
+    gender, form, shiny, special = $player.pokedex.last_form_seen(species)
+    shiny = 0 if !Settings::POKEDEX_SHINY_FORMS
+    special = 0 if special == 1 && !Settings::POKEDEX_SHADOW_FORMS
+    shiny = (shiny == 2) ? :super_shiny : (shiny == 1) ? true : false
+    shadow = (special == 1)
+    gmax = (special == 2)
+    celestial = (special == 3)
+    poke_data = [species, gender, form, shiny, shadow, false, false, false, gmax, celestial]
     @sprites["icon"].setSpeciesBitmap(*poke_data)
     if PluginManager.installed?("Generation 8 Pack Scripts")
-      #@sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
+      @sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
     end
+  end
+  
+  def pbGetDexList
+    region = pbGetPokedexRegion
+    regionalSpecies = pbAllRegionalSpecies(region)
+    if !regionalSpecies || regionalSpecies.length == 0
+      regionalSpecies = []
+      GameData::Species.each_species { |s| regionalSpecies.push(s.id) }
+    end
+    shift = Settings::DEXES_WITH_OFFSETS.include?(region)
+    ret = []
+    regionalSpecies.each_with_index do |species, i|
+      next if !species
+      next if !pbCanAddForModeList?($PokemonGlobal.pokedexMode, species)
+      _gender, form, _shiny, _special = $player.pokedex.last_form_seen(species)
+      species_data = GameData::Species.get_species_form(species, form)
+      color  = species_data.color
+      type1  = species_data.types[0]
+      type2  = species_data.types[1] || type1
+      shape  = species_data.shape
+      height = species_data.height
+      weight = species_data.weight
+      ret.push([species, species_data.name, height, weight, i + 1, shift, type1, type2, color, shape])
+    end
+    return ret
   end
 end
 
@@ -217,37 +244,67 @@ end
 #-------------------------------------------------------------------------------
 class Player < Trainer
   class Pokedex
-    def seen_form?(species, gender, form, shiny = nil, gmax = nil)
+    def seen_form?(species, gender, form, shiny = nil, special = nil)
       species_id = GameData::Species.try_get(species)&.species
       return false if species_id.nil?
-      shiny = nil if !Settings::POKEDEX_SHINY_FORMS
-      @seen_forms[species_id] ||= [[[[], []], [[], []]], [[[], []], [[], []]]]
-      if shiny.nil? && gmax.nil?
-        return @seen_forms[species_id][gender][0][0][form] ||
-               @seen_forms[species_id][gender][0][1][form] ||
-               @seen_forms[species_id][gender][1][0][form] ||
-               @seen_forms[species_id][gender][1][1][form]
+      @seen_forms[species_id] ||= [# [   Regular    ]  [    Shiny     ]  [  Super Shiny ]
+                                   [ [[], [], [], []], [[], [], [], []], [[], [], [], []] ], # Male
+                                   [ [[], [], [], []], [[], [], [], []], [[], [], [], []] ]  # Female
+                                  ]
+      if shiny.nil? && special.nil?
+        shiny = special = 0
+        ret = nil
+        9.times do |i|
+          ret = @seen_forms[species_id][gender][shiny][special][form]
+          break if !ret.nil?
+          special += 1
+          special = 0 if special > 2
+          shiny += 1 if ((i + 1) % 3) == 0
+        end
+        return ret == true
       end
-      gmax  = (gmax)  ? 1 : 0
-      shiny = (shiny) ? 1 : 0
-      return @seen_forms[species_id][gender][shiny][gmax][form] == true
+      shiny = 0 if shiny.nil? || !Settings::POKEDEX_SHINY_FORMS
+      special = 0 if special.nil? || special == 1 && !Settings::POKEDEX_SHADOW_FORMS
+      return @seen_forms[species_id][gender][shiny][special][form] == true
     end
     
     def seen_forms_count(species)
       species_id = GameData::Species.try_get(species)&.species
       return 0 if species_id.nil?
       ret = 0
-      @seen_forms[species_id] ||= [[[[], []], [[], []]], [[[], []], [[], []]]]
+      @seen_forms[species_id] ||= [# [   Regular    ]  [    Shiny     ]  [  Super Shiny ]
+                                   [ [[], [], [], []], [[], [], [], []], [[], [], [], []] ], # Male
+                                   [ [[], [], [], []], [[], [], [], []], [[], [], [], []] ]  # Female
+                                  ]
       array = @seen_forms[species_id]
       [array[0].length, array[1].length].max.times do |i|
-        ret += 1 if array[0][0][0][i] ||  # male, non-shiny, non-gmax
-                    array[0][0][1][i] ||  # male, non-shiny, gmax
-                    array[0][1][0][i] ||  # male, shiny, non-gmax
-                    array[0][1][1][i] ||  # male, shiny, gmax
-                    array[1][0][0][i] ||  # female, non-shiny, non-gmax
-                    array[1][0][1][i] ||  # female, non-shiny, gmax
-                    array[1][1][0][i] ||  # female, shiny, non-gmax
-                    array[1][1][1][i]     # female, shiny, gmax
+        ret += 1 if array[0][0][0][i] ||  # male, regular, base
+                    array[0][1][0][i] ||  # male, shiny, base
+                    array[0][2][0][i] ||  # male, super shiny, base
+                    array[1][0][0][i] ||  # female, regular, base
+                    array[1][1][0][i] ||  # female, shiny, base
+                    array[1][2][0][i] ||  # female, super shiny, base
+                    # Shadow Sprites
+                    array[0][0][1][i] ||  # male, regular, shadow
+                    array[0][1][1][i] ||  # male, shiny, shadow
+                    array[0][2][1][i] ||  # male, super shiny, shadow
+                    array[1][0][1][i] ||  # female, regular, shadow
+                    array[1][1][1][i] ||  # female, shiny, shadow
+                    array[1][2][1][i] ||  # female, super shiny, shadow
+                    # Gigantamax Sprites
+                    array[0][0][2][i] ||  # male, regular, gmax
+                    array[0][1][2][i] ||  # male, shiny, gmax
+                    array[0][2][2][i] ||  # male, super shiny, gmax
+                    array[1][0][2][i] ||  # female, regular, gmax
+                    array[1][1][2][i] ||  # female, shiny, gmax
+                    array[1][2][2][i] ||  # female, super shiny, gmax
+                    # Celestial Sprites
+                    array[0][0][3][i] ||  # male, regular, celestial
+                    array[0][1][3][i] ||  # male, shiny, celestial
+                    array[0][2][3][i] ||  # male, super shiny, celestial
+                    array[1][0][3][i] ||  # female, regular, celestial
+                    array[1][1][3][i] ||  # female, shiny, celestial
+                    array[1][2][3][i]     # female, super shiny, celestial
       end
       return ret
     end
@@ -256,42 +313,43 @@ class Player < Trainer
       @last_seen_forms[species] ||= []
       return @last_seen_forms[species][0] || 0, 
              @last_seen_forms[species][1] || 0, 
-             @last_seen_forms[species][2] || false, 
-             @last_seen_forms[species][3] || false,
-             @last_seen_forms[species][4] || nil
+             @last_seen_forms[species][2] || 0, 
+             @last_seen_forms[species][3] || 0
     end
     
-    def set_last_form_seen(species, gender = 0, form = 0, shiny = false, gmax = false, shadow = nil)
-      shiny = false if !Settings::POKEDEX_SHINY_FORMS
-      shadow = false if !Settings::POKEDEX_SHADOW_FORMS
-      @last_seen_forms[species] = [gender, form, shiny, gmax, shadow]
+    def set_last_form_seen(species, gender = 0, form = 0, shiny = 0, special = 0)
+      shiny = 0 if !Settings::POKEDEX_SHINY_FORMS
+      special = 0 if special == 1 && !Settings::POKEDEX_SHADOW_FORMS
+      @last_seen_forms[species] = [gender, form, shiny, special]
     end
     
-    def register(species, gender = 0, form = 0, shiny = false, should_refresh_dexes = true, gmax = false, shadow = false)
+    def register(species, gender = 0, form = 0, shiny = 0, should_refresh_dexes = true, special = 0)
       if species.is_a?(Pokemon)
         species_data = species.species_data
         gender = species.gender
-        gmax = species.gmax?
-        shiny = (Settings::POKEDEX_SHINY_FORMS) ? species.shiny? : false
-        shadow = (Settings::POKEDEX_SHADOW_FORMS) ? species.shadowPokemon? : false
+        shiny = (!Settings::POKEDEX_SHINY_FORMS) ? 0 : (species.super_shiny?) ? 2 : (species.shiny?) ? 1 : 0
+        special = (species.shadowPokemon? && Settings::POKEDEX_SHADOW_FORMS) ? 1 : (species.gmax?) ? 2 : (species.celestial?) ? 3 : 0
       else
         species_data = GameData::Species.get_species_form(species, form)
       end
       species = species_data.species
       gender = 0 if gender >= 2
       form = species_data.form
-      _shiny = (shiny) ? 1 : 0
-      _gmax = (gmax) ? 1 : 0
+      shiny = 1 if shiny == true
+      special = 1 if special == true
       if form != species_data.pokedex_form
         species_data = GameData::Species.get_species_form(species, species_data.pokedex_form)
         form = species_data.form
       end
       form = 0 if species_data.form_name.nil? || species_data.form_name.empty?
       @seen[species] = true
-      @seen_forms[species] ||= [[[[], []], [[], []]], [[[], []], [[], []]]]
-      @seen_forms[species][gender][_shiny][_gmax][form] = true
+      @seen_forms[species] ||= [# [   Regular    ]  [    Shiny     ]  [  Super Shiny ]
+                                [ [[], [], [], []], [[], [], [], []], [[], [], [], []] ], # Male
+                                [ [[], [], [], []], [[], [], [], []], [[], [], [], []] ]  # Female
+                               ]
+      @seen_forms[species][gender][shiny][special][form] = true
       @last_seen_forms[species] ||= []
-      @last_seen_forms[species] = [gender, form, shiny, gmax, shadow] if @last_seen_forms[species] == []
+      @last_seen_forms[species] = [gender, form, shiny, special] if @last_seen_forms[species] == []
       self.refresh_accessible_dexes if should_refresh_dexes
     end
     
@@ -300,9 +358,9 @@ class Player < Trainer
       species_data = pkmn.species_data
       form = species_data.pokedex_form
       form = 0 if species_data.form_name.nil? || species_data.form_name.empty?
-      shiny = (Settings::POKEDEX_SHINY_FORMS) ? pkmn.shiny? : false
-      shadow = (Settings::POKEDEX_SHADOW_FORMS) ? pkmn.shadowPokemon? : false
-      @last_seen_forms[pkmn.species] = [pkmn.gender, form, shiny, pkmn.gmax?, shadow]
+      shiny = (!Settings::POKEDEX_SHINY_FORMS) ? 0 : (pkmn.super_shiny?) ? 2 : (pkmn.shiny?) ? 1 : 0
+      special = (pkmn.shadowPokemon? && Settings::POKEDEX_SHADOW_FORMS) ? 1 : (pkmn.gmax?) ? 2 : (pkmn.celestial?) ? 3 : 0
+      @last_seen_forms[pkmn.species] = [pkmn.gender, form, shiny, special]
     end
 	
     def set_shadow_pokemon_owned(species)

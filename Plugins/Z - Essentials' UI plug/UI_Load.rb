@@ -84,12 +84,12 @@ def refresh
         textpos.push(["Map: " + mapname, position_x[1], position_y[2], 0, TEXTCOLOR, TEXTSHADOWCOLOR, true])
         textpos.push(["Name: #{@trainer.name}", position_x[1], position_y[1], 0, (@trainer.male? ? MALE_TEXT_COLOR : (@trainer.female? ? FEMALE_TEXT_COLOR : TEXTCOLOR)), (@trainer.male? ? MALE_TEXT_SHADOW_COLOR : (@trainer.female? ? FEMALE_TEXT_SHADOW_COLOR : TEXTSHADOWCOLOR)), true])
         textpos.push([@title, position_x[1], position_y[0], 0, TEXTCOLOR, TEXTSHADOWCOLOR, true])
-        dark_color, light_color = SysFixData.rank_colors(@trainer.badge_count)
-        textpos.push(["Rank: " + SysFixData::Rname[@trainer.badge_count].to_s, position_x[1], position_y[3], 0, light_color, dark_color, true])
+        #dark_color, light_color = SysFixData.rank_colors(@trainer.badge_count)
+        #textpos.push(["Rank: " + SysFixData::Rname[@trainer.badge_count].to_s, position_x[1], position_y[3], 0, light_color, dark_color, true])
         #diff_dark_color, diff_light_color = SysFixData.diff_colors(DataStorage::Difficulties)
         #textpos.push(["Difficulty: " + SysFixData::Dnames[DataStorage::Difficulties].to_s, position_x[0], position_y[2], 1, diff_light_color, diff_dark_color, true])
-        textpos.push(["Player ID: " + @trainer.public_ID.to_s, position_x[0], position_y[3], 1, TEXTCOLOR, TEXTSHADOWCOLOR, true])
-        textpos.push(["Player Money: " + @trainer.money.to_s_formatted, position_x[0],position_y[4],1,(@trainer.money <= 0) ? RED : (@trainer.money <= 5000) ? YELLOW : GREEN,(@trainer.money <= 500) ? RED1 : (@trainer.money <= 1500) ? YELLOW1 : GREEN1 ,true])
+        textpos.push(["Player ID: " + @trainer.public_ID.to_s, position_x[1], position_y[3], 0, TEXTCOLOR, TEXTSHADOWCOLOR, true])
+        textpos.push(["Player Money: $" + @trainer.money.to_s_formatted, position_x[0],position_y[4],1,(@trainer.money <= 0) ? RED : (@trainer.money <= 5000) ? YELLOW : GREEN,(@trainer.money <= 500) ? RED1 : (@trainer.money <= 1500) ? YELLOW1 : GREEN1 ,true])
         hour = @totalsec / 60 / 60
         min = @totalsec / 60 % 60
         textpos.push([_INTL("Time: {1}h {2}m", hour, min), position_x[1], position_y[4], 0, TEXTCOLOR, TEXTSHADOWCOLOR, true]) if hour > 0
@@ -164,32 +164,31 @@ def pbUpdate
     oldi = @sprites["cmdwindow"].index rescue 0
     pbUpdateSpriteHash(@sprites)
     newi = @sprites["cmdwindow"].index rescue 0
-    if oldi != newi
-    @sprites["panel#{oldi}"].selected = false
-    @sprites["panel#{oldi}"].refreshBitmap
-    @sprites["panel#{newi}"].selected = true
-    @sprites["panel#{newi}"].refreshBitmap
-    while @sprites["panel#{newi}"].y > Graphics.height - 52 #80
-        @commands.length.times do |i|
-        @sprites["panel#{i}"].y -= 10
-        end
-        6.times do |i|
-        break if !@sprites["party#{i}"]
-        @sprites["party#{i}"].y -= 10
-        end
-    end
-    while @sprites["panel#{newi}"].y < 10 #32
-        @commands.length.times do |i|
-        @sprites["panel#{i}"].y += 10
-        end
-        6.times do |i|
-        break if !@sprites["party#{i}"]
-        @sprites["party#{i}"].y += 10
-        end
-    end
-    elsif @sprites["background"]
     @sprites["background"].ox += 1
     @sprites["background"].oy += 1
+    if oldi != newi
+        @sprites["panel#{oldi}"].selected = false
+        @sprites["panel#{oldi}"].refreshBitmap
+        @sprites["panel#{newi}"].selected = true
+        @sprites["panel#{newi}"].refreshBitmap
+        while @sprites["panel#{newi}"].y > Graphics.height - 52 #80
+            @commands.length.times do |i|
+                @sprites["panel#{i}"].y -= 10
+            end
+            6.times do |i|
+            break if !@sprites["party#{i}"]
+                @sprites["party#{i}"].y -= 10
+            end
+        end
+        while @sprites["panel#{newi}"].y < 10 #32
+            @commands.length.times do |i|
+                @sprites["panel#{i}"].y += 10
+            end
+            6.times do |i|
+            break if !@sprites["party#{i}"]
+                @sprites["party#{i}"].y += 10
+            end
+        end
     end
 end
 

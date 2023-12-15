@@ -54,11 +54,11 @@ if !defined?(EliteBattle)
   class PokemonSprite
     def constrict(amt, deanimate = false)
       if amt.is_a?(Array)
-        #@_iconbitmap.constrict_x = amt[0] if @_iconbitmap.respond_to?(:constrict_x)
-        #@_iconbitmap.constrict_y = amt[1] if @_iconbitmap.respond_to?(:constrict_y)
-        #@_iconbitmap.constrict   = amt.max if @_iconbitmap.respond_to?(:constrict)
+        @_iconbitmap.constrict_x = amt[0] if @_iconbitmap.respond_to?(:constrict_x)
+        @_iconbitmap.constrict_y = amt[1] if @_iconbitmap.respond_to?(:constrict_y)
+        @_iconbitmap.constrict   = amt.max if @_iconbitmap.respond_to?(:constrict)
       else
-        #@_iconbitmap.constrict = amt if @_iconbitmap.respond_to?(:constrict)
+        @_iconbitmap.constrict = amt if @_iconbitmap.respond_to?(:constrict)
       end
       @_iconbitmap.setSpeed(0) if @_iconbitmap.respond_to?(:setSpeed) && deanimate
       @_iconbitmap.deanimate if @_iconbitmap.respond_to?(:deanimate) && deanimate
@@ -75,10 +75,10 @@ if !defined?(EliteBattle)
       __gen8__pbUpdateDummyPokemon
       return if defined?(EliteBattle)
       sp_data = GameData::SpeciesMetrics.get_species_form(@species, @form)
-      #@sprites["infosprite"].constrict([208, 200])
-      #@sprites["formfront"].constrict([200, 196]) if @sprites["formfront"]
+      @sprites["infosprite"].constrict([208, 200])
+      @sprites["formfront"].constrict([200, 196]) if @sprites["formfront"]
       return if !@sprites["formback"]
-      #@sprites["formback"].constrict([300, 294])
+      @sprites["formback"].constrict([300, 294])
       return if sp_data.back_sprite_scale == sp_data.front_sprite_scale
       @sprites["formback"].setOffset(PictureOrigin::CENTER)
       @sprites["formback"].y = @sprites["formfront"].y if @sprites["formfront"]
@@ -94,7 +94,7 @@ if !defined?(EliteBattle)
     alias __gen8__setIconBitmap setIconBitmap unless method_defined?(:__gen8__setIconBitmap)
     def setIconBitmap(*args)
       __gen8__setIconBitmap(*args)
-      #@sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
+      @sprites["icon"].constrict([224, 216]) if !defined?(EliteBattle)
     end
   end
 
@@ -106,7 +106,7 @@ if !defined?(EliteBattle)
     alias __gen8__pbUpdateOverlay pbUpdateOverlay unless method_defined?(:__gen8__pbUpdateOverlay)
     def pbUpdateOverlay(*args)
       __gen8__pbUpdateOverlay(*args)
-      #@sprites["pokemon"].constrict(168, true) if !defined?(EliteBattle)
+      @sprites["pokemon"].constrict(168, true) if !defined?(EliteBattle)
     end
   end
 
@@ -122,7 +122,7 @@ if !defined?(EliteBattle)
           end
         end
       end
-      #@sprites["pokemon"].constrict([208, 164]) if @sprites["pokemon"] && !defined?(EliteBattle)
+      @sprites["pokemon"].constrict([208, 164]) if @sprites["pokemon"] && !defined?(EliteBattle)
       numFrames = (Graphics.frame_rate * 0.4).floor
       alphaDiff = (255.0 / numFrames).ceil
       pbDeactivateWindows(sprites) {
@@ -136,7 +136,7 @@ if !defined?(EliteBattle)
     alias __gen8__pbChangePokemon pbChangePokemon unless method_defined?(:__gen8__pbChangePokemon)
     def pbChangePokemon
       __gen8__pbChangePokemon
-      #@sprites["pokemon"].constrict([208, 164]) if !defined?(EliteBattle)
+      @sprites["pokemon"].constrict([208, 164]) if !defined?(EliteBattle)
     end
   end
 end

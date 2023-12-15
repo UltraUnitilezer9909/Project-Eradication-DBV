@@ -2,10 +2,14 @@
 #
 #===============================================================================
 class PokemonPokedexInfo_Scene
+  UI_WIDTH = Settings::SCREEN_WIDTH - 32
+  UI_HEIGHT = Settings::SCREEN_HEIGHT - 64
+  SPECIAL_UI = ARMSettings::REGION_MAP_BEHIND_UI ? [0, 0, 0, 0] : [16, 32, 48, 64]
+
   def pbStartScene(dexlist, index, region)
     @viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
     @viewport.z = 100000
-    @viewportMap = Viewport.new(16, 48, 480, 320)
+    @viewportMap = Viewport.new(SPECIAL_UI[0], SPECIAL_UI[2], (Graphics.width - SPECIAL_UI[1]), (Graphics.height - SPECIAL_UI[3]))
     @viewportMap.z = 99999
     @dexlist = dexlist
     @index   = index
@@ -24,6 +28,7 @@ class PokemonPokedexInfo_Scene
     if @region < 0                                 # Use player's current region
       @region = (mappos) ? mappos[0] : 0                      # Region 0 default
     end
+    #fix wrong region map used.
     @sprites["areamap"] = IconSprite.new(0, 0, @viewportMap)
     @sprites["areamap"].setBitmap("Graphics/Pictures/RegionMap/Regions/#{@mapdata[@region][1]}")
     Settings::REGION_MAP_EXTRAS.each do |hidden|
@@ -31,8 +36,8 @@ class PokemonPokedexInfo_Scene
       pbDrawImagePositions(
         @sprites["areamap"].bitmap,
         [["Graphics/Pictures/#{hidden[4]}",
-          hidden[2] * PokemonRegionMap_Scene::SQUARE_WIDTH,
-          hidden[3] * PokemonRegionMap_Scene::SQUARE_HEIGHT]]
+          hidden[2] * ARMSettings::SQUARE_WIDTH,
+          hidden[3] * ARMSettings::SQUARE_HEIGHT]]
       )
     end
     @sprites["areahighlight"] = BitmapSprite.new(@sprites["areamap"].bitmap.width, @sprites["areamap"].bitmap.height, @viewportMap)
@@ -60,36 +65,42 @@ class PokemonPokedexInfo_Scene
     @sprites["downarrow"].play
     @sprites["downarrow"].visible = false
     @sprites["overlay"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
-    map_metadata = $game_map.metadata
-    playerpos = (map_metadata) ? map_metadata.town_map_position : nil
+    mapMetaData = $game_map.metadata
+    playerPos = mapMetaData && mapMetaData.town_map_position ? mapMetaData.town_map_position : [0, 0, 0]
+    mapsize = mapMetaData.town_map_size
+    mapX = playerPos[1]
+    mapY = playerPos[2]
+    if mapsize && mapsize[0] && mapsize[0] > 0
+      sqwidth  = mapsize[0]
+      sqheight = (mapsize[1].length.to_f / mapsize[0]).ceil
+      mapX += ($game_player.x * sqwidth / $game_map.width).floor if sqwidth > 1
+      mapY += ($game_player.y * sqheight / $game_map.height).floor if sqheight > 1
+    end
     @mapWidth = @sprites["areamap"].bitmap.width
-    @mapHeigth = @sprites["areamap"].bitmap.height
-    @mapMaxX = -1 * (@mapWidth - 480)
-    @mapMaxY = -1 * (@mapHeigth - 320)
-    @mapPosX = (480 / 2) - (playerpos[1] * PokemonRegionMap_Scene::SQUARE_WIDTH)
-    @mapPosY = (320 / 2) - (playerpos[2] * PokemonRegionMap_Scene::SQUARE_HEIGHT)
-    if playerpos[1] * 16 > (Settings::SCREEN_WIDTH / 2) 
-      if @mapWidth > 480
-        @sprites["areamap"].x = @mapPosX % PokemonRegionMap_Scene::SQUARE_WIDTH != 0 ? @mapPosX + 8 : @mapPosX
-        if @sprites["areamap"].x < @mapMaxX
-          @sprites["areamap"].x = @mapMaxX
-        end    
-      end
-    else  
-      @sprites["areamap"].x = 0
+    @mapHeight = @sprites["areamap"].bitmap.height
+    @playerX = (-8 + SPECIAL_UI[0]) + (ARMSettings::SQUARE_WIDTH * mapX)
+    @playerY = (-8 + SPECIAL_UI[1]) + (ARMSettings::SQUARE_HEIGHT * mapY)
+    @mapMaxX = -1 * (@mapWidth  - (Graphics.width - SPECIAL_UI[1]))
+    @mapMaxY = -1 * (@mapHeight - (Graphics.height - SPECIAL_UI[3]))
+    @mapPosX = (UI_WIDTH / 2) - @playerX
+    @mapPosY = (UI_HEIGHT / 2) - @playerY
+    @mapOffsetX = @mapWidth < (Graphics.width - SPECIAL_UI[1]) ? ((Graphics.width - SPECIAL_UI[1]) - @mapWidth) / 2 : 0
+    @mapOffsetY = @mapHeight < (Graphics.height - SPECIAL_UI[3]) ? ((Graphics.height - SPECIAL_UI[3]) - @mapHeight) / 2 : 0
+    pos = @mapPosX < @mapMaxX ? @mapMaxX : @mapPosX
+    if @playerX > (Settings::SCREEN_WIDTH / 2) && ((@mapWidth > Graphics.width && ARMSettings::REGION_MAP_BEHIND_UI) || (@mapWidth > UI_WIDTH && !ARMSettings::REGION_MAP_BEHIND_UI))
+      @sprites["areamap"].x = pos % ARMSettings::SQUARE_WIDTH != 0 ? pos + 8 : pos  
+    else
+      @sprites["areamap"].x = @mapOffsetX
     end
-    if playerpos[2] * 16 > (Settings::SCREEN_HEIGHT / 2)
-      if @mapHeigth > 320
-        @sprites["areamap"].y = @mapPosY % PokemonRegionMap_Scene::SQUARE_HEIGHT != 0 ? @mapPosY + 8 : @mapPosY
-        if @sprites["areamap"].y < @mapMaxY
-          @sprites["areamap"].y = @mapMaxY
-        end    
-      end
+    pos = @mapPosY < @mapMaxY ? @mapMaxY : @mapPosY
+    if @playerY > (Settings::SCREEN_HEIGHT / 2) && ((@mapHeight > Graphics.height && ARMSettings::REGION_MAP_BEHIND_UI) || (@mapHeight > UI_HEIGHT && !ARMSettings::REGION_MAP_BEHIND_UI))
+      @sprites["areamap"].y = pos % ARMSettings::SQUARE_HEIGHT != 0 ? pos + 24 : pos 
     else  
-      @sprites["areamap"].y = 0
+      @mapOffsetY += 16 if @mapHeight <= UI_HEIGHT && ARMSettings::REGION_MAP_BEHIND_UI
+      @sprites["areamap"].y = @mapOffsetY
     end
-    @mapX = -(@sprites["areamap"].x / PokemonRegionMap_Scene::SQUARE_WIDTH)
-    @mapY = -(@sprites["areamap"].y / PokemonRegionMap_Scene::SQUARE_HEIGHT)
+    @mapX = -(@sprites["areamap"].x / ARMSettings::SQUARE_WIDTH)
+    @mapY = -(@sprites["areamap"].y / ARMSettings::SQUARE_HEIGHT)
     pbSetSystemFont(@sprites["overlay"].bitmap)
     pbUpdateDummyPokemon
     @available = pbGetAvailableForms
@@ -118,7 +129,7 @@ class PokemonPokedexInfo_Scene
       visible_points.push([loc[0], loc[1]])
     end
     # Find all points with a visible area for @species
-    town_map_width = @mapWidth / PokemonRegionMap_Scene::SQUARE_WIDTH
+    town_map_width = @mapWidth / ARMSettings::SQUARE_WIDTH
     ret = []
     GameData::Encounter.each_of_version($PokemonGlobal.encounter_version) do |enc_data|
       next if !pbFindEncounter(enc_data.types, @species)   # Species isn't in encounter table
@@ -163,8 +174,8 @@ class PokemonPokedexInfo_Scene
     # Draw coloured squares on each point of the Town Map with a nest
     pointcolor   = Color.new(0, 248, 248)
     pointcolorhl = Color.new(192, 248, 248)
-    sqwidth = PokemonRegionMap_Scene::SQUARE_WIDTH
-    sqheight = PokemonRegionMap_Scene::SQUARE_HEIGHT
+    sqwidth = ARMSettings::SQUARE_WIDTH
+    sqheight = ARMSettings::SQUARE_HEIGHT
     town_map_width = @mapWidth / sqwidth
     points.length.times do |j|
       next if !points[j]
@@ -273,7 +284,7 @@ class PokemonPokedexInfo_Scene
           dorefresh = true
         when 2   # Area
           pbPlayCursorSE
-          @mapMovement = true if !@noArea && @sprites["areamap"].bitmap.width > 480
+          @mapMovement = true if !@noArea && (@sprites["areamap"].bitmap.width > (Graphics.width - SPECIAL_UI[1]) || @sprites["areamap"].bitmap.height > (Graphics.height - SPECIAL_UI[3]))
           makeMapArrows if !@sprites["upArrow"] && !@noArea
           dorefresh = true
         when 3   # Forms
@@ -329,13 +340,13 @@ class PokemonPokedexInfo_Scene
         when 1, 2, 3
           if -(@mapY * 16) > @mapMaxY
             @mapY += 1
-            oy = -1 * PokemonRegionMap_Scene::SQUARE_HEIGHT
+            oy = -1 * ARMSettings::SQUARE_HEIGHT
             new_y = @sprites["areamap"].y + oy
           end 
         when 7, 8, 9
           if -(@mapY * 16) < 0
             @mapY -= 1
-            oy = 1 * PokemonRegionMap_Scene::SQUARE_HEIGHT
+            oy = 1 * ARMSettings::SQUARE_HEIGHT
             new_y = @sprites["areamap"].y + oy
           end 
         end 
@@ -343,13 +354,13 @@ class PokemonPokedexInfo_Scene
         when 1, 4, 7
           if -(@mapX * 16) < 0
             @mapX -= 1
-            ox = 1 * PokemonRegionMap_Scene::SQUARE_WIDTH
+            ox = 1 * ARMSettings::SQUARE_WIDTH
             new_x = @sprites["areamap"].x + ox
           end 
         when 3, 6, 9
           if -(@mapX * 16) > @mapMaxX
             @mapX += 1
-            ox = -1 * PokemonRegionMap_Scene::SQUARE_WIDTH
+            ox = -1 * ARMSettings::SQUARE_WIDTH
             new_x = @sprites["areamap"].x + ox
           end 
         end

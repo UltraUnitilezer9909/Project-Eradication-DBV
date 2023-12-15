@@ -231,11 +231,11 @@ end
 def pbUseItemMessage(item)
   item = GameData::Item.get(item)
   itemName = item.portion_name
-  itemname = item.name if PluginManager.installed?("ZUD Mechanics") && item.is_z_crystal?
-  if itemname.starts_with_vowel?
-    pbMessage(_INTL("You used an {1}.", itemname))
+  itemName = item.name if PluginManager.installed?("ZUD Mechanics") && item.is_z_crystal?
+  if itemName.starts_with_vowel?
+    pbMessage(_INTL("You used an {1}.", itemName))
   else
-    pbMessage(_INTL("You used a {1}.", itemname))
+    pbMessage(_INTL("You used a {1}.", itemName))
   end
 end
 

@@ -14,7 +14,7 @@ module PBEffects
 end
 
 module Battle::DebugVariables
-  BATTLER_EFFECTS[PBEffects::FocusEnergy] = { name: "Critical Boost critical hit stages (0-4)", default: 0, max: 4 }
+  BATTLER_EFFECTS[PBEffects::CriticalBoost] = { name: "Critical Boost critical hit stages (0-4)", default: 0, max: 4 }
 end
 
 
@@ -66,7 +66,7 @@ class Battle::Battler
   def display_base_moves
     return if @base_moves.empty?
     for i in 0...@moves.length
-	  next if !@base_moves[i]
+      next if !@base_moves[i]
       if @base_moves[i].is_a?(Battle::Move)
         @moves[i] = @base_moves[i]
       else
@@ -269,15 +269,16 @@ end
 
 
 #-------------------------------------------------------------------------------
-# Correctly records seen shadow Pokemon.
+# Correctly records seen special Pokemon forms.
 #-------------------------------------------------------------------------------
 class Battle
   def pbSetSeen(battler)
     return if !battler || !@internalBattle
     if battler.is_a?(Battler)
+      shiny = (battler.super_shiny?) ? 2 : (battler.shiny?) ? 1 : 0
+      special = (battler.shadowPokemon?) ? 1 : (battler.gmax?) ? 2 : (battler.celestial?) ? 3 : 0
       pbPlayer.pokedex.register(battler.displaySpecies, battler.displayGender,
-                                battler.displayForm, battler.shiny?, 
-                                true, battler.gmax?, battler.shadowPokemon?)
+                                battler.displayForm, shiny, true, special)
     else
       pbPlayer.pokedex.register(battler)
     end

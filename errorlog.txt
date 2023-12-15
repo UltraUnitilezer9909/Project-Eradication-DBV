@@ -4249,3 +4249,1333 @@ Errors:80:in `pbCriticalCode'
 Main:18:in `mainFunction'
 Main:45:in `block in <main>'
 Main:44:in `loop'
+
+=================
+
+[2023-12-08 21:49:41 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:55: dynamic constant assignment
+      Xposition = [50, 111]
+      ^~~~~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-09 13:15:41 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:61: syntax error, unexpected integer literal, expecting ']'
+..., @Xposition[0], @Yposition[2]1, 0, baseColor, shadowColor,t...
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:61: Can't assign to true
+... 0, baseColor, shadowColor,true],
+...                           ^~~~
+[Essentials' UI] UI_TrainerCard.rb:61: syntax error, unexpected ']', expecting '='
+...0, baseColor, shadowColor,true],
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:62: syntax error, unexpected ',', expecting `end'
+..., baseColor, shadowColor,true],
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:63: syntax error, unexpected ',', expecting `end'
+...baseColor2, shadowColor2,true],
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:65: syntax error, unexpected ']', expecting `end'
+      ]
+      ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-09 13:26:31 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:42: dynamic constant assignment
+      RED = baseColor3
+      ^~~
+[Essentials' UI] UI_TrainerCard.rb:43: dynamic constant assignment
+      RED1 = shadowColor3
+      ^~~~
+[Essentials' UI] UI_TrainerCard.rb:44: dynamic constant assignment
+      YELLOW = Color.new(255,188,15)
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:45: dynamic constant assignment
+      YELLOW1 = Color.new(175,126,0)
+      ^~~~~~~
+[Essentials' UI] UI_TrainerCard.rb:46: dynamic constant assignment
+      GREEN = Color.new(15,255,28)
+      ^~~~~
+[Essentials' UI] UI_TrainerCard.rb:47: dynamic constant assignment
+      GREEN1 = Color.new(0, 175, 9)
+      ^~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-09 13:31:01 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `money' for nil:NilClass
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:68:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:27:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:115:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-09 13:34:12 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `position_x' for #<PokemonCardUI_Scene>
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:69:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:27:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:116:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-09 13:36:35 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `money' for nil:NilClass
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:68:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:27:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:115:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-10 15:30:18 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:82: syntax error, unexpected [, expecting ']'
+        [_INTL(SysFixData::Ddesc[SysFi...
+        ^
+[Essentials' UI] UI_TrainerCard.rb:83: syntax error, unexpected ']', expecting `end'
+      ]
+      ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-10 15:57:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RuntimeError
+Message: Unknown ID SANDWICH.
+
+Backtrace:
+GameData:95:in `get'
+[BW PokéMart Screen] BWMartScreen.rb:22:in `getName'
+[BW PokéMart Screen] BWMartScreen.rb:30:in `getDisplayName'
+[Bag Screen w/int. Party] Script.rb:96:in `drawItem'
+[Bag Screen w/int. Party] Script.rb:129:in `block in refresh'
+[Bag Screen w/int. Party] Script.rb:127:in `times'
+[Bag Screen w/int. Party] Script.rb:127:in `refresh'
+SpriteWindow_text:950:in `priv_update_cursor_rect'
+SpriteWindow_text:753:in `index='
+[Bag Screen w/int. Party] Script.rb:39:in `pocket='
+
+=================
+
+[2023-12-10 16:16:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `male?' for nil:NilClass
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:76:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:131:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-10 17:45:12 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `textPositions' for #<PokemonCardUI_Scene>
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:116:in `pbEndScene'
+[Essentials' UI] UI_TrainerCard.rb:136:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-12-10 17:49:22 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `textPositions' for []:Array
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:116:in `pbEndScene'
+[Essentials' UI] UI_TrainerCard.rb:136:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-12-10 17:56:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbDrawCardUIFront' for PokemonCardUI_Scene:Class
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:116:in `pbEndScene'
+[Essentials' UI] UI_TrainerCard.rb:136:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:312:in `pbStartPokemonMenu'
+
+=================
+
+[2023-12-11 20:21:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NameError
+Message: uninitialized constant SysFixData::Rxp
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:12:in `<module:SysFixData>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:2:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+
+=================
+
+[2023-12-11 20:23:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [<> Zeta's Multi Scripts (FakeMapNameWindow]
+Exception: NameError
+Message: uninitialized constant SysFixData::Rxp
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:13:in `<module:SysFixData>'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:2:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+
+=================
+
+[2023-12-11 20:38:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 5 (coords 24,21), map 76 (< Unknown >)
+Exception: TypeError
+Message: nil can't be coerced into Float
+
+***Full script:
+SysFixData.xp_meter  # Call the method to update XP and display meter
+percent_complete = SysFixData.xp_meter  # Retrieve the completion percentage
+
+pbMessage("#{$xp}/#{SysFixData::Rxp[$rank]} (#{percent_complete}% complete)")
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:91:in `/'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:91:in `xp_meter'
+(eval):1:in `execute_script'
+033:Interpreter:143:in `eval'
+033:Interpreter:143:in `execute_script'
+034:Interpreter_Commands:1112:in `command_355'
+034:Interpreter_Commands:116:in `execute_command'
+033:Interpreter:133:in `block in update'
+033:Interpreter:90:in `loop'
+033:Interpreter:90:in `update'
+
+=================
+
+[2023-12-11 21:43:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant PokemonCardUI_Scene::Rname
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:84:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:134:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-11 21:46:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `rank' for SysFixData:Module
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:84:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:134:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-11 21:49:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:84: syntax error, unexpected global variable
+...ixData::Rname[SysFixData::$rank]), @Xposition[0], @Yposition...
+...                          ^~~~~
+[Essentials' UI] UI_TrainerCard.rb:84: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+...position[0], @Yposition1[0], 0, dark_color, light_color, tru...
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:84: Can't assign to true
+..., dark_color, light_color, true]
+...                           ^~~~
+[Essentials' UI] UI_TrainerCard.rb:84: syntax error, unexpected ']', expecting '='
+... dark_color, light_color, true]
+...                              ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-12 11:49:23 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Script error in event 5 (coords 24,21), map 76 (< Unknown >)
+Exception: TypeError
+Message: nil can't be coerced into Float
+
+***Full script:
+SysFixData.xp_meter  # Call the method to update XP and display meter
+percent_complete = SysFixData.xp_meter  # Retrieve the completion percentage
+
+pbMessage("#{$xp}/#{SysFixData::Rxp[$rank]} (#{percent_complete}% complete)")
+
+Backtrace:
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:94:in `/'
+[<> Zeta's Multi Scripts (FakeMapNameWindow] 000 - Zeta's Variable Bank.rb:94:in `xp_meter'
+(eval):1:in `execute_script'
+Interpreter:143:in `eval'
+Interpreter:143:in `execute_script'
+Interpreter_Commands:1112:in `command_355'
+Interpreter_Commands:116:in `execute_command'
+Interpreter:133:in `block in update'
+Interpreter:90:in `loop'
+Interpreter:90:in `update'
+
+=================
+
+[2023-12-12 12:28:33 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:76: dynamic constant assignment
+      Colorz = 0
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:77: dynamic constant assignment
+      Colorz = 1 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:78: dynamic constant assignment
+      Colorz = 2 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:79: dynamic constant assignment
+      Colorz = 3 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:80: dynamic constant assignment
+      Colorz = 4 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:81: dynamic constant assignment
+      Colorz = 5 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:82: dynamic constant assignment
+      Colorz = 6 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:83: dynamic constant assignment
+      Colorz = 7 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:84: dynamic constant assignment
+      Colorz = 8 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:85: dynamic constant assignment
+      Colorz = 9 if $rank.between?(1 + va...
+      ^~~~~~
+[Essentials' UI] UI_TrainerCard.rb:86: dynamic constant assignment
+      Colorz = 10 if $rank.between?(1 + v...
+      ^~~~~~
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-12 15:21:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: RuntimeError
+Message: Unknown ID SANDWICH.
+
+Backtrace:
+GameData:95:in `get'
+[BW PokéMart Screen] BWMartScreen.rb:22:in `getName'
+[BW PokéMart Screen] BWMartScreen.rb:30:in `getDisplayName'
+[Bag Screen w/int. Party] Script.rb:96:in `drawItem'
+[Bag Screen w/int. Party] Script.rb:129:in `block in refresh'
+[Bag Screen w/int. Party] Script.rb:127:in `times'
+[Bag Screen w/int. Party] Script.rb:127:in `refresh'
+SpriteWindow_text:950:in `priv_update_cursor_rect'
+SpriteWindow_text:753:in `index='
+[Bag Screen w/int. Party] Script.rb:39:in `pocket='
+
+=================
+
+[2023-12-12 17:27:42 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: String can't be coerced into Integer
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:108:in `+'
+[Essentials' UI] UI_TrainerCard.rb:108:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:159:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+
+=================
+
+[2023-12-12 17:28:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:164: syntax error, unexpected end-of-input, expecting `end'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-12 17:30:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:164: syntax error, unexpected end-of-input, expecting `end'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-12 17:42:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:164: syntax error, unexpected end-of-input, expecting `end'
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-12 17:48:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `smalltextPositions' for #<PokemonCardUI_Scene>
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:116:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:159:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-12 18:05:00 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `+' for nil:NilClass
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:93:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:162:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-12 19:06:33 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials' UI]
+Exception: SyntaxError
+Message: [Essentials' UI] UI_TrainerCard.rb:110: syntax error, unexpected string literal, expecting ')'
+...%]" + " | " + $perNeeded.to_s "% to Rank up"), @Xposition[0]...
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:110: syntax error, unexpected ')', expecting `end'
+...$perNeeded.to_s "% to Rank up"), @Xposition[0], @Yposition1[...
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:110: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+...position[0], @Yposition1[1], 0, light_color, dark_color, tru...
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:110: Can't assign to true
+..., light_color, dark_color, true],
+...                           ^~~~
+[Essentials' UI] UI_TrainerCard.rb:110: syntax error, unexpected ']', expecting '='
+... light_color, dark_color, true],
+...                              ^
+[Essentials' UI] UI_TrainerCard.rb:112: syntax error, unexpected ']', expecting `end'
+      ]
+      ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-12 20:00:34 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `light_color' for #<PokemonCardUI_Scene>
+
+Backtrace:
+[Essentials' UI] UI_TrainerCard.rb:119:in `pbDrawCardUIFront'
+[Essentials' UI] UI_TrainerCard.rb:29:in `pbStartScene'
+[Essentials' UI] UI_TrainerCard.rb:175:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:115:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:112:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:219:in `update'
+
+=================
+
+[2023-12-12 21:02:43 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: uninitialized constant VoltseonsPauseMenu::ZColorsRGB
+
+Backtrace:
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279:in `refreshMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:101:in `pbStartScene'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+
+=================
+
+[2023-12-12 21:05:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `zColorsRGB' for SysFixData:Module
+
+Backtrace:
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279:in `refreshMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:101:in `pbStartScene'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+
+=================
+
+[2023-12-12 21:07:21 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `zColorsRGB' for SysFixData:Module
+
+Backtrace:
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279:in `refreshMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:101:in `pbStartScene'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+
+=================
+
+[2023-12-13 18:09:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Voltseon's Pause Menu]
+Exception: SyntaxError
+Message: [Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279: syntax error, unexpected instance variable
+...or.new(*SysFixData::@zColorsRGB[13*2+1])#MENU_TEXTCOLOR[$Pok...
+...                    ^~~~~~~~~~~
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279: syntax error, unexpected ')', expecting `end'
+...ysFixData::@zColorsRGB[13*2+1])#MENU_TEXTCOLOR[$PokemonSyste...
+...                              ^
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:280: syntax error, unexpected instance variable
+...or.new(*SysFixData::@zColorsRGB[13*2])#MENU_TEXTOUTLINE[$Pok...
+...                    ^~~~~~~~~~~
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:280: syntax error, unexpected ')', expecting `end'
+...*SysFixData::@zColorsRGB[13*2])#MENU_TEXTOUTLINE[$PokemonSys...
+...                              ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section390:18:in `mainFunction'
+
+=================
+
+[2023-12-13 18:27:59 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `zColorsRGB' for SysFixData:Module
+
+Backtrace:
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279:in `refreshMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:101:in `pbStartScene'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+
+=================
+
+[2023-12-13 18:49:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `zColorsRGB' for SysFixData:Module
+
+Backtrace:
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279:in `refreshMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:101:in `pbStartScene'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+
+=================
+
+[2023-12-13 19:17:48 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `zColorsRGB' for SysFixData:Module
+
+Backtrace:
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:279:in `refreshMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:101:in `pbStartScene'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:303:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+
+=================
+
+[2023-12-13 19:36:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Voltseon's Pause Menu]
+Exception: NoMethodError
+Message: undefined method `zColorsRGB' for SysFixData:Module
+
+Backtrace:
+[Voltseon's Pause Menu] 001_VoltseonMenu_Config.rb:55:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+
+=================
+
+[2023-12-13 19:38:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Voltseon's Pause Menu]
+Exception: NameError
+Message: undefined local variable or method `zColorsRGB' for main:Object
+
+Backtrace:
+[Voltseon's Pause Menu] 001_VoltseonMenu_Config.rb:55:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+
+=================
+
+[2023-12-13 19:41:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Voltseon's Pause Menu]
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Voltseon's Pause Menu] 001_VoltseonMenu_Config.rb:58:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section390:28:in `mainFunctionDebug'
+Section390:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+
+=================
+
+[2023-12-13 20:44:12 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `z=' for nil:NilClass
+
+Backtrace:
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:54:in `initialize'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:291:in `new'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:291:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+
+=================
+
+[2023-12-13 20:45:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `z=' for nil:NilClass
+
+Backtrace:
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:54:in `initialize'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:299:in `new'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:299:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+
+=================
+
+[2023-12-13 20:48:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `z=' for nil:NilClass
+
+Backtrace:
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:55:in `initialize'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:300:in `new'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:300:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+[v20.1 Hotfixes] Overworld bug fixes.rb:28:in `block in main'
+[v20.1 Hotfixes] Overworld bug fixes.rb:25:in `loop'
+
+=================
+
+[2023-12-13 20:49:17 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `ox' for nil:NilClass
+
+Backtrace:
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:234:in `block in update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:225:in `loop'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:225:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:320:in `pbStartPokemonMenu'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:311:in `call_menu'
+[Following Pokemon EX] Refresh.rb:122:in `call_menu'
+Scene_Map:203:in `update'
+Unreal Time System:256:in `update'
+Shortcuts - Zeta:45:in `update'
+[Following Pokemon EX] Refresh.rb:178:in `update'
+
+=================
+
+[2023-12-15 11:09:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [v20.1 Hotfixes]
+Exception: NameError
+Message: undefined method `refresh' for class `PokemonBoxPartySprite'
+
+Backtrace:
+[v20.1 Hotfixes] Misc bug fixes.rb:76:in `<class:PokemonBoxPartySprite>'
+[v20.1 Hotfixes] Misc bug fixes.rb:75:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section368:28:in `mainFunctionDebug'
+Section368:18:in `block in mainFunction'
+
+=================
+
+[2023-12-15 11:11:45 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [v20.1 Hotfixes]
+Exception: NameError
+Message: undefined method `refresh' for class `PokemonBoxPartySprite'
+
+Backtrace:
+[v20.1 Hotfixes] Misc bug fixes.rb:76:in `<class:PokemonBoxPartySprite>'
+[v20.1 Hotfixes] Misc bug fixes.rb:75:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section368:28:in `mainFunctionDebug'
+Section368:18:in `block in mainFunction'
+
+=================
+
+[2023-12-15 11:12:47 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [v20.1 Hotfixes]
+Exception: NameError
+Message: undefined method `refresh' for class `PokemonBoxPartySprite'
+
+Backtrace:
+[v20.1 Hotfixes] Misc bug fixes.rb:76:in `<class:PokemonBoxPartySprite>'
+[v20.1 Hotfixes] Misc bug fixes.rb:75:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section368:28:in `mainFunctionDebug'
+Section368:18:in `block in mainFunction'
+
+=================
+
+[2023-12-15 11:14:35 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [v20.1 Hotfixes]
+Exception: NameError
+Message: undefined method `refresh' for class `PokemonBoxPartySprite'
+
+Backtrace:
+[v20.1 Hotfixes] Misc bug fixes.rb:76:in `<class:PokemonBoxPartySprite>'
+[v20.1 Hotfixes] Misc bug fixes.rb:75:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section368:28:in `mainFunctionDebug'
+Section368:18:in `block in mainFunction'
+
+=================
+
+[2023-12-15 12:18:33 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:69:in `pbStartScene'
+[Essentials' UI] UI_Pokedex_Entry.rb:568:in `pbStartScreen'
+[Essentials' UI] UI_Pokedex_Main.rb:877:in `pbDexEntry'
+[Essentials' UI] UI_Pokedex_Main.rb:1282:in `block (2 levels) in pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `loop'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+[Essentials' UI] UI_Pokedex_Main.rb:1256:in `pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1300:in `pbStartScreen'
+[Essentials' UI] UI_Pokedex_Menu.rb:120:in `block (2 levels) in pbStartScreen'
+
+=================
+
+[2023-12-15 12:20:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `[]' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:69:in `pbStartScene'
+[Essentials' UI] UI_Pokedex_Entry.rb:568:in `pbStartScreen'
+[Essentials' UI] UI_Pokedex_Main.rb:877:in `pbDexEntry'
+[Essentials' UI] UI_Pokedex_Main.rb:1282:in `block (2 levels) in pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `loop'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+[Essentials' UI] UI_Pokedex_Main.rb:1256:in `pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 13:47:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `town_map_size' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:70:in `pbStartScene'
+[Essentials' UI] UI_Pokedex_Entry.rb:568:in `pbStartScreen'
+[Essentials' UI] UI_Pokedex_Main.rb:877:in `pbDexEntry'
+[Essentials' UI] UI_Pokedex_Main.rb:1282:in `block (2 levels) in pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `loop'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+[Essentials' UI] UI_Pokedex_Main.rb:1256:in `pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 16:18:55 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `town_map_size' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:70:in `pbStartScene'
+[Essentials' UI] UI_Pokedex_Entry.rb:568:in `pbStartScreen'
+[Essentials' UI] UI_Pokedex_Main.rb:877:in `pbDexEntry'
+[Essentials' UI] UI_Pokedex_Main.rb:1282:in `block (2 levels) in pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `loop'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+[Essentials' UI] UI_Pokedex_Main.rb:1256:in `pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 16:29:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `town_map_size' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:70:in `pbStartScene'
+[Essentials' UI] UI_Pokedex_Entry.rb:568:in `pbStartScreen'
+[Essentials' UI] UI_Pokedex_Main.rb:877:in `pbDexEntry'
+[Essentials' UI] UI_Pokedex_Main.rb:1282:in `block (2 levels) in pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `loop'
+[Essentials' UI] UI_Pokedex_Main.rb:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+[Essentials' UI] UI_Pokedex_Main.rb:1256:in `pbPokedex'
+[Essentials' UI] UI_Pokedex_Main.rb:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 16:31:39 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `town_map_size' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:70:in `pbStartScene'
+UI_PD_entry:568:in `pbStartScreen'
+UI_PD_main:877:in `pbDexEntry'
+UI_PD_main:1282:in `block (2 levels) in pbPokedex'
+UI_PD_main:1257:in `loop'
+UI_PD_main:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+UI_PD_main:1256:in `pbPokedex'
+UI_PD_main:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 16:36:49 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `town_map_size' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:70:in `pbStartScene'
+UI_Pokedex_entry:568:in `pbStartScreen'
+UI_Pokedex_main:877:in `pbDexEntry'
+UI_Pokedex_main:1282:in `block (2 levels) in pbPokedex'
+UI_Pokedex_main:1257:in `loop'
+UI_Pokedex_main:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+UI_Pokedex_main:1256:in `pbPokedex'
+UI_Pokedex_main:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 16:45:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `showDetailedLocationPreview' for #<PokemonRegionMap_Scene>
+
+Backtrace:
+[Arcky's Region Map] 002_RegionMap_Main.rb:768:in `block in pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `loop'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:1182:in `pbStartScreen'
+[Essentials' UI] UI_RegionMap.rb:361:in `block in pbShowMap'
+MessageConfig:571:in `pbFadeOutIn'
+[Essentials' UI] UI_RegionMap.rb:358:in `pbShowMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-12-15 16:46:52 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `showDetailedLocationPreview' for #<PokemonRegionMap_Scene>
+
+Backtrace:
+[Arcky's Region Map] 002_RegionMap_Main.rb:768:in `block in pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `loop'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:1182:in `pbStartScreen'
+[Essentials' UI] UI_RegionMap.rb:361:in `block in pbShowMap'
+MessageConfig:571:in `pbFadeOutIn'
+[Essentials' UI] UI_RegionMap.rb:358:in `pbShowMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'

@@ -547,6 +547,7 @@ TutorMoves = AGILITY,AIRCUTTER,AIRSLASH,BRAVEBIRD,CALMMIND,ENDURE,FACADE,FLY,GIG
 EggMoves = BARRIER,FEATHERDANCE,GLARE,HEALPULSE,LUSTERPURGE,MIRACLEEYE,MIRRORCOAT,MISTBALL,TELEKINESIS
 Weight = 50.9
 Color = Purple
+Habitat = Grassland
 Category = Cruel
 Pokedex = Its feather-like blades are composed of psychic energy and can shear through thick iron sheets as if they were paper.
 Generation = 8
@@ -563,6 +564,7 @@ Moves = 1,PECK,1,FOCUSENERGY,5,ROCKSMASH,10,LIGHTSCREEN,15,PLUCK,20,AGILITY,25,A
 TutorMoves = ACROBATICS,AERIALACE,AGILITY,BRAVEBIRD,BRICKBREAK,BULKUP,CLOSECOMBAT,ENDURE,FACADE,FLY,GIGAIMPACT,HELPINGHAND,HURRICANE,HYPERBEAM,LIGHTSCREEN,LOWKICK,LOWSWEEP,PROTECT,RAINDANCE,REST,REVERSAL,SANDSTORM,SCARYFACE,SLEEPTALK,STOMPINGTANTRUM,SUBSTITUTE,SUNNYDAY,SWIFT,TAILWIND,TAKEDOWN,TAUNT,TRAILBLAZE,UTURN,TERABLAST
 EggMoves = DOUBLEKICK,EXTREMESPEED,JUMPKICK,QUICKGUARD
 Weight = 58.2
+Habitat = Grassland
 Category = Strong Legs
 Pokedex = When its feathers rub together, they produce a crackling sound like the zapping of electricity. That's why this Pokémon is called Zapdos.
 Generation = 8
@@ -580,6 +582,7 @@ TutorMoves = ACROBATICS,AERIALACE,AGILITY,AIRSLASH,BRAVEBIRD,DARKPULSE,ENDURE,FA
 EggMoves = DRAGONBREATH,DRILLPECK,PUNISHMENT
 Weight = 66.0
 Color = Red
+Habitat = Grassland
 Category = Malevolent
 Pokedex = This Pokémon's sinister, flame-like aura will consume the spirit of any creature it hits. Victims become burned-out shadows of themselves.
 Generation = 8
@@ -595,6 +598,7 @@ Abilities = STEADFAST
 HiddenAbilities = STEADFAST
 Height = 2.3
 Weight = 127.0
+Habitat = Rare
 Pokedex = Psychic power has augmented its muscles. It has a grip strength of one ton and can sprint a hundred meters in two seconds flat!
 Generation = 6
 #-------------------------------
@@ -607,6 +611,7 @@ Abilities = INSOMNIA
 HiddenAbilities = INSOMNIA
 Height = 1.5
 Weight = 33.0
+Habitat = Rare
 Pokedex = Despite its diminished size, its mental power has grown phenomenally. With a mere thought, it can smash a skyscraper to smithereens.
 Generation = 6
 #-------------------------------
@@ -949,18 +954,21 @@ Generation = 6
 FormName = Sunny Form
 Types = FIRE
 Color = Red
+Habitat = Grassland
 Pokedex = This is the form Castform takes on the brightest of days. Its skin is unexpectedly hot to the touch, so approach with care.
 #-------------------------------
 [CASTFORM,2]
 FormName = Rainy Form
 Types = WATER
 Color = Blue
+Habitat = Grassland
 Pokedex = This is the form Castform takes when soaked with rain. When its body is compressed, water will seep out as if from a sponge.
 #-------------------------------
 [CASTFORM,3]
 FormName = Snowy Form
 Types = ICE
 Color = White
+Habitat = Grassland
 Pokedex = This is the form Castform takes when covered in snow. Its body becomes an ice-like material, with a temperature near -5 degrees Celsius.
 #-------------------------------
 [BANETTE,1]
@@ -2029,6 +2037,7 @@ Height = 3.8
 Weight = 460.0
 Color = Yellow
 Shape = Quadruped
+Habitat = Rare
 Pokedex = This is Necrozma's form while it's absorbing the power of Solgaleo, making it extremely ferocious and impossible to control.
 #-------------------------------
 [NECROZMA,2]
@@ -2041,6 +2050,7 @@ EggGroups = Undiscovered
 Height = 4.2
 Weight = 350.0
 Color = Blue
+Habitat = Rare
 Pokedex = Lunala no longer has a will of its own. Now under the control of Necrozma, it continuously expels all of its energy.
 #-------------------------------
 [NECROZMA,3]
@@ -2053,6 +2063,7 @@ Abilities = NEUROFORCE
 EggGroups = Undiscovered
 Height = 7.5
 Color = Yellow
+Habitat = Rare
 Pokedex = The light pouring out from all over its body affects living things and nature, impacting them in various ways.
 #-------------------------------
 [NECROZMA,4]
@@ -2065,6 +2076,7 @@ Abilities = NEUROFORCE
 EggGroups = Undiscovered
 Height = 7.5
 Color = Yellow
+Habitat = Rare
 #-------------------------------
 [MAGEARNA,1]
 FormName = Original Color

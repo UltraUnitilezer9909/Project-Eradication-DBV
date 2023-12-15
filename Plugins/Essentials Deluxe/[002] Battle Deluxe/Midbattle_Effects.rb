@@ -283,6 +283,7 @@ def dxConvertToPBEffect(effect, type)
 	when 100 then return :Telekinesis
 	when 116 then return :Yawn
 	when 313 then return :FocusLock
+	when 410 then return :Splinters
 	end
   when :side
   case effect

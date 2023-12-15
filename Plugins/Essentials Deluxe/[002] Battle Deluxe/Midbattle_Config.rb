@@ -955,7 +955,7 @@ module EssentialsDeluxe
     # Terastallization
     "tera_foe"           => "Let your true self shine forth, {1}!",
     "teraDARK_foe"       => "{1}, let's show them how devious you can really be!",
-    "teraGHOST_foe"      => "{1}! It's time for your to ascend to the spirit world!",
+    "teraGHOST_foe"      => "{1}! It's time for you to ascend to the spirit world!",
     "teraFIRE_foe"       => "Let your fiery rage come through, {1}!",
     #---------------------------------------------------------------------------
     # Tera-Boosted Attack

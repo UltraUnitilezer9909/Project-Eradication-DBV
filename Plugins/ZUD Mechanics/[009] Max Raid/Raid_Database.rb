@@ -93,14 +93,14 @@ class RaidDataScene
     if dataPage
       hide_base_name = [:CASTFORM, :ROTOM, :GIRATINA, :ARCEUS, :KYUREM, :KELDEO, :MELOETTA, 
                         :GENESECT, :FURFROU, :AEGISLASH, :XERNEAS, :ZYGARDE, :WISHIWASHI, 
-                        :SILVALLY, :MIMIKYU, :CRAMORANT, :EISCUE, :MORPEKO, :PALAFIN]
+                        :SILVALLY, :MIMIKYU, :CRAMORANT, :EISCUE, :MORPEKO, :GIMMIGHOUL]
       form_name = "" if hide_base_name.include?(poke.id)
       form_name = "Own Tempo" if poke.species == :ROCKRUFF && poke.form != 0
       form_name = form_name[0..12] + "..." if form_name.length > 15
       return _INTL("{1}", form_name)
     else
-      show_base_name = [:BURMY, :WORMADAM, :SHELLOS, :GASTRODON, :BASCULIN, :DEERLING,
-                        :SAWSBUCK, :MEOWSTIC, :ORICORIO, :LYCANROC, :INDEEDEE, :TOXTRICITY, :URSHIFU]
+      show_base_name = [:BURMY, :WORMADAM, :BASCULIN, :DEERLING, :SAWSBUCK, :MEOWSTIC, 
+                        :ORICORIO, :LYCANROC, :INDEEDEE, :TOXTRICITY, :URSHIFU, :BASCULEGION]
       if show_base_name.include?(poke.id) || poke.form > 0
         form_name = form_name[0..10] + "..." if form_name.length > 13
         return _INTL("{1} ({2})", poke.name, form_name) if form_name
@@ -642,14 +642,11 @@ class RaidDataScene
     yposT       = 36   # Y position of top move row.
     yposB       = 224  # Y position of bottom move row.
     pkmn        = GameData::Species.get(pkmn)
-	case pkmn.species
-	when :MINIOR
-	  form = 0
-	when :WISHIWASHI, :PALAFIN
-	  form = 1
-	else
-	  form = pkmn.form
-	end
+    case pkmn.species
+    when :MINIOR     then form = 0
+    when :WISHIWASHI then form = 1
+    else form = pkmn.form
+    end
     habitat     = GameData::Habitat.get(pkmn.habitat).name
     ranks       = raid_RanksAppearedIn(pkmn.id)
     moves       = raid_GenerateMovelists(pkmn.id)

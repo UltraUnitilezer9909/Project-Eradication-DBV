@@ -499,7 +499,7 @@
       end
       status -= 1
       if status >= 0
-        imagepos.push(["Graphics/Pictures/statuses", 8, 64+28+28+4, 0, 16 * status, 46, 16])
+        imagepos.push(["Graphics/Pictures/statuses", 8, 66, 0, 16 * status, 46, 16])
       end
       # Show Pokérus cured icon
       if @pokemon.pokerusStage == 2
@@ -532,17 +532,17 @@
       textpos.push(["Level: " + @pokemon.level.to_s, 8, 36, 0, base2, shadow2, true])
       # Write the held item's name
       if @pokemon.hasItem?
-        textpos.push(["Item: " + @pokemon.item.name.to_s, 8, 64, 0, base2, shadow2, true])
+        textpos.push(["Item: " + @pokemon.item.name.to_s, 8, 64+28, 0, base2, shadow2, true])
       else
-        textpos.push([_INTL("Item: None"), 8, 64, 0, base3, shadow3, true])
+        textpos.push([_INTL("Item: None"), 8, 64+28, 0, base3, shadow3, true])
       end
       # Write the gender symbol
       if @pokemon.male?
-        textpos.push([_INTL("Gender: ♀"), 8, 64+28, 0,base2, shadow2, true])
+        textpos.push([_INTL("Gender: ♀"), 8, 64+28+28, 0,base2, shadow2, true])
       elsif @pokemon.female?
-        textpos.push([_INTL("Gender: ♂"), 8, 64+28, 0, base3, shadow3, true])
+        textpos.push([_INTL("Gender: ♂"), 8, 64+28+28, 0, base3, shadow3, true])
       else 
-      textpos.push([_INTL("Gender: X"), 8, 64+28, 0,  base, shadow, true])
+      textpos.push([_INTL("Gender: X"), 8, 64+28+28, 0,  base, shadow, true])
       end
       # Draw all text 
       pbDrawTextPositions(overlay, textpos)
@@ -644,13 +644,9 @@
       end
       # Draw Exp bar
       if @pokemon.level < GameData::GrowthRate.max_level
-        w = @pokemon.exp_fraction * 128
+        w = @pokemon.exp_fraction * 236 #128
         w = ((w/2).round) * 2
-        if SUMMARY_B2W2_STYLE
-          pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 140, 358 ,0, 0, w, 6]])
-        else
-          pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 140, 360, 0, 0, w, 6]])
-        end
+      pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 10, 418 ,0, 0, w, 6]])
       end
     end
 

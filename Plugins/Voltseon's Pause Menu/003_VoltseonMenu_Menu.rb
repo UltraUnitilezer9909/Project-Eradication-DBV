@@ -278,6 +278,6 @@ class VoltseonsPauseMenu < Component
     pbSetSystemFont(@sprites["entrytext"].bitmap)
     baseColor = MENU_TEXTCOLOR[$PokemonSystem.current_menu_theme].is_a?(Color) ? MENU_TEXTCOLOR[$PokemonSystem.current_menu_theme] : Color.new(248,248,248)
     shadowColor = MENU_TEXTOUTLINE[$PokemonSystem.current_menu_theme].is_a?(Color) ? MENU_TEXTOUTLINE[$PokemonSystem.current_menu_theme] : Color.new(48,48,48)
-    pbDrawTextPositions(@sprites["entrytext"].bitmap,[[text,128,12,2,baseColor,shadowColor]])
+    pbDrawTextPositions(@sprites["entrytext"].bitmap,[[text,128,12,2,baseColor,shadowColor, true]])
   end
 end

@@ -6,10 +6,6 @@
 # Z-Crystal and Ultra Item properties
 #-------------------------------------------------------------------------------
 module GameData
-  class << Item
-    alias zud_held_icon_filename held_icon_filename
-  end
-	
   class Item
     def is_z_crystal?; return has_flag?("ZCrystal"); end
     def is_ultra_item?; return has_flag?("UltraItem"); end
@@ -25,6 +21,7 @@ module GameData
       zud_unlosable?(*args)
     end
     
+	Item.singleton_class.alias_method :zud_held_icon_filename, :held_icon_filename
     def self.held_icon_filename(item)
       item_data = self.try_get(item)
       return nil if !item_data
@@ -53,23 +50,22 @@ module GameData
   end
 end
 
+
 #-------------------------------------------------------------------------------
 # Adds Z-Crystal pocket to the bag.
 #-------------------------------------------------------------------------------
 module Settings
-  class << Settings
-    alias bag_pocket_names_zud bag_pocket_names
-  end
-  
+  Settings.singleton_class.alias_method :zud_bag_pocket_names, :bag_pocket_names
   def self.bag_pocket_names
-    names = self.bag_pocket_names_zud
-    names.push(_INTL("Z-Crystal Elements"))
+    names = self.zud_bag_pocket_names
+    names.push(_INTL("Z-Crystal Inplements"))
     return names
   end
    
   BAG_MAX_POCKET_SIZE.push(-1)
   BAG_POCKET_AUTO_SORT.push(true)
 end
+
 
 #-------------------------------------------------------------------------------
 # Fix to prevent Z-Crystals from duplicating in the bag.

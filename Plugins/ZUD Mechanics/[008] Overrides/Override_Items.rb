@@ -105,7 +105,7 @@ Battle::ItemEffects::SpeedCalc.add(:CHOICESCARF,
 Battle::ItemEffects::AfterMoveUseFromTarget.add(:REDCARD,
   proc { |item, battler, user, move, switched_battlers, battle|
     next if !switched_battlers.empty? || user.fainted?
-    newPkmn = battle.pbGetReplacementPokemonIndex(user.index, true)   # Random
+    newPkmn = battle.pbGetReplacementPokemonIndex(user.index, true)
     next if newPkmn < 0
     battle.pbCommonAnimation("UseItem", battler)
     battle.pbDisplay(_INTL("{1} held up its {2} against {3}!",
@@ -115,7 +115,8 @@ Battle::ItemEffects::AfterMoveUseFromTarget.add(:REDCARD,
       battle.pbDisplay(_INTL("But it failed!"))
       next
     end
-    if user.hasActiveAbility?(:SUCTIONCUPS) && !battle.moldBreaker
+	next if defined?(PBEffects::Commander) && user.effects[PBEffects::Commander]
+    if user.hasActiveAbility?([:SUCTIONCUPS, :GUARDDOG]) && !battle.moldBreaker
       battle.pbShowAbilitySplash(user)
       if Battle::Scene::USE_ABILITY_SPLASH
         battle.pbDisplay(_INTL("{1} anchors itself!", user.pbThis))
@@ -131,7 +132,7 @@ Battle::ItemEffects::AfterMoveUseFromTarget.add(:REDCARD,
     end
     battle.pbRecallAndReplace(user.index, newPkmn, true)
     battle.pbDisplay(_INTL("{1} was dragged out!", user.pbThis))
-    battle.pbClearChoice(user.index)   # Replacement Pokémon does nothing this round
+    battle.pbClearChoice(user.index)
     switched_battlers.push(user.index)
     battle.moldBreaker = false
     battle.pbOnBattlerEnteringBattle(user.index)

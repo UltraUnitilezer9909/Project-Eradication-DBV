@@ -331,7 +331,8 @@ class Battle::Battler
     raidcapture = $game_temp.dx_rules? && $game_temp.dx_rules[:raidcapture]
     if !pbOwnedByPlayer? && raidcapture && @battle.wildBattle? && @battle.decision == 0
       self.hp += 1
-      pbRaidStyleCapture(self, raidcapture)
+      params = $game_temp.dx_rules[:raidcapture]
+      pbRaidStyleCapture(self, (params[2] || 0), params[0], params[1])
     else
       dx_pbFaint(showMessage)
       if withTriggers && fainted?

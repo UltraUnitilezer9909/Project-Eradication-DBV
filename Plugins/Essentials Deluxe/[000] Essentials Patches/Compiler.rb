@@ -675,6 +675,7 @@ module Compiler
                 end
               end
             when "EggMoves", "Offspring"
+			  next if contents[key].nil?
               contents[key] = [contents[key]] if !contents[key].is_a?(Array)
               contents[key].compact!
               species.egg_moves  = contents[key] if key == "EggMoves"
@@ -958,16 +959,16 @@ module PluginManager
   end
   
   # Used to ensure all plugins that rely on Essentials Deluxe are up to date.
-  def self.dx_plugin_check(version = "1.2.5")
+  def self.dx_plugin_check(version = "1.2.8")
     if self.installed?("Essentials Deluxe", version, true)
-      {"ZUD Mechanics"         => "1.2",
-       "Enhanced UI"           => "1.1.1",
-       "Focus Meter System"    => "1.1.1",
-       "PLA Battle Styles"     => "1.0.8",
+      {"ZUD Mechanics"         => "1.2.5",
+       "Enhanced UI"           => "1.1.3",
+       "Focus Meter System"    => "1.1.2",
+       "PLA Battle Styles"     => "1.0.9",
        "Improved Field Skills" => "1.0.4",
        "Legendary Breeding"    => "1.0.3",
        "Terastal Phenomenon"   => "1.0.3",
-       "Improved Item Text"    => "1.0.1",
+       "Improved Item Text"    => "1.0.2",
        "Improved Mementos"     => "1.0",
        "Pokémon Birthsigns"    => "1.0"
       }.each do |p_name, v_num|

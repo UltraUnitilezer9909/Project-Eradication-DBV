@@ -382,12 +382,9 @@ module GameData
   #-----------------------------------------------------------------------------
   # Loads Power Move data
   #-----------------------------------------------------------------------------
-  class << GameData
-    alias load_all_zud load_all
-  end
-
+  GameData.singleton_class.alias_method :zud_load_all, :load_all
   def self.load_all
-    load_all_zud
+    self.zud_load_all
     PowerMove.load
   end
 end

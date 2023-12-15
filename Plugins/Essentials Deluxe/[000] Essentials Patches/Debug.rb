@@ -8,7 +8,8 @@
 MenuHandlers.add(:debug_menu, :dx_menu, {
   "name"        => _INTL("Deluxe Plugins..."),
   "parent"      => :main,
-  "description" => _INTL("Edit settings related to various plugins that utilize Essentials Deluxe.")
+  "description" => _INTL("Edit settings related to various plugins that utilize Essentials Deluxe."),
+  "always_show" => false
 })
 
 
@@ -97,5 +98,57 @@ MenuHandlers.add(:pokemon_debug_menu, :set_scale, {
       screen.pbDisplay(_INTL("{1} is now considered {2} in size.", pkmn.name, size))
     end
     next false
+  }
+})
+
+
+#-------------------------------------------------------------------------------
+# Edits to existing menus.
+#-------------------------------------------------------------------------------
+MenuHandlers.add(:debug_menu, :fill_boxes, {
+  "name"        => _INTL("Fill Storage Boxes"),
+  "parent"      => :pokemon_menu,
+  "description" => _INTL("Add one Pokémon of each species (at Level 50) to storage."),
+  "effect"      => proc {
+    added = 0
+    box_qty = $PokemonStorage.maxPokemon(0)
+    completed = true
+    GameData::Species.each do |species_data|
+      sp = species_data.species
+      f = species_data.form
+      if f == 0
+        if species_data.single_gendered?
+          g = (species_data.gender_ratio == :AlwaysFemale) ? 1 : 0
+          for shiny in 0..2
+            $player.pokedex.register(sp, g, f, shiny, false)
+          end
+        else
+          2.times do |g|
+            for shiny in 0..2
+              $player.pokedex.register(sp, g, f, shiny, false)
+            end
+          end
+        end
+        $player.pokedex.set_owned(sp, false)
+      elsif species_data.real_form_name && !species_data.real_form_name.empty?
+        g = (species_data.gender_ratio == :AlwaysFemale) ? 1 : 0
+        for shiny in 0..2
+          $player.pokedex.register(sp, g, f, shiny, false)
+        end
+      end
+      next if f != 0
+      if added >= Settings::NUM_STORAGE_BOXES * box_qty
+        completed = false
+        next
+      end
+      added += 1
+      $PokemonStorage[(added - 1) / box_qty, (added - 1) % box_qty] = Pokemon.new(sp, 50)
+    end
+    $player.pokedex.refresh_accessible_dexes
+    pbMessage(_INTL("Storage boxes were filled with one Pokémon of each species."))
+    if !completed
+      pbMessage(_INTL("Note: The number of storage spaces ({1} boxes of {2}) is less than the number of species.",
+                      Settings::NUM_STORAGE_BOXES, box_qty))
+    end
   }
 })

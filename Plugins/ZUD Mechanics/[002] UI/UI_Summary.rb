@@ -8,27 +8,15 @@ class PokemonSummary_Scene
   alias zud_drawPage drawPage
   def drawPage(page)
     @sprites["pokemon"].unDynamax if @pokemon.dynamax?
-    if !@sprites["zud_overlay"]
+	if !@sprites["zud_overlay"]
       @sprites["zud_overlay"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
     else
       @sprites["zud_overlay"].bitmap.clear
     end
-    overlay = @sprites["zud_overlay"].bitmap
+	zud_drawPage(page)
+	overlay = @sprites["overlay"].bitmap
     coords = (PluginManager.installed?("BW Summary Screen")) ? [454, 82] : [88, 95]
     pbDisplayGmaxFactor(@pokemon, overlay, coords[0], coords[1])
-    zud_drawPage(page)
-  end
-  
-  alias zud_drawPageFour drawPageFour
-  def drawPageFour
-    @sprites["zud_overlay"].visible = true if @sprites["zud_overlay"]
-    zud_drawPageFour
-  end
-  
-  alias zud_drawSelectedMove drawSelectedMove
-  def drawSelectedMove(*args)
-    @sprites["zud_overlay"].visible = false if @sprites["zud_overlay"] 
-    zud_drawSelectedMove(*args)
   end
   
   #-----------------------------------------------------------------------------
@@ -41,15 +29,15 @@ class PokemonSummary_Scene
       if @pokemon.dynamax_able? && !@pokemon.isSpecies?(:ETERNATUS) && !$game_switches[Settings::NO_DYNAMAX]
         path = "Graphics/Pictures/Summary/"
         meter = (SUMMARY_B2W2_STYLE) ? "overlay_dynamax_B2W2" : "overlay_dynamax"
-        xpos = Graphics.width - 515
-        imagepos = [[sprintf(path + meter), xpos, 322]] #322
+        xpos = Graphics.width - 262
+        imagepos = [[sprintf(path + meter), xpos, 322]]
         overlay = @sprites["zud_overlay"].bitmap
         pbSetSmallFont(overlay)
         pbDrawImagePositions(overlay, imagepos)
         dlevel = @pokemon.dynamax_lvl
         levels = AnimatedBitmap.new(_INTL(path + "dynamax_bar"))
         overlay.blt(xpos + 82, 352, levels.bitmap, Rect.new(0, 0, dlevel * 16, 14))
-        pbDrawTextPositions(overlay, [ [_INTL("Dynamax Lv."), Graphics.width - 450, 324, 2, Color.new(255, 255, 255), Color.new(123, 123, 123)] ])
+        pbDrawTextPositions(overlay, [ [_INTL("Dynamax Lv."), Graphics.width - 102, 324, 2, Color.new(255, 255, 255), Color.new(123, 123, 123)] ])
       end
     end
     zud_drawPageTwo
@@ -69,15 +57,6 @@ class PokemonSummary_Scene
       end
     end
     zud_drawPageThree
-  end
-  
-  #-----------------------------------------------------------------------------
-  # Resets displays when changing Pokemon.
-  #-----------------------------------------------------------------------------
-  alias zud_pbChangePokemon pbChangePokemon
-  def pbChangePokemon
-    @sprites["zud_overlay"].bitmap.clear
-    zud_pbChangePokemon
   end
 end
 

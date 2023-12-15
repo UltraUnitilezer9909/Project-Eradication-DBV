@@ -1,7 +1,13 @@
 #===============================================================================
 # Turn certain settings on/off according to your preferences.
 #===============================================================================
-module RegionMapSettings
+module ARMSettings
+    #===============================================================================
+    # Region Map Grid
+    #===============================================================================
+    # change the square size for each tile on the Region Map here. (I don't recommend changing this but it's here in case you want to anyway.)
+    SQUARE_WIDTH  = 16
+    SQUARE_HEIGHT = 16
     #===============================================================================
     # Hidden Region Locations
     #===============================================================================
@@ -54,7 +60,7 @@ module RegionMapSettings
     # Set this to true if you want to display Quest Icons on the Region map (this only shows on the Town Map the player owns and the PokeGear map).
     # Set this to false if you don't want to display Quest Icons or if you are simply not using the MQS Plugin.
     # If the MQS is not installed and this is set to true, it won't harm anything.
-    SHOW_QUEST_ICONS = true  
+    SHOW_QUEST_ICONS = true    
 
     # Choose which button will activate the Quest Review. 
     # Possible buttons are: USE, JUMPUP, JUMPDOWN, SPECIAL, AUX1 and AUX2. any other buttons are not recommended.
@@ -62,6 +68,10 @@ module RegionMapSettings
     # Press F1 in game to know which key a button is linked to.
     # IMPORTANT: only change the "JUMPUP" to JUMPDOWN for example so SHOW_QUEST_BUTTON = Input::JUMPDOWN
     SHOW_QUEST_BUTTON = Input::JUMPUP
+
+    # Set the max lines the quest preview can take (default is 4 lines). 
+    # This includes the Task and Location information.
+    MAX_QUEST_LINES = 4
     #===============================================================================
     # Cursor Map Movement Offset
     #===============================================================================
@@ -70,12 +80,12 @@ module RegionMapSettings
     #   example: When you  want to move to the Right, the map will only start moving once the cursor is all the way on the Right edge of the screen. 
     # - true = the map will move (if possible) when the cursor is 1 position away from the direction's edge of the screen.
     #   example: When you want to move to the Right, the map will start moving once the cursor is 1 tile away from the Right edge of the screen. 
-    CURSOR_MAP_OFFSET = true
+    CURSOR_MAP_OFFSET = true   
     #===============================================================================
     # Region District Names
     #===============================================================================
     # Set this to true if you want to change the default name (defined in the PBS) for certain parts of your Region Map.
-    USE_REGION_DISTRICTS_NAMES = true 
+    USE_REGION_DISTRICTS_NAMES = true   
 
     # - Region Number
     # - [min X, max X]; the minimum X value and the maximum X value, in squares.
@@ -108,11 +118,11 @@ module RegionMapSettings
     #===============================================================================
     # set this to true if you want the name of a location when hovered over in the Region Map being replaced with "???" if it has not been visited yet.
     # set this to false if you don't want this setting. 
-    NO_UNVISITED_MAP_INFO = true 
+    NO_UNVISITED_MAP_INFO = true  
     # set this to whatever text you want the map to show instead of the Location's name if it hasn't been visited yet (only applies if above's setting is set to true).
     UNVISITED_MAP_TEXT = "???"
     # set this to whatever text you want the map to show for the current Location's Point of Interest if it has one. ("" means it'll not show anything)
-    UNVISITED_POI_TEXT = ""
+    UNVISITED_POI_TEXT = "???"
 
     #===============================================================================
     # Highlight Opacity
@@ -136,7 +146,8 @@ module RegionMapSettings
       normal: "Normal Map",
       fly: "Fly Map",
       quest: "Quest Map", #requires the "Modern Quest System + UI" plugin to use.
-      berry: "Berry Map" #requires the "TDW Berry Planting Improvements" plugin to use.
+      berry: "Berry Map", #requires the "TDW Berry Planting Improvements" plugin by Authorwrigty12 to use.
+      roaming: "Roaming Map" #requires the "Roaming Icons" plugin by -FL- to use.
     }
 
     # Set this to true if you want to have a choice menu when you have 3 or more available modes (by default you won't have choice menu when 2 or 1).
@@ -148,9 +159,12 @@ module RegionMapSettings
     # - Set this to 2 to display it in the Bottom Right.
     # - Set this to 3 to display it in the Top Left default position).
     # - Set this to 4 to display it in the Bottom Left.
-    
     BUTTON_PREVIEW_BOX_POSITION = 3
 
+    # Set the opacity of the Button Preview Box when you move the Cursor behind it.
+    # Any value is accepted between 0 and 100 in steps of 5. (Just like the Highlight Opacity Setting).
+    BUTTON_PREVIEW_BOX_OPACITY = 50
+    
     #===============================================================================
     # Region Map Music
     #===============================================================================
@@ -167,4 +181,52 @@ module RegionMapSettings
       [0, "Radio - Oak", 90, 100], #Volume will be set to 90% and Pitch to 100%
       [0, "Radio - March"] #Volume and Pitch are both set to 100 by default if not given here.
     ]
-  end
+
+    #===============================================================================
+    # Region Map Text Positions
+    #===============================================================================
+    # Add an offset to each Text individually (optional). This could be handy if you're using a custom UI.
+    # Used for the Region and District Name Text Position.
+    REGION_NAME_OFFSET_X = 0
+    REGION_NAME_OFFSET_Y = 0
+
+    # Used for the Location Name Text Position.
+    LOCATION_NAME_OFFSET_X = 0
+    LOCATION_NAME_OFFSET_Y = 0
+
+    # Used for the Point of Interest Text Position.
+    POI_NAME_OFFSET_X = 0
+    POI_NAME_OFFSET_Y = 0
+
+    # Only used for the Mode Name Text Position
+    MODE_NAME_OFFSET_X = 0
+    # Used for both the Mode and Quest Name Text Position. 
+    MODE_NAME_OFFSET_Y = 0 
+
+    #===============================================================================
+    # Region Map Text Colors
+    #===============================================================================
+    # Set a color to each Text individually (opational).
+    # Color used for Region, Mode, Location, Point Of Interest and Quest Name.
+    UI_TEXT_MAIN = Color.new(248, 248, 248)
+    UI_TEXT_SHADOW = Color.new(0, 0, 0)
+
+    # Color used for Button Preview and Quest Information (Task and Location).
+    BOX_TEXT_MAIN = Color.new(255, 255, 255)
+    BOX_TEXT_SHADOW = Color.new(0, 0, 0)
+
+    #===============================================================================
+    # Region Map UI options
+    #===============================================================================
+    # Set this to true if you're using a UI that is transparant and you want to see the Region map behind this UI.
+    REGION_MAP_BEHIND_UI = false     
+    
+    # Set for each Region if you want the Player Icon to be visible (true) or invisible (false).
+    SHOW_PLAYER_ON_REGION = {
+      region0: true,
+      region1: false
+    }
+
+    # Set this to true if you want the cursor being centered by default when no Map Position is defined for the Game Map the Region Map was opened from.
+    CENTER_CURSOR_BY_DEFAULT = true  
+end

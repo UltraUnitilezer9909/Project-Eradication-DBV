@@ -7,7 +7,7 @@
 # the two digit number corresponds to its Y-axis coordinate. These numbers are
 # then both multiplied by 32, to get the exact screen positioning for the tile
 # on a 32x32 grid.
-#-------------------------------------------------------------------------------
+#===============================================================================
 LAIR_COORDINATES = {
   # X-Axis coordinates
   "A" => 0,  "B" => 1,  "C" => 2,  "D" => 3,  "E" => 4,  "F" => 5,  "G" => 6,
@@ -22,6 +22,9 @@ LAIR_COORDINATES = {
   "25" => -13, "26" => -14, "27" => -15, "28" => -16
 }
 
+#-------------------------------------------------------------------------------
+# Returns the converted pixel coordinates of a letter-number string.
+#-------------------------------------------------------------------------------
 def coordinate_check(coords, map = nil)
   c = []
   coords.chars.each_with_index do |s, i|
@@ -32,9 +35,9 @@ def coordinate_check(coords, map = nil)
   end
   if map
     if !LAIR_COORDINATES.has_key?(c[0])
-      raise _INTL("{1} coordinate '{2}' in '{3}' doesn't exist. This coordinate must be a capital letter A-Z.", map, c[0], coords)
+    raise _INTL("{1} coordinate '{2}' in '{3}' doesn't exist. This coordinate must be a capital letter A-Z.", map, c[0], coords)
     elsif !LAIR_COORDINATES.has_key?(c[1])
-      raise _INTL("{1} coordinate '{2}' in '{3}' doesn't exist. This coordinate must be a padded two-digit number 01-28.", map, c[1], coords)
+    raise _INTL("{1} coordinate '{2}' in '{3}' doesn't exist. This coordinate must be a padded two-digit number 01-28.", map, c[1], coords)
     end
   else
     return [LAIR_COORDINATES[c[0]] * 32, LAIR_COORDINATES[c[1]] * 32]

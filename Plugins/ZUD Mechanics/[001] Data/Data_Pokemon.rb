@@ -79,6 +79,15 @@ class Pokemon
     end
   end
   
+  def should_force_revert?
+    return true if shadowPokemon? || celestial?
+    return true if !@dynamax_able && !@dynamax_able.nil?
+    in_battle_form = (mega? || primal? || ultra? || tera?)
+    return true if (dynamax? || reverted?) && in_battle_form
+    return true if species_data.no_dynamax && !in_battle_form
+    return false
+  end
+  
   #-----------------------------------------------------------------------------
   # Dynamax forms
   #-----------------------------------------------------------------------------
@@ -224,7 +233,7 @@ class Pokemon
   
   def calc_stats
     # Forces an ineligible Pokemon to un-Dynamax.
-    if species_data.no_dynamax || !dynamax_able?
+    if should_force_revert?
       @reverted = true if dynamax?
       @dynamax = false
       @gmax_factor = false
@@ -267,7 +276,7 @@ class Pokemon
     @spdef   = stats[:SPECIAL_DEFENSE]
     @speed   = stats[:SPEED]
     # Resets remaining Dynamax attributes for ineligible Pokemon.
-    if species_data.no_dynamax || !dynamax_able?
+    if should_force_revert?
       @dynamax_lvl = 0
       @reverted = false
       @dynamax_able = false
@@ -326,7 +335,7 @@ end
 MultipleForms.register(:ETERNATUS,{
   "baseStats" => proc { |pkmn|
     next if !pkmn.gmax?
-    base_stats = {
+    next {
       :HP              => 255,
       :ATTACK          => 115,
       :DEFENSE         => 250,
@@ -334,6 +343,5 @@ MultipleForms.register(:ETERNATUS,{
       :SPECIAL_ATTACK  => 125,
       :SPECIAL_DEFENSE => 250
     }
-    next base_stats
   }
 })

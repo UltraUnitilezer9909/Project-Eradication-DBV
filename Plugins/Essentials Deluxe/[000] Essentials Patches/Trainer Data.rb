@@ -9,7 +9,7 @@
 #-------------------------------------------------------------------------------
 class Player < Trainer
   def birthdate
-    return @birthdate
+    return @birthdate || $PokemonGlobal.startTime
   end
   
   def setBirthdate(day, month, year = nil)
@@ -19,7 +19,7 @@ class Player < Trainer
   
   def is_anniversary?(date = nil)
     time = pbGetTimeNow
-    date = $player.birthdate || $PokemonGlobal.startTime if !date
+    date = $player.birthdate if !date
     return time.day == date.day && time.mon == date.mon && time.year > date.year
   end
 end

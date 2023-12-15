@@ -573,7 +573,7 @@ class Battle::Scene
     pbHideBattleInfo
     pbHideFocusPanel
     return if pbInSafari?
-    @battle.allBattlers.each { |b| @sprites["battler_icon#{b.index}"].visible = false }
+    @battle.allBattlers.each { |b| @sprites["battler_icon#{b.index}"].visible = false if b }
   end
   
   def pbHideMoveInfo

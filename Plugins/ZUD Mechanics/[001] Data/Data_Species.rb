@@ -81,13 +81,6 @@ module GameData
       end
       return ret
     end
-	
-    #---------------------------------------------------------------------------
-    # Determines if this species's icon sprites have visual gender differences.
-    #---------------------------------------------------------------------------
-    def gendered_icons?
-      return pbResolveBitmap(sprintf("Graphics/Pokemon/Icons/%s_female", @id))
-    end
 
     #---------------------------------------------------------------------------
     # Gets G-Max footprint graphic, if one is present.

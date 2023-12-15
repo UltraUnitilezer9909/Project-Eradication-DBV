@@ -54,18 +54,6 @@ def species_icon_params(*params)
   return data
 end
 
-def species_overworld_params(*params)
-  data = {
-    :species   => params[0] || nil,
-    :form      => params[1] || 0,
-    :gender    => params[2] || 0,
-    :shiny     => params[3] || false,
-    :shadow    => params[4] || false,
-    :celestial => params[5] || false
-  }
-  return data
-end
-
 def species_cry_params(*params)
   data = {
     :species   => params[0] || nil,
@@ -86,7 +74,7 @@ end
 #-------------------------------------------------------------------------------
 module GameData
   class Species
-    def self.check_graphic_file(path, params, subfolder = "", dmax_folder = "")
+    def self.check_graphic_file(path, params, subfolder = "")
       species   = params[:species]
       form      = params[:form]
       gender    = params[:gender]
@@ -95,8 +83,6 @@ module GameData
       dmax      = params[:dmax]
       gmax      = params[:gmax]
       celestial = params[:celestial]
-      try_dmax_folder = ""
-      try_subfolder = sprintf("%s/", subfolder)
       try_species = species
       try_form    = (form > 0)    ? sprintf("_%d", form) : ""
       try_gender  = (gender == 1) ? "_female"    : ""
@@ -104,9 +90,26 @@ module GameData
       try_dmax    = (dmax)        ? "_dmax"      : ""
       try_gmax    = (gmax)        ? "_gmax"      : ""
       try_celest  = (celestial)   ? "_celestial" : ""
+      subfolder_tries = []
+      if !nil_or_empty?(subfolder)
+        if gmax
+          subfolder_tries.push(" super shiny/Gigantamax/") if shiny == :super_shiny
+          subfolder_tries.push(" shiny/Gigantamax/") if shiny
+          subfolder_tries.push("/Gigantamax/")
+        end
+        if dmax
+          subfolder_tries.push(" super shiny/Dynamax/") if shiny == :super_shiny
+          subfolder_tries.push(" shiny/Dynamax/") if shiny
+          subfolder_tries.push("/Dynamax/")
+        end
+        if shiny
+          subfolder_tries.push(" super shiny/") if shiny == :super_shiny
+          subfolder_tries.push(" shiny/")
+        end
+        subfolder_tries.push("/")
+      end
+      subfolder_tries.push("")
       factors = []
-      factors.push([8, sprintf("%s", dmax_folder), try_dmax_folder]) if dmax || gmax
-      factors.push([7, sprintf("%s shiny/", subfolder), try_subfolder]) if shiny
       factors.push([6, try_celest, ""]) if celestial
       factors.push([5, try_gmax,   ""]) if gmax
       factors.push([4, try_dmax,   ""]) if dmax
@@ -125,37 +128,47 @@ module GameData
           when 4 then try_dmax        = value
           when 5 then try_gmax        = value
           when 6 then try_celest      = value
-          when 7 then try_subfolder   = value
-          when 8 then try_dmax_folder = value
           end
         end
         try_species_text = try_species
-        ret = pbResolveBitmap(sprintf("%s%s%s%s%s%s%s%s%s%s", path, try_subfolder, try_dmax_folder,
-                              try_species_text, try_form, try_gender, try_shadow, 
-                              try_dmax, try_gmax, try_celest))
-        return ret if ret
+        subfolder_tries.each do |try_folder|
+          ret = pbResolveBitmap(sprintf("%s%s%s%s%s%s%s%s%s%s", path, subfolder, try_folder,
+                                try_species_text, try_form, try_gender, try_shadow, try_dmax, try_gmax, try_celest))
+          return ret if ret
+        end
       end
       return nil
+    end
+	
+    def bitmap_exists?(subfolder, female = false, shiny = 0, special = 0)
+      path = (subfolder == "Followers") ? "Graphics/Characters/" : "Graphics/Pokemon/"
+      path += subfolder
+      path += (shiny == 2) ? " super shiny/" : (shiny == 1) ? " shiny/" : "/"
+      path += "Gigantamax/" if special == 2
+      path += @species.to_s
+      path += "_" + @form.to_s if @form > 0
+      path += "_female" if female
+      path += "_shadow" if special == 1
+      path += "_celestial" if special == 3
+      return true if pbResolveBitmap(path)
     end
     
     def apply_metrics_to_sprite(sprite, index, shadow = false, set = 0)
       metrics_data = GameData::SpeciesMetrics.get_species_form(@species, @form)
       metrics_data.apply_metrics_to_sprite(sprite, index, shadow, set)
     end
-  
+
     #---------------------------------------------------------------------------
     # Sprite file names
     #---------------------------------------------------------------------------
     def self.front_sprite_filename(*params)
       params = species_sprite_params(*params)
-      dmax = (params[:gmax]) ? "Gigantamax/" : (params[:dmax]) ? "Dynamax/" : ""
-      return self.check_graphic_file("Graphics/Pokemon/", params, "Front", dmax)
+      return self.check_graphic_file("Graphics/Pokemon/", params, "Front")
     end
 
     def self.back_sprite_filename(*params)
       params = species_sprite_params(*params)
-      dmax = (params[:gmax]) ? "Gigantamax/" : (params[:dmax]) ? "Dynamax/" : ""
-      return self.check_graphic_file("Graphics/Pokemon/", params, "Back", dmax)
+      return self.check_graphic_file("Graphics/Pokemon/", params, "Back")
     end
 
     def self.sprite_filename(*params)
@@ -163,16 +176,6 @@ module GameData
       return self.egg_sprite_filename(data[:species], data[:form]) if data[:egg]
       return self.back_sprite_filename(*params) if data[:back]
       return self.front_sprite_filename(*params)
-    end
-	
-    #---------------------------------------------------------------------------
-    # Compatibility with Following Pokemon EX.
-    #---------------------------------------------------------------------------
-    def self.ow_sprite_filename(*params)
-      params = species_overworld_params(*params)
-      ret = self.check_graphic_file("Graphics/Characters/", params, "Followers")
-      ret = "Graphics/Characters/Followers/" if nil_or_empty?(ret)
-      return ret
     end
 
     #---------------------------------------------------------------------------
@@ -227,7 +230,8 @@ module GameData
       when :gmax then dmax = true; gmax = true
       else dmax = pkmn.dynamax?; gmax = pkmn.gmax?
       end
-      sprite = [species, pkmn.form, pkmn.gender, pkmn.shiny?, pkmn.shadowPokemon?, back, pkmn.egg?, dmax, gmax, pkmn.celestial?]
+      shiny = (pkmn.super_shiny?) ? :super_shiny : pkmn.shiny?
+      sprite = [species, pkmn.form, pkmn.gender, shiny, pkmn.shadowPokemon?, back, pkmn.egg?, dmax, gmax, pkmn.celestial?]
       ret = (back) ? self.back_sprite_bitmap(*sprite) : self.front_sprite_bitmap(*sprite)
       if PluginManager.installed?("Generation 8 Pack Scripts")
         alter_bitmap_function = (ret && ret.total_frames == 1) ? MultipleForms.getFunction(species, "alterBitmap") : nil
@@ -256,12 +260,12 @@ module GameData
     def self.icon_filename(*params)
       params = species_icon_params(*params)
       return self.egg_icon_filename(params[:species], params[:form]) if params[:egg]
-      dmax = (params[:gmax]) ? "Gigantamax/" : (params[:dmax]) ? "Dynamax/" : ""
-      return self.check_graphic_file("Graphics/Pokemon/", params, "Icons", dmax)
+      return self.check_graphic_file("Graphics/Pokemon/", params, "Icons")
     end
     
     def self.icon_filename_from_pokemon(pkmn)
-      return self.icon_filename(pkmn.species, pkmn.form, pkmn.gender, pkmn.shiny?, pkmn.shadowPokemon?, pkmn.egg?, 
+      shiny = (pkmn.super_shiny?) ? :super_shiny : pkmn.shiny?
+      return self.icon_filename(pkmn.species, pkmn.form, pkmn.gender, shiny, pkmn.shadowPokemon?, pkmn.egg?, 
                                 pkmn.dynamax?, pkmn.gmax?, pkmn.celestial?)
     end
     
@@ -272,7 +276,8 @@ module GameData
     end
     
     def self.icon_bitmap_from_pokemon(pkmn)
-      return self.icon_bitmap(pkmn.species, pkmn.form, pkmn.gender, pkmn.shiny?, pkmn.shadowPokemon?, pkmn.egg?, 
+      shiny = (pkmn.super_shiny?) ? :super_shiny : pkmn.shiny?
+      return self.icon_bitmap(pkmn.species, pkmn.form, pkmn.gender, shiny, pkmn.shadowPokemon?, pkmn.egg?, 
                               pkmn.dynamax?, pkmn.gmax?, pkmn.celestial?)
     end
   
@@ -359,9 +364,14 @@ module GameData
         return backup if pbResolveAudioSE(backup)
       end
       #-------------------------------------------------------------------------
-      # Plays Shiny cry if one exists.
+      # Plays Shiny or Super Shiny cry if one exists.
       #-------------------------------------------------------------------------
       if params[:shiny]
+        if params[:shiny] == :super_shiny
+          folder = base_folder + "Super shiny/"
+          cry = folder + file
+          return cry if pbResolveAudioSE(cry)
+        end
         folder = base_folder + "Shiny/"
         cry = folder + file
         backup = folder + base_file
@@ -382,11 +392,11 @@ module GameData
     end
   
     def self.cry_filename_from_pokemon(pkmn, suffix = "")
-      params = [pkmn.species, pkmn.form, suffix, pkmn.shiny?, pkmn.shadowPokemon?, pkmn.dynamax?, pkmn.gmax?, pkmn.celestial?]
+	  shiny = (pkmn.super_shiny?) ? :super_shiny : pkmn.shiny?
+      params = [pkmn.species, pkmn.form, suffix, shiny, pkmn.shadowPokemon?, pkmn.dynamax?, pkmn.gmax?, pkmn.celestial?]
       return self.check_cry_file(*params)
     end
   end
-  
   
   #-----------------------------------------------------------------------------
   # Metrics
@@ -414,17 +424,6 @@ module GameData
       end
     end
   end
-end
-
-
-#-------------------------------------------------------------------------------
-# Compatibility with Visible Overworld Wild Encounters.
-#-------------------------------------------------------------------------------
-def ow_sprite_filename(*params)
-  params = species_overworld_params(*params)
-  fname = GameData::Species.check_graphic_file("Graphics/Characters/", params, "Followers")
-  fname = "Graphics/Characters/Followers/000.png" if nil_or_empty?(fname)
-  return fname
 end
 
 

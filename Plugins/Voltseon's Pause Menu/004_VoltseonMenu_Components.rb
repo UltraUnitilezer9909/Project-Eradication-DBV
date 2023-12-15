@@ -188,8 +188,8 @@ class DateAndTimeHud < Component
     text2 = _INTL("{1}",pbGetTimeNow.strftime("%I:%M %p"))
     @sprites["overlay"].bitmap.clear
     pbSetSystemFont(@sprites["overlay"].bitmap)
-    pbDrawTextPositions(@sprites["overlay"].bitmap,[[text,Graphics.width/2 - 8, 12,1,
-      @baseColor,@shadowColor],[text2,Graphics.width/2 - 8,44,1,@baseColor,@shadowColor]])
+    pbDrawTextPositions(@sprites["overlay"].bitmap,[[text,Graphics.width/2 - 8, 12,1,@baseColor,@shadowColor,true],
+                                                    [text2,Graphics.width/2 - 8,44,1,@baseColor,@shadowColor, true]])
     @last_time = pbGetTimeNow.strftime("%I:%M %p")
   end
 end
@@ -220,16 +220,16 @@ class NewQuestHud < Component
     return $PokemonGlobal.quests.active_quests.any? { |quest| quest.respond_to?(:new) && quest.new }
   end
 
-  def update
-    super
-    @counter += 1
-    if @counter > Graphics.frame_rate/2
-      @sprites["overlay"].y += 1 if @counter % (Graphics.frame_rate/8) == 0
-    else
-      @sprites["overlay"].y -= 1 if @counter % (Graphics.frame_rate/8) == 0
-    end
-    @counter = 0 if @counter >= Graphics.frame_rate
-  end
+  # def update
+  #   super
+  #   @counter += 1
+  #   if @counter > Graphics.frame_rate/2
+  #     @sprites["overlay"].y += 1 if @counter % (Graphics.frame_rate/8) == 0
+  #   else
+  #     @sprites["overlay"].y -= 1 if @counter % (Graphics.frame_rate/8) == 0
+  #   end
+  #   @counter = 0 if @counter >= Graphics.frame_rate
+  # end
 
   def refresh
     numQuests = $PokemonGlobal.quests.active_quests.count { |quest| quest.respond_to?(:new) && quest.new }
@@ -237,7 +237,7 @@ class NewQuestHud < Component
     if numQuests > 0
       text = _INTL("You have {1} new quest{2}!",numQuests, numQuests == 1 ? "" : "s")
       pbSetSmallFont(@sprites["overlay"].bitmap)
-      pbDrawTextPositions(@sprites["overlay"].bitmap,[[text,Graphics.width/2 - 8, 12,1,@baseColor,@shadowColor]])
+      pbDrawTextPositions(@sprites["overlay"].bitmap,[[text,Graphics.width/2 - 8, 12,1,@baseColor,@shadowColor, true]])
     end
   end
 end

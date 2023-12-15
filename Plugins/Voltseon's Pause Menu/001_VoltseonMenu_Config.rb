@@ -44,7 +44,7 @@ CHANGE_THEME_IN_OPTIONS = false
 # Look and Feel
 #-------------------------------------------------------------------------------
 # Background options
-BACKGROUND_TINT = Color.new(-10,-10,-10, 0) #Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) applied to the background/map.
+BACKGROUND_TINT = Color.new(-80,-80,-80, 100) #Color.new(-30,-30,-30,130) # Tone (Red, Green, Blue, Grey) applied to the background/map.
 
 SHOW_MENU_NAMES = true # Whether or not the Menu option Names show on screen (true = show names)
 
@@ -52,44 +52,16 @@ SHOW_MENU_NAMES = true # Whether or not the Menu option Names show on screen (tr
 ACTIVE_SCALE = 1.8
 
 MENU_TEXTCOLOR = [
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248)
+            Color.new(*$zColorsRGB[25])
           ]
 MENU_TEXTOUTLINE = [
-            Color.new(64,64,64),
-            Color.new(64,64,64),
-            Color.new(68,96,0),
-            Color.new(66,18,0),
-            Color.new(0,82,107),
-            Color.new(126,98,11),
-            Color.new(38,22,91),
-            Color.new(12,37,24)
+            Color.new(*$zColorsRGB[24])
           ]
 LOCATION_TEXTCOLOR = [
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248),
-            Color.new(248,248,248)
+            Color.new(*$zColorsRGB[25])
           ]
 LOCATION_TEXTOUTLINE = [
-            Color.new(64,64,64),
-            Color.new(64,64,64),
-            Color.new(68,96,0),
-            Color.new(66,18,0),
-            Color.new(0,82,107),
-            Color.new(137,0,100),
-            Color.new(38,22,91),
-            Color.new(12,37,24)
+            Color.new(*$zColorsRGB[24])
           ]
 
 # Sound Options

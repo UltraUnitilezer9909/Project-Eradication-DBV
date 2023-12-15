@@ -17,15 +17,16 @@ class MaxRaidBattle
     }
     default_rules.keys.each { |key| rules[key] = default_rules[key].clone if !rules.has_key?(key) }
     foe, rank = MaxRaidBattle.generate_foe(species, rules[:rank], pokemon)
-    rules[:rank]      = rank
-    rules[:hard]      = true if rules[:rank] == 6 && !inMaxLair?
-    rules[:outcome]   = 1 if !rules[:outcome]
-    rules[:canlose]   = true
-    rules[:noflee]    = true
-    rules[:noexp]     = true
-    rules[:nomoney]   = true
-    rules[:nocapture] = true
-    rules[:nopartner] = true
+    rules[:rank]        = rank
+    rules[:hard]        = true if rules[:rank] == 6 && !inMaxLair?
+    rules[:outcome]     = 1 if !rules[:outcome]
+    rules[:canlose]     = true
+    rules[:noflee]      = true
+    rules[:noexp]       = true
+    rules[:nomoney]     = true
+    rules[:nocapture]   = true
+    rules[:nopartner]   = true
+    rules[:setcapture]  = true if !rules[:hard]
     $game_temp.dx_rules = rules
     pbApplyBattleRules(1, true)
     if rules[:simple]
@@ -53,6 +54,11 @@ class MaxRaidBattle
     if BattleCreationHelperMethods.skip_battle?
       return BattleCreationHelperMethods.skip_battle(rules[:outcome])
     end
+    prefix = !(foe.gmax_factor?) ? "A Dynamaxed" : (foe.isSpecies?(:ETERNATUS)) ? "An Eternamax" : "A Gigantamax"
+    location = (inMaxLair?) ? "lair" : "den"
+    rules[:introtext] = "#{prefix} {1} emerged from within the #{location}!"
+    rules[:raidcapture] = ["{1} disappeared somewhere into the #{location}...", "Battle Raid Capture"]
+    rules[:raidcapture].push(20) if rules[:hard]
     player_trainers, ally_items, player_party, player_party_starts = BattleCreationHelperMethods.set_up_player_trainers(foe_party)
     scene = BattleCreationHelperMethods.create_battle_scene
     battle = RaidBattle.new(scene, player_party, foe_party, player_trainers, nil)
@@ -61,6 +67,8 @@ class MaxRaidBattle
     BattleCreationHelperMethods.prepare_battle(battle)
     $game_temp.clear_battle_rules
     outcome = 0
+    naming_setting = $PokemonSystem.givenicknames
+    $PokemonSystem.givenicknames = 1
     pbBattleAnimation(pbGetWildBattleBGM(foe_party), 0, foe_party) {
       pbSceneStandby {
         outcome = battle.pbStartBattle
@@ -69,6 +77,7 @@ class MaxRaidBattle
     }
     Input.update
     BattleCreationHelperMethods.set_outcome(outcome, rules[:outcome])
+    $PokemonSystem.givenicknames = naming_setting
     $player.has_raid_database = true if Settings::UNLOCK_DATABASE_FROM_RAIDS
     return outcome
   end
@@ -96,6 +105,9 @@ class MaxRaidBattle
       pokemon[:item]       = species.item_id
       pokemon[:ability]    = species.ability_index
       pokemon[:moves]      = species.moves
+      pokemon[:ribbons]    = species.ribbons
+      pokemon[:ivs]        = species.iv.values
+      pokemon[:dynamaxlvl] = species.dynamax_lvl
       pokemon[:shiny]      = species.shiny?
       pokemon[:supershiny] = species.super_shiny?
       pokemon[:gmaxfactor] = species.gmax_factor?
@@ -123,73 +135,80 @@ class MaxRaidBattle
       rank = eligible_ranks.sample if !eligible_ranks.include?(rank)
       pokemon[:level] = raid_LevelFromRank(rank)
       pokemon[:form] = GameData::Species.get(species_id).form
-    end
-    species_data = GameData::Species.get(species_id)
-    #---------------------------------------------------------------------------
-    # Adjusts [:gender] in cases where gender alters appearance.
-    #---------------------------------------------------------------------------
-    if species_data.gendered_icons? && !pokemon[:gender]
-      female_chance = GameData::GenderRatio.get(species_data.gender_ratio).female_chance
-      pokemon[:gender] = (rand(255) < female_chance) ? 0 : 1
-    else
-      case species_data.gender_ratio
-      when :AlwaysMale;   pokemon[:gender] = 0
-      when :AlwaysFemale; pokemon[:gender] = 1
-      when :Genderless;   pokemon[:gender] = nil
+      species_data = GameData::Species.get(species_id)
+      pokemon[:size] = 200 + rand(56)
+      #-------------------------------------------------------------------------
+      # Adjusts [:gender] in cases where gender alters appearance.
+      #-------------------------------------------------------------------------
+      if species_data.bitmap_exists?("Icons", true) && !pokemon[:gender]
+        female_chance = GameData::GenderRatio.get(species_data.gender_ratio).female_chance
+        pokemon[:gender] = (rand(255) < female_chance) ? 0 : 1
+      else
+        case species_data.gender_ratio
+        when :AlwaysMale;   pokemon[:gender] = 0
+        when :AlwaysFemale; pokemon[:gender] = 1
+        when :Genderless;   pokemon[:gender] = nil
+        end
       end
-    end
-    #---------------------------------------------------------------------------
-    # Sets [:ivs] based on the raid rank.
-    #---------------------------------------------------------------------------
-    i = 0
-    stats = []
-    GameData::Stat.each_main do |s|
-      i += 1
-      iv = (i <= rank) ? Pokemon::IV_STAT_LIMIT : rand(Pokemon::IV_STAT_LIMIT + 1)
-      stats.push(iv)
-    end
-    pokemon[:ivs] = stats.shuffle
-    #---------------------------------------------------------------------------
-    # Sets Hidden Ability index for [:ability] based on the raid rank.
-    #---------------------------------------------------------------------------
-    if !pokemon[:ability]
-      chance = rand(10)
-      pokemon[:ability] = 2 if rank == 4  && chance < 2
-      pokemon[:ability] = 2 if rank == 5  && chance < 5
-      pokemon[:ability] = 2 if rank == 6  && chance < 8
-    end
-    #---------------------------------------------------------------------------
-    # Generates a raid moveset and sets the [:moves].
-    #---------------------------------------------------------------------------
-    if !pokemon[:moves]
-      moves = []
-      raid_moves = raid_GenerateMovelists(species_id)
-      raid_moves.each { |m| moves.push(m.sample) }
-      pokemon[:moves] = moves
-    end
-    #---------------------------------------------------------------------------
-    # Sets [:dynamaxlvl] based on the raid [:rank].
-    #---------------------------------------------------------------------------
-    case rank
-    when 1 then pokemon[:dynamaxlvl] = 5
-    when 2 then pokemon[:dynamaxlvl] = 10
-    when 3 then pokemon[:dynamaxlvl] = 20
-    when 4 then pokemon[:dynamaxlvl] = 30
-    when 5 then pokemon[:dynamaxlvl] = 40
-    when 6 then pokemon[:dynamaxlvl] = 50
-    end
-    #---------------------------------------------------------------------------
-    # Scales the likelihood of [:gmaxfactor] if the species can Gigantamax.
-    #---------------------------------------------------------------------------
-    if species_data.hasGmax?
-      chance = rand(10)
+      #-------------------------------------------------------------------------
+      # Sets [:ivs] based on the raid rank.
+      #-------------------------------------------------------------------------
+      i = 0
+      stats = []
+      GameData::Stat.each_main do |s|
+        i += 1
+        iv = (i <= rank) ? Pokemon::IV_STAT_LIMIT : rand(Pokemon::IV_STAT_LIMIT + 1)
+        stats.push(iv)
+      end
+      pokemon[:ivs] = stats.shuffle
+      #-------------------------------------------------------------------------
+      # Sets Hidden Ability index for [:ability] based on the raid rank.
+      #-------------------------------------------------------------------------
+      if !pokemon[:ability]
+        chance = rand(10)
+        pokemon[:ability] = 2 if rank == 4  && chance < 2
+        pokemon[:ability] = 2 if rank == 5  && chance < 5
+        pokemon[:ability] = 2 if rank == 6  && chance < 8
+      end
+      #-------------------------------------------------------------------------
+      # Sets the Mightiest Mark on raid Pokemon battled under Hard Mode.
+      #-------------------------------------------------------------------------
+      if !pokemon[:mark] && rank == 6
+        pokemon[:mark] = :MIGHTIESTMARK
+      end
+      #-------------------------------------------------------------------------
+      # Generates a raid moveset and sets the [:moves].
+      #-------------------------------------------------------------------------
+      if !pokemon[:moves]
+        moves = []
+        raid_moves = raid_GenerateMovelists(species_id)
+        raid_moves.each { |m| moves.push(m.sample) }
+        pokemon[:moves] = moves
+      end
+      #---------------------------------------------------------------------------
+      # Sets [:dynamaxlvl] based on the raid [:rank].
+      #-------------------------------------------------------------------------
       case rank
-      when 3;   pokemon[:gmaxfactor] = true if chance < 1
-      when 4;   pokemon[:gmaxfactor] = true if chance < 3
-      when 5,6; pokemon[:gmaxfactor] = true if chance < 5
+      when 1 then pokemon[:dynamaxlvl] = 5
+      when 2 then pokemon[:dynamaxlvl] = 10
+      when 3 then pokemon[:dynamaxlvl] = 20
+      when 4 then pokemon[:dynamaxlvl] = 30
+      when 5 then pokemon[:dynamaxlvl] = 40
+      when 6 then pokemon[:dynamaxlvl] = 50
       end
-    else
-      pokemon[:gmaxfactor] = false
+      #-------------------------------------------------------------------------
+      # Scales the likelihood of [:gmaxfactor] if the species can Gigantamax.
+      #-------------------------------------------------------------------------
+      if species_data.hasGmax?
+        chance = rand(10)
+        case rank
+        when 3;   pokemon[:gmaxfactor] = true if chance < 1
+        when 4;   pokemon[:gmaxfactor] = true if chance < 3
+        when 5,6; pokemon[:gmaxfactor] = true if chance < 5
+        end
+      else
+        pokemon[:gmaxfactor] = false
+      end
     end
     #---------------------------------------------------------------------------
     # Dynamax Adventure settings for [:shiny] and [:obtaintext].
@@ -198,7 +217,6 @@ class MaxRaidBattle
       pokemon[:shiny] = false
       pokemon[:supershiny] = false
     end
-    pokemon[:size] = 200 + rand(56)
     pokemon[:dynamax] = true
     pokemon[:species] = species_id
     $game_temp.dx_pokemon = pokemon
@@ -238,7 +256,7 @@ def raid_GenerateMovelists(pkmn, rental = false)
       spread_moves.push(m.id)
     elsif rotom_form && stab && !mult && (m.base_damage >= 75 || m.function_code == acrobatics)
       coverage_moves.push(m.id)
-    elsif stab && !mult && (m.base_damage >= 75 || m.function_code == acrobatics)
+    elsif stab && !mult && (m.base_damage >= 70 || m.function_code == acrobatics)
       stab_moves.push(m.id)
     elsif m.type != :NORMAL && !mult && !stab && (m.base_damage >= 75 || m.function_code == acrobatics)
       coverage_moves.push(m.id)
@@ -252,6 +270,9 @@ def raid_GenerateMovelists(pkmn, rental = false)
   # Forces certain moves onto specific species's movelists.
   #-----------------------------------------------------------------------------
   case pkmn
+  when :TAUROS_1   then stab_moves.push(:RAGINGBULL)
+  when :TAUROS_2   then stab_moves.push(:RAGINGBULL)
+  when :TAUROS_3   then stab_moves.push(:RAGINGBULL)
   when :SNORLAX    then status_moves.push(:REST)
   when :SHUCKLE    then status_moves.push(:POWERTRICK)
   when :SLAKING    then stab_moves.push(:GIGAIMPACT)
@@ -302,7 +323,8 @@ def raid_GetEligibleMoves(rental = false)
     "UserFaintsPowersUpInMistyTerrainExplosive",      # Misty Explosion
     "SwitchOutTargetDamagingMove",                    # Circle Throw, Dragon Tail, etc.
     "TypeDependsOnUserIVs",                           # Hidden Power
-    "LowerUserSpAtk2"                                 # Overheat, Draco Meteor, etc.                        
+    "LowerUserSpAtk2",                                # Overheat, Draco Meteor, etc.
+    "CategoryDependsOnHigherDamageTera"	              # Tera Blast
   ]
   blacklist += [
     "TwoTurnAttackInvulnerableInSky",                 # Fly
@@ -352,7 +374,12 @@ def raid_GetEligibleMoves(rental = false)
     "ResetAllBattlersStatStages",                     # Haze
     "InvertTargetStatStages",                         # Topsy-Turvy
     "TrapTargetInBattleLowerTargetDefSpDef1EachTurn", # Octolock
-    "RaiseUserMainStats1TrapUserInBattle"             # No Retreat
+    "RaiseUserMainStats1TrapUserInBattle",            # No Retreat
+    "RaiseUserAtkDefSpd1",                            # Victory Dance
+    "SetUserAlliesAbilityToTargetAbility",            # Doodle
+    "StartSaltCureTarget",                            # Salt Cure
+    "ProtectUserFromDamagingMovesSilkTrap",           # Silk Trap
+    "RaiseTargetAtkLowerTargetDef2"                   # Spicy Extract
   ]
   whitelist += [
     "PowerUpAllyMove",                                # Helping Hand
