@@ -145,7 +145,7 @@ class PokemonBagPartyBlankPanel < SpriteWrapper
     super(viewport)
     self.x = (index % 2) * 112 + 4
     self.y = (index % 2) + 96 + 2
-    @panelbgsprite = AnimatedBitmap.new("Graphics/Pictures/UI/BagUI/ptpanel_blank")
+    @panelbgsprite = AnimatedBitmap.new("Graphics/Pictures/Z - None")
     self.bitmap = @panelbgsprite.bitmap
     @text = nil
   end
@@ -368,11 +368,11 @@ class PokemonBagPartyPanel < SpriteWrapper
           # Draw status
           status = -1
           if @pokemon.fainted?
-            status = GameData::Status.count
+            status = GameData::Status.count - 1
           elsif @pokemon.status != :NONE
             status = GameData::Status.get(@pokemon.status).icon_position
           elsif @pokemon.pokerusStage == 1
-            status = GameData::Status.count + 1
+            status = GameData::Status.count #+ 1
           end
           if status >= 0
             statusrect = Rect.new(0, 16 * status, 52, 16)#Rect.new(0, 18 * status, 52, 18)

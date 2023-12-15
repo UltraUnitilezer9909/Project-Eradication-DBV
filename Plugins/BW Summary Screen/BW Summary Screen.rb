@@ -558,6 +558,8 @@
       end
     end
 
+    
+
     def drawPageOne
       overlay = @sprites["overlay"].bitmap
       # Changes the color of the text, to the one used in BW
@@ -569,15 +571,11 @@
       shadow2 = Color.new(0, 112, 248)
       base3 = Color.new(248, 168, 184)
       shadow3 = Color.new(232, 32, 16)
-      #dexNumBase   = (@pokemon.shiny?) ? Color.new(198, 0, 0) : Color.new(90, 82, 82)
       dexNumBase   = base 
-      #dexNumShadow = (@pokemon.shiny?) ? Color.new(255, 155, 155) : Color.new(165, 165, 173)
       dexNumShadow = shadow
-      # Write various bits of text
       textpos = []
       textpos.push(["Specie: " + @pokemon.speciesName, 8, 276 + 28, 0, base2, shadow2,true])
 
-      # Write the Regional/National Dex number
       dexnumshift = false
       if $player.pokedex.unlocked?(-1)   # National Dex is unlocked
         dexnum = @nationalDexList.index(@pokemon.species_data.species) || 0
@@ -597,41 +595,14 @@
         textpos.push(["Dex ID: ???",8, 270, 0, base3, shadow3,true])
       else
         dexnum -= 1 if dexnumshift
-        # Write the Dex Number
-        #textpos.push([sprintf("Dex ID: " + "%03d", dexnum), 8, 64+28+28, 0, base2, shadow2,true])
         textpos.push([sprintf("Dex ID: " + "%03d", dexnum), 8, 270, 0, base2, shadow2,true])
       end
-      # Write Original Trainer's name and ID number
-      # if @pokemon.owner.name.empty?
-      #   if SUMMARY_B2W2_STYLE
-      #     #textpos.push([_INTL("RENTAL"), 164, 156, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-      #     #textpos.push(["?????", 164, 186, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-      #   else
-      #     #textpos.push([_INTL("RENTAL"), 164, 158, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-      #     #textpos.push(["?????", 164, 188, 0, Color.new(90, 82, 82), Color.new(165, 165, 173)])
-      #   end
-      # else
-        # Changes the color of the text, to the one used in BW
-        # ownerbase   = Color.new(90, 82, 82)
-        # ownershadow = Color.new(165, 165, 173)
-        # case @pokemon.owner.gender
-        # when 0
-        #   ownerbase = Color.new(0, 0, 214)
-        #   ownershadow = Color.new(15, 148, 255)
-        # when 1
-        #   ownerbase = Color.new(198, 0, 0)
-        #   ownershadow = Color.new(255, 155, 155)
-        # end
       textpos.push([sprintf("Public ID: " + "%05d", @pokemon.owner.public_id), 8, 276 + 28 + 28, 0, base,  shadow, true])     
-      # Write Exp text OR heart gauge message (if a Shadow Pokémon)
-
       endexp = @pokemon.growth_rate.minimum_exp_for_level(@pokemon.level + 1)
-      #textpos.push([_INTL("Exp. Points"), 34, 232, 0, base, shadow])
-      # Changed the Positon of No. of Exp
       textpos.push(["Exp. Points: " + @pokemon.exp.to_s_formatted, 8,276 + 28 + 28+ 28, 0, base1, shadow1, true])
-      #textpos.push([_INTL("To Next Lv."), 34, 296, 0, base, shadow])
-      # Changed the Positon of No. of Exp to Next Level
       textpos.push(["To Next Lv: " + (endexp-@pokemon.exp).to_s_formatted, 8, 276 + 28 + 28+ 28+ 28, 0, base2, shadow2, true])
+      textpos.push([PokemonPokedexInfo_Scene.species_data.pokedex_entry.to_s, 8, 276 + 28 + 28+ 28+ 28, 0, base2, shadow2, true])
+
       # Draw all text
       pbDrawTextPositions(overlay, textpos)
       # Draw Pokémon type(s)

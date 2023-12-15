@@ -5579,3 +5579,217 @@ MessageConfig:571:in `pbFadeOutIn'
 [Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
 [Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
 [Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-12-15 17:38:13 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `showDetailedLocationPreview' for #<PokemonRegionMap_Scene>
+
+Backtrace:
+[Arcky's Region Map] 002_RegionMap_Main.rb:768:in `block in pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `loop'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:1182:in `pbStartScreen'
+[Essentials' UI] UI_RegionMap.rb:361:in `block in pbShowMap'
+MessageConfig:571:in `pbFadeOutIn'
+[Essentials' UI] UI_RegionMap.rb:358:in `pbShowMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-12-15 17:41:20 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `town_map_size' for nil:NilClass
+
+Backtrace:
+[Arcky's Region Map] 003_RegionMap_Pokedex.rb:70:in `pbStartScene'
+UI_Pokedex_entry:568:in `pbStartScreen'
+UI_Pokedex_main:877:in `pbDexEntry'
+UI_Pokedex_main:1282:in `block (2 levels) in pbPokedex'
+UI_Pokedex_main:1257:in `loop'
+UI_Pokedex_main:1257:in `block in pbPokedex'
+MessageConfig:706:in `pbActivateWindow'
+UI_Pokedex_main:1256:in `pbPokedex'
+UI_Pokedex_main:1300:in `pbStartScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:42:in `block in selected'
+
+=================
+
+[2023-12-15 17:48:32 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `bitmap' for nil:NilClass
+
+Backtrace:
+[Essentials' UI] UI_Party.rb:147:in `initialize'
+[Essentials' UI] UI_Party.rb:498:in `new'
+[Essentials' UI] UI_Party.rb:498:in `block in pbStartScene'
+[Essentials' UI] UI_Party.rb:494:in `times'
+[Essentials' UI] UI_Party.rb:494:in `pbStartScene'
+[Essentials Deluxe] Miscellaneous.rb:213:in `pbPokemonScreen'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:15:in `block in selected'
+MessageConfig:571:in `pbFadeOutIn'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:12:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+
+=================
+
+[2023-12-15 18:36:54 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `species_data' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:635:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:553:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1630:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-15 18:39:57 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `species_data' for PokemonPokedexInfo_Scene:Class
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:636:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:553:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1631:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-15 18:42:40 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:1702: syntax error, unexpected end-of-input, expecting `end'
+  end
+     ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section373:28:in `mainFunctionDebug'
+Section373:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section373:18:in `mainFunction'
+
+=================
+
+[2023-12-15 18:43:45 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbStartSceneBrief' for PokemonPokedexInfo_Scene:Class
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:636:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:553:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1652:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-15 18:47:34 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pbStartSceneBrief' for PokemonPokedexInfo_Scene:Class
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:636:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:553:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1652:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-15 21:56:10 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `showDetailedLocationPreview' for #<PokemonRegionMap_Scene>
+
+Backtrace:
+[Arcky's Region Map] 002_RegionMap_Main.rb:768:in `block in pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `loop'
+[Arcky's Region Map] 002_RegionMap_Main.rb:737:in `pbMapScene'
+[Arcky's Region Map] 002_RegionMap_Main.rb:1182:in `pbStartScreen'
+[Essentials' UI] UI_RMap.rb:361:in `block in pbShowMap'
+MessageConfig:571:in `pbFadeOutIn'
+[Essentials' UI] UI_RMap.rb:358:in `pbShowMap'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:169:in `selected'
+[Voltseon's Pause Menu] 003_VoltseonMenu_Menu.rb:58:in `update'
+[Voltseon's Pause Menu] 002_VoltseonMenu_Main.rb:223:in `block in update'
+
+=================
+
+[2023-12-15 22:13:28 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `walking_evolution' for nil:NilClass
+
+Backtrace:
+[Generation 9 Pack] [000] Pokemon.rb:257:in `block in <main>'
+Event_Handlers:89:in `block in trigger'
+Event_Handlers:89:in `each_value'
+Event_Handlers:89:in `trigger'
+Event_HandlerCollections:63:in `trigger'
+[Deep Marsh Tiles] DMT.rb:170:in `pbOnStepTaken'
+Game_Player:544:in `update_event_triggering'
+Game_Player:439:in `update'
+Scene_Map:161:in `block in update'
+Scene_Map:159:in `loop'

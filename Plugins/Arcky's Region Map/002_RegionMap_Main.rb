@@ -149,12 +149,12 @@ class PokemonRegionMap_Scene
 
   def addBackgroundAndRegionSprite
     @sprites["Background"] = IconSprite.new(0, 0, @viewport)
-    @sprites["Background"].setBitmap("Graphics/Pictures/RegionMap/UI/mapBackGround")
+    @sprites["Background"].setBitmap("Graphics/Pictures/UI/RegionMapUI/UI/mapBackGround")
     @sprites["Background"].x += (Graphics.width - @sprites["Background"].bitmap.width) / 2
     @sprites["Background"].y += (Graphics.height - @sprites["Background"].bitmap.height) / 2
     @sprites["Background"].z = 30
     @spritesMap["map"] = IconSprite.new(0, 0, @viewportMap)
-    @spritesMap["map"].setBitmap("Graphics/Pictures/RegionMap/Regions/#{@map[1]}")
+    @spritesMap["map"].setBitmap("Graphics/Pictures/UI/RegionMapUI/Regions/#{@map[1]}")
     @spritesMap["map"].z = 1
     @mapWidth = @spritesMap["map"].bitmap.width
     @mapHeight = @spritesMap["map"].bitmap.height
@@ -168,7 +168,7 @@ class PokemonRegionMap_Scene
       end
       pbDrawImagePositions(
         @spritesMap["map2"].bitmap,
-        [["Graphics/Pictures/RegionMap/HiddenRegionMaps/#{graphic[4]}", graphic[2] * ARMSettings::SQUARE_WIDTH, graphic[3] * ARMSettings::SQUARE_HEIGHT]]
+        [["Graphics/Pictures/UI/RegionMapUI/HiddenRegionMaps/#{graphic[4]}", graphic[2] * ARMSettings::SQUARE_WIDTH, graphic[3] * ARMSettings::SQUARE_HEIGHT]]
       )
     end
   end
@@ -221,7 +221,7 @@ class PokemonRegionMap_Scene
       iconName = @visitedMaps.find { |name| point[2] == name[2] } ? "mapFly" : "mapFlyDis"
       pbDrawImagePositions(
         @spritesMap["FlyIcons"].bitmap,
-        [["Graphics/Pictures/RegionMap/Icons/#{iconName}", pointXtoScreenX(point[0]), pointYtoScreenY(point[1])]]
+        [["Graphics/Pictures/UI/RegionMapUI/Icons/#{iconName}", pointXtoScreenX(point[0]), pointYtoScreenY(point[1])]]
       )
     end
     @spritesMap["FlyIcons"].visible = @mode == 1
@@ -245,7 +245,7 @@ class PokemonRegionMap_Scene
       @spritesMap["Visited"].z = 10
       pbDrawImagePositions(
         @spritesMap["Visited"].bitmap,
-        [["Graphics/Pictures/RegionMap/Unvisited/map#{visit[9]}", ((visit[0] - 1) * ARMSettings::SQUARE_WIDTH) , ((visit[1] - 1) * ARMSettings::SQUARE_HEIGHT)]]
+        [["Graphics/Pictures/UI/RegionMapUI/Unvisited/map#{visit[9]}", ((visit[0] - 1) * ARMSettings::SQUARE_WIDTH) , ((visit[1] - 1) * ARMSettings::SQUARE_HEIGHT)]]
       )
     end
   end 
@@ -270,7 +270,7 @@ class PokemonRegionMap_Scene
       @sprites["questPreview"].z = 25
       @sprites["questPreview"].visible = false
     end
-    @sprites["questPreview"].setBitmap("Graphics/Pictures/RegionMap/UI/mapQuestPreview#{@lineCount}")
+    @sprites["questPreview"].setBitmap("Graphics/Pictures/UI/RegionMapUI/UI/mapQuestPreview#{@lineCount}")
     @sprites["questPreview"].x = Graphics.width - (16 + @sprites["questPreview"].width)
   end 
 
@@ -419,7 +419,7 @@ class PokemonRegionMap_Scene
       @spritesMap["QuestIcons"].z = 50
       pbDrawImagePositions(
         @spritesMap["QuestIcons"].bitmap,
-        [["Graphics/Pictures/RegionMap/Icons/mapQuest", pointXtoScreenX(x) , pointYtoScreenY(y)]]
+        [["Graphics/Pictures/UI/RegionMapUI/Icons/mapQuest", pointXtoScreenX(x) , pointYtoScreenY(y)]]
       )
       usedPositions[[x, y]] = true
     end
@@ -427,7 +427,7 @@ class PokemonRegionMap_Scene
   end 
 
   def addCursorSprite
-    @sprites["cursor"] = AnimatedSprite.create("Graphics/Pictures/RegionMap/UI/mapCursor", 2, 5)
+    @sprites["cursor"] = AnimatedSprite.create("Graphics/Pictures/UI/RegionMapUI/UI/mapCursor", 2, 5)
     @sprites["cursor"].viewport = @viewportCursor
     @sprites["cursor"].x        = (-8 + SPECIAL_UI[0]) + (ARMSettings::SQUARE_WIDTH * @mapX)
     @sprites["cursor"].y        = (-8 + SPECIAL_UI[1]) + (ARMSettings::SQUARE_HEIGHT * @mapY)
@@ -537,7 +537,7 @@ class PokemonRegionMap_Scene
   def showButtonPreview
     if !@sprites["buttonPreview"]
       @sprites["buttonPreview"] = IconSprite.new(0, 0, @viewport)
-      @sprites["buttonPreview"].setBitmap("Graphics/Pictures/RegionMap/UI/mapButtonPreview")
+      @sprites["buttonPreview"].setBitmap("Graphics/Pictures/UI/RegionMapUI/UI/mapButtonPreview")
       @sprites["buttonPreview"].z = 24
       @sprites["buttonPreview"].visible = !@flyMap && !@wallmap
     end 
@@ -687,14 +687,14 @@ class PokemonRegionMap_Scene
       @mapSize[3] = @mapSize[0][index] if @mapSize[1][index] =~ /1x1Small/
       pbDrawImagePositions(
         @spritesMap["highlight"].bitmap,
-        [["Graphics/Pictures/RegionMap/Highlights/#{mapFolder}/map#{@mapSize[1][index]}", ((@mapSize[3][0]) * ARMSettings::SQUARE_WIDTH) , ((@mapSize[3][1]) * ARMSettings::SQUARE_HEIGHT)]]
+        [["Graphics/Pictures/UI/RegionMapUI/Highlights/#{mapFolder}/map#{@mapSize[1][index]}", ((@mapSize[3][0]) * ARMSettings::SQUARE_WIDTH) , ((@mapSize[3][1]) * ARMSettings::SQUARE_HEIGHT)]]
       )
     else  
       flyMap = @flyIconsPositions.find { |map| map[2] == @mapSize[2][0] }
       return if !flyMap || @unvisitedMaps.find { |name| flyMap[2] == name[2] }
         pbDrawImagePositions(
           @spritesMap["highlight"].bitmap,
-          [["Graphics/Pictures/RegionMap/Icons/MapFlySel", (flyMap[0] * ARMSettings::SQUARE_WIDTH) - 8 , (flyMap[1] * ARMSettings::SQUARE_HEIGHT) - 8]]
+          [["Graphics/Pictures/UI/RegionMapUI/Icons/MapFlySel", (flyMap[0] * ARMSettings::SQUARE_WIDTH) - 8 , (flyMap[1] * ARMSettings::SQUARE_HEIGHT) - 8]]
         )
     end
   end
@@ -981,7 +981,7 @@ class PokemonRegionMap_Scene
       @sprites["questPreviewClone"] = IconSprite.new(0, 32, @viewport)
       @sprites["questPreviewClone"].z = 24
     end 
-    @sprites["questPreviewClone"].setBitmap("Graphics/Pictures/RegionMap/UI/mapQuestPreview#{@lineCount}")
+    @sprites["questPreviewClone"].setBitmap("Graphics/Pictures/UI/RegionMapUI/UI/mapQuestPreview#{@lineCount}")
     @sprites["questPreviewClone"].x = Graphics.width - (16 + @sprites["questPreviewClone"].width)
     @sprites["questPreviewClone"].opacity = 0
     @sprites["questPreviewClone"].visible = false 
@@ -1191,7 +1191,7 @@ class RegionMapSpritE
   def createRegionMap(map)
     @mapdata = pbLoadTownMapData
     @map = @mapdata[map]
-    bitmap = AnimatedBitmap.new("Graphics/Pictures/RegionMap/Regions/#{@map[1]}").deanimate
+    bitmap = AnimatedBitmap.new("Graphics/Pictures/UI/RegionMapUI/Regions/#{@map[1]}").deanimate
     retbitmap = BitmapWrapper.new(bitmap.width / 2, bitmap.height / 2)
     retbitmap.stretch_blt(
       Rect.new(0, 0, bitmap.width / 2, bitmap.height / 2),

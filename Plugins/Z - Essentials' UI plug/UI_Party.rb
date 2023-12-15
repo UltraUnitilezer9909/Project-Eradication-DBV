@@ -143,7 +143,7 @@ class PokemonPartyBlankPanel < Sprite
     @group = index % 1  # Group 0 or 1 based on index
     self.x = 36 # + ((index % 2) * Graphics.width / 2)
     self.y = 16 + 46 * @group #index
-    @panelbgsprite = AnimatedBitmap.new("Graphics/Pictures/UI/PartyUI/panel_blank")
+    @panelbgsprite = AnimatedBitmap.new("Graphics/Pictures/Z - None")
     self.bitmap = @panelbgsprite.bitmap
     @text = nil
     #@group = index % 1  # Group 0 or 1 based on index

@@ -1,6 +1,6 @@
 ﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
-[001]   # Intro
+[001]   # At the very begin
 Name = Intro
 #-------------------------------
 [002]   # Lappet Town
@@ -402,3 +402,8 @@ Name = Tiall Region
 Outdoor = true
 MapPosition = 1,13,16
 BattleBack = city
+#-------------------------------
+[076]   # < Unknown >
+Name = < Unknown >
+Outdoor = false
+Environment = Space

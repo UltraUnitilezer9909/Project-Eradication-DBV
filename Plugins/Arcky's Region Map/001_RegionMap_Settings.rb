@@ -6,8 +6,8 @@ module ARMSettings
     # Region Map Grid
     #===============================================================================
     # change the square size for each tile on the Region Map here. (I don't recommend changing this but it's here in case you want to anyway.)
-    SQUARE_WIDTH  = 16
-    SQUARE_HEIGHT = 16
+    SQUARE_WIDTH  = 16 * 2
+    SQUARE_HEIGHT = 16 * 2
     #===============================================================================
     # Hidden Region Locations
     #===============================================================================
