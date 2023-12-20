@@ -6,8 +6,8 @@ module ARMSettings
     # Region Map Grid
     #===============================================================================
     # change the square size for each tile on the Region Map here. (I don't recommend changing this but it's here in case you want to anyway.)
-    SQUARE_WIDTH  = 16 * 2
-    SQUARE_HEIGHT = 16 * 2
+    SQUARE_WIDTH  = 32
+    SQUARE_HEIGHT = 32
     #===============================================================================
     # Hidden Region Locations
     #===============================================================================
@@ -80,7 +80,7 @@ module ARMSettings
     #   example: When you  want to move to the Right, the map will only start moving once the cursor is all the way on the Right edge of the screen. 
     # - true = the map will move (if possible) when the cursor is 1 position away from the direction's edge of the screen.
     #   example: When you want to move to the Right, the map will start moving once the cursor is 1 tile away from the Right edge of the screen. 
-    CURSOR_MAP_OFFSET = true   
+    CURSOR_MAP_OFFSET = false
     #===============================================================================
     # Region District Names
     #===============================================================================

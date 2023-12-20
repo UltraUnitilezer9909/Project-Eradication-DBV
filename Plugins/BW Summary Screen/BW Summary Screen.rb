@@ -169,10 +169,13 @@
       @sprites["pokeicon"].y       = 92 #@sprites["pokeicon"].y       = 92
       @sprites["pokeicon"].visible = false
       # Changed the position of the held Item icon
-      @sprites["itemicon"] = ItemIconSprite.new(485, 358, @pokemon.item_id, @viewport)
+      @sprites["itemicon"] = ItemIconSprite.new(224, 32, @pokemon.item_id, @viewport)
       @sprites["itemicon"].blankzero = true
       @sprites["overlay"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
+      @sprites["overlay2"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
       pbSetSystemFont(@sprites["overlay"].bitmap)
+      pbSetSystemFont(@sprites["overlay2"].bitmap)
+      pbSetSmallFont(@sprites["overlay2"].bitmap)
       @sprites["movepresel"] = MoveSelectionSprite.new(@viewport)
       @sprites["movepresel"].visible     = false
       @sprites["movepresel"].preselected = true
@@ -476,13 +479,7 @@
       base3 = Color.new(248, 168, 184)
       shadow3 = Color.new(232, 32, 16)
       # Set background image
-      if SUMMARY_B2W2_STYLE
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background_B2W2")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_page_#{page}")
-      else
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_#{page}")
-      end
+      @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_page_#{page}")
       imagepos = []
       # Show the Poké Ball containing the Pokémon
       #ballimage = sprintf("Graphics/Pictures/UI/SummaryUI/icon_ball_%s", @pokemon.poke_ball)
@@ -510,13 +507,7 @@
         end
       end
       # Show shininess star
-      if @pokemon.shiny?
-        if SUMMARY_B2W2_STYLE
-          imagepos.push([sprintf("Graphics/Pictures/shiny"), 350, 303])
-        else
-          imagepos.push([sprintf("Graphics/Pictures/shiny"), 350, 306])
-        end
-      end
+      imagepos.push([sprintf("Graphics/Pictures/shiny"), 350, 303]) if @pokemon.shiny?
       # Draw all images
       pbDrawImagePositions(overlay,imagepos)
       # Draw the Pokémon's markings
@@ -527,7 +518,7 @@
       _INTL("#{@pokemon.name}'s Moves"),
       _INTL("#{@pokemon.name}'s Ribbons")][page - 1]
     
-      textpos.push([pagename, Graphics.width / 2, 8, 2, base, shadow, true])
+      textpos.push([pagename, Graphics.width / 2, 10, 2, base, shadow, true])
       textpos.push(["Name: " + @pokemon.name, 8, 8, 0, base1, shadow1, true])
       textpos.push(["Level: " + @pokemon.level.to_s, 8, 36, 0, base2, shadow2, true])
       # Write the held item's name
@@ -562,22 +553,30 @@
 
     def drawPageOne
       overlay = @sprites["overlay"].bitmap
-      # Changes the color of the text, to the one used in BW
-      base   = Color.new(255, 255, 255)
-      shadow = Color.new(165, 165, 173)
-      base1   = Color.new(148, 15, 255)
-      shadow1 = Color.new(99, 0, 180)
-      base2 = Color.new(120, 184, 232)
-      shadow2 = Color.new(0, 112, 248)
-      base3 = Color.new(248, 168, 184)
-      shadow3 = Color.new(232, 32, 16)
-      dexNumBase   = base 
-      dexNumShadow = shadow
-      textpos = []
-      textpos.push(["Specie: " + @pokemon.speciesName, 8, 276 + 28, 0, base2, shadow2,true])
+      overlay2 = @sprites["overlay2"].bitmap
+
+      base_colors = [
+        Color.new(255, 255, 255),
+        Color.new(148, 15, 255),
+        Color.new(120, 184, 232),
+        Color.new(248, 168, 184)
+      ]
+      shadow_colors = [
+        Color.new(165, 165, 173),
+        Color.new(99, 0, 180),
+        Color.new(0, 112, 248),
+        Color.new(232, 32, 16)
+      ]
+
+      dexNumBase = base_colors[0]
+      dexNumShadow = shadow_colors[0]
+
+      textpos = [
+        ["Specie: " + @pokemon.speciesName, 8, 276 + 28, 0, base_colors[3], shadow_colors[3], true]
+      ]
 
       dexnumshift = false
-      if $player.pokedex.unlocked?(-1)   # National Dex is unlocked
+      if $player.pokedex.unlocked?(-1)
         dexnum = @nationalDexList.index(@pokemon.species_data.species) || 0
         dexnumshift = true if Settings::DEXES_WITH_OFFSETS.include?(-1)
       else
@@ -591,137 +590,165 @@
           break
         end
       end
+
       if dexnum <= 0
-        textpos.push(["Dex ID: ???",8, 270, 0, base3, shadow3,true])
+        textpos.push(["Dex ID: ???", 8, 276, 0, base_colors[3], shadow_colors[3], true])
       else
         dexnum -= 1 if dexnumshift
-        textpos.push([sprintf("Dex ID: " + "%03d", dexnum), 8, 270, 0, base2, shadow2,true])
+        textpos.push([sprintf("Dex ID: " + "%03d", dexnum), 8, 276, 0, base_colors[2], shadow_colors[2], true])
       end
-      textpos.push([sprintf("Public ID: " + "%05d", @pokemon.owner.public_id), 8, 276 + 28 + 28, 0, base,  shadow, true])     
-      endexp = @pokemon.growth_rate.minimum_exp_for_level(@pokemon.level + 1)
-      textpos.push(["Exp. Points: " + @pokemon.exp.to_s_formatted, 8,276 + 28 + 28+ 28, 0, base1, shadow1, true])
-      textpos.push(["To Next Lv: " + (endexp-@pokemon.exp).to_s_formatted, 8, 276 + 28 + 28+ 28+ 28, 0, base2, shadow2, true])
-      textpos.push([PokemonPokedexInfo_Scene.species_data.pokedex_entry.to_s, 8, 276 + 28 + 28+ 28+ 28, 0, base2, shadow2, true])
 
-      # Draw all text
-      pbDrawTextPositions(overlay, textpos)
-      # Draw Pokémon type(s)
-      @pokemon.types.each_with_index do |type, i|
-      type_number = GameData::Type.get(type).icon_position
-      #type_rect = Rect.new(0, type_number * 28, 30, 28)
-      type_rect = Rect.new(0, type_number * 28, 30, 28)
-      type_x = (@pokemon.types.length == 1) ? 182-6+30 : 182-6 + (30 * i)
-      overlay.blt(type_x, 266, @typebitmap.bitmap, type_rect)
+      textpos.push([sprintf("Public ID: " + "%05d", @pokemon.owner.public_id), 8, 276 + 28 + 28, 0, base_colors[0], shadow_colors[0], true])
+
+      endexp = @pokemon.growth_rate.minimum_exp_for_level(@pokemon.level + 1)
+      textpos.push(["Exp. Points: " + @pokemon.exp.to_s_formatted, 8, 276 + 28 + 28 + 28, 0, base_colors[1], shadow_colors[1], true])
+      textpos.push(["To Next Lv: " + (endexp - @pokemon.exp).to_s_formatted, 8, 276 + 28 + 28 + 28 + 28, 0, base_colors[2], shadow_colors[2], true])
+
+      height = @pokemon.species_data.height
+      weight = @pokemon.species_data.weight
+      if System.user_language[3..4] == "US"
+        inches = (height / 0.254).round
+        pounds = (weight / 0.45359).round
+        textpos.push([_ISPRINTF("Height: {1:d}'{2:02d}\"", inches / 12, inches % 12), 520, 276 + 28, 0, base_colors[2], shadow_colors[2], true])
+        textpos.push([_ISPRINTF("Weight: {1:4.1f} lbs.", pounds / 10.0), 520, 276 + 28 + 28, 0, base_colors[3], shadow_colors[3], true])
+      else
+        textpos.push([_ISPRINTF("Height: {1:.1f} m", height / 10.0), 520, 276 + 28, 0, base_colors[2], shadow_colors[2], true])
+        textpos.push([_ISPRINTF("Weight: {1:.1f} kg", weight / 10.0), 520, 276 + 28 + 28, 0, base_colors[3], shadow_colors[3], true])
       end
-      # Draw Exp bar
+
+      textpos.push(["Category: " + @pokemon.species_data.category.to_s, 520, 276, 0, base_colors[1], shadow_colors[1], true])
+
+      pbDrawTextPositions(overlay, textpos)
+
+      footprint = RPG::Cache.load_bitmap("Graphics/Pokemon/Footprints/", @pokemon.speciesName)
+      overlay.blt(720, 384, footprint, footprint.rect)
+      arckyTextWrapping(overlay2, @pokemon.species_data.pokedex_entry.to_s, 520, 8, 20, 0, [[240, 1]], base_colors[2], shadow_colors[2], 1, true)
+
+      @pokemon.types.each_with_index do |type, i|
+        type_number = GameData::Type.get(type).icon_position
+        type_rect = Rect.new(0, type_number * 28, 30, 28)
+        type_x = (@pokemon.types.length == 1) ? 182 - 6 + 30 : 182 - 6 + (30 * i)
+        overlay.blt(type_x, 266, @typebitmap.bitmap, type_rect)
+      end
+
       if @pokemon.level < GameData::GrowthRate.max_level
-        w = @pokemon.exp_fraction * 236 #128
-        w = ((w/2).round) * 2
-      pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 10, 418 ,0, 0, w, 6]])
+        w = @pokemon.exp_fraction * 236
+        w = ((w / 2).round) * 2
+        pbDrawImagePositions(overlay, [["Graphics/Pictures/UI/SummaryUI/overlay_exp", 10, 418, 0, 0, w, 6]])
       end
     end
 
     def drawPageOneEgg
+      base_colors = [
+        Color.new(255, 255, 255),
+        Color.new(148, 15, 255),
+        Color.new(120, 184, 232),
+        Color.new(248, 168, 184)
+      ]
+      shadow_colors = [
+        Color.new(165, 165, 173),
+        Color.new(99, 0, 180),
+        Color.new(0, 112, 248),
+        Color.new(232, 32, 16)
+      ]
+      base, shadow, base1, shadow1, base2, shadow2, base3, shadow3 = base_colors.zip(shadow_colors).flatten
+      dexNumBase = base
+      dexNumShadow = shadow
       @sprites["itemicon"].item = @pokemon.item_id
       overlay = @sprites["overlay"].bitmap
-      overlay.clear
-      # Changes the color of the text, to the one used in BW
-      # Set background image
-      if SUMMARY_B2W2_STYLE
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_egg_B2W2")
-      else
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_egg")
-      end
-      imagepos = []
-      # Show the Poké Ball containing the Pokémon
-      ballimage = sprintf("Graphics/Pictures/UI/SummaryUI/icon_ball_%s", @pokemon.poke_ball)
-      imagepos.push([ballimage, 320, 50])
-      # Draw all images
-      pbDrawImagePositions(overlay, imagepos)
-      # Write various bits of text
-      if !SUMMARY_B2W2_STYLE
-        textpos = [
-          [@pokemon.name, 354, 52, 0, base, shadow],
-          [_INTL("Item"), 298, 326, 0, base, shadow]
-        ]
-      else
-        textpos = [
-          [_INTL("TRAINER MEMO"), 26, 14, 0, Color.new(255, 255, 255), Color.new(132, 132, 132)],
-          [@pokemon.name, 354, 52, 0, base, shadow],
-          [_INTL("Item"), 298, 328, 0, base, shadow]
-        ]
-      end
-      # Write the held item's name
+      overlay2 = @sprites["overlay2"].bitmap
+      @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_page_egg")
+      @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_page_egg")
+      textpos = [
+        [_INTL("#{@pokemon.owner.name}'s Memo"), Graphics.width / 2, 10, 2, base, shadow, true],
+        ["Name: " + @pokemon.name, 8, 8, 0, base1, shadow1, true]
+      ]
       if @pokemon.hasItem?
-        textpos.push([@pokemon.item.name, 290, 356, 0, base, shadow])
+        textpos.push(["Item: " + @pokemon.item.name.to_s, 8, 8+28, 0, base2, shadow2, true])
       else
-        textpos.push([_INTL("None"), 290, 356, 0, base, shadow])
+        textpos.push([_INTL("Item: None"), 290, 8+28, 0, base2, shadow2])
       end
-      # Draw all text
-      pbDrawTextPositions(overlay,textpos)
-      memo = ""
-      # Write date received
+      textpos.push(["Obtained:", 8, 8+28+28, 0, base, shadow, true])
       if @pokemon.timeReceived
         date  = @pokemon.timeReceived.day
         month = pbGetMonthName(@pokemon.timeReceived.mon)
         year  = @pokemon.timeReceived.year
-        # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=940fff,6300b4>{1} {2}, {3}\n", date, month, year)
+        textpos.push(["#{date} #{month}, #{year}", 8, 8+28+28+28, 0, base3, shadow3, true])
+      else
+        textpos.push(["< Unknown >", 8, 8+28+28+28, 0, base3, shadow3, true])
       end
-      # Write map name egg was received on
       mapname = pbGetMapNameFromId(@pokemon.obtain_map)
       mapname = @pokemon.obtain_text if @pokemon.obtain_text && !@pokemon.obtain_text.empty?
       if mapname && mapname != ""
-        # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=ffffff,a5a5ad>An Egg received from <c3=7394FF,0000D6>{1}<c3=ffffff,a5a5ad>...\n", mapname)
+        textpos.push(["From: #{mapname}", 8, 8+28+28+28+28, 0, base1, shadow1, true])
       else
-        # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=ffffff,a5a5ad>A mysterious Pokémon Egg.\n", mapname)
+        textpos.push(["From: < Unknown >", 8, 8+28+28+28+28, 0, base1, shadow1, true])
       end
-      memo += "\n" # Empty line
-      # Write Egg Watch blurb
-      memo += _INTL("<c3=7394FF,0000D6>\"The Egg Watch\"\n")
-      eggstate = _INTL("It looks like this Egg will take a long time to hatch.")
-      eggstate = _INTL("What will hatch from this? It doesn't seem close to hatching.") if @pokemon.steps_to_hatch < 10_200
-      eggstate = _INTL("It appears to move occasionally. It may be close to hatching.") if @pokemon.steps_to_hatch < 2550
-      eggstate = _INTL("Sounds can be heard coming from inside! It will hatch soon!") if @pokemon.steps_to_hatch < 1275
-      memo += sprintf("<c3=ffffff,a5a5ad>%s\n", eggstate)
-      # Draw all text
-      drawFormattedTextEx(overlay, 10, 90, 268, memo)
-      # Draw the Pokémon's markings
-      if SUMMARY_B2W2_STYLE
-        drawMarkings(overlay, 370, 302)
-      else
-        drawMarkings(overlay, 416, 306)
+      arckyTextWrapping(overlay, "\"The Egg Watch\"",  8, 276, 20, 0, [[240, 1]], base1, shadow1, 1, true)
+      case
+      when @pokemon.steps_to_hatch > 10_200
+        arckyTextWrapping(overlay2, "It seems this Egg will take some time to hatch, requiring a bit of patience on our part.", 8, 276+28, 20, 0, [[240, 1]], base, shadow, 1, true)
+      when @pokemon.steps_to_hatch < 10_200
+        arckyTextWrapping(overlay2, "What mysterious creature awaits us within this Egg? It's not quite ready to hatch, and the mystery lingers.", 8, 276+28, 20, 0, [[240, 1]], base, shadow, 1, true)
+      when @pokemon.steps_to_hatch < 2550
+        arckyTextWrapping(overlay2, "This Egg shows subtle signs of movement, hinting at the nearing moment of hatching.", 8, 276+28, 20, 0, [[240, 1]], base, shadow, 1, true)
+      when @pokemon.steps_to_hatch < 1275
+        arckyTextWrapping(overlay2, "Mysterious sounds emanate from within, indicating that the awaited hatching moment is approaching!", 8, 276+28, 20, 0, [[240, 1]], base, shadow, 1, true)
       end
+      pbDrawTextPositions(overlay, textpos)
+      drawMarkings(overlay,  8, 64+28+28+28)
     end
 
     def drawPageTwo
+      base   = Color.new(255, 255, 255)
+      shadow = Color.new(165, 165, 173)
+      base1   = Color.new(148, 15, 255)
+      shadow1 = Color.new(99, 0, 180)
+      base2 = Color.new(120, 184, 232)
+      shadow2 = Color.new(0, 112, 248)
+      base3 = Color.new(248, 168, 184)
+      shadow3 = Color.new(232, 32, 16)
+
       overlay = @sprites["overlay"].bitmap
+      overlay2 = @sprites["overlay2"].bitmap
+      overlay2.clear
       memo = ""
+      textpos = []
       # Write nature
-      showNature = !@pokemon.shadowPokemon? || @pokemon.heartStage <= 3
-      if showNature
-        natureName = @pokemon.nature.name
+
+      if !@pokemon.shadowPokemon? || @pokemon.heartStage <= 3
+        textpos.push(["Nature: " + @pokemon.nature.name.to_s, 8,  276, 0, base1, shadow1, true])
+        #natureName = @pokemon.nature.name
         # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=7394ff,0000d6>{1}<c3=ffffff,a5a5ad> nature.\n", natureName)
+        #memo += _INTL("<c3=7394ff,0000d6>{1}<c3=ffffff,a5a5ad> nature.\n", natureName)
       end
       # Write date received
+      # if @pokemon.timeReceived
+      #   date  = @pokemon.timeReceived.day
+      #   month = pbGetMonthName(@pokemon.timeReceived.mon)
+      #   year  = @pokemon.timeReceived.year
+      #   # Changed the color of the text, to the one used in BW
+      #   memo += _INTL("<c3=940fff,6300b4>{1} {2}, {3}\n", date, month, year)
+      # end
       if @pokemon.timeReceived
         date  = @pokemon.timeReceived.day
         month = pbGetMonthName(@pokemon.timeReceived.mon)
         year  = @pokemon.timeReceived.year
-        # Changed the color of the text, to the one used in BW
-        memo += _INTL("<c3=940fff,6300b4>{1} {2}, {3}\n", date, month, year)
+        textpos.push(["#{date} #{month}, #{year}", 8, 276+28, 0, base3, shadow3, true])
+      else
+        textpos.push(["< Unknown >", 8, 8+28+28+28, 0, base3, shadow3, true])
       end
       # Write map name Pokémon was received on
       mapname = pbGetMapNameFromId(@pokemon.obtain_map)
       mapname = @pokemon.obtain_text if @pokemon.obtain_text && !@pokemon.obtain_text.empty?
-      mapname = _INTL("<c3=7394ff,0000d6>Faraway place") if !mapname || mapname==""
+      if !mapname || mapname==""
+        textpos.push(["From: A distant place", 8, 8+28+28+28+28, 0, base3, shadow3, true])
+      else
+        textpos.push(["From: " + mapname, 8, 8+28+28+28+28, 0, base3, shadow3, true])
+      end
+      #mapname = _INTL("<c3=7394ff,0000d6>Faraway place") if !mapname || mapname==""
       # Changed the color of the text, to the one used in BW
-      memo += sprintf("<c3=7394ff,0000d6>%s\n", mapname)
+      #memo += sprintf("<c3=7394ff,0000d6>%s\n", mapname)
       # Write how Pokémon was obtained
       mettext = [_INTL("<c3=ffffff,a5a5ad>Met at Lv. {1}.", @pokemon.obtain_level),
                  _INTL("<c3=ffffff,a5a5ad>Egg received."),
@@ -750,54 +777,54 @@
       end
       #SPAWNPOINT: egg, this
       # Write characteristic
-      if showNature
-        best_stat = nil
-        best_iv = 0
-        stats_order = [:HP, :ATTACK, :DEFENSE, :SPEED, :SPECIAL_ATTACK, :SPECIAL_DEFENSE]
-        start_point = @pokemon.personalID % stats_order.length   # Tiebreaker
-        stats_order.length.times do |i|
-          stat = stats_order[(i + start_point) % stats_order.length]
-          if !best_stat || @pokemon.iv[stat] > @pokemon.iv[best_stat]
-            best_stat = stat
-            best_iv = @pokemon.iv[best_stat]
-          end
+
+      best_stat = nil
+      best_iv = 0
+      stats_order = [:HP, :ATTACK, :DEFENSE, :SPEED, :SPECIAL_ATTACK, :SPECIAL_DEFENSE]
+      start_point = @pokemon.personalID % stats_order.length   # Tiebreaker
+      stats_order.length.times do |i|
+        stat = stats_order[(i + start_point) % stats_order.length]
+        if !best_stat || @pokemon.iv[stat] > @pokemon.iv[best_stat]
+          best_stat = stat
+          best_iv = @pokemon.iv[best_stat]
         end
-        characteristics = {
-          :HP              => [_INTL("<c3=ff9b9b,c90000>Loves to eat."), 
-                               _INTL("<c3=ff9b9b,c90000>Takes plenty of siestas."),
-                               _INTL("<c3=ff9b9b,c90000>Nods off a lot."),
-                               _INTL("<c3=ff9b9b,c90000>Scatters things often."),
-                               _INTL("<c3=ff9b9b,c90000>Likes to relax.")],
-          :ATTACK          => [_INTL("<c3=ff9b9b,c90000>Proud of its power."),
-                               _INTL("<c3=ff9b9b,c90000>Likes to thrash about."),
-                               _INTL("<c3=ff9b9b,c90000>A little quick tempered."),
-                               _INTL("<c3=ff9b9b,c90000>Likes to fight."),
-                               _INTL("<c3=ff9b9b,c90000>Quick tempered.")],
-          :DEFENSE         => [_INTL("<c3=ff9b9b,c90000>Sturdy body."),
-                               _INTL("<c3=ff9b9b,c90000>Capable of taking hits."),
-                               _INTL("<c3=ff9b9b,c90000>Highly persistent."),
-                               _INTL("<c3=ff9b9b,c90000>Good endurance."),
-                               _INTL("<c3=ff9b9b,c90000>Good perseverance.")],
-          :SPECIAL_ATTACK  => [_INTL("<c3=ff9b9b,c90000>Highly curious."),
-                               _INTL("<c3=ff9b9b,c90000>Mischievous."),
-                               _INTL("<c3=ff9b9b,c90000>Thoroughly cunning."),
-                               _INTL("<c3=ff9b9b,c90000>Often lost in thought."),
-                               _INTL("<c3=ff9b9b,c90000>Very finicky.")],
-          :SPECIAL_DEFENSE => [_INTL("<c3=ff9b9b,c90000>Strong willed."),
-                               _INTL("<c3=ff9b9b,c90000>Somewhat vain."),
-                               _INTL("<c3=ff9b9b,c90000>Strongly defiant."),
-                               _INTL("<c3=ff9b9b,c90000>Hates to lose."),
-                               _INTL("<c3=ff9b9b,c90000>Somewhat stubborn.")],
-          :SPEED           => [_INTL("<c3=ff9b9b,c90000>Likes to run."),
-                               _INTL("<c3=ff9b9b,c90000>Alert to sounds."),
-                               _INTL("<c3=ff9b9b,c90000>Impetuous and silly."),
-                               _INTL("<c3=ff9b9b,c90000>Somewhat of a clown."),
-                               _INTL("<c3=ff9b9b,c90000>Quick to flee.")]
-        }
-        memo += sprintf("<c3=ff9b9b,c90000>%s\n", characteristics[best_stat][best_iv % 5])
       end
+      characteristics = {
+        :HP              => [_INTL("<c3=ff9b9b,c90000>Loves to eat."), 
+                              _INTL("<c3=ff9b9b,c90000>Takes plenty of siestas."),
+                              _INTL("<c3=ff9b9b,c90000>Nods off a lot."),
+                              _INTL("<c3=ff9b9b,c90000>Scatters things often."),
+                              _INTL("<c3=ff9b9b,c90000>Likes to relax.")],
+        :ATTACK          => [_INTL("<c3=ff9b9b,c90000>Proud of its power."),
+                              _INTL("<c3=ff9b9b,c90000>Likes to thrash about."),
+                              _INTL("<c3=ff9b9b,c90000>A little quick tempered."),
+                              _INTL("<c3=ff9b9b,c90000>Likes to fight."),
+                              _INTL("<c3=ff9b9b,c90000>Quick tempered.")],
+        :DEFENSE         => [_INTL("<c3=ff9b9b,c90000>Sturdy body."),
+                              _INTL("<c3=ff9b9b,c90000>Capable of taking hits."),
+                              _INTL("<c3=ff9b9b,c90000>Highly persistent."),
+                              _INTL("<c3=ff9b9b,c90000>Good endurance."),
+                              _INTL("<c3=ff9b9b,c90000>Good perseverance.")],
+        :SPECIAL_ATTACK  => [_INTL("<c3=ff9b9b,c90000>Highly curious."),
+                              _INTL("<c3=ff9b9b,c90000>Mischievous."),
+                              _INTL("<c3=ff9b9b,c90000>Thoroughly cunning."),
+                              _INTL("<c3=ff9b9b,c90000>Often lost in thought."),
+                              _INTL("<c3=ff9b9b,c90000>Very finicky.")],
+        :SPECIAL_DEFENSE => [_INTL("<c3=ff9b9b,c90000>Strong willed."),
+                              _INTL("<c3=ff9b9b,c90000>Somewhat vain."),
+                              _INTL("<c3=ff9b9b,c90000>Strongly defiant."),
+                              _INTL("<c3=ff9b9b,c90000>Hates to lose."),
+                              _INTL("<c3=ff9b9b,c90000>Somewhat stubborn.")],
+        :SPEED           => [_INTL("<c3=ff9b9b,c90000>Likes to run."),
+                              _INTL("<c3=ff9b9b,c90000>Alert to sounds."),
+                              _INTL("<c3=ff9b9b,c90000>Impetuous and silly."),
+                              _INTL("<c3=ff9b9b,c90000>Somewhat of a clown."),
+                              _INTL("<c3=ff9b9b,c90000>Quick to flee.")]
+      }
+      memo += sprintf("<c3=ff9b9b,c90000>%s\n", characteristics[best_stat][best_iv % 5])
       # Write all text
       drawFormattedTextEx(overlay, 12, 72, 300, memo)
+      pbDrawTextPositions(overlay, textpos)
     end
 
     def drawPageThree
@@ -813,11 +840,11 @@
         @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_hidden")
       end
 
-      if SHOW_EV_IV && SUMMARY_B2W2_STYLE
-        # Set background image when showing EV/IV Stats
-        @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background_B2W2")
-        @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_hidden_B2W2")
-      end
+      # if SHOW_EV_IV && SUMMARY_B2W2_STYLE
+      #   # Set background image when showing EV/IV Stats
+      #   @sprites["bg_overlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/background_B2W2")
+      #   @sprites["menuoverlay"].setBitmap("Graphics/Pictures/UI/SummaryUI/bg_hidden_B2W2")
+      # end
 
       # Show IV Letters Grades
       pbDisplayIVRating if SHOW_IV_RATINGS

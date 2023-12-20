@@ -5793,3 +5793,436 @@ Game_Player:544:in `update_event_triggering'
 Game_Player:439:in `update'
 Scene_Map:161:in `block in update'
 Scene_Map:159:in `loop'
+
+=================
+
+[2023-12-16 12:39:15 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pokedex_entry' for #<Pokemon EEVEE Lv.10>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:604:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:553:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1600:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-16 13:27:29 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `pokedex_entry' for #<Pokemon EEVEE Lv.10>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:604:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:553:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1600:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-16 14:26:27 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:619: syntax error, unexpected [, expecting ']'
+        ["Category: " + @pokemon.speci...
+        ^
+[BW Summary Screen] BW Summary Screen.rb:620: syntax error, unexpected ']', expecting `end'
+      ]
+      ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section373:28:in `mainFunctionDebug'
+Section373:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section373:18:in `mainFunction'
+
+=================
+
+[2023-12-16 14:28:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `species_data' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:606:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1616:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-16 14:31:44 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `species_data' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:606:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1616:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-16 14:58:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `*' for true:TrueClass
+
+Backtrace:
+DrawText:667:in `getFormattedText'
+DrawText:1090:in `drawFormattedTextEx'
+[Modern Quest System + UI] 003_Quest_UI.rb:237:in `drawQuestDesc'
+[Modern Quest System + UI] 003_Quest_UI.rb:195:in `pbQuest'
+[Modern Quest System + UI] 003_Quest_UI.rb:149:in `block in pbScene'
+[Modern Quest System + UI] 003_Quest_UI.rb:132:in `loop'
+[Modern Quest System + UI] 003_Quest_UI.rb:132:in `pbScene'
+[Modern Quest System + UI] 003_Quest_UI.rb:314:in `pbStartScreen'
+[Modern Quest System + UI] 003_Quest_UI.rb:323:in `pbViewQuests'
+[Voltseon's Pause Menu] 005_VoltseonMenu_Entries.rb:132:in `block in selected'
+
+=================
+
+[2023-12-16 17:38:58 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `textpoz' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:627:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1620:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-16 17:40:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `font' for nil:NilClass
+
+Backtrace:
+MessageConfig:420:in `pbSetSmallFont'
+[BW Summary Screen] BW Summary Screen.rb:621:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1617:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+
+=================
+
+[2023-12-16 20:33:36 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: ArgumentError
+Message: Invalid argument passed to method.
+Expected #<Pokemon EEVEE Lv.10> to be one of [Symbol, GameData::Species, String], but got Pokemon.
+
+Backtrace:
+Validation:29:in `validate'
+Species:55:in `get_species_form'
+[ZUD Mechanics] Data_Species.rb:89:in `footprint_filename'
+[BW Summary Screen] BW Summary Screen.rb:622:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:555:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1620:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+
+=================
+
+[2023-12-16 20:44:09 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: TypeError
+Message: no implicit conversion of nil into String
+
+Backtrace:
+RPG_Cache:35:in `+'
+RPG_Cache:35:in `load_bitmap'
+[BW Summary Screen] BW Summary Screen.rb:623:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:555:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1619:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+
+=================
+
+[2023-12-16 21:26:56 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [Essentials Deluxe]
+Exception: NameError
+Message: undefined local variable or method `flase' for Settings:Module
+
+Backtrace:
+[Essentials Deluxe] Settings.rb:28:in `<module:Settings>'
+[Essentials Deluxe] Settings.rb:4:in `<main>'
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section373:28:in `mainFunctionDebug'
+Section373:18:in `block in mainFunction'
+
+=================
+
+[2023-12-16 21:48:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: Errno::ENOENT
+Message: File Graphic/Pokemon/Footprints/Eevee not found.
+
+Backtrace:
+RPG_Cache:118:in `initialize'
+RPG_Cache:118:in `initialize'
+RPG_Cache:42:in `new'
+RPG_Cache:42:in `load_bitmap'
+[BW Summary Screen] BW Summary Screen.rb:627:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:555:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:225:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1629:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+
+=================
+
+[2023-12-17 09:27:21 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NoMethodError
+Message: undefined method `clear' for nil:NilClass
+
+Backtrace:
+[Arcky's Text Wrapping] Main.rb:2:in `arckyTextWrapping'
+[BW Summary Screen] BW Summary Screen.rb:577:in `drawPageOne'
+[BW Summary Screen] BW Summary Screen.rb:554:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:224:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1616:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+
+=================
+
+[2023-12-17 10:31:03 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `overlay2' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:722:in `drawPageTwo'
+[ZUD Mechanics] UI_Summary.rb:43:in `drawPageTwo'
+[BW Summary Screen] BW Summary Screen.rb:558:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:1603:in `block in pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1541:in `loop'
+[BW Summary Screen] BW Summary Screen.rb:1541:in `pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1621:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+
+=================
+
+[2023-12-17 11:03:37 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `overlay2' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:640:in `drawPageOneEgg'
+[BW Summary Screen] BW Summary Screen.rb:466:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:227:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1615:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-17 11:16:08 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `base' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:659:in `drawPageOneEgg'
+[BW Summary Screen] BW Summary Screen.rb:466:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:227:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1609:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-18 14:44:06 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Error in Plugin: [BW Summary Screen]
+Exception: SyntaxError
+Message: [BW Summary Screen] BW Summary Screen.rb:1684: syntax error, unexpected end-of-input, expecting `end'
+  end
+     ^
+
+
+Backtrace:
+Section008:653:in `eval'
+Section008:653:in `block (2 levels) in runPlugins'
+Section008:643:in `each'
+Section008:643:in `block in runPlugins'
+Section008:634:in `each'
+Section008:634:in `runPlugins'
+Section373:28:in `mainFunctionDebug'
+Section373:18:in `block in mainFunction'
+Section014:80:in `pbCriticalCode'
+Section373:18:in `mainFunction'
+
+=================
+
+[2023-12-18 14:51:05 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `textpos2' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:667:in `drawPageOneEgg'
+[BW Summary Screen] BW Summary Screen.rb:466:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:227:in `pbStartScene'
+[BW Summary Screen] BW Summary Screen.rb:1634:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+[Essentials Deluxe] Miscellaneous.rb:268:in `block in pbPokemonScreen'
+[Essentials Deluxe] Miscellaneous.rb:216:in `loop'
+[Essentials Deluxe] Miscellaneous.rb:216:in `pbPokemonScreen'
+
+=================
+
+[2023-12-18 15:55:07 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `showNature' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:775:in `drawPageTwo'
+[ZUD Mechanics] UI_Summary.rb:43:in `drawPageTwo'
+[BW Summary Screen] BW Summary Screen.rb:545:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:1605:in `block in pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1543:in `loop'
+[BW Summary Screen] BW Summary Screen.rb:1543:in `pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1623:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
+
+=================
+
+[2023-12-18 19:26:45 +0800]
+[Pokémon Essentials version 20.1]
+[v20.1 Hotfixes 1.0.7]
+
+Exception: NameError
+Message: undefined local variable or method `showNature' for #<PokemonSummary_Scene>
+
+Backtrace:
+[BW Summary Screen] BW Summary Screen.rb:775:in `drawPageTwo'
+[ZUD Mechanics] UI_Summary.rb:43:in `drawPageTwo'
+[BW Summary Screen] BW Summary Screen.rb:545:in `drawPage'
+[ZUD Mechanics] UI_Summary.rb:16:in `drawPage'
+[BW Summary Screen] BW Summary Screen.rb:1605:in `block in pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1543:in `loop'
+[BW Summary Screen] BW Summary Screen.rb:1543:in `pbScene'
+[BW Summary Screen] BW Summary Screen.rb:1623:in `pbStartScreen'
+[Essentials' UI] UI_Party.rb:693:in `pbSummary'
+[Essentials' UI] UI_Party.rb:1319:in `block in <main>'
