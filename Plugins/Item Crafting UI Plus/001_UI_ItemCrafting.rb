@@ -23,7 +23,7 @@ class ItemCraft_Scene
   end
   
   def pbStartScene
-    addBackgroundPlane(@sprites,"bg","Crafting/bg",@viewport)
+    addBackgroundPlane(@sprites,"bg",$bgPath,@viewport)
     @sprites["base"] = IconSprite.new(0,0,@viewport)
     @sprites["base"].setBitmap("Graphics/Pictures/Crafting/base")
     @sprites["base"].ox = @sprites["base"].bitmap.width/2

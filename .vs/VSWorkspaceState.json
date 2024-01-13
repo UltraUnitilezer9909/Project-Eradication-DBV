@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\Plugins",
-    "\\Plugins\\BW Summary Screen"
+    "\\Plugins\\BW Summary Screen",
+    "\\Plugins\\MQS",
+    "\\Plugins\\Z - Zeta\u0027s Multi Script Plug",
+    "\\Plugins\\ZUD Mechanics\\[002] UI"
   ],
-  "SelectedNode": "\\Plugins\\BW Summary Screen\\BW Summary Screen.rb",
+  "SelectedNode": "\\Plugins\\MQS\\002_Quest_Main.rb",
   "PreviewInSolutionExplorer": false
 }

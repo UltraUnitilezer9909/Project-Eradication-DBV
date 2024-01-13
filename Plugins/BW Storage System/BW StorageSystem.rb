@@ -594,7 +594,7 @@ class PokemonStorageScene
     @sprites = {}
     @choseFromParty = false
     @command = command
-    addBackgroundPlane(@sprites, "background", "Storage/bg", @bgviewport)
+    addBackgroundPlane(@sprites, "background", $bgPath, @bgviewport)
     @sprites["box"] = PokemonBoxSprite.new(@storage, @storage.currentBox, @boxviewport)
     @sprites["boxsides"] = IconSprite.new(0, 0, @boxsidesviewport)
     @sprites["boxsides"].setBitmap("Graphics/Pictures/Storage/overlay_main")

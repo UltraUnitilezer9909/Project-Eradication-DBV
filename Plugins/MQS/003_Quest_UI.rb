@@ -72,7 +72,7 @@ class QuestList_Scene
     @sprites = {}
     @base   = Color.new(255, 255, 255)
     @shadow = Color.new(165, 165, 173)
-    addBackgroundPlane(@sprites,"bg","UI/QuestUI/bg_1",@viewport)
+    addBackgroundPlane(@sprites,"bg",$bgPath,@viewport)
     @sprites["base"] = IconSprite.new(0,0,@viewport)
     @sprites["base"].setBitmap("Graphics/Pictures/UI/QuestUI/bg_2")
     @sprites["page_icon1"] = IconSprite.new(0,4,@viewport)

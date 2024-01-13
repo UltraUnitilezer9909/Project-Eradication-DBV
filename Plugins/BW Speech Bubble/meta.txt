@@ -1,0 +1,5 @@
+Name       = BW Speech Bubble
+Version    = 1.0.1
+Essentials = 21
+Website    = https://reliccastle.com/resources/featured/
+Credits    = NonoNever,  Carmaniac

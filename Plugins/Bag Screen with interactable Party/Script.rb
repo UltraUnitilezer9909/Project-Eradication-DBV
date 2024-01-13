@@ -483,7 +483,7 @@ class PokemonBag_Scene
     @sprites["bg"] = IconSprite.new(0, 0, @viewport)
     #@sprites["bg"].setBitmap("Graphics/Pictures/UI/BagUI/bg")
     #addbgPlane(@sprites, "bg", "Graphics/Pictures/UI/BagUI/bg", @viewport)
-    addBackgroundPlane(@sprites, "bg", "UI/BagUI/bg", @viewport) #"Trainer Card/bg"
+    addBackgroundPlane(@sprites, "bg", $bgPath, @viewport) #"Trainer Card/bg"
     
     if BagScreenWiInParty::BGSTYLE == 1 # BW Style
       if $player.female?
