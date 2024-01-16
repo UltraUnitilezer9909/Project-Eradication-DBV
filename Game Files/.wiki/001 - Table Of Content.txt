@@ -1,0 +1,5 @@
+Table of Content
+    - General: General imformation about the game
+    - Dev: Information for the development of the game
+        - Region Map (Interstellar Map)
+    - Game: For player to get Information on "how to get" or guides

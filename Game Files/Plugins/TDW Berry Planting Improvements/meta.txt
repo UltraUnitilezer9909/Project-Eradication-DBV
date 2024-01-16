@@ -1,0 +1,6 @@
+Name       = TDW Berry Planting Improvements
+Version    = 1.8.1
+Optional   = Arcky's Region Map,1.1
+Optional   = TDW Berry Core and Dex,1.1
+Essentials = 20.1
+Credits    = wrigty12, Arcky, Ulithium_Dragon

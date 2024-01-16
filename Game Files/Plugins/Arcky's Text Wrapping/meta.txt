@@ -1,0 +1,6 @@
+﻿Name       = Arcky's Text Wrapping
+Version    = 1.0
+Essentials = 20.1
+Credits    = Arcky
+
+#NOTE: DO NOT ZETAFY THIS PLUGIN!!not

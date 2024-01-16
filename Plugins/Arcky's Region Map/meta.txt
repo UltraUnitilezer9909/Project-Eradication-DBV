@@ -1,7 +1,0 @@
-﻿Name       = Arcky's Region Map
-Version    = 1.4.0
-Essentials = 20.1
-Optional   = Modern Quest System + UI, 1.0
-Credits    = Arcky
-
-#IMPORTANT: only edit the 001_RegionMap_Settings.rb file. Use Notepad++ or any similar code editors to change settings that are in this file.

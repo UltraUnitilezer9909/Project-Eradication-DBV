@@ -1,0 +1,5 @@
+Name = BW PokéMart Screen
+Version = 3.0.0
+Essentials = 20.1
+Credits = DeepBlue PacificWaves
+Website = https://reliccastle.com/resources/904/

@@ -1,0 +1,5 @@
+Name         = <> Zeta's Multi Scripts (FakeMapNameWindow, AchievementWindow)
+Essentials   = 20.1
+Version      = 1.0
+Website      = https://reliccastle.com/threads/3930
+Credits      = Zeta, Arcky, You

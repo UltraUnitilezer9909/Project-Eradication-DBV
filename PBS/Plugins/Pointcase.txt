@@ -1,9 +1,0 @@
-﻿#-------------------------------
-[POINTCASE]
-Name = B.Point Case
-NamePlural = B.Point Cases
-Pocket = 8
-Price = 0
-FieldUse = Direct
-Flags = KeyItem
-Description = A case for holding BP obtained. It holds up to 9,999 BP.

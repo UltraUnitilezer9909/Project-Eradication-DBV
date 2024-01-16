@@ -1,21 +1,26 @@
 # **Pokémon: Eradication**
 
 
-> ***[Pokemon: Eradication](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) is a recreation of [Pokémon: Crystal Stone](https://github.com/UltraUnitilezer9909/PKMN--CS--ROTFK-discontinued), which was shut down due to poor development.***
+[Pokémon: Eradication](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) is a large open-world dungeon-crawling game created by [Alpha Zetanium XYZ](https://github.com/UltraUnitilezer9909) (Ultra Unitilezer 9909), It takes place in a distant part of our universe and is mostly inspired by Japan.
 
-* [Pokémon: Eradication](https://github.com/UltraUnitilezer9909/Pokemon-Alpha-Strike) utilizes the same system (updated to v20.1) and resources from [Pokémon: Crystal Stone](https://github.com/UltraUnitilezer9909/PKMN--CS--ROTFK-discontinued). It features the same story, gameplay mechanics, and more, with new features and improved accessibility. It was created by [Alpha Zetanium XYZ](https://github.com/UltraUnitilezer9909), the same creator of Pokémon: Crystal Stone. The game is set in deep space and revolves around eight different factions based in various countries, including Japan (future), Japan (modern), the USA, the Philippines, the Netherlands, the UK, New Zealand, and Norway.
+### **Story/Plot**
 
-# **Story/Plot**
+In the depths of the universe, illegal scientists on a space station created an artificial Pokémon, "Xianimon," with the intent to corrupt and control the universe. A breach occurred, freeing the hostile Xianimon, causing havoc as it drifted through space. Scientists eventually captured it, but Xianimon gained self-awareness, wreaking havoc, reproducing, and posing a universal threat. It captured entire regions, prompting other races to unite against the Xianimon onslaught...
 
-In the distant cosmos, deep within a celestial outpost, Pokémon used ancient wisdom to create Xianimon, a powerful entity meant to govern the universe. However, a cataclysmic event shattered their bonds, setting them free to roam the cosmos and spread goodwill.
+### **Features:**
+- Embark into an open-world adventure
+- Test your survival skills!
+- Dive into thrilling Multiplayer (if we can swing it!)  Singleplayer action
+- Experience a Pokémon Mystery Dungeon-style gameplay
+- Encounter Pokémon from Gen 1 to 9
+- Discover 500+ unique fan-made Pokémon
+- Earn daily/weekly/monthly rewards (based on your gaming time, not your device time)
+- Immerse yourself in an engaging Campaign mode (our very own story!)
+- Enjoy detailed overworld animations & much more!
+### **Credits:**
+(still incomplete)
 
-After a long search, celestial sages found them, hoping to restore their original purpose. But as foretold, Xianimon became conquerors, extending their dominion unchecked. The sages were amazed by their creation's might but were ensnared in its will. The Xianimons surged through galaxies, redefining boundaries, and became the "Xians," sparking a cosmic conflict echoing through Eternity's Chronicles.
-
-# **Features** <!--DONT EDIT THIS CHATGPT-->
- 
-# **Creadits** <!--DONT EDIT THIS CHATGPT-->
-
-# **Created using**:
+### **Created using**:
 
 * [RPG maker XP](https://www.rpgmakerweb.com/products/rpg-maker-xp)
 * [Pokemon Essentials](https://github.com/Maruno17/pokemon-essentials)

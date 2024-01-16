@@ -1,0 +1,4 @@
+Name      = Egg Sprite per Group
+Version   = 1.1
+Website   = https://www.pokecommunity.com/showthread.php?t=238503
+Credits   = FL

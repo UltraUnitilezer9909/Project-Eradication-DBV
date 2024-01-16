@@ -1,6 +1,0 @@
-Name       = Item Crafting UI Plus
-Version    = 2.0.0
-Essentials = 20.1
-Conflicts  = Item Crafting UI
-Website    = https://reliccastle.com/resources/1265/
-Credits    = ThatWelshOne_, Vendily
