@@ -197,10 +197,11 @@ module SysFixData
     0 => "???", # 1
     1 => "Haru", # 0
     2 => "Sakura", # 11
-    3 => "Kaori", # 1
-    4 => "Riko", # 5
+    3 => "Kaori", # 14
+    4 => "Ayumi", # 5
     5 => "Hikaru", # 8 
     6 => "Kohana", # 15
+    7 => "Ryo"
   }
   # === === === === === #
 
@@ -218,5 +219,7 @@ module SysFixData
   # === # File Path # === #
   $bgPath = "UI/bg"
   $bgPath2 = "Graphicc/Pictures/#{$bgPath}"
+  # === === === === === #
+  # === # Move Route # === #
   # === === === === === #
 end

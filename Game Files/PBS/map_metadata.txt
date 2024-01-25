@@ -151,6 +151,10 @@ MapPosition = 0,14,6
 BattleBack = field
 MapSize = 2,1101
 #-------------------------------
+[033]   # Earth
+Name = Earth
+DarkMap = true
+#-------------------------------
 [034]   # Ice Cave
 Name = Route 3
 Bicycle = true
@@ -204,7 +208,7 @@ BicycleAlways = true
 MapPosition = 0,11,7
 MapSize = 1,111
 #-------------------------------
-[042]   # \PN's PT Ship
+[042]   # ~$ \PN's PT Ship
 Name = \PN's PT Ship
 Bicycle = false
 BicycleAlways = false

@@ -12,13 +12,13 @@ class PokemonRegionMap_Scene
         questName.push($quest_data.getName(name[3].id))
         if questName.length >= 2
           @questNames = questName
-          value = "#{questName.length} Active Quests"
+          value = _INTL("#{questName.length} Active Quests")
         else
           @questNames = questName 
-          value = "Quest: #{questName[0]}"
+          value = _INTL("Quest: #{questName[0]}")
         end
       else 
-        value = "Invalid Quest Position"
+        value = _INTL("Invalid Quest Position")
       end
     end
     updateButtonInfo
@@ -67,11 +67,11 @@ class PokemonRegionMap_Scene
         shadow = (ARMSettings::QUEST_INFO_SHADOW).to_rgb15
       end 
       description = $quest_data.getStageDescription(quest.id, quest.stage)
-      description = "Not Given" if description.empty?
+      description = _INTL("Not Given") if description.empty?
       location = $quest_data.getStageLocation(quest.id, quest.stage)
       location = "Unknown" if location.empty?
-      questInfoText[0] = "<c2=#{base}#{shadow}>Task: #{description}"
-      questInfoText[1] = "<c2=#{base}#{shadow}>Location: #{location}"  
+      questInfoText[0] = "<c2=#{base}#{shadow}>Task: #{pbGetMessageFromHash(SCRIPTTEXTS, description)}"
+      questInfoText[1] = "<c2=#{base}#{shadow}>Location: #{pbGetMessageFromHash(SCRIPTTEXTS, location)}"  
       @sprites["mapbottom"].questName = ["Quest: #{name}", @sprites["previewBox"].width]
       if !@sprites["locationText"]
         @sprites["locationText"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
@@ -101,7 +101,7 @@ class PokemonRegionMap_Scene
     if @questNames && @questNames.length >= 2
       choice = pbMessageMap(_INTL("Which quest would you like to view info about?"), 
       (0...@questNames.size).to_a.map{|i| 
-        next _INTL("#{@questNames[i]}")
+        next "#{pbGetMessageFromHash(SCRIPTTEXTS, @questNames[i])}"
       }, -1, nil, lastChoiceQuest) { pbUpdate }
       input = choice != -1
       quest = questInfo[choice][3]

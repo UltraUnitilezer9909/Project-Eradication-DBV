@@ -5,7 +5,7 @@ class PokemonRegionMap_Scene
       @sprites["previewBox"].z = 26
       @sprites["previewBox"].visible = false
     end 
-    return if @mode == 1
+    return if @mode != 0 && @mode != 2
     case @mode
     when 0
       preview = "LocationPreview/mapLocBox#{@useAlt}"

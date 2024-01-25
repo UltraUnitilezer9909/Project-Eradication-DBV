@@ -22,15 +22,15 @@
 module ARMLocationPreview
   # Region0
   LappetTown = {
-    description: "A fairly old and loud town. \nIt's a big and not so pretty place.", # \n or <br> can be used to add a line break.
-    south: [13, 20],
+    description: _INTL("A fairly old and loud town. \nIt's a big and not so pretty place."), # \n or <br> can be used to add a line break.
+    south: [13, 13],
     north: [13, 11],
     west: [12, 12],
     icon: "LappetTown"
   }
 
   Route1 = {
-    description: "<ac>The first Route in the Region and a home to Kurt.</ac>", # <ac>text</ac> can be used to center text horizontally.
+    description: _INTL("<ac>The first Route in the Region and a home to Kurt.</ac>"), # <ac>text</ac> can be used to center text horizontally.
     south: [13, 12],
     north: [13, 10]
   }
@@ -45,13 +45,13 @@ module ARMLocationPreview
     # used for both locations
     east: [15, 10],
     west: [12, 10],
-    description_13_10: "The biggest City in Essen. It has a department store!",
-    description_14_10: "The biggest City in Essen. It has a department store and what does it not have?",
+    description_13_10: _INTL("The biggest City in Essen. It has a department store!"),
+    description_14_10: _INTL("The biggest City in Essen. It has a department store and what does it not have?"),
     icon: "LappetTown"
   }
 
   Route2 = {
-    description: "A route with a lot of bridges.",
+    description: _INTL("A route with a lot of bridges."),
     east_14_8: [15, 8],
     northEast_14_9: [15, 8],
     south: [13, 10]
@@ -61,87 +61,87 @@ module ARMLocationPreview
     west: [14, 8],
     east: [16, 8],
     north: [15, 7],
-    description: "Another Small Town. And a lot of text to fill the space here up to 3 lines yes yes baguette!",
+    description: _INTL("Another Small Town. And a lot of text to fill the space here up to 3 lines yes yes baguette!"),
     icon: "LappetTown"
   }
 
   NaturalPark = {
     west: [15, 8],
-    description: "A big Park and it's natural."
+    description: _INTL("A big Park and it's natural.")
   }
 
   Route3 = {
     west_14_6: [13, 6],
-    east_14_6: "Ice Cave",
+    east_14_6: _INTL("Ice Cave"),
     west_15_6: [13, 6],
     south_15_6: [15, 8],
     south_15_7: [15, 8],
-    north_15_7: "Ice Cave",
-    description: "A Route full with Trainers.",
-    description_15_6: "An Icy Cold Cave located here... And still a lot of Trainers!"
+    north_15_7: _INTL("Ice Cave"),
+    description: _INTL("A Route full with Trainers."),
+    description_15_6: _INTL("An Icy Cold Cave located here... And still a lot of Trainers!")
   }
 
   IngidoPlateau = {
-    description: "Once a trainer has collected all 8 Badges, they are allowed to enter the League and challenge the E4 and Champion!",
+    description: _INTL("Once a trainer has collected all 8 Badges, they are allowed to enter the League and challenge the E4 and Champion!"),
     west: [12, 6],
     east: [14, 6]
   }
 
   Route4 = {
-    description: "The start of the Cycling Bridge.",
+    description: _INTL("The start of the Cycling Bridge."),
     south_11_6: [11, 7],
     east: [13, 6],
     southWest_12_6: [11, 7]
   }
 
   Route5 = {
-    description: "The Cycling Bridge itself!",
+    description: _INTL("The Cycling Bridge itself!"),
     north: [11, 6],
     south: [11, 10]
   }
 
   Route6 = {
-    description: "The end of the Cycling Bridge",
+    description: _INTL("The end of the Cycling Bridge"),
     north_11_10: [11, 7],
     northWest_12_10: [11, 7],
     east: [13, 10]
   }
 
   Route7 = {
-    description: "A rocky route with mountains and caves and stuff."
+    description: _INTL("A rocky route with mountains and caves and stuff.")
   }
 
   BattleFrontier = {
     south: [18, 17],
-    west: "Rock Cave",
-    description: "Challenge the Brains of the Frontier! Which are just Humans."
+    west: _INTL("Rock Cave"),
+    description: _INTL("Challenge the Brains of the Frontier! Which are just Humans.")
   }
 
   SafariZone = {
-    description: "A zone to go on Safari. What else would you do here?",
+    description: _INTL("A zone to go on Safari. What else would you do here?"),
     east: [13, 12]
   }
 
   Route8 = {
-    description: "Is this even a Route? It's just water and a waterfall.",
+    description: _INTL("Is this even a Route? It's just water and a waterfall."),
     north: [13, 12]
   }
 
   BerthIsland = {
-    description: "The island which is home to the Pokémon named Deoxys."
+    description: _INTL("The island which is home to the Pokémon named Deoxys.")
   }
 
   FaradayIsland = {
-    description: "The island which is home to the Pokémon named Mew and it's shiny!"
+    description: _INTL("The island which is home to the Pokémon named Mew and it's shiny!")
   }
 
   # Region1
   Here = {
-    description: "There's something here but I don't know what!"
+    description: _INTL("There's something here but I don't know what!")
   }
 
   #Region2
   ViraidanCity = {
-    description: "All there's known about this place is that they sell Baguette!"
+    description: _INTL("All there's known about this place is that they sell Baguette!")
   }
 end    

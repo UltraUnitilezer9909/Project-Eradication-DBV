@@ -1,10 +1,10 @@
 #=====================================================================
-# Advance Texting by Zetanium XYZ (Ultra Unitilezer 9909)
+# Advance Eventing by Zetanium XYZ (Ultra Unitilezer 9909)
 # Req: BW Speech buble
 #=====================================================================
 # Parameters: (not finished)
-#   eventId: The event's ID (the one that is talking) *
-#   textType: 1 if bubble; 2 if normal *
+#   eventId: The event's ID (the one that is talking)
+#   textType: 1 if bubble; 2 if normal
 #   color: Text color (Hex) 
 #     - Grey: 0
 #     - Cresent: 1
@@ -26,31 +26,56 @@
 #     - Candy Magenta: 17
 #   actor: The name of the talking character
 #   text: The text to display
+#   choiceC = a list of choice(s) when the text is played (maximum of 4, must be an array)
+#   ifCancel = default choice when the choice is cancel (-1 for Canceled (condition), 0 if not cancelable, 1 for Choice 1, 2 for Choice 2, 3 for Choice 3, 4 for Choice 4)
+#   eventIdAnie = an
 #   transparency: Text transparency
 #   positionText: Text position (0 for left, 1 for center, 2 for right)
 #   positionBox: Window position (0 for bottom, 1 for middle, 2 for top)
 #   window: Visibility of the graphical window (true for visible, false for invisible)
 #=====================================================================
-def pbTextz(eventId, textType, color = nil, actor = nil, text = "<empty text>", choiceC = [], ifCancel = 0, transparency = 255, positionText = 2, positionBox = 3, window = true)
-  positionTextVar = {1 => "<ar>", 2 => "<ac>"}[positionText] || ""
+def pbTextz(eventId = 0, textType = 0, color = nil, actor = nil, text = "<empty text>", choiceC = [], ifCancel = 0, eventIdAnie = nil, animationId = nil, transparency = 255, positionText = 2, positionBox = 3, window = true)
+  return pbMessage("No command given") if !eventId && !textType && !color && !actor && !text && !choiceC && !ifCancel && !eventIdAnie && !animationId && !transparency && !positionText && !positionBox && !window
+  positionTextVar = { 1 => "<ar>", 2 => "<ac>" }[positionText] || ""
   transparencyVar = (0..255).cover?(transparency) ? "<o=#{transparency}>" : ""
-  actorVar = actor == "\\PN" ? "<b>#{$player.name}:\\n</b> " : (actor.nil? ? "" : "<b>#{actor}:\\n</b> ") 
+  actorVar = actor == "\\PN" ? "<b>#{$player.name}:\\n</b> " : (actor.nil? ? "" : "<b>#{actor}:\\n</b> ")
   colorVar = "<c3=#{$zColorsHex[color.to_i.between?(0, 18) ? color * 2 + 1 : 12 * 2 + 1]},#{$zColorsHex[color.to_i.between?(0, 18) ? color * 2 : 12 * 2]}>" if color
-  pbCallBub((textType < 0 || textType > 2) ? 1 : textType, (eventId < 0) ? 1 : eventId) if textType != nil || textType == 0  #only activates if not nil
-  $game_system.message_position = (1..3).cover?(positionBox) ? positionBox : 3; $game_system.message_frame = window.nil? ? 0 : (window ? 0 : 1)
-  textVar = text == "..." ? _INTL("<outln2>\\w[bw speech2]<fn=Power Green Narrow>{1}{2}{3}{4}\\ts[{5}]...</outln2></ar></ac></c3></fs></fn>", colorVar, transparencyVar, positionTextVar, actorVar, 6) : 
-                            "<outln2>\\w[bw speech2]<fn=Power Green Narrow>#{colorVar}#{transparencyVar}#{positionTextVar}#{actorVar}#{text}</outln2></ar></ac></c3></fs></fn>"
-  $choice = nil if $choice != nil
-  if choiceC == [] || choiceC == nil
-     pbMessage(textVar)
-  else
-    $choice = pbMessage(textVar, choiceC, ifCancel)
-  end # -1 = Canceled; 0 = Choice 1; 1 = Choice 2; 2 = Choice 3; 3 = Choice 4
+  pbCallBub((textType < 0 || textType > 2) ? 1 : textType, (eventId < 0) ? 1 : eventId) if textType != nil || textType == 0 && eventId && textType ## #only activates if not nil
+  $game_system.message_position = (1..3).cover?(positionBox) ? positionBox : 3
+  $game_system.message_frame = window.nil? ? 0 : (window ? 0 : 1)
+  if eventIdAnie && animationId
+    case eventIdAnie
+    when "X", "x" then get_character(eventId).animation_id = animationId
+    when 0 then get_player.animation_id = animationId
+    when -1 then get_self.animation_id = animationId
+    else
+      get_character(eventIdAnie).animation_id = animationId if eventIdAnie != 0 && eventIdAnie != -1
+    end
+  end
+  if text # if text is given
+    textVar = text == "..." ? _INTL("<outln2>\\w[bw speech2]<fn=Power Green Narrow>{1}{2}{3}{4}\\ts[6]...</outln2></ar></ac></c3></fs></fn>", colorVar, transparencyVar, positionTextVar, actorVar) :
+                              "<outln2>\\w[bw speech2]<fn=Power Green Narrow>#{colorVar}#{transparencyVar}#{positionTextVar}#{actorVar}#{text}</outln2></ar></ac></c3></fs></fn>"
+    $choice = choiceC.nil? || choiceC.empty? ? nil : pbMessage(textVar, choiceC, ifCancel)
+    pbMessage(textVar) unless $choice
+  end
   $game_system.message_position, $game_system.message_frame = 0, 0
 end
 #=====================================================================
 def pbRetrunColor(color)
   return "<c3=#{$zColorsHex[color * 2 + 1]},#{$zColorsHex[color * 2]}>"
+end
+#=====================================================================
+# Advance Path-finding
+# req: VASP
+#=====================================================================
+def pbAdvancePathFinding(type = nil, event1 = $game_player, event2 = nil, x = 0, y = 0, wait = false)
+  return pbMessage("No command given") if !type && !event1 && !event2 && !x && !y
+  case type
+  when 0 then move_to_location(event1, x, y, wait)
+  when 1 then move_to_event(event1, event2, wait)
+  when 2 then look_at_location(event1, x, y)
+  when 3 then look_at_event(event1, event2)
+  end
 end
 #=====================================================================
 # Cutscene Mode by Zetanium XYZ (Ultra Unitilezer 9909)

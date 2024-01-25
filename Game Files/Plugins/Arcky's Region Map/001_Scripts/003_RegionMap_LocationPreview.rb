@@ -20,7 +20,7 @@ class PokemonRegionMap_Scene
     # Reset the line count to the default value.
     @lineCount = 1
     # update the Current Location Name
-    @curLocName = name = pbGetMapLocation(@mapX, @mapY)
+    name = @curLocName = pbGetMapLocation(@mapX, @mapY)
 
     # assign the sprites and clear their content.
     spriteBox = @sprites["previewBox"]
@@ -38,16 +38,16 @@ class PokemonRegionMap_Scene
 
     # by default the Alternative Preview Box is used.
     @useAlt = "Alt"
-    
-    mapInfo = @mapInfo[@curLocName.gsub(" ", "").to_sym]
-    if !mapInfo.nil? && mapInfo[:mapname] == mapInfo[:realname]
-      name = mapInfo[:mapname].gsub(" ", "")
-      locDescr = "No information given."
+    mapInfo = @mapInfo[@curMapLoc.gsub(" ", "").to_sym] unless @curMapLoc.nil?
+    if !mapInfo.nil? && mapInfo[:mapname] == pbGetMessageFromHash(LOCATIONNAMES, mapInfo[:realname])
+      name = mapInfo[:realname].gsub(" ", "")
+      locDescr = _INTL("No information given.")
+      locDescr = pbGetMessageFromHash(SCRIPTTEXTS, locDescr)
       if ARMLocationPreview.const_defined?(name)
         locObject = ARMLocationPreview.const_get(name)
         key = "#{:description}_#{@mapX}_#{@mapY}".to_sym
         key = :description unless locObject.key?(key)
-        locDescr = locObject[key] unless locObject[key].nil?
+        locDescr = pbGetMessageFromHash(SCRIPTTEXTS, locObject[key]) unless locObject[key].nil?
         if locObject[:icon]
           spriteIcon.setBitmap(findUsableUI("LocationPreview/MiniMaps/map#{locObject[:icon]}"))
           spriteIcon.x = (spriteBox.x + (spriteBox.width - (20 + spriteIcon.width))) + ARMSettings::ICON_OFFSET_X
@@ -66,9 +66,9 @@ class PokemonRegionMap_Scene
           if loc.is_a?(Array) && !loc.nil?
             value = @mapInfo.find { |_, location| location[:positions].any? { |pos| pos[:x] == loc[0] && pos[:y] == loc[1] } }
             if value 
-              name = value[1][:mapname]
+              name = pbGetMessageFromHash(SCRIPTTEXTS, value[1][:mapname])
             else 
-              name = "Invalid"
+              name = pbGetMessageFromHash(SCRIPTTEXTS, _INTL("Invalid Location"))
             end
           else
             name = loc 
@@ -94,7 +94,7 @@ class PokemonRegionMap_Scene
       end 
     else 
       if ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS && name == "???"
-        locDescr = ARMSettings::UNVISITED_MAP_INFO_TEXT
+        locDescr = pbGetMessageFromHash(SCRIPTTEXTS, ARMSettings::UNVISITED_MAP_INFO_TEXT)
       else     
         return false
       end

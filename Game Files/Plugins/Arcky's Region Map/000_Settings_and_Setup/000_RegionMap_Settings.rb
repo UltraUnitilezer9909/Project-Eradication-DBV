@@ -79,12 +79,12 @@ module ARMSettings
   #    example: [0, 10]; when the cursor is between 0 and 10 (including 0 and 10) the name of the region changes (depending on the X value as well).
   # - Region District Name; this is the name the script will use only when the cursor is inside X and Y range.
   REGION_DISTRICTS = [
-    [0, [9, 12], [8, 11], "West Essen"],
-    [0, [9, 19], [12, 15], "South Essen"],
-    [0, [9, 19], [4, 7], "North Essen"],
-    [0, [15, 19], [7, 11], "East Essen"],
-    [0, [13, 14], [8, 11], "Central Essen"],
-    [1, [10, 20], [5, 15], "Central Tiall"]
+    [0, [9, 12], [8, 11], _INTL("West Essen")],
+    [0, [9, 19], [12, 15], _INTL("South Essen")],
+    [0, [9, 19], [4, 7], _INTL("North Essen")],
+    [0, [15, 19], [7, 11], _INTL("East Essen")],
+    [0, [13, 14], [8, 11], _INTL("Central Essen")],
+    [1, [10, 20], [5, 15], _INTL("Central Tiall")]
   ]
 
   #===============================================================================
@@ -92,7 +92,7 @@ module ARMSettings
   #===============================================================================
   # Set this to true if you want the name of a location when hovered over in the Region Map being replaced with "???" if it has not been visited yet.
   # Set this to false if you don't want this setting. 
-  NO_UNVISITED_MAP_INFO = true   
+  NO_UNVISITED_MAP_INFO = true     
 
   # Change this to whatever text you want the map to show instead of the Location's name if it hasn't been visited yet (only applies if above's setting is set to true).
   UNVISITED_MAP_TEXT = "???"
@@ -105,11 +105,16 @@ module ARMSettings
   # If this map is then visited, the Point of Interest will be revealed, otherwise it'll revealed together with the location.
   # For example: if Cedolan City has a Point of Interest named "Cedolan Dept. Store", if Cedolan City has been visited, both "Cedolan City" and "Cedolan Dept. Store" are shown for that location.
   # You can prevent the Point of Interest "Cedolan Dept. Store" being revealed by linking it to a Game map (14 in this case). Only once Game map with ID 14 is visited, the Point of Interest is revealed.
+  # Be careful the name here must match the POI, it's case sensitive!
   LINK_POI_TO_MAP = {
+    "Oak's Lab" => 4,
+    "Kurt's House" => 6,
+    "Cedolan Dept. Store" => 14,
     "Ice Cave" => 34,
-    "Cedolan Dept. Store" => 14
+    "Rock Cave" => 49,
+    "Diving area" => 70
   }
-
+  
   #===============================================================================
   # Highlight Opacity
   #===============================================================================
@@ -130,11 +135,11 @@ module ARMSettings
   # Set the name for each mode you want to display on the Region Map. 
   # Only change what's between the " ". quest and berry are modes that requires a plugin to be installed in order to be activated on the Region Map.
   MODE_NAMES = {
-    normal: "Normal Map",
-    fly: "Fly Map",
-    quest: "Quest Map", #requires the "Modern Quest System + UI" plugin to use.
-    berry: "Berry Map", #requires the "TDW Berry Planting Improvements" plugin by Authorwrigty12 to use.
-    roaming: "Roaming Map" #requires the "Roaming Icons" plugin by -FL- to use.
+    normal: _INTL("Normal Map"),
+    fly: _INTL("Fly Map"),
+    quest: _INTL("Quest Map"), #requires the "Modern Quest System + UI" plugin to use.
+    berry: _INTL("Berry Map"), #requires the "TDW Berry Planting Improvements" plugin by Authorwrigty12 to use.
+    roaming: _INTL("Roaming Map") #requires the "Roaming Icons" plugin by -FL- to use.
   }
 
   # Set this to true if you want to have a choice menu when you have 3 or more available modes (by default you won't have choice menu when 2 or 1).
@@ -275,7 +280,7 @@ module ARMSettings
 
   # Only used when the setting above is set to true. 
   # Default text when the location has not been visited yet.
-  UNVISITED_MAP_INFO_TEXT = "No information Available"
+  UNVISITED_MAP_INFO_TEXT = _INTL("No information Available")
   
   # Note: The Location Previews are numbered by the amount of lines they are meant for, 
   # If you change this to a higher number then make sure you have a bigger graphic.

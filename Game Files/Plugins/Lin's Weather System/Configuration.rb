@@ -6,7 +6,7 @@ module WeatherConfig
   # Set to false to use the Weather System.
   NO_WEATHER = false		# Default: false
 
-  # Set to false to use the Weather System.
+  # Set to true to show the weather on the Town Map.
   SHOW_WEATHER_ON_MAP = true	# Default: true
 
   # Set to true to use the computer's time. Will not work without Unreal Time System.
@@ -20,6 +20,30 @@ module WeatherConfig
   CHANGE_TIME_MIN = 1		# Default: 1
   CHANGE_TIME_MAX = 4		# Default: 4
 
+  # Set to true to if you want to force the weather to change when interacting with certain events.
+  # Use pbForceUpdateWeather in an event to update all zone weathers.
+  # Use pbForceUpdateZoneWeather(zone) in an event to update the weather of a zone.
+  FORCE_UPDATE = false		# Default: false
+
+  # Set to true to have the outdoor maps change with seasons.
+  # The map's appearance will update when leaving an indoor map.
+  SEASON_CHANGE = false		# Default: false
+
+  # Set to true if your game starts outdoors and want to show the season splash when going somewhere indoors.
+  # Set to false if your game starts indoors and want to show the season splash when going somewhere outdoors.
+  OUTDOOR = false		# Default: false
+
+  # Array with the ID of outside tilesets that will change with seasons.
+  OUTDOOR_TILESETS = [1, 2]
+
+  # The difference between the ID of the tileset defined for an outdoor map and it's season version.
+  # The difference has to be the same for any tileset defined in OUTDOOR_TILESETS.
+  # Use the same season tileset as the default outdoor map tileset and define the diference for that season as 0.
+  SUMMER_TILESET = 22
+  AUTUMN_TILESET = 24
+  WINTER_TILESET = 26
+  SPRING_TILESET = 0
+
 #===============================================================================
 # * Weather Substitute
 #===============================================================================
@@ -27,7 +51,7 @@ module WeatherConfig
   MAPS_SUBSTITUTE = {
 	:Snow => ["exclude", 1, 4],
 	:Blizzard => ["exclude", 1, 4],
-        :Sandstorm => ["include", 5]
+    :Sandstorm => ["include", 5]
   }
 
   # The ID of the weathers that will substitute the main when in one of the summer or sandstorm maps.
@@ -63,10 +87,35 @@ module WeatherConfig
   # The maps within each zone will have the same weather at the same time.
   # Each zone may have a different weather than the others.
   ZONE_MAPS = [
-    [1, 2, 3],
-    [4, 5],
-    [6]
+    [2, 5],
+    [7],
+    [21]
   ]
+#===============================================================================
+# * Map Display
+#===============================================================================
+  # Array of hashes to get each map's position in the Town Map. Each hash corresponds to a zone in ZONE_MAPS.
+  # In "Map Name" you have to put the name the Town Map displays for that point.
+  # In Map ID you have to put the ID of the map the name corresponds to, like in ZONE_MAPS.
+  MAPS_POSITIONS = [
+    #{"Map Name" => Map ID},
+    {"Lappet Town" => 2, "Route 1" => 5},
+    {"Cedolan City" => 7},
+    {"Route 2" => 21}
+  ]
+
+  # A hash for the plugin to display the proper weather image on the map.
+  # They have to be on Graphics/Pictures/Weather (in 20+) or Graphics/UI/Weather (in 21+).
+  WEATHER_IMAGE = {
+    :Rain => "mapRain",
+    :Storm => "mapStorm",
+    :Snow => "mapSnow",
+    :Blizzard => "mapBlizzard",
+    :Sandstorm => "mapSand",
+    :HeavyRain => "mapRain",
+    :Sun => "mapSun",
+    :Fog => "mapFog"
+  }
 #===============================================================================
 # * Season Probability Configuration
 #===============================================================================
