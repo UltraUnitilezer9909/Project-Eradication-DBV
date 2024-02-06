@@ -1,22 +1,29 @@
 class PokemonRegionMap_Scene  
+  def getPreviewName(x, y)
+    return getQuestName(x, y) if @mode == 2
+    return getBerryName(x, y) if @mode == 3
+    return getRoamingName(x, y) if @mode == 4
+  end 
+
   def getPreviewBox
     if !@sprites["previewBox"]
       @sprites["previewBox"] = IconSprite.new(0, 0, @viewport)
       @sprites["previewBox"].z = 26
       @sprites["previewBox"].visible = false
     end 
-    return if @mode != 0 && @mode != 2
+    return if @mode == 1 || @mode == 4
     case @mode
     when 0
       preview = "LocationPreview/mapLocBox#{@useAlt}"
       @sprites["previewBox"].x = 16
-    when 2
+    else
       @lineCount = 2 if @lineCount == 1
-      preview = "QuestPreview/mapQuestBox"
+      preview = "QuestPreview/mapQuestBox" if @mode == 2
+      preview = "BerryPreview/mapBerryBox" if @mode == 3
       @sprites["previewBox"].x = Graphics.width - (16 + @sprites["previewBox"].width)
     end 
     @sprites["previewBox"].setBitmap(findUsableUI("#{preview}#{@lineCount}"))
-    @questPreviewWidth = @sprites["previewBox"].width if @mode == 2
+    @previewWidth = @sprites["previewBox"].width if @mode == 2 || @mode == 3
   end 
 
   def showPreviewBox
@@ -30,9 +37,7 @@ class PokemonRegionMap_Scene
     height = @sprites["previewBox"].height
     if @mode == 0
       @sprites["previewBox"].y = (Graphics.height - 32) - height
-      # Check if the Button Box is on the bottom and the previewBox is bigger than the Button Box when on the Bottom Right.
-    elsif @mode == 2
-      # do similar like mode 0 but yet different XD
+    elsif @mode == 2 || @mode == 3
       @sprites["previewBox"].y = (32 - @sprites["previewBox"].height) + height 
     end
     changePreviewBoxAndArrow(height)
@@ -40,7 +45,7 @@ class PokemonRegionMap_Scene
       @sprites["locationDash"].visible = true if @locationDash
       @sprites["locationIcon"].visible = true if @locationIcon
     end
-    @sprites["locationText"].visible = true
+    @sprites["locationText"].visible = true 
     @previewShow = true
     getPreviewWeather 
     updateButtonInfo
@@ -73,9 +78,9 @@ class PokemonRegionMap_Scene
           @sprites["downArrow"].y = (Graphics.height - (44 + @sprites["buttonPreview"].height)) - height
         end
       end 
-    elsif @mode == 2
+    elsif @mode == 2 || @mode == 3
       @sprites["upArrow"].y = 16 + height if previewXUpArrowX
-      @sprites["upArrow"].y = @sprites["buttonPreview"].height + height if buttonXHalfScreenSize
+      @sprites["upArrow"].y = @sprites["buttonPreview"].height + height if buttonXHalfScreenSize && BOX_TOP_RIGHT
       if BOX_TOP_RIGHT
         @sprites["buttonPreview"].y = 22 + height 
         @sprites["buttonName"].y = height 
@@ -91,7 +96,7 @@ class PokemonRegionMap_Scene
       if @mode == 0
         @sprites["previewBox"].y = (Graphics.height - 32) - height
         changePreviewBoxAndArrow(height)
-      elsif @mode == 2
+      elsif @mode == 2 || @mode == 3
         @sprites["previewBox"].y = (32 - @sprites["previewBox"].height) + height 
         changePreviewBoxAndArrow(height)
       end

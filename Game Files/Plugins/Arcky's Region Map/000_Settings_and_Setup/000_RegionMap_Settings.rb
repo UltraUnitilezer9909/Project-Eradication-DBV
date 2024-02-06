@@ -37,8 +37,9 @@ module ARMSettings
   #===============================================================================
   # Quick Fly Feature Settings
   #===============================================================================
-  # Set this to true if you want to enable the Quick Fly feature.
-  # Set this to false if you don't want to use this feature, all other settings below will be ignored.
+  # Set this to true or 0   if you want to enable the Quick Fly feature.
+  # Set this to false or -1 if you don't want to use this feature, all other settings below will be ignored.
+  # Set this to any Switch ID if you want the Quick Fly only be enabled when this Switch is ON.
   CAN_QUICK_FLY = true
 
   # Choose which Button will activate the Quick Fly Feature
@@ -51,10 +52,35 @@ module ARMSettings
   # Set this to false if you don't want to enable this.
   AUTO_CURSOR_MOVEMENT = true 
 
-  # Set a Switch that needs to be ON in order to enable the Quick Fly Feature.
-  # Set this to nil if you don't want to require any switch to be ON.
-  # Example: SWITCH_TO_ENABLE_QUICK_FLY = 11 # Quick Fly will be enabled when Switch with ID 11 (Defeated Gym 8) is set to ON. (This is a default essentials Switch) 
-  SWITCH_TO_ENABLE_QUICK_FLY = nil
+  # Set this to true if you want the player to be allowed to fly from 1 Region to another.
+  # Set this to false if you don't want the player to be allowed to fly from 1 Region to another.
+  ALLOW_FLY_TO_OTHER_REGIONS = true 
+
+  # Set to which Regions you can fly from the current Region. (Use the name of the region)
+  FLY_TO_REGIONS = {
+    :Essen => [1, 2, 3], # You can fly from Essen to Tial or Kanto.
+    :Tiall => [0], # You can fly from Tial to Essen only.
+    :Kanto => [0, 3], # You can fly from Kanto to Essen and Johto.
+    :Johto => [2] # You can fly from Johto to Kanto only.
+  }
+
+  # Set from which locations on a Region you can fly to another Region.
+  # If you don't want to use this then make this eaqual to LOCATION_FLY_TO_OTHER_REGION = {}.
+  LOCATION_FLY_TO_OTHER_REGION = {
+    :Essen => {
+      "Route 8" => [1],
+      "Ingido Plateau" => [2, 3]
+    },
+    :Tiall => {
+      "Here" => [0]
+    },
+    :Kanto => {
+      "Indigo Plateau" => [0, 3]
+    },
+    :Johto => {
+      "Indigo Plateau" => [2]
+    }
+  }
 
   #===============================================================================
   # Cursor Map Movement Offset
@@ -79,12 +105,14 @@ module ARMSettings
   #    example: [0, 10]; when the cursor is between 0 and 10 (including 0 and 10) the name of the region changes (depending on the X value as well).
   # - Region District Name; this is the name the script will use only when the cursor is inside X and Y range.
   REGION_DISTRICTS = [
-    [0, [9, 12], [8, 11], _INTL("West Essen")],
-    [0, [9, 19], [12, 15], _INTL("South Essen")],
-    [0, [9, 19], [4, 7], _INTL("North Essen")],
-    [0, [15, 19], [7, 11], _INTL("East Essen")],
-    [0, [13, 14], [8, 11], _INTL("Central Essen")],
-    [1, [10, 20], [5, 15], _INTL("Central Tiall")]
+    [0, [9, 19],  [4, 6],   _INTL("North Essen")],
+    [0, [15, 15], [7, 7],   _INTL("North Essen")],
+    [0, [16, 19], [7, 7],  _INTL("East Essen")],
+    [0, [15, 19], [8, 11],  _INTL("East Essen")],
+    [0, [9, 19],  [12, 15], _INTL("South Essen")],
+    [0, [9, 12],  [7, 11],  _INTL("West Essen")],
+    [0, [13, 14], [7, 11],  _INTL("Central Essen")],
+    [1, [10, 20], [5, 15],  _INTL("Central Tiall")]
   ]
 
   #===============================================================================
@@ -150,11 +178,11 @@ module ARMSettings
   # Region Map Button Preview Options
   #===============================================================================
   # Choose where you want to display the Button Preview Box on the Region Map.
-  # - Set this to 1 to display it in the Top Right.
-  # - Set this to 2 to display it in the Bottom Right.
-  # - Set this to 3 to display it in the Top Left default position).
-  # - Set this to 4 to display it in the Bottom Left.
-  BUTTON_BOX_POSITION = 1
+  # - Set this to 1 to display it in the Top Left.
+  # - Set this to 2 to display it in the Bottom Left.
+  # - Set this to 3 to display it in the Top Right default position).
+  # - Set this to 4 to display it in the Bottom Right.
+  BUTTON_BOX_POSITION = 3
 
   # Change the opacity of the Button Preview Box when you move the Cursor behind it.
   # Any value is accepted between 0 and 100 in steps of 5. (Just like the Highlight Opacity Setting).
@@ -236,8 +264,8 @@ module ARMSettings
   
   # Set for each Region if you want the Player Icon to be visible (true) or invisible (false).
   SHOW_PLAYER_ON_REGION = {
-    region0: true,
-    region1: false
+    Essen: true,
+    Tial: false
   }
 
   # Set this to true if you want the cursor being centered by default when no Map Position is defined for the Game Map the Region Map was opened from.
@@ -374,18 +402,19 @@ module ARMSettings
   WEATHER_ON_MODES = [0, 1]
 
   #===============================================================================
-  # Region Map Quest Preview and Quest Icons Options (IMPORTANT: Required the MQS Plugin to funcion correctly!)
+  # Region Map Quest Preview and Quest Icons Options (IMPORTANT: Requires the Modern Quest System (MQS) Plugin to funcion correctly!)
   #===============================================================================
-  # Set this to true if you want to display Quest Icons on the Region map (this only shows on the Town Map the player owns and the PokeGear map).
-  # Set this to false if you don't want to display Quest Icons or if you are simply not using the MQS Plugin.
-  # If the MQS is not installed and this is set to true, it won't harm anything.
-  SHOW_QUEST_ICONS = true    
+  # Set this to true  or  0 if you want to display Quest Icons on the Region map (this only shows on the Town Map the player owns and the PokeGear map).
+  # Set this to false or -1 if you don't want to display Quest Icons or if you are simply not using the MQS Plugin.
+  # Set this to a Switch ID if you want the mode to be enabled by a Switch.
+  # This mode will be hidden if there are no active quests (with a map position defined) or if the MQS plugin is not installed.
+  SHOW_QUEST_ICONS = true   
 
   # Choose which button will activate the Quest Review. 
   # Possible buttons are: USE, JUMPUP, JUMPDOWN, SPECIAL, AUX1 and AUX2. any other buttons are not recommended.
   # USE can be used this time because unlike with the fly map, it won't do anything.
   # Press F1 in game to know which key a button is linked to.
-  # IMPORTANT: only change the "JUMPUP" to JUMPDOWN for example so SHOW_QUEST_BUTTON = Input::JUMPDOWN
+  # IMPORTANT: only change the "USE" to JUMPDOWN for example so SHOW_QUEST_BUTTON = Input::JUMPDOWN
   SHOW_QUEST_BUTTON = Input::USE 
 
   # How to edit the Quest preview Box Graphics:
@@ -410,6 +439,27 @@ module ARMSettings
   # Change the Color of the Quest Task and Location Text.
   QUEST_INFO_MAIN = Color.new(248, 248, 248)
   QUEST_INFO_SHADOW = Color.new(0, 0, 0)
+
+  #===============================================================================
+  # Region Map Berries Preview (IMPORTANT: Requires the TDW Berry Planting Improvements Plugin to funcion correctly!)
+  #===============================================================================
+  # SHOW_BERRIES_ON_MAP_SWITCH_ID (in the TDW Berry Planting Improvements's Settings file) will be overwritten by this Setting.
+  # if you set this to SHOW_BERRY_ICONS = Settings:SHOW_BERRIES_ON_MAP_SWITCH_ID it'll use the value you've set in that plugin's Settings.
+  # Set this to true or 0 if you want to display berry Icons on the Region map.
+  # Set to -1 or false if you don't want to display berry Icons on the Region map.
+  # Set to a Switch ID that needs to be ON to enable the berry Icons on the Region map.
+  SHOW_BERRY_ICONS = true 
+
+  # Choose the button you need to press to view information about the Berries planted on the current Location.
+  SHOW_BERRY_BUTTON = Input::USE 
+
+  #===============================================================================
+  # Region Map Roaming Icons
+  #===============================================================================
+  # Set this to true or 0 if you want to display Roaming Icons on the Region map.
+  # Set to -1 or false if you don't want to display Roaming Icons on the Region map.
+  # Set to a Switch ID that needs to be ON to enable the Roaming Icons on the Region map.
+  SHOW_ROAMING_ICONS = true 
 
   #The end of the Settings for now :)
 end

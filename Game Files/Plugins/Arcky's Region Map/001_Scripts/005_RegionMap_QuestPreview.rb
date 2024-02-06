@@ -1,9 +1,8 @@
 class PokemonRegionMap_Scene 
-  def pbGetQuestName(x, y)
+  def getQuestName(x, y)
     return "" if ((ENGINE20 && !@map[2]) || (ENGINE21 && !@map.point)) || !@questMap || @mode != 2 || !ARMSettings::SHOW_QUEST_ICONS || @wallmap
     questName = []
     value = ""
-    text = ""
     @questNames = nil
     @questMap.each do |name|
       next if name[1] != x || name[2] != y
@@ -23,7 +22,7 @@ class PokemonRegionMap_Scene
     end
     updateButtonInfo
     @sprites["modeName"].bitmap.clear
-    mapModeSwitchInfo if text == "" && value == ""
+    mapModeSwitchInfo if value == ""
     return value
   end 
 
@@ -51,7 +50,6 @@ class PokemonRegionMap_Scene
   end 
   
   def showQuestInformation(lastChoiceQuest)
-    return if @wallmap
     questInfo = @questMap.select { |coords| coords && coords[0..2] == [@region, @mapX, @mapY] }
     questInfo = [] if questInfo.empty? || (questInfo[0][4] && !$game_switches[questInfo[0][4]])
     return choice = -1 if questInfo.empty?
@@ -72,7 +70,7 @@ class PokemonRegionMap_Scene
       location = "Unknown" if location.empty?
       questInfoText[0] = "<c2=#{base}#{shadow}>Task: #{pbGetMessageFromHash(SCRIPTTEXTS, description)}"
       questInfoText[1] = "<c2=#{base}#{shadow}>Location: #{pbGetMessageFromHash(SCRIPTTEXTS, location)}"  
-      @sprites["mapbottom"].questName = ["Quest: #{name}", @sprites["previewBox"].width]
+      @sprites["mapbottom"].previewName = ["Quest: #{name}", @sprites["previewBox"].width]
       if !@sprites["locationText"]
         @sprites["locationText"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
         pbSetSystemFont(@sprites["locationText"].bitmap)

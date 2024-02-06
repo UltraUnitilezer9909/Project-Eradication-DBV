@@ -7,17 +7,17 @@ class MapBottomSprite < Sprite
     @mapname     = ""
     @maplocation = ""
     @mapdetails  = ""
-    @questName   = ""
-    @questWidth = 0
+    @previewName   = ""
+    @previewWidth = 0
     self.bitmap = Bitmap.new(Graphics.width, Graphics.height)
     pbSetSystemFont(self.bitmap)
     refresh
   end
 
-  def questName=(value)
-    return if @questName == value[0]
-    @questName = value[0]
-    @questWidth = value[1] || 0
+  def previewName=(value)
+    return if @previewName == value[0]
+    @previewName = value[0]
+    @previewWidth = value[1] || 0
     refresh
   end 
 
@@ -27,7 +27,7 @@ class MapBottomSprite < Sprite
       [@mapname,     18 + ARMSettings::REGION_NAME_OFFSET_X,                  4 + ARMSettings::REGION_NAME_OFFSET_Y,   0,  ARMSettings::REGION_TEXT_MAIN, ARMSettings::REGION_TEXT_SHADOW],
       [@maplocation, 18 + ARMSettings::LOCATION_NAME_OFFSET_X,              (Graphics.height - 24) + ARMSettings::LOCATION_NAME_OFFSET_Y, 0,  ARMSettings::LOCATION_TEXT_MAIN, ARMSettings::LOCATION_TEXT_SHADOW],
       [@mapdetails, Graphics.width - (PokemonRegionMap_Scene::UI_BORDER_WIDTH - ARMSettings::POI_NAME_OFFSET_X), (Graphics.height - 24) + ARMSettings::POI_NAME_OFFSET_Y,      1, ARMSettings::POI_TEXT_MAIN, ARMSettings::POI_TEXT_SHADOW],
-      [@questName,  Graphics.width - (@questWidth + PokemonRegionMap_Scene::UI_BORDER_WIDTH + ARMSettings::QUEST_NAME_OFFSET_X - 16), 4 + ARMSettings::QUEST_NAME_OFFSET_Y, 0,  ARMSettings::QUEST_TEXT_MAIN, ARMSettings::QUEST_TEXT_SHADOW]
+      [@previewName,  Graphics.width - (@previewWidth + PokemonRegionMap_Scene::UI_BORDER_WIDTH + ARMSettings::QUEST_NAME_OFFSET_X - 16), 4 + ARMSettings::QUEST_NAME_OFFSET_Y, 0,  ARMSettings::QUEST_TEXT_MAIN, ARMSettings::QUEST_TEXT_SHADOW]
     ]
     pbDrawTextPositions(bitmap, textpos)
   end
@@ -39,9 +39,8 @@ class PokemonRegionMap_Scene
   ENGINE20 = Essentials::VERSION.include?("20")
   ENGINE21 = Essentials::VERSION.include?("21")
   
-  QUESTPLUGIN = PluginManager.installed?("Modern Quest System + UI") && ARMSettings::SHOW_QUEST_ICONS
-  BERRYPLUGIN = false #PluginManager.installed?("TDW Berry Planting Improvements")
-  ROAMINGPLUGIN = false #PluginManager.installed?("Roaming Icon")
+  QUESTPLUGIN = PluginManager.installed?("Modern Quest System + UI")
+  BERRYPLUGIN = PluginManager.installed?("TDW Berry Planting Improvements")
   WEATHERPLUGIN = PluginManager.installed?("Lin's Weather System") && ARMSettings::USE_WEATHER_PREVIEW
   THEMEPLUGIN = PluginManager.installed?("Lin's Pokegear Themes")
 
@@ -98,6 +97,10 @@ class PokemonRegionMap_Scene
     @mapMetadata      = $game_map.metadata
     @playerPos        = (@mapMetadata) ? @mapMetadata.town_map_position : nil
     getPlayerPosition 
+    @regionName = @map[0] if ENGINE20
+    @regionName = @map.name.to_s if ENGINE21
+    @regionFile = @map[1] if ENGINE20
+    @regionFile = @map.filename if ENGINE21
     if QUESTPLUGIN && $quest_data
       @questMap       = $quest_data.getQuestMapPositions(@map[2], @region) if ENGINE20
       @questMap       = $quest_data.getQuestMapPositions(@map.point, @region) if ENGINE21
@@ -107,6 +110,8 @@ class PokemonRegionMap_Scene
       return false
     end
     main 
+    @playerMapName = pbGetMapLocation(@playerPos[1], @playerPos[2])
+    echoln(@playerMapName)
   end
 
   def main
@@ -116,10 +121,13 @@ class PokemonRegionMap_Scene
     getFlyIconPositions
     addFlyIconSprites 
     addUnvisitedMapSprites 
+    getVisitedCounter
     mapModeSwitchInfo
     showAndUpdateMapInfo 
     addPlayerIconSprite
     addQuestIconSprites
+    addBerryIconSprites
+    addRoamingIconSprites
     addCursorSprite 
     centerMapOnCursor 
     refreshFlyScreen 
@@ -163,7 +171,7 @@ class PokemonRegionMap_Scene
       @region    = @playerPos[0]
       # v20.1.
       @map       = @mapData[@playerPos[0]] if ENGINE20
-      #v21;1 and above.
+      #v21.1 and above.
       @map       = GameData::TownMap.get(@region) if ENGINE21
       @mapX      = @playerPos[1]
       @mapY      = @playerPos[2]
@@ -205,10 +213,7 @@ class PokemonRegionMap_Scene
       end
     end
     @spritesMap["map"] = IconSprite.new(0, 0, @viewportMap)
-    # v20.1.
-    @spritesMap["map"].setBitmap("#{FOLDER}Regions/#{@map[1]}") if ENGINE20
-    # v21.1 and above.
-    @spritesMap["map"].setBitmap("#{FOLDER}Regions/#{@map.filename}") if ENGINE21
+    @spritesMap["map"].setBitmap("#{FOLDER}Regions/#{@regionFile}")
     @spritesMap["map"].z = 1
     @mapWidth = @spritesMap["map"].bitmap.width
     @mapHeight = @spritesMap["map"].bitmap.height
@@ -311,7 +316,7 @@ class PokemonRegionMap_Scene
     else 
       poiName = ARMSettings::UNVISITED_POI_TEXT if mapName == ARMSettings::UNVISITED_MAP_TEXT
     end 
-    return poiName
+    return pbGetMessageFromHash(POINAMES, poiName)
   end 
 
   def getMapVisited(mapData)
@@ -424,6 +429,66 @@ class PokemonRegionMap_Scene
     curPos.clear
   end 
 
+  def getVisitedCounter
+    @visitCounter = {}
+    locations = @mapPoints.map { |mapData| mapData[2] }.uniq
+    selectedMaps = []
+    visits = []
+    # Initialize counters for each district
+    districtCounters = Hash.new { |h, k| h[k] = { visited: 0, total: 0 } } if ARMSettings::USE_REGION_DISTRICTS_NAMES
+    GameData::MapMetadata.each do |gameMap|
+      # main maps
+      map = locations.find { |map| pbGetMessageFromHash(LOCATIONNAMES, map) == gameMap.name && gameMap.outdoor_map }
+      next if !map
+      if !selectedMaps.find { |map| gameMap.name == map[0] }
+        selectedMaps << [gameMap.name, gameMap.id] 
+        visits << gameMap.id if $PokemonGlobal.visitedMaps[gameMap.id]
+        # Check if the map belongs to any district
+        if ARMSettings::USE_REGION_DISTRICTS_NAMES
+          district = getDistrict(gameMap.town_map_position)
+          if district.nil?
+            # If map doesn't belong to any district, use a default key
+            district = "#{pbGetMessage(REGIONNAMES, @region)}" if ENGINE20
+            district = "#{pbGetMessageFromHash(REGIONNAMES, @map.name.to_s)}" if ENGINE21
+          end
+          # Update district counters
+          districtCounters[district][:total] += 1
+          districtCounters[district][:visited] += 1 if $PokemonGlobal.visitedMaps[gameMap.id]
+        end
+      end 
+    end
+    # poi maps
+    unless ARMSettings::LINK_POI_TO_MAP.nil?
+      ARMSettings::LINK_POI_TO_MAP.each do |key, value|
+        map = GameData::MapMetadata.try_get(value)
+        next if map.town_map_position[0] != @region
+        locations << value 
+        visits << value if $PokemonGlobal.visitedMaps[value]
+        if ARMSettings::USE_REGION_DISTRICTS_NAMES
+          # Check if the map belongs to any district
+          district = getDistrict(map.town_map_position)
+          if district.nil?
+            # If map doesn't belong to any district, use a default key
+            district = "#{pbGetMessageFromHash(REGIONNAMES, @map.name.to_s)}"
+          end
+          # Update district counters
+          districtCounters[district][:total] += 1
+          districtCounters[district][:visited] += 1 if $PokemonGlobal.visitedMaps[value]
+        end 
+      end 
+    end 
+    @visitCounter = { visited: visits.count, total: locations.count, districts: districtCounters }
+  end
+  
+  def getDistrict(position)
+    ARMSettings::REGION_DISTRICTS.each do |region, rangeX, rangeY, districtName|
+      if position[0] == region && position[1].between?(rangeX[0], rangeX[1]) && position[2].between?(rangeY[0], rangeY[1])
+        return pbGetMessageFromHash(SCRIPTTEXTS, districtName)
+      end
+    end
+    nil
+  end  
+
   def showAndUpdateMapInfo
     if !@sprites["mapbottom"]
       @sprites["mapbottom"] = MapBottomSprite.new(@viewport)
@@ -435,19 +500,24 @@ class PokemonRegionMap_Scene
     @sprites["mapbottom"].mapname = getMapName(@mapX, @mapY)
     @sprites["mapbottom"].maplocation = pbGetMapLocation(@mapX, @mapY)
     @sprites["mapbottom"].mapdetails  = pbGetMapDetails(@mapX, @mapY)
-    @sprites["mapbottom"].questName   = [pbGetQuestName(@mapX, @mapY), @questPreviewWidth] if @mode == 2
+    @sprites["mapbottom"].previewName   = [getPreviewName(@mapX, @mapY), @previewWidth] if @mode == 2 || @mode == 3 || @mode == 4
   end
 
   def getMapName(x, y)
     district = pbGetMessage(REGIONNAMES, @region) if ENGINE20
     district = pbGetMessageFromHash(REGIONNAMES, @map.name.to_s) if ENGINE21
-    ARMSettings::REGION_DISTRICTS.each do |name|
-      break if !ARMSettings::USE_REGION_DISTRICTS_NAMES
-      next if name[0] != @region
-      if (x >= name[1][0] && x <= name[1][1]) && (y >= name[2][0] && y <= name[2][1])
-        district = pbGetMessageFromHash(SCRIPTTEXTS, name[3])
-      end 
-    end
+    if ARMSettings::USE_REGION_DISTRICTS_NAMES && !@visitCounter[:districts].empty?
+      ARMSettings::REGION_DISTRICTS.each do |name| 
+        next if name[0] != @region
+        if (x >= name[1][0] && x <= name[1][1]) && (y >= name[2][0] && y <= name[2][1])
+          district = pbGetMessageFromHash(SCRIPTTEXTS, name[3])
+        end 
+      end
+      districtData = @visitCounter[:districts][district]
+      district = "#{district} - #{(districtData[:visited].to_f / districtData[:total] * 100).round(0)}%" if districtData && @mode == 0
+    else 
+      district = "#{district} - #{(@visitCounter[:visited].to_f / @visitCounter[:total] * 100).round(0)}%" if @mode == 0
+    end 
     return district
   end 
 
@@ -504,7 +574,7 @@ class PokemonRegionMap_Scene
         @spritesMap["player"] = BitmapSprite.new(@mapWidth, @mapHeight, @viewportMap)
         @spritesMap["player"].x = @spritesMap["map"].x
         @spritesMap["player"].y = @spritesMap["map"].y
-        @spritesMap["player"].visible = ARMSettings::SHOW_PLAYER_ON_REGION[("region#{@region}").to_sym]
+        @spritesMap["player"].visible = ARMSettings::SHOW_PLAYER_ON_REGION[(@regionName).to_sym]
       end 
       @spritesMap["player"].z = 60
       pbDrawImagePositions(
@@ -533,8 +603,8 @@ class PokemonRegionMap_Scene
       @sprites["buttonPreview"].x = text2Pos[0]
       @sprites["buttonPreview"].y = text2Pos[1]
     end 
-    unless @flyMap && (ARMSettings::SWITCH_TO_ENABLE_QUICK_FLY.nil? || $game_switches[ARMSettings::SWITCH_TO_ENABLE_QUICK_FLY])
-      return if !@sprites["modeName"] || !@sprites["buttonName"] || @wallmap || @flyMap
+    unless @flyMap || @wallmap
+      return if !@sprites["modeName"] || !@sprites["buttonName"]
       @modeInfo = {
         :normal => {
           mode: 0,
@@ -544,29 +614,28 @@ class PokemonRegionMap_Scene
         :fly => {
           mode: 1,
           text: pbGetMessageFromHash(SCRIPTTEXTS, "#{ARMSettings::MODE_NAMES[:fly]}"),
-          condition: pbCanFly?
+          condition: pbCanFly? && (@region == @playerPos[0] || canFlyOtherRegion) && ARMSettings::CAN_FLY_FROM_TOWN_MAP
         },
         :quest => {
           mode: 2,
           text: pbGetMessageFromHash(SCRIPTTEXTS, "#{ARMSettings::MODE_NAMES[:quest]}"),
-          condition: QUESTPLUGIN
+          condition: QUESTPLUGIN && enableMode(ARMSettings::SHOW_QUEST_ICONS) && !@questMap.empty?
         },
         :berry => {
           mode: 3,
           text: pbGetMessageFromHash(SCRIPTTEXTS, "#{ARMSettings::MODE_NAMES[:berry]}"),
-          condition: BERRYPLUGIN
+          condition: BERRYPLUGIN && enableMode(ARMSettings::SHOW_BERRY_ICONS) && !pbGetBerriesAtMapPoint(@region).empty?
         },
         :roaming => {
           mode: 4,
           text: pbGetMessageFromHash(SCRIPTTEXTS, "#{ARMSettings::MODE_NAMES[:roaming]}"),
-          condition: ROAMINGPLUGIN 
+          condition: enableMode(ARMSettings::SHOW_ROAMING_ICONS) && $PokemonGlobal.roamPosition.any? { |roamPos| getActiveRoaming(roamPos) && getRoamingTownMapPos(roamPos) }
         }
       }
       @modeCount = @modeInfo.values.count { |mode| mode[:condition] }
       if @modeCount == 1
         text = ""
         @sprites["modeName"].bitmap.clear
-        @sprites["buttonName"].bitmap.clear
         @sprites["buttonPreview"].visible = false 
         return 
       end 
@@ -578,11 +647,11 @@ class PokemonRegionMap_Scene
         end
       end
     else 
-      buttonName = convertButtonToString(ARMSettings::QUICK_FLY_BUTTON)
-      text = "#{buttonName}: #{pbGetMessageFromHash(SCRIPTTEXTS, "Quick Fly")}"
+      text = ""
       text2 = ""
+      @modeCount = 1
     end 
-    @sprites["mapbottom"].questName = ["", @questPreviewWidth] if @sprites["mapbottom"]
+    @sprites["mapbottom"].previewName = ["", @previewWidth] if @sprites["mapbottom"]
     updateButtonInfo
     @sprites["modeName"].bitmap.clear
     pbDrawTextPositions(
@@ -592,12 +661,32 @@ class PokemonRegionMap_Scene
     @sprites["modeName"].z = 100001
   end 
 
+  def canFlyOtherRegion
+    @mapName = @playerMapName if !@mapName
+    return false if !ARMSettings::ALLOW_FLY_TO_OTHER_REGIONS
+    flyRegion = ARMSettings::FLY_TO_REGIONS
+    regionName = (@currentRegionName).to_sym
+    canFly = flyRegion.key?(regionName) && flyRegion[regionName].include?(@region)
+    return true if canFly && !ARMSettings::LOCATION_FLY_TO_OTHER_REGION.key?(regionName)
+    return true if ARMSettings::LOCATION_FLY_TO_OTHER_REGION[regionName].include?(@mapName)
+  end 
+
   def getTextPosition
     x = BOX_TOP_LEFT || BOX_BOTTOM_LEFT ? 4 : Graphics.width - (4 + @sprites["buttonPreview"].width)
     y = BOX_TOP_LEFT || BOX_TOP_RIGHT ? 22 : Graphics.height - (22 + @sprites["buttonPreview"].height)
     return x, y
   end 
-  
+
+  def enableMode(setting)
+    case setting
+    when Numeric
+      return $game_switches[setting] if setting > 0
+    when TrueClass
+      return true 
+    end 
+    return false
+  end 
+
   def centerMapOnCursor
     centerMapX
     centerMapY
@@ -681,6 +770,7 @@ class PokemonRegionMap_Scene
     @spritesMap["FlyIcons"].visible = @mode == 1
     @spritesMap["QuestIcons"].visible = @mode == 2 if QUESTPLUGIN && ARMSettings::SHOW_QUEST_ICONS
     @spritesMap["BerryIcons"].visible = @mode == 3 if BERRYPLUGIN && allowShowingBerries
+    @spritesMap["RoamingIcons"].visible = @mode == 4 
     @spritesMap["highlight"].bitmap.clear if @spritesMap["highlight"]
     colorCurrentLocation 
   end
@@ -708,6 +798,11 @@ class PokemonRegionMap_Scene
     if @mode != 1 
       image = highlight[:image] 
       mapFolder = getMapFolderName(image)
+      imageName = "#{FOLDER}highlights/#{mapFolder}/#{image[:name]}"
+      if !pbResolveBitmap(imageName)
+        Console.echoln_li _INTL("No Higlight Image found for point '#{@mapInfo[curPos][:realname].to_s}' in PBS file: town_map.txt")
+        return
+      end
       pbDrawImagePositions(
         @spritesMap["highlight"].bitmap,
         [["#{FOLDER}highlights/#{mapFolder}/#{image[:name]}", (image[:x] * ARMSettings::SQUARE_WIDTH) , (image[:y] * ARMSettings::SQUARE_HEIGHT)]]
@@ -753,6 +848,7 @@ class PokemonRegionMap_Scene
     choice   = nil
     lastChoiceFly = 0
     lastChoiceQuest = 0
+    lastChoiceBerries = 0
     @distPerFrame = 8 * 20 / Graphics.frame_rate if ENGINE20
     @distPerFrame = System.uptime if ENGINE21
     @uiWidth = @mapWidth < UI_WIDTH ? @mapWidth : UI_WIDTH
@@ -777,8 +873,9 @@ class PokemonRegionMap_Scene
       end
       if cursor[:offsetX] == 0 && cursor[:offsetY] == 0 && choice && choice >= 0 
         inputFly = true if @mode == 1
-        lastChoiceQuest = choice if @mode == 2
         lastChoiceFly = choice if @mode == 1
+        lastChoiceQuest = choice if @mode == 2
+        lastChoiceBerries = choice if @mode == 3
         choice = nil
       end
       updateArrows if @mapX != cursor[:oldX] || @mapY != cursor[:oldY]
@@ -799,10 +896,13 @@ class PokemonRegionMap_Scene
         elsif Input.trigger?(ARMSettings::SHOW_QUEST_BUTTON) && QUESTPLUGIN && @mode == 2
           choice = showQuestInformation(lastChoiceQuest)
           showPreviewBox if choice != -1
-        elsif Input.trigger?(ARMSettings::CHANGE_MODE_BUTTON) && !@flyMap
+        elsif Input.trigger?(ARMSettings::CHANGE_MODE_BUTTON) && !@flyMap && @modeCount >= 2
           switchMapMode
-        elsif Input.trigger?(Input::JUMPDOWN) && !@previewShow && ((ENGINE20 && @mapData.length >= 2) || (ENGINE21 && GameData::TownMap.count >= 2)) && !@flyMap
+        elsif Input.trigger?(ARMSettings::CHANGE_REGION_BUTTON) && !@previewShow && ((ENGINE20 && @mapData.length >= 2) || (ENGINE21 && GameData::TownMap.count >= 2)) && !@flyMap
           switchRegionMap
+        elsif Input.trigger?(ARMSettings::SHOW_BERRY_BUTTON) && BERRYPLUGIN && @mode == 3
+          choice = showBerryInformation(lastChoiceBerries)
+          showPreviewBox if choice != -1
         end
       end 
       if Input.trigger?(Input::BACK)
@@ -831,6 +931,7 @@ class PokemonRegionMap_Scene
       return if @avRegions.length == 1
       @region = @avRegions[0][1] == @region ? @avRegions[1][1] : @avRegions[0][1]
     end
+    @currentRegionName = @regionName
     @choiceMode = 0
     refreshRegionMap
   end 
@@ -981,17 +1082,9 @@ class PokemonRegionMap_Scene
   end
 
   def canActivateQuickFly(lastChoiceFly, cursor)
-    @visited = []
-    @mapInfo.each do |key, value|
-      value[:positions].each do |pos|
-        next if pos[:flyspot].empty? || !pos[:flyspot][:visited]
-        sel = { name: value[:mapname], x: pos[:x], y: pos[:y], flyspot: pos[:flyspot] }
-        @visited << sel unless @visited.any? { |visited| visited[:flyspot] == sel[:flyspot] }
-      end 
-    end
+    @visited = getFlyLocations
     return if @visited.empty?
-    if ARMSettings::CAN_QUICK_FLY && Input.trigger?(ARMSettings::QUICK_FLY_BUTTON) && @mode == 1 &&
-        (ARMSettings::SWITCH_TO_ENABLE_QUICK_FLY.nil? || $game_switches[ARMSettings::SWITCH_TO_ENABLE_QUICK_FLY])
+    if enableMode(ARMSettings::CAN_QUICK_FLY) && Input.trigger?(ARMSettings::QUICK_FLY_BUTTON) && @mode == 1
       findChoice = @visited.find_index { |pos| pos[:x] == @mapX && pos[:y] == @mapY }
       lastChoiceFly = findChoice if findChoice
       choice = pbMessageMap(_INTL("Quick Fly: Choose one of the available locations to fly to."),
@@ -1010,7 +1103,19 @@ class PokemonRegionMap_Scene
     end
     return choice
   end
-  
+
+  def getFlyLocations
+    visits = []
+    @mapInfo.each do |key, value|
+      value[:positions].each do |pos|
+        next if pos[:flyspot].empty? || !pos[:flyspot][:visited]
+        sel = { name: value[:mapname], x: pos[:x], y: pos[:y], flyspot: pos[:flyspot] }
+        visits << sel unless visits.any? { |visited| visited[:flyspot] == sel[:flyspot] }
+      end 
+    end
+    return visits
+  end 
+
   def updateCursorPosition(ox, oy, cursor)
     @mapX += ox
     @mapY += oy
@@ -1020,7 +1125,7 @@ class PokemonRegionMap_Scene
     cursor[:newY] = @sprites["cursor"].y + cursor[:offsetY]
     @distPerFrame = System.uptime if ENGINE21
     # Hide Quest Preview when moving cursor.
-    @previewHide = @mode == 2
+    @previewHide = @mode == 2 || @mode == 3
   end 
 
   def updateMapPosition(mox, moy, map)
@@ -1031,6 +1136,7 @@ class PokemonRegionMap_Scene
     map[:newX] = @spritesMap["map"].x + map[:offsetX]
     map[:newY] = @spritesMap["map"].y + map[:offsetY]
     @distPerFrame = System.uptime if ENGINE21
+    @previewHide = @mode == 2 || @mode == 3
   end 
 
   def getFlyLocationAndConfirm
@@ -1051,21 +1157,21 @@ class PokemonRegionMap_Scene
         @choiceMode = choice 
         @mode = avaModes[choice][:mode]
       end
-    else 
+    elsif @modeCount == 2 
       pbPlayDecisionSE
+      nextMode = 0
       @modeInfo.each do |index, data|
         next if data[:mode] <= @mode
         if data[:condition]
-          @mode = data[:mode]
+          nextMode = data[:mode]
           break 
-        else
-          @mode = 0
         end
       end
+      @mode = nextMode
     end
     @sprites["modeName"].bitmap.clear
     refreshFlyScreen
-    @sprites["mapbottom"].questName = [pbGetQuestName(@mapX, @mapY), @questPreviewWidth] if @mode == 2
+    @sprites["mapbottom"].previewName = [getPreviewName(@mapX, @mapY), @previewWidth] if @mode == 2 || @mode == 3 || @mode == 4
     @sprites["buttonName"].bitmap.clear 
   end 
 

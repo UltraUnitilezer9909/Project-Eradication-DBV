@@ -4,13 +4,13 @@
 
 module WeatherConfig
   # Set to false to use the Weather System.
-  NO_WEATHER = false		# Default: false
+  NO_WEATHER = true		# Default: false
 
   # Set to true to show the weather on the Town Map.
   SHOW_WEATHER_ON_MAP = true	# Default: true
 
   # Set to true to use the computer's time. Will not work without Unreal Time System.
-  USE_REAL_TIME = true		# Default: true
+  USE_REAL_TIME = false		# Default: true
 
   # Set to true to have the weather change at midnight.
   CHANGE_MIDNIGHT = true	# Default: true
@@ -31,10 +31,10 @@ module WeatherConfig
 
   # Set to true if your game starts outdoors and want to show the season splash when going somewhere indoors.
   # Set to false if your game starts indoors and want to show the season splash when going somewhere outdoors.
-  OUTDOOR = false		# Default: false
+  OUTDOOR = true		# Default: false
 
   # Array with the ID of outside tilesets that will change with seasons.
-  OUTDOOR_TILESETS = [1, 2]
+  OUTDOOR_TILESETS = [2]
 
   # The difference between the ID of the tileset defined for an outdoor map and it's season version.
   # The difference has to be the same for any tileset defined in OUTDOOR_TILESETS.

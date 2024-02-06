@@ -1,0 +1,15 @@
+To play the game, Go inside "Game Files" & execute "Game.exe" to play the game. 
+If things don't work well, Run the "Game.exe" as administrator.
+I recommend making a shortcut for "Game.exe" so the other files are safe.
+
+Your Game Save files is stored in "Saves" folder in "Game files" folder .
+
+If your using the game's resource, please credit us & the other resources the game uses.
+
+Most of the Music is from "GlitchXcity", consider subscribing & support her
+Most music and sound, music effects is from the game called "Pokémon: Reborn" & "Pokémon: Rejuvenation",
+consider playing those game as they are wild fangames and some are from the random parts of the internet.
+
+Script & Plugins are mostly stored on "Z - Zeta's plug & System Script" in "Plugin" Folder.
+
+Files are starts with a period (.) are system files, you can check them out but don't edit them. 
