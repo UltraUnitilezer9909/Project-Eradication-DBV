@@ -131,7 +131,7 @@ class PokemonRegionMap_Scene
         @sprites["buttonPreview"].y = (Graphics.height - (22 + @sprites["buttonPreview"].height))
         @sprites["buttonName"].y = 0
       end 
-    elsif @previewMode == 2
+    elsif @previewMode == 2 || @previewMode == 3
       @sprites["previewBox"].y = 32 - @sprites["previewBox"].height
       @sprites["upArrow"].y = (BOX_TOP_LEFT && (@sprites["buttonPreview"].x + @sprites["buttonPreview"].width) > (Graphics.width / 2)) || (BOX_TOP_RIGHT && @sprites["buttonPreview"].x < (Graphics.width / 2)) ? @sprites["buttonPreview"].height : 16
       if BOX_TOP_RIGHT || BOX_TOP_RIGHT

@@ -57,7 +57,7 @@ class PokemonRegionMap_Scene
     value = ""
     unless berries.empty?
       count = berries.length
-      if count >= 2
+      if count >= 1
         @berryPlants = { }
         berryCounter = Hash.new { |h, k| h[k] = { amount: 0, stages: Hash.new { |h, k| h[k] = 0 } } }
         berries.each do |berry|
@@ -81,14 +81,34 @@ class PokemonRegionMap_Scene
             stages: info[:stages].sort_by { |s, _| stageOrder.index(s) }.to_h
           }
         end
-        value = "#{count} Berries planted"
-      else 
-        value = GameData::Item.get(berries[0].berry_id).name
+        if @berryPlants.length >= 2
+          value = "#{count} Berries planted"
+        else 
+          value = getBerryNameAndAmount(berries[0].berry_id)
+        end
       end
     end
     updateButtonInfo
     @sprites["modeName"].bitmap.clear
     mapModeSwitchInfo if value == ""
+    return value
+  end 
+  
+  def getBerryNameAndAmount(berry)
+    amount = @berryPlants[berry][:amount]
+    if ENGINE20
+      if amount >= 2
+        value = "#{amount} #{GameData::Item.get(berry).name_plural}"
+      else 
+        value = "#{amount} #{GameData::Item.get(berry).name}"
+      end 
+    elsif ENGINE21
+      if amount >= 2
+        value = "#{amount} #{GameData::Item.get(berry).portion_name_plural}"
+      else 
+        value = "#{amount} #{GameData::Item.get(berry).portion_name}"
+      end 
+    end 
     return value
   end 
 
@@ -97,7 +117,7 @@ class PokemonRegionMap_Scene
     input, berry, choice = getCurrentBerryInfo(lastChoiceBerries)
     if input && berry 
       berryInfoText = []
-      name = GameData::Item.get(berry).name
+      name = getBerryNameAndAmount(berry)
       @sprites["mapbottom"].previewName = ["#{name}", @sprites["previewBox"].width]
       if !@sprites["locationText"]
         @sprites["locationText"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
@@ -118,8 +138,6 @@ class PokemonRegionMap_Scene
         text = "<c2=#{base}#{shadow}>#{stage}: #{value}"
         berryInfoText << text 
       end
-      total = "<c2=#{base}#{shadow}>Total: #{amount}"
-      berryInfoText << total 
       x = 16
       y = 8
       lineHeight = ARMSettings::PREVIEW_LINE_HEIGHT
@@ -140,14 +158,14 @@ class PokemonRegionMap_Scene
 
   def getCurrentBerryInfo(lastchoiceBerries)
     if @berryPlants.length >= 2
-      choice = pbMessageMap(_INTL("Which berry would you like to view info about?"),
-      @berryPlants.keys[0...-1].map { |berry| 
-        next "#{pbGetMessageFromHash(SCRIPTTEXTS, GameData::Item.get(berry).name)}"
+      choice = messageMap(_INTL("Which berry would you like to view info about?"),
+      @berryPlants.keys.map { |berry| 
+        next "#{pbGetMessageFromHash(SCRIPTTEXTS, getBerryNameAndAmount(berry))}"
       }, -1, nil, lastchoiceBerries) { pbUpdate }
       input = choice != -1
       berry = @berryPlants.keys[choice]
     else 
-      input = true 
+      input = 0 
       berry = @berryPlants.keys[0]
     end 
     return input, berry, choice 

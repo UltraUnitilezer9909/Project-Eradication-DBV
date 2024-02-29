@@ -996,14 +996,10 @@ def pbPestInteraction
         end
     end
     if Settings::BERRY_REPEL_WORKS_ON_PESTS && $PokemonGlobal.repel > 0
-        if $PokemonGlobal.repel_item
-            pbMessage(_INTL("A Pokémon jumped out, but the {1} made it run away!",GameData::Item.get($PokemonGlobal.repel_item).name))
-        else
-            pbMessage(_INTL("A Pokémon jumped out, but the repellent made it run away!"))
-        end
+        pbMessage(_INTL("A Pokémon jumped out, but the repellent made it run away!"))
     else
         pbMessage(_INTL("A Pokémon jumped out at you!"))
-        pbBerryPlantPestRandomEncounter(GameData::BerryData.get(berry).color)
+        pbBerryPlantPestRandomEncounter(berry)
     end
     berry_plant.pests = false
     berry_plant.pests_timer = pbGetTimeNow.to_i
@@ -1152,70 +1148,7 @@ class PokemonRegionMap_Scene
         return pbMapShowBerries?
     end
         
-    if PluginManager.installed?("Arcky's Region Map") 
-        def berryModeID
-            return 3 if PluginManager.installed?("Arcky's Region Map","1.2") 
-            return 0
-        end
-        
-        alias tdw_berry_improvements_map_add addFlyIconSprites
-        def addFlyIconSprites
-            tdw_berry_improvements_map_add
-            addBerryIconSprites if allowShowingBerries
-        end
-
-        alias tdw_berry_improvements_map_refresh refreshFlyScreen
-        def refreshFlyScreen
-            tdw_berry_improvements_map_refresh
-            refreshBerryScreen if allowShowingBerries
-        end
-
-        def addBerryIconSprites
-            if !@spritesMap["BerryIcons"]
-                @berryIcons = {}
-                regionID = -1
-                if @region >= 0 && @playerPos && @region != @playerPos[0]
-                    regionID = @region
-                elsif @playerPos
-                    regionID = @playerPos[0]
-                end
-                berryPlants = pbForceUpdateAllBerryPlants(mapOnly: true, region: regionID, returnArray: true)
-                settings = Settings::BERRIES_ON_MAP_SHOW_PRIORITY
-                berryPlants.each do |plant|
-                    img = 999
-                    settings.each_with_index { |set, i|
-                        if set == :ReadyToPick && plant.grown? then img = i
-                        elsif set == :HasPests && plant.pests then img = i
-                        elsif set == :NeedsWater && plant.moisture_stage == 0 then img = i
-                        elsif set == :HasWeeds && plant.weeds then img = i
-                        end
-                        break if img != 999
-                    }
-                    if @berryIcons[plant.town_map_location]
-                        @berryIcons[plant.town_map_location] = img if img < @berryIcons[plant.town_map_location]
-                    else
-                        @berryIcons[plant.town_map_location] = img
-                    end
-                end
-                @mapHeight = @mapHeigth if @mapHeigth
-                @spritesMap["BerryIcons"] = BitmapSprite.new(@mapWidth, @mapHeight, @viewportMap)
-                @spritesMap["BerryIcons"].x = @spritesMap["map"].x
-                @spritesMap["BerryIcons"].y = @spritesMap["map"].y
-                @spritesMap["BerryIcons"].z = 59
-                @spritesMap["BerryIcons"].visible = @mode == berryModeID
-            end
-            @berryIcons.each { |key, value|
-                conversion = {:NeedsWater => "mapBerryDry", :ReadyToPick => "mapBerryReady", 
-                        :HasPests => "mapBerryPest", :HasWeeds => "mapBerryWeeds"}[settings[value]] || "mapBerry"
-                pbDrawImagePositions(@spritesMap["BerryIcons"].bitmap,
-                  [[pbGetBerryMapIcon(conversion), pointXtoScreenX(key[1]), pointYtoScreenY(key[2])]])
-            }
-        end
-
-        def refreshBerryScreen
-            @spritesMap["BerryIcons"].visible = @mode == berryModeID
-        end
-    else
+    if !PluginManager.installed?("Arcky's Region Map") 
         alias tdw_berry_improvements_map_fy_refresh refresh_fly_screen
         def refresh_fly_screen
             tdw_berry_improvements_map_fy_refresh

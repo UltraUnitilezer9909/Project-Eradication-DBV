@@ -1,5 +1,6 @@
 class PokemonRegionMap_Scene 
   def addRoamingIconSprites
+    return if Settings::ROAMING_SPECIES.nil?
     if !@spritesMap["RoamingIcons"]
       @spritesMap["RoamingIcons"] = BitmapSprite.new(@mapWidth, @mapHeight, @viewportMap)
       @spritesMap["RoamingIcons"].x = @spritesMap["map"].x
@@ -46,6 +47,7 @@ class PokemonRegionMap_Scene
   end 
 
   def getRoamingTownMapPos(roamPos)
+    echoln(roamPos)
     mapPos = GameData::MapMetadata.try_get(roamPos[1])&.town_map_position
     return mapPos if mapPos[0] == @region
   end

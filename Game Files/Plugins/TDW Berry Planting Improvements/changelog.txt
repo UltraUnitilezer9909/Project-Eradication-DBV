@@ -1,3 +1,20 @@
+v1.8.5
+- Added some extra handling to hopefully prevent crashes if pests exist but berries do not.
+
+v1.8.4
+- Removing some unnecessary code due to the latest update to Arcky's Region Map.
+- Removed the Optional requirement in the meta file for Arcky's Region Map since it's supported natively now.
+
+v1.8.3
+- Fixed a crash caused by some of my custom code making its way into the Pest handling.
+- Fixed some things that changed with v21 involving flutes and encounter rates so it wont crash in v21 anymore.
+
+v1.8.2
+- Fixed a crash with Pest checking if you didn't have TDW Core and Dex installed.
+
+v1.8.1
+- Fixed a crash with newest version of Arcky's Town Map and Berry Town Map icons.
+
 v1.8
 - New feature: Watering can traits. While there are several watering can options for the player in base essentials, they aren't really different from each other. Now, you can define traits that get applied to a berry plant when you water it at least once with a specific watering can. For instance, you could make the Sprayduck boost the final yield of the plant and the Sprinklotad lower the chance of weeds and pests interfering with the plant.
 - Added a BERRY_WATERING_USES_ALWAYS_FULL setting to allow setting some watering cans to always be considered full (if you are using watering can levels).

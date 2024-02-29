@@ -133,17 +133,17 @@ class PokemonRegionMap_Scene
     getAvailableRegions if !@avRegions
     @mapActions = {
       :ChangeMode => {
-        condition: @modeCount >= 2,
+        condition: @modeCount >= 2 && !@searchActive,
         text: _INTL("Change Mode"),
         button: ARMSettings::CHANGE_MODE_BUTTON
       },
       :ChangeRegion => {
-        condition: @avRegions.length >= 2 && !@previewShow,
+        condition: @avRegions.length >= 2 && !@previewShow && !@searchActive,
         text: _INTL("Change Region"),
         button: ARMSettings::CHANGE_REGION_BUTTON
       },
       :ViewInfo => {
-        condition: (@mode == 0 && !@previewShow && name != "" && (name != replaceName || ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS) || @lineCount == 0) && !@wallmap,
+        condition: (@mode == 0 && !@searchActive && !@previewShow && name != "" && (name != replaceName || ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS) || @lineCount == 0) && !@wallmap,
         text: _INTL("View Info"),
         button: ARMSettings::SHOW_LOCATION_BUTTON,
         priority: true
@@ -152,6 +152,23 @@ class PokemonRegionMap_Scene
         condition: @mode == 0 && @previewShow && @lineCount != 0 && @curLocName != "",
         text: _INTL("Hide Info"),
         button: Input::BACK
+      },
+      :SearchLocation => {
+        condition: @mode == 0 && !@previewShow && @listMaps && !@listMaps.empty? && enableMode(ARMSettings::CAN_LOCATION_SEARCH) && @listMaps.length >= ARMSettings::MINIMUM_MAPS_COUNT,
+        text: _INTL("Search Location"),
+        button: ARMSettings::LOCATION_SEARCH_BUTTON
+      },
+      :QuickSearch => {
+        condition: @searchActive,
+        text: _INTL("Quick Search"),
+        button: ARMSettings::QUICK_SEARCH_BUTTON,
+        priority: true
+      },
+      :OrderSearch => {
+        condition: @searchActive,
+        text: _INTL("Sort Search"),
+        button: ARMSettings::ORDER_SEARCH_BUTTON,
+        priority: true
       },
       :QuickFly => {
         condition: @mode == 1 && enableMode(ARMSettings::CAN_QUICK_FLY) && !getFlyLocations.empty?,
@@ -204,7 +221,7 @@ class PokemonRegionMap_Scene
         button: Input::BACK
       },
       :Quit => {
-        condition: !@previewShow,
+        condition: !@previewShow && !@searchActive,
         text: _INTL("Close Map"),
         button: Input::BACK
       }

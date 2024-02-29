@@ -68,7 +68,10 @@ if Essentials::VERSION.include?("20")
       @sprites["downarrow"].visible = false
       @sprites["overlay"] = BitmapSprite.new(Graphics.width, Graphics.height, @viewport)
       mapMetaData = $game_map.metadata
-      Console.echo_error _INTL("There's no mapMetadata for map '#{$game_map.name}' with ID #{$game_map.map_id}. \nAdd it to the map_metadata.txt to fix this error!") if !mapMetaData
+      if !mapMetaData
+        p "There's no mapMetadata for map '#{$game_map.name}' with ID #{$game_map.map_id}. Add it to the map_metadata.txt to fix this error!" 
+        Console.echo_error _INTL("There's no mapMetadata for map '#{$game_map.name}' with ID #{$game_map.map_id}. \nAdd it to the map_metadata.txt to fix this error!") 
+      end
       playerPos = mapMetaData && mapMetaData.town_map_position ? mapMetaData.town_map_position : [0, 0, 0]
       mapSize = mapMetaData.town_map_size 
       mapX = playerPos[1]

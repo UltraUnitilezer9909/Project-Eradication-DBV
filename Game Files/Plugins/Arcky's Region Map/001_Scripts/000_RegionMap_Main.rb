@@ -4,10 +4,10 @@
 class MapBottomSprite < Sprite
   def initialize(viewport = nil)
     super(viewport)
-    @mapname     = ""
-    @maplocation = ""
-    @mapdetails  = ""
-    @previewName   = ""
+    @mapname      = ""
+    @maplocation  = ""
+    @mapdetails   = ""
+    @previewName  = ""
     @previewWidth = 0
     self.bitmap = Bitmap.new(Graphics.width, Graphics.height)
     pbSetSystemFont(self.bitmap)
@@ -24,10 +24,26 @@ class MapBottomSprite < Sprite
   def refresh
     bitmap.clear
     textpos = [
-      [@mapname,     18 + ARMSettings::REGION_NAME_OFFSET_X,                  4 + ARMSettings::REGION_NAME_OFFSET_Y,   0,  ARMSettings::REGION_TEXT_MAIN, ARMSettings::REGION_TEXT_SHADOW],
-      [@maplocation, 18 + ARMSettings::LOCATION_NAME_OFFSET_X,              (Graphics.height - 24) + ARMSettings::LOCATION_NAME_OFFSET_Y, 0,  ARMSettings::LOCATION_TEXT_MAIN, ARMSettings::LOCATION_TEXT_SHADOW],
-      [@mapdetails, Graphics.width - (PokemonRegionMap_Scene::UI_BORDER_WIDTH - ARMSettings::POI_NAME_OFFSET_X), (Graphics.height - 24) + ARMSettings::POI_NAME_OFFSET_Y,      1, ARMSettings::POI_TEXT_MAIN, ARMSettings::POI_TEXT_SHADOW],
-      [@previewName,  Graphics.width - (@previewWidth + PokemonRegionMap_Scene::UI_BORDER_WIDTH + ARMSettings::QUEST_NAME_OFFSET_X - 16), 4 + ARMSettings::QUEST_NAME_OFFSET_Y, 0,  ARMSettings::QUEST_TEXT_MAIN, ARMSettings::QUEST_TEXT_SHADOW]
+      [
+        @mapname, 
+        18 + ARMSettings::REGION_NAME_OFFSET_X, 4 + ARMSettings::REGION_NAME_OFFSET_Y, 0, 
+        ARMSettings::REGION_TEXT_MAIN, ARMSettings::REGION_TEXT_SHADOW
+      ],
+      [
+        @maplocation, 
+        18 + ARMSettings::LOCATION_NAME_OFFSET_X, (Graphics.height - 24) + ARMSettings::LOCATION_NAME_OFFSET_Y, 0, 
+        ARMSettings::LOCATION_TEXT_MAIN, ARMSettings::LOCATION_TEXT_SHADOW
+      ],
+      [
+        @mapdetails, 
+        Graphics.width - (PokemonRegionMap_Scene::UI_BORDER_WIDTH - ARMSettings::POI_NAME_OFFSET_X), (Graphics.height - 24) + ARMSettings::POI_NAME_OFFSET_Y, 1, 
+        ARMSettings::POI_TEXT_MAIN, ARMSettings::POI_TEXT_SHADOW
+      ],
+      [
+        @previewName, 
+        Graphics.width - (@previewWidth + PokemonRegionMap_Scene::UI_BORDER_WIDTH + ARMSettings::QUEST_NAME_OFFSET_X - 16), 4 + ARMSettings::QUEST_NAME_OFFSET_Y, 0, 
+        ARMSettings::QUEST_TEXT_MAIN, ARMSettings::QUEST_TEXT_SHADOW
+      ]
     ]
     pbDrawTextPositions(bitmap, textpos)
   end
@@ -36,6 +52,7 @@ end
 # The Region Map and everything else it does and can do.
 #===============================================================================
 class PokemonRegionMap_Scene
+
   ENGINE20 = Essentials::VERSION.include?("20")
   ENGINE21 = Essentials::VERSION.include?("21")
   
@@ -102,16 +119,15 @@ class PokemonRegionMap_Scene
     @regionFile = @map[1] if ENGINE20
     @regionFile = @map.filename if ENGINE21
     if QUESTPLUGIN && $quest_data
-      @questMap       = $quest_data.getQuestMapPositions(@map[2], @region) if ENGINE20
-      @questMap       = $quest_data.getQuestMapPositions(@map.point, @region) if ENGINE21
+      @questMap  = $quest_data.getQuestMapPositions(@map[2], @region) if ENGINE20
+      @questMap  = $quest_data.getQuestMapPositions(@map.point, @region) if ENGINE21
     end
     if !@map
       pbMessage(_INTL("The map data cannot be found."))
       return false
     end
     main 
-    @playerMapName = pbGetMapLocation(@playerPos[1], @playerPos[2])
-    echoln(@playerMapName)
+    @playerMapName = !(@playerPos.nil?) ? pbGetMapLocation(@playerPos[1], @playerPos[2]) : ""
   end
 
   def main
@@ -121,7 +137,7 @@ class PokemonRegionMap_Scene
     getFlyIconPositions
     addFlyIconSprites 
     addUnvisitedMapSprites 
-    getVisitedCounter
+    getCounter
     mapModeSwitchInfo
     showAndUpdateMapInfo 
     addPlayerIconSprite
@@ -175,6 +191,17 @@ class PokemonRegionMap_Scene
       @map       = GameData::TownMap.get(@region) if ENGINE21
       @mapX      = @playerPos[1]
       @mapY      = @playerPos[2]
+      ARMSettings::FAKE_REGION_LOCATIONS[$game_map.map_id]&.each do |var, keys|
+        keys.each do |value, pos|
+          if $game_variables[var] == value
+            @region = @playerPos[0] = pos[0]
+            @map = @mapData[pos[0]] if ENGINE20
+            @map = GameData::TownMap.get(@region) if ENGINE21
+            @mapX = @playerPos[1] = pos[1]
+            @mapY = @playerPos[2] = pos[2]
+          end
+        end
+      end 
       mapsize    = @mapMetadata.town_map_size
       if mapsize && mapsize[0] && mapsize[0] > 0
         sqwidth  = mapsize[0]
@@ -267,12 +294,14 @@ class PokemonRegionMap_Scene
       @mapInfo[mapKey] ||= {
         mapname: replaceMapName(mapData[2].clone),
         realname: mapData[2],
+        region: @region,
         positions: [],
         flyicons: []
       }
       name = replaceMapPOI(@mapInfo[mapKey][:mapname], mapData[3].clone) if mapData[3]||nil
       position = {
         poiname: name,
+        realpoiname: mapData[3],
         x: mapData[0],
         y: mapData[1],
         flyspot: {},
@@ -385,7 +414,7 @@ class PokemonRegionMap_Scene
         next if spot.nil?
         pbDrawImagePositions(
           @spritesMap["FlyIcons"].bitmap,
-          [["#{FOLDER}/Icons/#{spot[:name]}", pointXtoScreenX(spot[:x]), pointYtoScreenY(spot[:y])]]
+          [["#{FOLDER}Icons/Fly/#{spot[:name]}", pointXtoScreenX(spot[:x]), pointYtoScreenY(spot[:y])]]
         )
       end
     end
@@ -429,64 +458,135 @@ class PokemonRegionMap_Scene
     curPos.clear
   end 
 
-  def getVisitedCounter
-    @visitCounter = {}
+  def getCounter
+    @globalCounter = {}
+    return if !ARMSettings::PROGRESS_COUNTER
     locations = @mapPoints.map { |mapData| mapData[2] }.uniq
-    selectedMaps = []
-    visits = []
+    # separate counter for wild pokemon because different maps can have the same species as another map.
+    # They only need to be counted once in a same district.
+    wild = Hash.new { |h, k| h[k] = { seen: 0, caught: 0, total: Hash.new(0) } }
     # Initialize counters for each district
-    districtCounters = Hash.new { |h, k| h[k] = { visited: 0, total: 0 } } if ARMSettings::USE_REGION_DISTRICTS_NAMES
+    districtCounters = Hash.new { |h, k| h[k] = { :progress => 0, :total => 0,
+                                                  :maps => { visited: 0, total: 0 }, 
+                                                  :encounters => { pokedex: 0, total: 0 }, 
+                                                  :trainers => { defeated: 0, total: 0 }, 
+                                                  :items => { found: 0, total: 0} 
+                                                } }
     GameData::MapMetadata.each do |gameMap|
+      # check if the gameMap has a town map position and if it's equal to the current region ID.
+      next if gameMap.town_map_position.nil? || gameMap.town_map_position[0] != @region
+      # get the district name.
+      district = getDistrict(gameMap.town_map_position)
+      # get the encounter table for the current gameMap
+      encounterData = GameData::Encounter.get(gameMap.id, $PokemonGlobal.encounter_version)
+      unless encounterData.nil?
+        tally = encounterData.types.values.flatten(1).map { |data| data[1] }.tally
+        wild[district][:total].update(tally) { |key, oldVal, newVal| oldVal + newVal }
+      end 
+      # Counting events that have an item
+      map = load_data(sprintf("Data/Map%03d.rxdata", gameMap.id)) 
+      items = 0
+      trainers = 0
+      trainerlist = []
+      map.events.each do |event|
+        if event[1].name[/item/i]
+          event[1].pages.each do |page|
+            page.list.each do |line|
+              # 111 is conditional, 355 is script command.
+              next if line.code.nil? || line.code != 111 && line.code != 355
+              script = line.parameters[1]
+              next if script.nil? || script.is_a?(Numeric) || !(script.include?("pbItemBall") || script.include?("pbReceiveItem"))
+              split = script.split(',').map { |s| s.split(')')[0] }
+              number = !(split[1].nil?) ? split[1].to_i : 1
+              items += number
+            end
+          end 
+        elsif event[1].name[/trainer/i]
+          event[1].pages.each do |page|
+            page.list.each do |line|
+              next if line.code.nil? || line.code != 111
+              script = line.parameters[1]
+              next if script.nil? || script.is_a?(Numeric) || !(script.include?("TrainerBattle.start"))
+              next if trainerlist.include?(script)
+              trainerlist << script 
+              trainers += 1
+            end 
+          end 
+        elsif event[1].name[/wild|static/i]
+          event[1].pages.each do |page|
+            page.list.each do |line|
+              next if line.code.nil? || line.code != 355
+              script = line.parameters[0]
+              next if script.nil? || script.is_a?(Numeric) || !(script.include?("WildBattle.start"))
+              split = script.split('(').map { |s| s.split(', ') }
+              species = split[1].select { |el| /[A-Z]/.match?(el) }.map! { |sp| sp.gsub(":", "").to_sym }
+              wild[district][:total].update(species.tally) { |key, oldVal, newVal| oldVal + newVal }
+            end 
+          end 
+        end 
+      end
+      districtCounters[district][:items][:total] += items 
+      districtCounters[district][:trainers][:total] += trainers
       # main maps
       map = locations.find { |map| pbGetMessageFromHash(LOCATIONNAMES, map) == gameMap.name && gameMap.outdoor_map }
-      next if !map
-      if !selectedMaps.find { |map| gameMap.name == map[0] }
-        selectedMaps << [gameMap.name, gameMap.id] 
-        visits << gameMap.id if $PokemonGlobal.visitedMaps[gameMap.id]
-        # Check if the map belongs to any district
-        if ARMSettings::USE_REGION_DISTRICTS_NAMES
-          district = getDistrict(gameMap.town_map_position)
-          if district.nil?
-            # If map doesn't belong to any district, use a default key
-            district = "#{pbGetMessage(REGIONNAMES, @region)}" if ENGINE20
-            district = "#{pbGetMessageFromHash(REGIONNAMES, @map.name.to_s)}" if ENGINE21
-          end
-          # Update district counters
-          districtCounters[district][:total] += 1
-          districtCounters[district][:visited] += 1 if $PokemonGlobal.visitedMaps[gameMap.id]
+      # check for POI map if no main map found
+      if map.nil?
+        findMap = ARMSettings::LINK_POI_TO_MAP.find { |name| gameMap.id == name[1] }
+        unless findMap.nil?
+          map = GameData::MapMetadata.try_get(findMap[1])
         end
-      end 
-    end
-    # poi maps
-    unless ARMSettings::LINK_POI_TO_MAP.nil?
-      ARMSettings::LINK_POI_TO_MAP.each do |key, value|
-        map = GameData::MapMetadata.try_get(value)
-        next if map.town_map_position[0] != @region
-        locations << value 
-        visits << value if $PokemonGlobal.visitedMaps[value]
-        if ARMSettings::USE_REGION_DISTRICTS_NAMES
-          # Check if the map belongs to any district
-          district = getDistrict(map.town_map_position)
-          if district.nil?
-            # If map doesn't belong to any district, use a default key
-            district = "#{pbGetMessageFromHash(REGIONNAMES, @map.name.to_s)}"
-          end
-          # Update district counters
-          districtCounters[district][:total] += 1
-          districtCounters[district][:visited] += 1 if $PokemonGlobal.visitedMaps[value]
-        end 
-      end 
-    end 
-    @visitCounter = { visited: visits.count, total: locations.count, districts: districtCounters }
-  end
-  
-  def getDistrict(position)
-    ARMSettings::REGION_DISTRICTS.each do |region, rangeX, rangeY, districtName|
-      if position[0] == region && position[1].between?(rangeX[0], rangeX[1]) && position[2].between?(rangeY[0], rangeY[1])
-        return pbGetMessageFromHash(SCRIPTTEXTS, districtName)
+      end
+      # skip if there's still no match found
+      next if map.nil?
+      # Check if the map belongs to any district
+      unless district.nil?
+        # Update district counters
+        districtCounters[district][:maps][:total] += 1
+        districtCounters[district][:maps][:visited] += 1 if $PokemonGlobal.visitedMaps[gameMap.id]
       end
     end
-    nil
+    # Wild Encounters
+    wild.each do |district, encounters|
+      districtCounters[district][:encounters][:total] = encounters[:total].count * 2
+      encounters[:total].keys.each do |species|
+        districtCounters[district][:encounters][:pokedex] += 1 if $player.seen?(species)
+        districtCounters[district][:encounters][:pokedex] += 1 if $player.owned?(species)
+      end 
+    end
+    # Create the total count for each district and overall.
+    progressCount = totalCount = 0
+    districtCounters.each do |district, counters|
+      if $PokemonGlobal.itemTracker
+        districtCounters[district][:items][:found] = $PokemonGlobal.itemTracker[district][:total] if $PokemonGlobal.itemTracker[district]
+      end 
+      if $PokemonGlobal.trainerTracker
+        districtCounters[district][:trainers][:defeated] = $PokemonGlobal.trainerTracker[district][:total] if $PokemonGlobal.trainerTracker[district]
+      end 
+      total = progress = 0
+      counters.values.each_with_index do |hash, index|
+        next if index < 2
+        progress += hash.values[0]
+        total += hash.values[1]
+      end 
+      districtCounters[district][:progress] = progress
+      districtCounters[district][:total] = total
+      progressCount += progress
+      totalCount += total 
+    end 
+    @globalCounter = { progress: progressCount, total: totalCount, districts: districtCounters }
+  end
+
+  def getDistrict(position)
+    return if position.nil?
+    if ARMSettings::USE_REGION_DISTRICTS_NAMES
+      ARMSettings::REGION_DISTRICTS.each do |region, rangeX, rangeY, districtName|
+        if position[0] == region && position[1].between?(rangeX[0], rangeX[1]) && position[2].between?(rangeY[0], rangeY[1])
+          return pbGetMessageFromHash(SCRIPTTEXTS, districtName)
+        end
+      end
+    end
+    return pbGetMessage(REGIONNAMES, @region) if ENGINE20
+    return pbGetMessageFromHash(REGIONNAMES, @map.name.to_s) if ENGINE21
   end  
 
   def showAndUpdateMapInfo
@@ -506,17 +606,23 @@ class PokemonRegionMap_Scene
   def getMapName(x, y)
     district = pbGetMessage(REGIONNAMES, @region) if ENGINE20
     district = pbGetMessageFromHash(REGIONNAMES, @map.name.to_s) if ENGINE21
-    if ARMSettings::USE_REGION_DISTRICTS_NAMES && !@visitCounter[:districts].empty?
-      ARMSettings::REGION_DISTRICTS.each do |name| 
-        next if name[0] != @region
-        if (x >= name[1][0] && x <= name[1][1]) && (y >= name[2][0] && y <= name[2][1])
-          district = pbGetMessageFromHash(SCRIPTTEXTS, name[3])
-        end 
-      end
-      districtData = @visitCounter[:districts][district]
-      district = "#{district} - #{(districtData[:visited].to_f / districtData[:total] * 100).round(0)}%" if districtData && @mode == 0
-    else 
-      district = "#{district} - #{(@visitCounter[:visited].to_f / @visitCounter[:total] * 100).round(0)}%" if @mode == 0
+    if ARMSettings::PROGRESS_COUNTER
+      if ARMSettings::USE_REGION_DISTRICTS_NAMES && !@globalCounter[:districts].empty?
+        ARMSettings::REGION_DISTRICTS.each do |name| 
+          next if name[0] != @region
+          if (x >= name[1][0] && x <= name[1][1]) && (y >= name[2][0] && y <= name[2][1])
+            district = pbGetMessageFromHash(SCRIPTTEXTS, name[3])
+          end 
+        end
+        if (ENGINE20 && district == pbGetMessage(REGIONNAMES, @region)) || (ENGINE21 && district == pbGetMessageFromHash(REGIONNAMES, @map.name.to_s))
+          district = "#{district} - #{(@globalCounter[:progress].to_f / @globalCounter[:total] * 100).round(1)}%" if @mode == 0
+        else 
+          districtData = @globalCounter[:districts][district]
+          district = "#{district} - #{(districtData[:progress].to_f / districtData[:total] * 100).round(1)}%" if districtData && districtData[:total] != 0 && @mode == 0
+        end
+      else
+        district = "#{district} - #{(@globalCounter[:progress].to_f / @globalCounter[:total] * 100).round(1)}%" if @mode == 0
+      end  
     end 
     return district
   end 
@@ -544,6 +650,7 @@ class PokemonRegionMap_Scene
   end
 
   def pbGetMapDetails(x, y)
+    @curPOIname = nil
     map = getMapPoints
     return "" if !map
     map.each do |point|
@@ -552,6 +659,7 @@ class PokemonRegionMap_Scene
       mapPoint = point[2].gsub(" ", "").to_sym
       @mapInfo[mapPoint][:positions].each do |key, value|
         mapdesc = key[:poiname] if key[:x] == point[0] && key[:y] == point[1]
+        @curPOIname = key[:realpoiname]
         return mapdesc if mapdesc 
       end 
     end
@@ -812,7 +920,7 @@ class PokemonRegionMap_Scene
       return if flyicon.nil? || flyicon[:name] == "mapFlyDis"
       pbDrawImagePositions(
         @spritesMap["highlight"].bitmap,
-        [["#{FOLDER}Icons/MapFlySel", (flyicon[:x] * ARMSettings::SQUARE_WIDTH) - 8 , (flyicon[:y] * ARMSettings::SQUARE_HEIGHT) - 8]]
+        [["#{FOLDER}Icons/Fly/MapFlySel", (flyicon[:x] * ARMSettings::SQUARE_WIDTH) - 8 , (flyicon[:y] * ARMSettings::SQUARE_HEIGHT) - 8]]
       )
     end
   end
@@ -833,10 +941,10 @@ class PokemonRegionMap_Scene
   def getMapFolderName(image)
     name = image[:name]
     case name
-    when /Size/
-      mapFolder = "Others"
     when /Route/
       mapFolder = "Routes"
+    else 
+      mapFolder = "Others"
     end
     return mapFolder
   end 
@@ -846,6 +954,7 @@ class PokemonRegionMap_Scene
     map    = createObject
     opacityBox = convertOpacity(ARMSettings::BUTTON_BOX_OPACITY)
     choice   = nil
+    lastChoiceLocation = 0
     lastChoiceFly = 0
     lastChoiceQuest = 0
     lastChoiceBerries = 0
@@ -871,8 +980,9 @@ class PokemonRegionMap_Scene
         updateMap(map)
         next if map[:offsetX] != 0 || map[:offsetY] != 0
       end
-      if cursor[:offsetX] == 0 && cursor[:offsetY] == 0 && choice && choice >= 0 
+      if cursor[:offsetX] == 0 && cursor[:offsetY] == 0 && choice && choice.is_a?(Integer) && choice >= 0 
         inputFly = true if @mode == 1
+        lastChoiceLocation = choice if @mode == 0
         lastChoiceFly = choice if @mode == 1
         lastChoiceQuest = choice if @mode == 2
         lastChoiceBerries = choice if @mode == 3
@@ -883,11 +993,13 @@ class PokemonRegionMap_Scene
       cursor[:oldX] = @mapX
       cursor[:oldY] = @mapY
       ox, oy, mox, moy = getDirectionInput(ox, oy, mox, moy)
-      choice = canActivateQuickFly(lastChoiceFly, cursor)
+      choice = canSearchLocation(lastChoiceLocation, cursor) if @mode == 0
+      choice = canActivateQuickFly(lastChoiceFly, cursor) if @mode == 1
       updateCursorPosition(ox, oy, cursor) if ox != 0 || oy != 0
       updateMapPosition(mox, moy, map) if mox != 0 || moy != 0
       updatePreviewBox if @previewShow && (@mapX != cursor[:oldX] || @mapY != cursor[:oldY])
       showAndUpdateMapInfo if (@mapX != cursor[:oldX] || @mapY != cursor[:oldY]) || !@previewHide && !@previewShow
+      #showPlayerIconOutsideMap
       if !@wallmap
         if (Input.trigger?(ARMSettings::SHOW_LOCATION_BUTTON) && @mode == 0 && ARMSettings::USE_LOCATION_PREVIEW) && getLocationInfo
           showPreviewBox
@@ -903,7 +1015,7 @@ class PokemonRegionMap_Scene
         elsif Input.trigger?(ARMSettings::SHOW_BERRY_BUTTON) && BERRYPLUGIN && @mode == 3
           choice = showBerryInformation(lastChoiceBerries)
           showPreviewBox if choice != -1
-        end
+        end 
       end 
       if Input.trigger?(Input::BACK)
         if @previewShow
@@ -919,12 +1031,91 @@ class PokemonRegionMap_Scene
     return nil
   end
 
+  def canSearchLocation(lastChoiceLocation, cursor)
+    @listMaps = getAllLocations
+    return if @listMaps.empty? || (@listMaps.length + 1) <= ARMSettings::MINIMUM_MAPS_COUNT
+    if enableMode(ARMSettings::CAN_LOCATION_SEARCH) && Input.trigger?(ARMSettings::LOCATION_SEARCH_BUTTON) && !@previewShow 
+      match = ARMSettings::LINK_POI_TO_MAP.find { |_,poi| poi == $game_map.map_id }
+      findChoice = @listMaps.find_index { |map| match[0] == map[:name] } if !match.nil?
+      findChoice = @listMaps.find_index { |map| @curMapLoc == map[:name] } if !findChoice
+      lastChoiceLocation = findChoice if findChoice
+      @searchActive = true 
+      updateButtonInfo
+      choice = messageMap(_INTL("Choose a Location (press #{convertButtonToString(ARMSettings::ORDER_SEARCH_BUTTON)} to order the list.)"),
+        @listMaps.map { |mapData| mapData[:name] }, -1, nil, lastChoiceLocation, true) { pbUpdate }
+      if $resultWindow
+        $resultWindow.dispose
+        $resultWindow = nil
+      end
+      if choice.is_a?(String)
+        @listMaps = updateLocationList(choice)
+      elsif choice.is_a?(Integer) 
+        if choice != -1
+          @mapX = @listMaps[choice][:pos][:x]
+          @mapY = @listMaps[choice][:pos][:y]
+        else 
+          @mapX = cursor[:oldX]
+          @mapY = cursor[:oldY]
+        end 
+        @sprites["cursor"].x = 8 + (@mapX * ARMSettings::SQUARE_WIDTH)
+        @sprites["cursor"].y = 24 + (@mapY * ARMSettings::SQUARE_HEIGHT)
+        pbGetMapLocation(@mapX, @mapY)
+        centerMapOnCursor
+      end
+      @searchActive = false
+    end 
+    return choice
+  end 
+
+  def getAllLocations
+    listMaps = []
+    unvisited = ARMSettings::INCLUDE_UNVISITED_MAPS
+    @mapInfo.each do |_, map|
+      usename = unvisited ? "realpoiname" : "poiname"
+      poinames = map[:positions].map { |pos| pos[usename.to_sym] }
+      next if map[:mapname] == ARMSettings::UNVISITED_MAP_TEXT && !unvisited
+      pos = map[:positions][0]
+      usename = unvisited ? "realname" : "mapname"
+      listMaps << {name: map[usename.to_sym], :pos => {region: map[:region], x: pos[:x], y: pos[:y] } }
+      poiMaps = []
+      poinames.each_with_index do |name, index|
+        next if (name == ARMSettings::UNVISITED_POI_TEXT && !unvisited) || name.nil? || name == "" || poiMaps.any? { |map| map[:name] == name }
+        pos = map[:positions][index]
+        poiMaps << {name: name, :pos => {region: map[:region], x: pos[:x], y: pos[:y] } }
+      end
+      listMaps += poiMaps
+    end
+    return listMaps
+  end 
+
+  def updateLocationList(term)
+    return getAllLocations if term == ""
+    @termList = [] if !@termList
+    @termList << term
+    filtered = @listMaps.select do |location|
+      location[:name].downcase.include?(term.downcase)
+    end
+    if filtered.empty?
+      filtered = @listMaps 
+      text = "No results"
+    else
+      word = filtered.length > 1 ? "results" : "result"
+      text = "#{filtered.length} #{word}"
+    end
+    unless text == ""
+      $resultWindow = Window_AdvancedTextPokemon.new(_INTL(text))
+      $resultWindow.resizeToFit($resultWindow.text, Graphics.width)
+      $resultWindow.z = 100003
+    end
+    return filtered
+  end 
+
   def switchRegionMap
     getAvailableRegions if !@avRegions
     @avRegions = @avRegions.sort_by { |index| index[1] }
     if @avRegions.length >= 3
-      choice = pbMessageMap(_INTL("Which Region would you like to change to?"),
-        @avRegions.map { |mode| "#{mode[0]}" }, -1, nil, @region, false) { pbUpdate }
+      choice = messageMap(_INTL("Which Region would you like to change to?"),
+        @avRegions.map { |mode| "#{mode[0]}" }, -1, nil, @region) { pbUpdate }
       return if choice == -1 || @region == @avRegions[choice][1]
       @region = @avRegions[choice][1]
     else
@@ -940,12 +1131,17 @@ class PokemonRegionMap_Scene
     map = []
     GameData::MapMetadata.each do |gameMap|
       next if gameMap.town_map_position.nil?
-      map << gameMap.town_map_position if $PokemonGlobal.visitedMaps[gameMap.id] 
+      map << [gameMap.id, gameMap.real_name, gameMap.town_map_position] if $PokemonGlobal.visitedMaps[gameMap.id] 
     end 
     @avRegions = []
-    map.each do |region|
+    map.each do |id, name, region|
       name = pbGetMessage(MessageTypes::RegionNames, region[0]) if ENGINE20
-      name = GameData::TownMap.get(region[0]).name if ENGINE21
+      if ENGINE21 && GameData::TownMap.exists?(region[0])
+        name = GameData::TownMap.get(region[0]).name 
+      elsif ENGINE21 || (ENGINE20 && name == "")
+        Console.echoln_li _INTL("Game map: #{id}, #{name}: MapPosition = #{region[0]},#{region[1]},#{region[2]} => #{region[0]} is not a valid Region ID.") 
+        next
+      end
       next if @avRegions.include?([name, region[0]])
       @avRegions << [pbGetMessageFromHash(SCRIPTTEXTS, name), region[0]]
     end 
@@ -1048,12 +1244,14 @@ class PokemonRegionMap_Scene
     elsif ENGINE21
       if map[:offsetX] != 0
         @spritesMap.each do |key, value|
+          next if key == "pointer" && @freezeX
           @spritesMap[key].x = lerp(map[:newX] - map[:offsetX], map[:newX], 0.1, @distPerFrame, System.uptime)
         end
         map[:offsetX] = 0 if @spritesMap["map"].x == map[:newX]
       end 
       if map[:offsetY] != 0
         @spritesMap.each do |key, value|
+          next if key == "pointer" && @freezeY
           @spritesMap[key].y = lerp(map[:newY] - map[:offsetY], map[:newY], 0.1, @distPerFrame, System.uptime)
         end 
         map[:offsetY] = 0 if @spritesMap["map"].y == map[:newY] 
@@ -1084,11 +1282,11 @@ class PokemonRegionMap_Scene
   def canActivateQuickFly(lastChoiceFly, cursor)
     @visited = getFlyLocations
     return if @visited.empty?
-    if enableMode(ARMSettings::CAN_QUICK_FLY) && Input.trigger?(ARMSettings::QUICK_FLY_BUTTON) && @mode == 1
+    if enableMode(ARMSettings::CAN_QUICK_FLY) && Input.trigger?(ARMSettings::QUICK_FLY_BUTTON)
       findChoice = @visited.find_index { |pos| pos[:x] == @mapX && pos[:y] == @mapY }
       lastChoiceFly = findChoice if findChoice
-      choice = pbMessageMap(_INTL("Quick Fly: Choose one of the available locations to fly to."),
-          (0...@visited.size).to_a.map{ |i| "#{@visited[i][:name]}" }, -1, nil, lastChoiceFly) { pbUpdate }
+      choice = messageMap(_INTL("Quick Fly: Choose one of the available locations to fly to."),
+          (0...@visited.size).to_a.map{ |i| "#{@visited[i][:name]}" }, -1, nil, lastChoiceFly, true) { pbUpdate }
       if choice != -1
         @mapX = @visited[choice][:x]
         @mapY = @visited[choice][:y]
@@ -1143,7 +1341,7 @@ class PokemonRegionMap_Scene
     @healspot = pbGetHealingSpot(@mapX, @mapY)
     if @healspot && ($PokemonGlobal.visitedMaps[@healspot[0]] || ($DEBUG && Input.press?(Input::CTRL)))
       name = pbGetMapNameFromId(@healspot[0])
-      return pbConfirmMessageMap(_INTL("Would you like to use Fly to go to {1}?", name))
+      return confirmMessageMap(_INTL("Would you like to use Fly to go to {1}?", name))
     end
   end 
 
@@ -1151,8 +1349,8 @@ class PokemonRegionMap_Scene
     if @modeCount > 2 && ARMSettings::CHANGE_MODE_MENU
       @choiceMode = 0 if !@choiceMode
       avaModes = @modeInfo.values.select { |mode| mode[:condition] }
-      choice = pbMessageMap(_INTL("Which mode would you like to switch to?"), 
-      avaModes.map { |mode| "#{mode[:text]}" }, -1, nil, @choiceMode, false) { pbUpdate }
+      choice = messageMap(_INTL("Which mode would you like to switch to?"), 
+      avaModes.map { |mode| "#{mode[:text]}" }, -1, nil, @choiceMode) { pbUpdate }
       if choice != -1
         @choiceMode = choice 
         @mode = avaModes[choice][:mode]
@@ -1174,71 +1372,6 @@ class PokemonRegionMap_Scene
     @sprites["mapbottom"].previewName = [getPreviewName(@mapX, @mapY), @previewWidth] if @mode == 2 || @mode == 3 || @mode == 4
     @sprites["buttonName"].bitmap.clear 
   end 
-
-  def pbConfirmMessageMap(message, &block)
-    return (pbMessageMap(message, [_INTL("Yes"), _INTL("No")], 2, nil, 0, false, &block) == 0)
-  end
-
-  def pbMessageMap(message, commands = nil, cmdIfCancel = 0, skin = nil, defaultCmd = 0, choiceUpdate = true, &block)
-    ret = 0
-    msgwindow = pbCreateMessageWindow(nil, skin)
-    msgwindow.z = 100002
-    if commands
-      ret = pbMessageDisplay(msgwindow, message, true,
-                             proc { |msgwindow|
-                               next pbShowCommandsMap(msgwindow, commands, cmdIfCancel, defaultCmd, choiceUpdate, &block)
-                             }, &block)
-    else
-      pbMessageDisplay(msgwindow, message, &block)
-    end
-    pbDisposeMessageWindow(msgwindow)
-    Input.update
-    return ret
-  end
-  
-  def pbShowCommandsMap(msgwindow, commands = nil, cmdIfCancel = 0, defaultCmd = 0, choiceUpdate = true)
-    return 0 if !commands
-    cmdwindow = Window_CommandPokemonEx.new(commands, nil, true)
-    cmdwindow.z = 100002
-    cmdwindow.visible = true
-    cmdwindow.resizeToFit(cmdwindow.commands)
-    pbPositionNearMsgWindow(cmdwindow, msgwindow, :right)
-    cmdwindow.index = defaultCmd
-    command = 0
-    loop do
-      Graphics.update
-      Input.update
-      cmdwindow.update
-      if choiceUpdate && ARMSettings::AUTO_CURSOR_MOVEMENT && @mode == 1
-        @mapX = @visited[cmdwindow.index][:x]
-        @mapY = @visited[cmdwindow.index][:y]
-        @sprites["cursor"].x = 8 + (@mapX * ARMSettings::SQUARE_WIDTH)
-        @sprites["cursor"].y = 24 + (@mapY * ARMSettings::SQUARE_HEIGHT)
-        showAndUpdateMapInfo
-        centerMapOnCursor
-      end 
-      msgwindow&.update
-      yield if block_given?
-      if Input.trigger?(Input::BACK)
-        if cmdIfCancel > 0
-          command = cmdIfCancel - 1
-          break
-        elsif cmdIfCancel < 0
-          command = cmdIfCancel
-          break
-        end
-      end
-      if Input.trigger?(Input::USE)
-        command = cmdwindow.index
-        break
-      end
-      pbUpdateSceneMap
-    end
-    ret = command
-    cmdwindow.dispose
-    Input.update
-    return ret
-  end
 
   def pbEndScene
     startFade { pbUpdate }
@@ -1265,11 +1398,16 @@ end
 #===============================================================================
 # Debug menu editor
 #===============================================================================
-class RegionMapSpritE
+class RegionMapSprite
   def createRegionMap(map)
-    @mapdata = pbLoadTownMapData
-    @map = @mapdata[map]
-    bitmap = AnimatedBitmap.new("Graphics/UI/Town Map/Regions/#{@map[1]}").deanimate
+    if Essentials::VERSION.include?("20")
+      @mapdata = pbLoadTownMapData
+      @map = @mapdata[map]
+      bitmap = AnimatedBitmap.new("Graphics/Pictures/RegionMap/Regions/#{@map[1]}").deanimate
+    else 
+      townMap = GameData::TownMap.get(map)
+      bitmap = AnimatedBitmap.new("Graphics/UI/Town Map/Regions/#{townMap.filename}").deanimate
+    end
     retbitmap = BitmapWrapper.new(bitmap.width / 2, bitmap.height / 2)
     retbitmap.stretch_blt(
       Rect.new(0, 0, bitmap.width / 2, bitmap.height / 2),

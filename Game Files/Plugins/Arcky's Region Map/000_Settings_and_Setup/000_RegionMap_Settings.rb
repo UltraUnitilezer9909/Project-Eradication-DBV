@@ -8,7 +8,14 @@ module ARMSettings
   # change the square size for each tile on the Region Map here. (I don't recommend changing this but it's here in case you want to anyway.)
   SQUARE_WIDTH  = 16
   SQUARE_HEIGHT = 16
-
+  #===============================================================================
+  # Region Progress Counter
+  #===============================================================================
+  # Set this to true if you want to enable the progress counter and make it keep track of visited maps, wild pokemon (seen and caught), trainers and items
+  # Set this to false if you don't want to use the progress counter of if you're facing crashing that might be caused by this feature.
+  # It's a very unclean way of fixing this issue now so I want to ask you if you encounter a crash with the progress counter,
+  # to still report the crash to me so I can hopefully figure out a fix for it. Thank you.
+  PROGRESS_COUNTER = false 
   #===============================================================================
   # Hidden Region Locations
   #===============================================================================
@@ -26,18 +33,71 @@ module ARMSettings
     [0, 51, 16, 15, "mapHiddenBerth"], #last option is set to nil
     [0, 52, 20, 14, "mapHiddenFaraday", true] #last option is set to true
   ]
-  
   #===============================================================================
-  # Fly From Town Map
+  # Fake Region Locations
+  #===============================================================================
+  # Add a Map ID, add a Game Variable and set up for each value a map position.
+  # The map ID will prevent a map position being used by the script on another map.
+  # Set up: Map ID => { Game Variable => value => [region, x, y] } }
+  # Example: 14 => { 98 => { 1 => [0, 1, 1] } } :
+  # When the Current Game Map ID is 14 and Game Variable 98 has a value of 1, the Map Position shown on the Region Map will be 1 for the x value and 1 for the y value on Region 0.
+  # It is not recommended to use multiple Game Variables for a same map because it might cause problems. If Game Variable 98 is 3 and Game Variable 99 is 2, there'll be no problem.
+  # But you can use the same Game Variable for multiple Maps and they may even have the same value because only the map position of the current Game Map will be used if there's a match. 
+  FAKE_REGION_LOCATIONS = {
+    14 => {
+      98 => { 
+        1 => [1, 1, 1],
+        2 => [0, 2, 2]
+      },
+      99 => {
+        2 => [1, 5, 5]
+      }
+    },
+    70 => {
+      98 => {
+        3 => [1, 3, 3]
+      },
+      99 => {
+        1 => [0, 4, 4]
+      }
+    }
+  }
+  #===============================================================================
+  # Location Search Settings
+  #===============================================================================
+  # Set this to true or 0 if you want to enable the Location Search Feature.
+  # Set this to false or -1 if you don't want to use this feature, all other settings below will be ignored.
+  # Set this to any Switch ID if you want the Location Search only be enabled when this Switch is ON.
+  CAN_LOCATION_SEARCH = true 
+
+  # Set this to true if you want to include unvisited maps for the list of Locations it'll give you.
+  # Set this to false if you don't want to include any unvisited maps.
+  # The maps that are listed are used from the townmap pbs and thus not every single game map is included in the list.
+  INCLUDE_UNVISITED_MAPS = false  
+
+  # Set the minimum of maps that have to be visited in order to use the Location Search Feature.
+  MINIMUM_MAPS_COUNT = 10
+
+  # Choose which button will activate the Location Search Feature.
+  # Be careful with what you've set for Region map changing, mode changing and location preview as it might conflict with those.
+  LOCATION_SEARCH_BUTTON = Input::SPECIAL  
+
+  # Choose which button will activate the Quick Search Feature.
+  # This may be the same button as you've set for LOCATION_SEARCH_BUTTON but don't set this to the BACK or USE button
+  QUICK_SEARCH_BUTTON = Input::ACTION
+  
+  # Choose which button will sort the list with locations. 
+  # If you set this to the same button as LOCATION_SEARCH_BUTTON, make sure QUICK_SEARCH_BUTTON is set to a different one to avoid problems.
+  ORDER_SEARCH_BUTTON = Input::SPECIAL
+
+  #===============================================================================
+  # Fly Settings
   #===============================================================================
   # Whether the player can use Fly while looking at the Town Map. This is only
   # allowed if the player can use Fly normally.
   CAN_FLY_FROM_TOWN_MAP = true
 
-  #===============================================================================
-  # Quick Fly Feature Settings
-  #===============================================================================
-  # Set this to true or 0   if you want to enable the Quick Fly feature.
+  # Set this to true or 0 if you want to enable the Quick Fly feature.
   # Set this to false or -1 if you don't want to use this feature, all other settings below will be ignored.
   # Set this to any Switch ID if you want the Quick Fly only be enabled when this Switch is ON.
   CAN_QUICK_FLY = true
@@ -58,7 +118,7 @@ module ARMSettings
 
   # Set to which Regions you can fly from the current Region. (Use the name of the region)
   FLY_TO_REGIONS = {
-    :Essen => [1, 2, 3], # You can fly from Essen to Tial or Kanto.
+    :Essen => [1, 2, 3], # You can fly from Essen to Tial, Kanto or Johto.
     :Tiall => [0], # You can fly from Tial to Essen only.
     :Kanto => [0, 3], # You can fly from Kanto to Essen and Johto.
     :Johto => [2] # You can fly from Johto to Kanto only.
@@ -81,7 +141,6 @@ module ARMSettings
       "Indigo Plateau" => [2]
     }
   }
-
   #===============================================================================
   # Cursor Map Movement Offset
   #===============================================================================
@@ -265,7 +324,7 @@ module ARMSettings
   # Set for each Region if you want the Player Icon to be visible (true) or invisible (false).
   SHOW_PLAYER_ON_REGION = {
     Essen: true,
-    Tial: false
+    Tiall: true
   }
 
   # Set this to true if you want the cursor being centered by default when no Map Position is defined for the Game Map the Region Map was opened from.

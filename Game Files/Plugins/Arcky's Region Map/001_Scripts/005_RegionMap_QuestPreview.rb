@@ -5,7 +5,7 @@ class PokemonRegionMap_Scene
     value = ""
     @questNames = nil
     @questMap.each do |name|
-      next if name[1] != x || name[2] != y
+      next if (name[1] != x || name[2] != y)
       return "" if name[4] && !$game_switches[name[4]]
       unless !name[3]
         questName.push($quest_data.getName(name[3].id))
@@ -42,7 +42,7 @@ class PokemonRegionMap_Scene
       @spritesMap["QuestIcons"].z = 50
       pbDrawImagePositions(
         @spritesMap["QuestIcons"].bitmap,
-        [["#{FOLDER}Icons/mapQuest", pointXtoScreenX(x) , pointYtoScreenY(y)]]
+        [["#{FOLDER}Icons/Quest/mapQuest", pointXtoScreenX(x) , pointYtoScreenY(y)]]
       )
       usedPositions[[x, y]] = true
     end
@@ -51,7 +51,7 @@ class PokemonRegionMap_Scene
   
   def showQuestInformation(lastChoiceQuest)
     questInfo = @questMap.select { |coords| coords && coords[0..2] == [@region, @mapX, @mapY] }
-    questInfo = [] if questInfo.empty? || (questInfo[0][4] && !$game_switches[questInfo[0][4]])
+    questInfo = [] if questInfo.empty? || questInfo[0][3].nil? || (questInfo[0][4] && !$game_switches[questInfo[0][4]])
     return choice = -1 if questInfo.empty?
     input, quest, choice = getCurrentQuestInfo(lastChoiceQuest, questInfo)
     if input && quest
@@ -97,7 +97,7 @@ class PokemonRegionMap_Scene
 
   def getCurrentQuestInfo(lastChoiceQuest, questInfo)
     if @questNames && @questNames.length >= 2
-      choice = pbMessageMap(_INTL("Which quest would you like to view info about?"), 
+      choice = messageMap(_INTL("Which quest would you like to view info about?"), 
       (0...@questNames.size).to_a.map{|i| 
         next "#{pbGetMessageFromHash(SCRIPTTEXTS, @questNames[i])}"
       }, -1, nil, lastChoiceQuest) { pbUpdate }
