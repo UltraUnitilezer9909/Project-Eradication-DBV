@@ -1,0 +1,37 @@
+{
+  "klass": "Type",
+  "id": 3,
+  "dbSymbol": "water",
+  "textId": 10,
+  "damageTo": [
+    {
+      "defensiveType": "fire",
+      "factor": 2
+    },
+    {
+      "defensiveType": "water",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "grass",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "ground",
+      "factor": 2
+    },
+    {
+      "defensiveType": "rock",
+      "factor": 2
+    },
+    {
+      "defensiveType": "dragon",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "matrix",
+      "factor": 0.5
+    }
+  ],
+  "color": "#4596ed"
+}

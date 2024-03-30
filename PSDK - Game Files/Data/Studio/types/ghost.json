@@ -1,0 +1,25 @@
+{
+  "klass": "Type",
+  "id": 14,
+  "dbSymbol": "ghost",
+  "textId": 7,
+  "damageTo": [
+    {
+      "defensiveType": "normal",
+      "factor": 0
+    },
+    {
+      "defensiveType": "psychic",
+      "factor": 2
+    },
+    {
+      "defensiveType": "ghost",
+      "factor": 2
+    },
+    {
+      "defensiveType": "dark",
+      "factor": 0.5
+    }
+  ],
+  "color": "#9b96ed"
+}

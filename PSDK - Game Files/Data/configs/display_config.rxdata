@@ -1,0 +1,2 @@
+o:Configs::Project::Display
+:@game_resolutiono:%Configs::Project::Display::Point:@xi€:@yih:@window_scalei:@is_fullscreenF:@is_player_always_centeredF:@tilemap_settingso:/Configs::Project::Display::TilemapSettings:@tilemap_classI"Yuki::Tilemap16px:ET:@tilemap_sizeo;;i;	i:@autotile_idle_frame_counti:@character_tile_zoomf0.5:@character_sprite_zoomi:@centero;;iÀ;	i€:@map_linker_offseto;;i;	i:@uses_old_map_linkerF

@@ -1,15 +1,40 @@
-To play the game, Go inside "Game Files" & execute "Game.exe" to play the game. 
-If things don't work well, Run the "Game.exe" as administrator.
-I recommend making a shortcut for "Game.exe" so the other files are safe.
+Warning:
 
-Your Game Save files is stored in "Saves" folder in "Game files" folder .
+- This game contains flashing lights that may not be suitable for individuals 
+with photosensitive epilepsy or other similar conditions. Player discretion is advised.
+- This game contains violence, blood, and intense themes, and is intended for 
+players aged 16 and above. Player discretion is advised.
 
-If your using the game's resource, please credit us & the other resources the game uses.
+Disclaimer:
 
-Most of the Music is from "GlitchXcity", consider subscribing & support her
-Most music and sound, music effects is from the game called "Pokémon: Reborn" & "Pokémon: Rejuvenation",
-consider playing those game as they are wild fangames and some are from the random parts of the internet.
+- This game is not used for profit, and Eranium Studios does not own Pokémon. 
+Please support the official games!
 
-Script & Plugins are mostly stored on "Z - Zeta's plug & System Script" in "Plugin" Folder.
+How to Play:
 
-Files are starts with a period (.) are system files, you can check them out but don't edit them. 
+- To play the game, go inside the "Game Files" folder and execute "Game.exe." 
+If things don't work well, run "Game.exe" as an administrator.
+- I recommend making a shortcut for "Game.exe" to keep the other files safe.
+
+Save Files:
+
+- Your game save files are stored in the "Saves" folder within the "Game Files" folder.
+
+Credit:
+
+- If you are using the game's resources, please credit us and the other resources the game uses.
+
+Music and Sound:
+
+- Most of the music is from "GlitchXcity." Consider subscribing and supporting her.
+- Other music and sound effects are from the games "Pokémon: Reborn" & "Pokémon: Rejuvenation," as well as 
+various sources on the internet. Consider playing those games as they are wild fangames.
+
+Scripts and Plugins:
+
+- Scripts and plugins are mostly stored in the "Z - Zeta's plug & System Script" folder 
+within the "Plugin" folder.
+
+System Files:
+
+- Files that start with a period (.) are system files. You can check them out but do not edit them.

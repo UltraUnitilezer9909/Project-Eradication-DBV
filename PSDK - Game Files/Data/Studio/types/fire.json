@@ -1,0 +1,45 @@
+{
+  "klass": "Type",
+  "id": 2,
+  "dbSymbol": "fire",
+  "textId": 9,
+  "damageTo": [
+    {
+      "defensiveType": "fire",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "water",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "grass",
+      "factor": 2
+    },
+    {
+      "defensiveType": "ice",
+      "factor": 2
+    },
+    {
+      "defensiveType": "bug",
+      "factor": 2
+    },
+    {
+      "defensiveType": "rock",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "dragon",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "steel",
+      "factor": 2
+    },
+    {
+      "defensiveType": "matrix",
+      "factor": 2
+    }
+  ],
+  "color": "#ee9474"
+}

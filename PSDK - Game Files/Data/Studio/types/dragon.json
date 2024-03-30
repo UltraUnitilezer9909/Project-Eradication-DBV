@@ -1,0 +1,25 @@
+{
+  "klass": "Type",
+  "id": 15,
+  "dbSymbol": "dragon",
+  "textId": 15,
+  "damageTo": [
+    {
+      "defensiveType": "dragon",
+      "factor": 2
+    },
+    {
+      "defensiveType": "steel",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "fairy",
+      "factor": 0
+    },
+    {
+      "defensiveType": "matrix",
+      "factor": 0.5
+    }
+  ],
+  "color": "#7c88f3"
+}

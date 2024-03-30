@@ -21,3 +21,7 @@ To do list:
 -^ revamp logo & title
 
 > add animation compatability on pbTextz
+
+- Void battle system
+
+- 8 Dir movement

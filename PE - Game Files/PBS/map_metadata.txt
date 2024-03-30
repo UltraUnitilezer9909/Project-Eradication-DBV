@@ -1,0 +1,425 @@
+﻿# See the documentation on the wiki to learn how to edit this file.
+#-------------------------------
+[001]   # At the very begin
+Name = Intro
+#-------------------------------
+[002]
+Name = Lappet Town
+Outdoor = true
+ShowArea = true
+MapPosition = 0,13,12
+BattleBack = field
+#-------------------------------
+[003]
+Name = \PN's house
+HealingSpot = 2,8,8
+MapPosition = 0,13,12
+#-------------------------------
+[004]
+Name = Pokémon Lab
+ShowArea = false
+MapPosition = 0,13,12
+#-------------------------------
+[005]
+Name = Route 1
+Outdoor = true
+ShowArea = true
+MapPosition = 0,13,11
+BattleBack = field
+#-------------------------------
+[006]
+Name = Route 1
+MapPosition = 0,13,11
+#-------------------------------
+[007]
+Name = Cedolan City
+Outdoor = true
+ShowArea = true
+MapPosition = 0,13,10
+MapSize = 2,11
+#-------------------------------
+[008]
+Name = Lappet Town
+MapPosition = 0,13,12
+#-------------------------------
+[009]
+Name = Cedolan City
+HealingSpot = 8,17,11
+MapPosition = 0,14,10
+#-------------------------------
+[010]
+Name = Cedolan City
+MapPosition = 0,13,10
+BattleBack = indoor3
+Environment = Rock
+Flags = DisableBoxLink,PowerSpot
+#-------------------------------
+[011]
+Name = Cedolan City
+MapPosition = 0,14,10
+#-------------------------------
+[012]
+Name = Cedolan City
+MapPosition = 0,14,10
+#-------------------------------
+[013]
+Name = Cedolan City
+MapPosition = 0,14,10
+#-------------------------------
+[014]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[015]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[016]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[017]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[018]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[019]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[020]
+Name = Cedolan City
+MapPosition = 0,13,10
+#-------------------------------
+[021]
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Weather = Rain,100
+MapPosition = 0,14,8
+BattleBack = field
+MapSize = 1,11
+#-------------------------------
+[023]
+Name = Lerucean Town
+Outdoor = true
+ShowArea = true
+MapPosition = 0,15,8
+#-------------------------------
+[024]
+Name = Lerucean Town
+HealingSpot = 23,11,15
+MapPosition = 0,15,8
+#-------------------------------
+[025]
+Name = Lerucean Town
+MapPosition = 0,15,8
+#-------------------------------
+[026]
+Name = Lerucean Town
+MapPosition = 0,15,8
+#-------------------------------
+[027]
+Name = Lerucean Town
+MapPosition = 0,15,8
+#-------------------------------
+[028]
+Name = Natural Park
+Outdoor = true
+ShowArea = true
+MapPosition = 0,16,8
+BattleBack = field
+Flags = MossRock
+#-------------------------------
+[029]
+Name = Natural Park
+Bicycle = true
+MapPosition = 0,16,8
+#-------------------------------
+[030]
+Name = Natural Park
+MapPosition = 0,16,8
+#-------------------------------
+[031]
+Name = Route 3
+Outdoor = true
+ShowArea = true
+MapPosition = 0,14,6
+BattleBack = field
+MapSize = 2,1101
+#-------------------------------
+[033]   # Eartha
+Name = Earth
+DarkMap = true
+#-------------------------------
+[034]
+Name = Route 3
+Bicycle = true
+MapPosition = 0,15,6
+BattleBack = cave1
+Environment = Cave
+Flags = IceRock
+#-------------------------------
+[035]
+Name = Ingido Plateau
+Outdoor = true
+ShowArea = true
+MapPosition = 0,13,6
+#-------------------------------
+[036]
+Name = Ingido Plateau
+HealingSpot = 35,17,7
+MapPosition = 0,13,6
+#-------------------------------
+[037]
+Name = Ingido Plateau
+MapPosition = 0,13,6
+BattleBack = elite1
+Flags = DisableBoxLink,PowerSpot
+#-------------------------------
+[038]
+Name = Ingido Plateau
+MapPosition = 0,13,6
+Flags = DisableBoxLink
+#-------------------------------
+[039]
+Name = Route 4
+Outdoor = true
+ShowArea = true
+MapPosition = 0,11,6
+BattleBack = field
+MapSize = 2,11
+#-------------------------------
+[040]
+Name = Route 4
+Outdoor = true
+ShowArea = true
+BicycleAlways = true
+MapPosition = 0,11,6
+#-------------------------------
+[041]
+Name = Route 5
+Outdoor = true
+ShowArea = true
+BicycleAlways = true
+MapPosition = 0,11,7
+MapSize = 1,111
+#-------------------------------
+[042]
+Name = \PN's PT Ship
+Bicycle = false
+BicycleAlways = false
+SnapEdges = true
+Environment = Space
+#-------------------------------
+[044]
+Name = Route 6
+Outdoor = true
+ShowArea = true
+MapPosition = 0,11,10
+BattleBack = field
+MapSize = 2,11
+#-------------------------------
+[045]
+Name = Route 6
+Outdoor = true
+ShowArea = true
+BicycleAlways = true
+MapPosition = 0,11,10
+#-------------------------------
+[046]
+Name = Route 4
+Bicycle = true
+MapPosition = 0,12,6
+#-------------------------------
+[047]
+Name = Route 7
+Outdoor = true
+ShowArea = true
+Weather = Rain,0
+MapPosition = 0,15,10
+BattleBack = rocky
+MapSize = 2,11
+Environment = Rock
+#-------------------------------
+[049]
+Name = Route 7
+Bicycle = true
+MapPosition = 0,16,10
+BattleBack = cave1
+Environment = Cave
+Flags = Magnetic,DistortionWorld
+#-------------------------------
+[050]
+Name = Route 7
+Bicycle = true
+MapPosition = 0,16,10
+DarkMap = true
+BattleBack = cave3
+Environment = Cave
+Flags = Magnetic,DistortionWorld
+#-------------------------------
+[051]
+Name = Route 7
+Bicycle = true
+MapPosition = 0,16,10
+Dungeon = true
+BattleBack = cave2
+Environment = Cave
+Flags = Magnetic,DistortionWorld
+#-------------------------------
+[052]
+Name = Battle Frontier
+Outdoor = true
+ShowArea = true
+MapPosition = 0,17,10
+#-------------------------------
+[053]
+Name = Battle Frontier
+HealingSpot = 52,17,14
+MapPosition = 0,17,10
+#-------------------------------
+[054]
+Name = Battle Frontier
+MapPosition = 0,17,10
+#-------------------------------
+[055]
+Name = Battle Frontier
+HealingSpot = 52,30,10
+MapPosition = 0,17,10
+#-------------------------------
+[056]
+Name = Battle Frontier
+MapPosition = 0,17,10
+BattleBack = indoor1
+Flags = DisableBoxLink,PowerSpot
+#-------------------------------
+[057]
+Name = Battle Frontier
+MapPosition = 0,17,10
+#-------------------------------
+[058]
+Name = Battle Frontier
+MapPosition = 0,17,10
+#-------------------------------
+[059]
+Name = Battle Frontier
+MapPosition = 0,17,10
+BattleBack = indoor1
+Flags = DisableBoxLink,PowerSpot
+#-------------------------------
+[060]
+Name = Battle Frontier
+MapPosition = 0,17,10
+#-------------------------------
+[061]
+Name = Battle Frontier
+MapPosition = 0,17,10
+BattleBack = indoor1
+Flags = DisableBoxLink,PowerSpot
+#-------------------------------
+[062]
+Name = Battle Frontier
+MapPosition = 0,17,10
+#-------------------------------
+[063]
+Name = Battle Frontier
+MapPosition = 0,17,10
+Flags = DisableBoxLink
+#-------------------------------
+[064]
+Name = Battle Frontier
+MapPosition = 0,17,10
+BattleBack = indoor1
+Flags = DisableBoxLink,PowerSpot
+#-------------------------------
+[065]
+Name = Battle Frontier
+MapPosition = 0,17,10
+Flags = DisableBoxLink
+#-------------------------------
+[066]
+Name = Safari Zone
+Outdoor = true
+ShowArea = true
+MapPosition = 0,12,12
+BattleBack = field
+#-------------------------------
+[067]
+Name = Safari Zone
+MapPosition = 0,12,12
+#-------------------------------
+[068]
+Name = Safari Zone
+Outdoor = true
+ShowArea = true
+MapPosition = 0,12,12
+SafariMap = true
+BattleBack = forest
+Environment = Forest
+#-------------------------------
+[069]
+Name = Route 8
+Outdoor = true
+ShowArea = true
+MapPosition = 0,13,13
+DiveMap = 70
+BattleBack = field
+#-------------------------------
+[070]
+Name = Route 8
+MapPosition = 0,13,13
+BattleBack = underwater
+Environment = Underwater
+#-------------------------------
+[071]
+Name = Route 8
+MapPosition = 0,13,13
+#-------------------------------
+[072]
+Name = Berth Island
+Outdoor = true
+ShowArea = true
+Weather = Storm,50
+MapPosition = 0,18,17
+BattleBack = field
+Flags = DistortionWorld
+#-------------------------------
+[073]
+Name = Faraday Island
+Outdoor = true
+ShowArea = true
+MapPosition = 0,22,16
+BattleBack = field
+Flags = DistortionWorld
+#-------------------------------
+[074]
+Name = Route 6
+Bicycle = true
+MapPosition = 0,12,10
+#-------------------------------
+[075]
+Name = Tiall Region
+Outdoor = true
+MapPosition = 1,13,16
+BattleBack = city
+#-------------------------------
+[076]   # Dad's Terra-spaceship
+Name = < Unknown >
+Outdoor = false
+Environment = Space
+#-------------------------------
+[078]   # Shimo no To Village
+Name = Shimo no To Village
+Outdoor = true
+Weather = Snow,100
+#-------------------------------
+[080]   # Moriakari Village
+Name = Moriakari Village
+Outdoor = true
+ShowArea = false
+Bicycle = false
+SnapEdges = true

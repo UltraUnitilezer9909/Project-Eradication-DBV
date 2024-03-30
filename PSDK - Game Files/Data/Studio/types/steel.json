@@ -1,0 +1,37 @@
+{
+  "klass": "Type",
+  "id": 16,
+  "dbSymbol": "steel",
+  "textId": 8,
+  "damageTo": [
+    {
+      "defensiveType": "fire",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "water",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "electric",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "ice",
+      "factor": 2
+    },
+    {
+      "defensiveType": "rock",
+      "factor": 2
+    },
+    {
+      "defensiveType": "steel",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "fairy",
+      "factor": 2
+    }
+  ],
+  "color": "#c2c6d1"
+}
