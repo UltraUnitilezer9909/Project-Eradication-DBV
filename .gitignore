@@ -1,4 +1,21 @@
-
 Game Files/.dev/Concepts/Fakemons/ARHAXIA.kra
 Game Files/.dev/Concepts/Fakemons/ARHAXIA.png
 Game Files/.dev/Concepts/Fakemons/ARHAXIA.png.kra
+PSDK - Game Files/*.log
+PSDK - Game Files/*.7z
+PSDK - Game Files/*.html
+PSDK - Game Files/Saves/*
+PSDK - Game Files/.gameopts
+PSDK - Game Files/*log
+PSDK - Game Files/project.studio
+PSDK - Game Files/psdk.bat
+PSDK - Game Files/Error.log
+PSDK - Game Files/Data/Text
+!PSDK - Game Files/Data/Text/Dialogs
+PSDK - Game Files/Data/Text/Dialogs/*dat
+PSDK - Game Files/Data/PSDK
+!PSDK - Game Files/Data/PSDK/Maplinks
+!PSDK - Game Files/Data/PSDK/SystemTags
+PSDK - Game Files/Data/Studio/mtimes.dat
+PSDK - Game Files/psdk_scripts
+PSDK - Game Files/gallery*
