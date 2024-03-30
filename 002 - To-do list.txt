@@ -1,5 +1,11 @@
 To do list:
 
+> Transfer all datas (rxdata, graphics) to PSDK
+
+- Abandon PE
+
+- - - - - - - - - -
+
 -^ revamp the emote animation 
 
 - make the plot clearer & improve README file

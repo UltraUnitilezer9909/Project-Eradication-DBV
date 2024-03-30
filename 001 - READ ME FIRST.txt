@@ -12,13 +12,11 @@ Please support the official games!
 
 How to Play:
 
-- To play the game, go inside the "Game Files" folder and execute "Game.exe." 
-If things don't work well, run "Game.exe" as an administrator.
-- I recommend making a shortcut for "Game.exe" to keep the other files safe.
+- Nope,  not yet
 
 Save Files:
 
-- Your game save files are stored in the "Saves" folder within the "Game Files" folder.
+- Your game save files are stored in the "Saves" folder within the "PSDK - Game Files" folder.
 
 Credit:
 
@@ -32,8 +30,7 @@ various sources on the internet. Consider playing those games as they are wild f
 
 Scripts and Plugins:
 
-- Scripts and plugins are mostly stored in the "Z - Zeta's plug & System Script" folder 
-within the "Plugin" folder.
+- <Transfering data>
 
 System Files:
 
