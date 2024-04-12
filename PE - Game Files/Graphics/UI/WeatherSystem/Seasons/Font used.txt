@@ -1,3 +1,0 @@
-Font: Arial
-Size: 60
-Type: Bold & Clear

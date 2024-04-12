@@ -1,7 +1,0 @@
-{
-  "klass": "Configs::Project::Settings",
-  "pokemonMaxLevel": 360,
-  "isAlwaysUseForm0ForEvolution": false,
-  "isUseForm0WhenNoEvolutionData": true,
-  "maxBagItemCount": 0
-}
