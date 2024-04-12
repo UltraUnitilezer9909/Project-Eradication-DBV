@@ -1,0 +1,40 @@
+Warning:
+
+- This game contains flashing lights that may not be suitable for individuals 
+with photosensitive epilepsy or other similar conditions. Player discretion is advised.
+- This game contains violence, blood, and intense themes, and is intended for 
+players aged 16 and above. Player discretion is advised.
+
+Disclaimer:
+
+- This game is not used for profit, and Eranium Studios does not own Pokémon. 
+Please support the official games!
+
+How to Play:
+
+- To play the game, go inside the "Game Files" folder and execute "Game.exe." 
+If things don't work well, run "Game.exe" as an administrator.
+- I recommend making a shortcut for "Game.exe" to keep the other files safe.
+
+Save Files:
+
+- Your game save files are stored in the "Saves" folder within the "Game Files" folder.
+
+Credit:
+
+- If you are using the game's resources, please credit us and the other resources the game uses.
+
+Music and Sound:
+
+- Most of the music is from "GlitchXcity." Consider subscribing and supporting her.
+- Other music and sound effects are from the games "Pokémon: Reborn" & "Pokémon: Rejuvenation," as well as 
+various sources on the internet. Consider playing those games as they are wild fangames.
+
+Scripts and Plugins:
+
+- Scripts and plugins are mostly stored in the "Z - Zeta's plug & System Script" folder 
+within the "Plugin" folder.
+
+System Files:
+
+- Files that start with a period (.) are system files. You can check them out but do not edit them.

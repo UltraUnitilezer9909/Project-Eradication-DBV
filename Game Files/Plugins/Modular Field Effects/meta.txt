@@ -1,0 +1,7 @@
+Name         = Modular Field Effects
+Version      = 1.0
+Essentials = 20.1
+Website      = https://reliccastle.com/members/7217/
+Credits      = Phantombass
+
+#If you have any questions, message me on Relic Castle or on Discord

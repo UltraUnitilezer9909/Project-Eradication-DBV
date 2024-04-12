@@ -1,0 +1,61 @@
+# This installation is part of the Focus Meter System for Pokemon Essentials v20.1
+#-------------------------------
+[BRIGHTPOWDER]
+EditOnly =
+Description = An item to be held by a Pokémon. It boosts the holder's focus while in the Evasion style.
+#-------------------------------
+[RAZORCLAW]
+EditOnly =
+Description = An item to be held by a Pokémon. It boosts the holder's focus while in the Critical Hit style.
+#-------------------------------
+[SCOPELENS]
+EditOnly =
+Description = An item to be held by a Pokémon. It boosts the holder's focus while in the Critical Hit style.
+#-------------------------------
+[WIDELENS]
+EditOnly =
+Description = An item to be held by a Pokémon. It boosts the holder's focus while in the Accuracy style.
+#-------------------------------
+[ZOOMLENS]
+EditOnly =
+Description = An item to be held by a Pokémon. Boosts focus in the Accuracy style if moving after the target.
+#-------------------------------
+[KINGSROCK]
+EditOnly =
+Description = An item to be held by a Pokémon. May be used to cause flinching by holders in the Potency style.
+#-------------------------------
+[RAZORFANG]
+EditOnly =
+Description = An item to be held by a Pokémon. May be used to cause flinching by holders in the Potency style.
+#-------------------------------
+[QUICKCLAW]
+EditOnly =
+Description = An item to be held by a Pokémon. May grant priority when used by holders in the Potency style.
+#-------------------------------
+[FOCUSBAND]
+EditOnly =
+Description = An item to be held by a Pokémon. The holder may endure an attack, leaving it fully focused with just 1 HP.
+#-------------------------------
+[FOCUSSASH]
+EditOnly =
+Description = An item to be held by a Pokémon. The holder endures one attack from full HP, leaving it fully focused with 1 HP.
+#-------------------------------
+[LAXINCENSE]
+EditOnly =
+Description = An item to be held by a Pokémon. It boosts the holder's focus while in the Evasion style.
+#-------------------------------
+[MICLEBERRY]
+EditOnly =
+Description = If held by a Pokémon, it fully charges the holder's focus meter just once in a pinch.
+#-------------------------------
+[DIREHIT]
+EditOnly =
+Description = It shifts a Pokémon into the Critical Hit style, and boosts focus gained. Wears off if withdrawn.
+#-------------------------------
+[DIREHIT2]
+EditOnly =
+Description = It shifts a Pokémon into the Critical Hit style, and sharply boosts focus gained. Wears off if withdrawn.
+#-------------------------------
+[DIREHIT3]
+EditOnly =
+Description = It shifts a Pokémon into the Critical Hit style, and greatly boosts focus gained. Wears off if withdrawn.

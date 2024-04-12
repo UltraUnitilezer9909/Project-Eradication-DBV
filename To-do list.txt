@@ -1,0 +1,27 @@
+To do list:
+
+-^ revamp the emote animation 
+
+- make the plot clearer & improve README file
+
+> world building, cutscene & gameplay
+
+- revamp game intro
+
+> reduce file and make the game small as posible
+
+- clean up file path
+
+- revamp all UIs
+
+-^ update the plug-ins
+
+- add background on the region map
+
+-^ revamp logo & title
+
+> add animation compatability on pbTextz
+
+- Void battle system
+
+- 8 Dir movement

@@ -1,0 +1,33 @@
+# This installation is part of the Focus Meter System for Pokemon Essentials v20.1
+#-------------------------------
+[ODORSLEUTH]
+EditOnly =
+Description = Enables the user to hit a Ghost type with any type of move. Ups focus gains from attacking the target.
+#-------------------------------
+[FORESIGHT]
+EditOnly =
+Description = Enables the user to hit a Ghost type with any kind of move. Ups focus gains from attacking the target.
+#-------------------------------
+[MIRACLEEYE]
+EditOnly =
+Description = Enables the user to hit a Dark type with any type of move. Ups focus gains from attacking the target.
+#-------------------------------
+[LOCKON]
+EditOnly =
+Description = The user shifts into the Accuracy style and takes aim. This causes it to become fully focused.
+#-------------------------------
+[MINDREADER]
+EditOnly =
+Description = The user shifts into the Accuracy style and reads its target. This causes it to become fully focused.
+#-------------------------------
+[LASERFOCUS]
+EditOnly =
+Description = The user shifts into the Critical Hit style and becomes fully focused.
+#-------------------------------
+[FOCUSPUNCH]
+EditOnly =
+Description = The user fully focuses before punching. The user will lose focus and fail if hit before attacking.
+#-------------------------------
+[FOCUSENERGY]
+EditOnly =
+Description = The user takes a deep breath and concentrates so that it may more easily gain focus.

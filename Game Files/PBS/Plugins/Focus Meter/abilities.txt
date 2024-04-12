@@ -1,0 +1,49 @@
+# This installation is part of the Focus Meter System for Pokemon Essentials v20.1
+#-------------------------------
+[STENCH]
+EditOnly =
+Description = Focused Effects may cause flinching.
+#-------------------------------
+[SANDVEIL]
+EditOnly =
+Description = Sandstorms boost focus in the Evasion style.
+#-------------------------------
+[COMPOUNDEYES]
+EditOnly =
+Description = Boosts focus in the Accuracy style.
+#-------------------------------
+[SERENEGRACE]
+EditOnly =
+Description = Boosts focus in the Potency style.
+#-------------------------------
+[HUSTLE]
+EditOnly =
+Description = Accuracy style ups Attack but halves focus.
+#-------------------------------
+[TANGLEDFEET]
+EditOnly =
+Description = Moves are more likely to miss when confused.
+#-------------------------------
+[STEADFAST]
+EditOnly =
+Description = Ups Speed and focus when the user flinches.
+#-------------------------------
+[SNOWCLOAK]
+EditOnly =
+Description = Hailstorms boost focus in the Evasion style.
+#-------------------------------
+[SUPERLUCK]
+EditOnly =
+Description = Boosts focus in the Critical Hit style.
+#-------------------------------
+[POISONTOUCH]
+EditOnly =
+Description = Focused Effects may poison on contact.
+#-------------------------------
+[VICTORYSTAR]
+EditOnly =
+Description = Boosts focus for allies in the Accuracy style.
+#-------------------------------
+[QUICKDRAW]
+EditOnly =
+Description = The user gains priority with Focused Effects.

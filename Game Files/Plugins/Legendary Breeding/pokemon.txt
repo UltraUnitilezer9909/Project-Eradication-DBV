@@ -1,0 +1,563 @@
+#-------------------------------
+[ARTICUNO]
+GenderRatio   = Female50Percent
+EggMoves      = BARRIER,BUBBLEBEAM,FEATHERDANCE,FREEZEDRY,GLACIATE,HEALPULSE,MIRRORCOAT,MISTBALL,WISH
+EggGroups     = Skycrest
+#-------------------------------
+[ARTICUNO_1]
+EggMoves      = BARRIER,FEATHERDANCE,GLARE,HEALPULSE,LUSTERPURGE,MIRACLEEYE,MIRRORCOAT,MISTBALL,TELEKINESIS
+Flags         = InheritFormWithEverStone
+#-------------------------------
+[ZAPDOS]
+GenderRatio   = Female50Percent
+EggMoves      = BOLTSTRIKE,BOOMBURST,CHARGE,LUSTERPURGE,METALSOUND,QUICKGUARD
+EggGroups     = Skycrest
+#-------------------------------
+[ZAPDOS_1]
+EggMoves      = DOUBLEKICK,EXTREMESPEED,JUMPKICK,QUICKGUARD
+Flags         = InheritFormWithEverStone
+#-------------------------------
+[MOLTRES]
+GenderRatio   = Female50Percent
+EggMoves      = DRAGONBREATH,DRILLPECK,FIERYDANCE,INFERNO,LAVAPLUME
+EggGroups     = Skycrest
+#-------------------------------
+[MOLTRES_1]
+EggMoves      = DRAGONBREATH,DRILLPECK,PUNISHMENT
+Flags         = InheritFormWithEverStone
+#-------------------------------
+[MEWTWO]
+EggMoves      = PUNISHMENT,LUSTERPURGE,EXTRASENSORY,PSYBEAM,PSYCHOSHIFT,PSYCHOBOOST
+#-------------------------------
+[MEW]
+GenderRatio   = Female50Percent
+EggMoves      = PSYSTRIKE,AEROBLAST,SACREDFIRE,ORIGINPULSE,PRECIPICEBLADES,DRAGONASCENT,DOOMDESIRE,PSYCHOBOOST,ROAROFTIME,SPACIALREND,MAGMASTORM,CRUSHGRIP,SHADOWFORCE,LUNARDANCE,HEARTSWAP,DARKVOID,SEEDFLARE,SEARINGSHOT,BLUEFLARE,BOLTSTRIKE,GLACIATE,RELICSONG,GEOMANCY,OBLIVIONWING,LANDSWRATH,DIAMONDSTORM,HYPERSPACEHOLE,STEAMERUPTION,NATURESMADNESS,SUNSTEELSTRIKE,MOONGEISTBEAM,PHOTONGEYSER,FLEURCANNON,SPECTRALTHIEF,PLASMAFISTS,DOUBLEIRONBASH,ETERNABEAM,WICKEDBLOW,SURGINGSTRIKES,JUNGLEHEALING,THUNDERCAGE,DRAGONENERGY,GLACIALLANCE,ASTRALBARRAGE
+EggGroups     = Ancestor
+#-------------------------------
+[RAIKOU]
+GenderRatio   = Female25Percent
+EggMoves      = METALSOUND,ANCIENTPOWER,DOUBLEKICK,SKULLBASH,WEATHERBALL,EXTREMESPEED,QUICKGUARD,NOBLEROAR
+EggGroups     = Bestial
+#-------------------------------
+[ENTEI]
+GenderRatio   = Female25Percent
+EggMoves      = MAGMASTORM,ANCIENTPOWER,DOUBLEKICK,SUPERPOWER,SKULLBASH,EXTREMESPEED,LANDSWRATH,NOBLEROAR
+EggGroups     = Bestial
+#-------------------------------
+[SUICUNE]
+GenderRatio   = Female25Percent
+EggMoves      = ANCIENTPOWER,DISABLE,HAZE,AQUAJET,HEALPULSE,EXTREMESPEED,QUICKGUARD,NOBLEROAR
+EggGroups     = Bestial
+#-------------------------------
+[LUGIA]
+GenderRatio   = Female50Percent
+EggMoves      = DRAGONBREATH,BUBBLEBEAM,MISTBALL,LUSTERPURGE,REFRESH,EXTRASENSORY
+EggGroups     = Skycrest
+#-------------------------------
+[HOOH]
+GenderRatio   = Female50Percent
+EggMoves      = DRAGONBREATH,FEATHERDANCE,DRILLPECK,MISTBALL,LUSTERPURGE,WISH,REFRESH
+EggGroups     = Skycrest
+#-------------------------------
+[CELEBI]
+GenderRatio   = Female75Percent
+EggMoves      = MEMENTO,DETECT,SWEETKISS,HEALPULSE,AROMATHERAPY,POWERSWAP,MOONBLAST
+EggGroups     = Enchanted
+#-------------------------------
+[REGIROCK]
+EggMoves      = FIREPUNCH,CRUSHGRIP,WIDEGUARD
+#-------------------------------
+[REGICE]
+EggMoves      = ICEPUNCH,CRUSHGRIP,WIDEGUARD
+#-------------------------------
+[REGISTEEL]
+EggMoves      = THUNDERPUNCH,CRUSHGRIP,WIDEGUARD
+#-------------------------------
+[LATIAS]
+EggMoves      = TWISTER,WEATHERBALL,DRAGONRAGE,EXTRASENSORY
+EggGroups     = Skycrest,Overlord
+Offspring     = LATIAS,LATIOS
+#-------------------------------
+[LATIAS_1]
+#-------------------------------
+[LATIOS]
+EggMoves      = TWISTER,WEATHERBALL,DRAGONRAGE,EXTRASENSORY
+EggGroups     = Skycrest,Overlord
+Offspring     = LATIAS,LATIOS
+#-------------------------------
+[LATIOS_1]
+#-------------------------------
+[KYOGRE]
+GenderRatio   = Female50Percent
+EggMoves      = WEATHERBALL,BUBBLEBEAM,AQUAJET,HAZE
+EggGroups     = Titan
+#-------------------------------
+[KYOGRE_1]
+#-------------------------------
+[GROUDON]
+GenderRatio   = Female50Percent
+EggMoves      = THUNDERPUNCH,FIREPUNCH,WEATHERBALL,WIDEGUARD,LANDSWRATH
+EggGroups     = Titan
+#-------------------------------
+[GROUDON_1]
+#-------------------------------
+[RAYQUAZA]
+GenderRatio   = Female50Percent
+EggMoves      = WEATHERBALL,DRAGONRAGE,COIL,DRAGONRUSH,SKYATTACK,AEROBLAST
+EggGroups     = Overlord
+#-------------------------------
+[RAYQUAZA_1]
+#-------------------------------
+[JIRACHI]
+GenderRatio   = Female50Percent
+EggMoves      = MEMENTO,DETECT,POWERSWAP,MIRRORCOAT,MOONBLAST
+EggGroups     = Enchanted
+#-------------------------------
+[DEOXYS]
+GenderRatio   = Female50Percent
+EggMoves      = HYPNOSIS,THRASH,GRAVITY,QUICKGUARD,EXTRASENSORY
+EggGroups     = Nebulous
+Flags         = InheritFormFromMother
+#-------------------------------
+[DEOXYS_1]
+#-------------------------------
+[DEOXYS_2]
+#-------------------------------
+[DEOXYS_3]
+#-------------------------------
+[UXIE]
+GenderRatio   = Female50Percent
+EggMoves      = REFRESH,COSMICPOWER,HEALPULSE,DISABLE,COPYCAT
+EggGroups     = Enchanted
+#-------------------------------
+[MESPRIT]
+GenderRatio   = Female50Percent
+EggMoves      = REFRESH,COSMICPOWER,HEARTSWAP,SWEETKISS,HEALPULSE
+EggGroups     = Enchanted
+#-------------------------------
+[AZELF]
+GenderRatio   = Female50Percent
+EggMoves      = REFRESH,COSMICPOWER,POWERSWAP,SUPERPOWER,FINALGAMBIT
+EggGroups     = Enchanted
+#-------------------------------
+[HEATRAN]
+EggMoves      = ERUPTION,MIRRORCOAT,METALBURST,SUPERPOWER,LANDSWRATH
+EggGroups     = Bestial
+#-------------------------------
+[REGIGIGAS]
+GenderRatio   = FemaleOneEighth
+EggMoves      = ANCIENTPOWER,SUPERPOWER,LANDSWRATH
+EggGroups     = Titan
+#-------------------------------
+[CRESSELIA]
+EggMoves      = MISTBALL,LUSTERPURGE,WISH,REFRESH
+EggGroups     = Skycrest,Enchanted
+#-------------------------------
+[PHIONE]
+GenderRatio   = Female75Percent
+EggMoves      = WISH,REFRESH,HEALPULSE,MOONBLAST
+#-------------------------------
+[MANAPHY]
+GenderRatio   = FemaleOneEighth
+EggMoves      = WISH,REFRESH,HEALPULSE,MOONBLAST
+EggGroups     = Enchanted
+Offspring     = PHIONE
+#-------------------------------
+[DARKRAI]
+GenderRatio   = AlwaysMale
+EggMoves      = SPITE,KNOCKOFF,WONDERROOM,EXTRASENSORY
+EggGroups     = Nebulous
+#-------------------------------
+[SHAYMIN]
+GenderRatio   = Female50Percent
+EggMoves      = AROMATHERAPY,NATURESMADNESS,MOONBLAST
+EggGroups     = Enchanted
+#-------------------------------
+[SHAYMIN_1]
+#-------------------------------
+[VICTINI]
+GenderRatio   = Female50Percent
+EggMoves      = MEMENTO,POWERSWAP,SUPERPOWER
+EggGroups     = Enchanted
+#-------------------------------
+[COBALION]
+GenderRatio   = FemaleOneEighth
+EggMoves      = METALBURST,SUPERPOWER,MEGAHORN,SKULLBASH,NOBLEROAR,WIDEGUARD
+EggGroups     = Bestial
+#-------------------------------
+[TERRAKION]
+GenderRatio   = FemaleOneEighth
+EggMoves      = METALBURST,SUPERPOWER,MEGAHORN,SKULLBASH,NOBLEROAR,WIDEGUARD
+EggGroups     = Bestial
+#-------------------------------
+[VIRIZION]
+GenderRatio   = Female75Percent
+EggMoves      = MIRRORCOAT,SUPERPOWER,MEGAHORN,SKULLBASH,NOBLEROAR,WIDEGUARD,HORNLEECH
+EggGroups     = Bestial
+#-------------------------------
+[TORNADUS_1]
+EggMoves      = UPROAR,SUPERPOWER,NOBLEROAR
+EggGroups     = Skycrest
+Flags         = InheritFormFromMother
+#-------------------------------
+[THUNDURUS_1]
+EggMoves      = UPROAR,SUPERPOWER,NOBLEROAR
+EggGroups     = Nebulous,Overlord
+Flags         = InheritFormFromMother
+#-------------------------------
+[RESHIRAM]
+GenderRatio   = Female50Percent
+EggMoves      = WEATHERBALL,DRAGONRUSH,INFERNO
+EggGroups     = Overlord,Titan
+#-------------------------------
+[ZEKROM]
+GenderRatio   = Female50Percent
+EggMoves      = WEATHERBALL,DRAGONRUSH,DISCHARGE
+EggGroups     = Overlord,Titan
+#-------------------------------
+[LANDORUS_1]
+EggMoves      = UPROAR,SUPERPOWER,NOBLEROAR
+EggGroups     = Bestial,Titan
+Flags         = InheritFormFromMother
+#-------------------------------
+[KYUREM]
+GenderRatio   = Female50Percent
+EggMoves      = WEATHERBALL,DRAGONRUSH,AURORAVEIL
+EggGroups     = Overlord,Skycrest
+#-------------------------------
+[KELDEO]
+GenderRatio   = Female50Percent
+EggMoves      = SUPERPOWER,MEGAHORN,SKULLBASH
+EggGroups     = Bestial
+#-------------------------------
+[KELDEO_1]
+#-------------------------------
+[MELOETTA]
+GenderRatio   = AlwaysFemale
+EggMoves      = DESTINYBOND,SWEETKISS,UPROAR,HEALPULSE
+EggGroups     = Enchanted,Nebulous
+#-------------------------------
+[MELOETTA_1]
+#-------------------------------
+[GENESECT]
+GenderRatio   = FemaleOneEighth
+EggMoves      = METALSOUND,METALBURST,CHARGE,PSYBEAM
+EggGroups     = Nebulous
+#-------------------------------
+[GENESECT_1]
+#-------------------------------
+[GENESECT_2]
+#-------------------------------
+[GENESECT_3]
+#-------------------------------
+[GENESECT_4]
+#-------------------------------
+[XERNEAS]
+GenderRatio   = Female50Percent
+EggMoves      = MIRRORCOAT,MEGAHORN,HORNLEECH,NATURESMADNESS
+EggGroups     = Bestial,Enchanted
+#-------------------------------
+[XERNEAS_1]
+#-------------------------------
+[YVELTAL]
+GenderRatio   = Female50Percent
+EggMoves      = FEATHERDANCE,DRAGONRUSH,TWISTER,SKYATTACK
+EggGroups     = Skycrest,Overlord
+#-------------------------------
+[ZYGARDE]
+GenderRatio   = Female50Percent
+EggGroups     = Overlord,Titan
+Flags         = InheritForm_1
+#-------------------------------
+[ZYGARDE_1]
+EggMoves      = SUPERPOWER,PUNISHMENT,WIDEGUARD,THOUSANDWAVES,THOUSANDARROWS
+EggGroups     = Undiscovered
+#-------------------------------
+[ZYGARDE_2]
+#-------------------------------
+[ZYGARDE_3]
+#-------------------------------
+[DIANCIE]
+GenderRatio   = AlwaysFemale
+EggMoves      = METALSOUND,TEETERDANCE,SELFDESTRUCT,MIRRORCOAT,SWEETKISS,HEALPULSE
+EggGroups     = Enchanted,Nebulous
+#-------------------------------
+[DIANCIE_1]
+#-------------------------------
+[HOOPA]
+GenderRatio   = FemaleOneEighth
+EggMoves      = THRASH,SHADOWSNEAK,FORCEPALM,SHADOWPUNCH,SUCKERPUNCH,QUICKGUARD
+EggGroups     = Nebulous
+#-------------------------------
+[HOOPA_1]
+#-------------------------------
+[VOLCANION]
+GenderRatio   = Female50Percent
+EggMoves      = METALBURST,SUPERPOWER,BUBBLEBEAM,AQUAJET,ERUPTION
+EggGroups     = Bestial,Titan
+#-------------------------------
+[TAPUKOKO]
+GenderRatio   = AlwaysMale
+EggMoves      = METALSOUND,UPROAR,SKYATTACK,QUICKGUARD
+EggGroups     = Enchanted,Skycrest
+#-------------------------------
+[TAPULELE]
+GenderRatio   = AlwaysFemale
+EggMoves      = PERISHSONG,PSYCHOSHIFT,MIRRORCOAT,SWEETKISS,HEALPULSE
+EggGroups     = Enchanted,Nebulous
+#-------------------------------
+[TAPUBULU]
+GenderRatio   = AlwaysMale
+EggMoves      = THRASH,SUPERPOWER,WIDEGUARD,DOUBLEEDGE
+EggGroups     = Enchanted,Bestial
+#-------------------------------
+[TAPUFINI]
+GenderRatio   = AlwaysFemale
+EggMoves      = AQUARING,REFRESH,WISH,SWEETKISS,AURORABEAM,MEGAHORN
+EggGroups     = Enchanted,Nebulous
+#-------------------------------
+[COSMOG]
+EggMoves      = SAFEGUARD,WISH,GRAVITY,BIDE,MIRRORCOAT,MAGICCOAT,ANCIENTPOWER,EXTRASENSORY
+#-------------------------------
+[SOLGALEO]
+GenderRatio   = AlwaysMale
+EggGroups     = Bestial,Ultra
+#-------------------------------
+[LUNALA]
+GenderRatio   = AlwaysFemale
+EggGroups     = Skycrest,Ultra
+#-------------------------------
+[NIHILEGO]
+GenderRatio   = Female50Percent
+EggMoves      = METALSOUND,HYPNOSIS,MAGICCOAT,MIRRORSHOT,DREAMEATER
+EggGroups     = Ultra
+#-------------------------------
+[BUZZWOLE]
+GenderRatio   = AlwaysMale
+EggMoves      = BUGBITE,SUPERPOWER,THRASH,WIDEGUARD,DOUBLEEDGE
+EggGroups     = Ultra
+#-------------------------------
+[PHEROMOSA]
+GenderRatio   = AlwaysFemale
+EggMoves      = MIRRORCOAT,REVERSAL,COUNTER,GASTROACID,DOUBLEEDGE
+EggGroups     = Ultra
+#-------------------------------
+[XURKITREE]
+GenderRatio   = Female50Percent
+EggMoves      = METALSOUND,DETECT,POWERSPLIT,EXTRASENSORY
+EggGroups     = Ultra
+#-------------------------------
+[CELESTEELA]
+GenderRatio   = AlwaysFemale
+EggMoves      = METALSOUND,MIRRORCOAT,HAMMERARM,MAGICCOAT,MIRRORSHOT
+EggGroups     = Ultra
+#-------------------------------
+[KARTANA]
+GenderRatio   = Female50Percent
+EggMoves      = AUTOTOMIZE,METALSOUND,GUARDSPLIT,DOUBLEEDGE
+EggGroups     = Ultra
+#-------------------------------
+[GUZZLORD]
+GenderRatio   = FemaleOneEighth
+EggMoves      = METALSOUND,DREAMEATER,CLEARSMOG,GASTROACID,VENOMDRENCH
+EggGroups     = Ultra
+#-------------------------------
+[NECROZMA]
+GenderRatio   = Female50Percent
+EggMoves      = ANCIENTPOWER,METALSOUND,METALBURST,MIRRORCOAT,WIDEGUARD,EERIEIMPULSE
+EggGroups     = Titan,Ultra
+#-------------------------------
+[MARSHADOW]
+GenderRatio   = Female50Percent
+EggMoves      = DESTINYBOND,FAKEOUT,SUPERPOWER,QUICKGUARD
+EggGroups     = Nebulous
+#-------------------------------
+[POIPOLE]
+GenderRatio   = Female50Percent
+EggMoves      = UPROAR,METALSOUND,CLEARSMOG,MEGAHORN,VENOMDRENCH
+#-------------------------------
+[NAGANADEL]
+GenderRatio   = Female50Percent
+EggGroups     = Ultra
+#-------------------------------
+[STAKATAKA]
+GenderRatio   = Female50Percent
+EggMoves      = MIRRORCOAT,MAGICCOAT,GRAVITY,METALSOUND,METALBURST,ENDURE,GUARDSPLIT,SAFEGUARD,WIDEGUARD
+EggGroups     = Ultra
+#-------------------------------
+[BLACEPHALON]
+GenderRatio   = Female50Percent
+EggMoves      = MIRRORCOAT,HEADSMASH,HYPNOSIS,COSMICPOWER,DREAMEATER,POWERSPLIT,EXTRASENSORY,CLEARSMOG
+EggGroups     = Ultra
+#-------------------------------
+[ZERAORA]
+GenderRatio   = Female50Percent
+EggMoves      = THRASH,ELECTROWEB,UPROAR,METALSOUND,SUPERPOWER,COUNTER,SUCKERPUNCH,EXTREMESPEED
+EggGroups     = Bestial,Nebulous
+#-------------------------------
+[MELTAN]
+GenderRatio   = Female50Percent
+EggMoves      = ANCIENTPOWER,BLOCK,SHOCKWAVE,DIZZYPUNCH,WIDEGUARD,MAGNETRISE,GRAVITY,AUTOTOMIZE,METALSOUND,METALBURST
+#-------------------------------
+[MELMETAL]
+GenderRatio   = Female50Percent
+EggGroups     = Titan
+#-------------------------------
+[ZACIAN]
+GenderRatio   = AlwaysFemale
+EggMoves      = UPROAR,SUPERPOWER,COUNTER,METALBURST,NIGHTSLASH,ANCIENTPOWER,NOBLEROAR
+EggGroups     = Bestial
+#-------------------------------
+[ZACIAN_1]
+#-------------------------------
+[ZAMAZENTA]
+GenderRatio   = AlwaysMale
+EggMoves      = UPROAR,SUPERPOWER,COUNTER,METALBURST,MIRRORCOAT,ANCIENTPOWER,NOBLEROAR
+EggGroups     = Bestial
+#-------------------------------
+[ZAMAZENTA_1]
+#-------------------------------
+[ETERNATUS]
+GenderRatio   = Female50Percent
+EggMoves      = ANCIENTPOWER,COIL,DRAGONRUSH
+EggGroups     = Titan,Overlord
+#-------------------------------
+[KUBFU]
+EggMoves      = SUPERPOWER,QUICKGUARD,DOUBLEKICK,NOBLEROAR,THRASH,HAMMERARM
+#-------------------------------
+[URSHIFU]
+EggGroups     = Bestial
+#-------------------------------
+[URSHIFU_1]
+#-------------------------------
+[ZARUDE]
+GenderRatio   = Female50Percent
+EggMoves      = UPROAR,SUCKERPUNCH,SUPERPOWER,PUNISHMENT,QUICKGUARD
+EggGroups     = Bestial
+#-------------------------------
+[ZARUDE_1]
+#-------------------------------
+[REGIELEKI]
+EggMoves      = THUNDERPUNCH,CRUSHGRIP,WIDEGUARD
+#-------------------------------
+[REGIDRAGO]
+EggMoves      = FIREPUNCH,CRUSHGRIP,WIDEGUARD
+#-------------------------------
+[GLASTRIER]
+GenderRatio   = Female50Percent
+EggMoves      = ANCIENTPOWER,SKULLBASH,NOBLEROAR,SUPERPOWER
+EggGroups     = Bestial
+#-------------------------------
+[SPECTRIER]
+GenderRatio   = Female50Percent
+EggMoves      = ANCIENTPOWER,SKULLBASH,NOBLEROAR,EXTRASENSORY
+EggGroups     = Bestial
+#-------------------------------
+[CALYREX]
+GenderRatio   = FemaleOneEighth
+EggMoves      = ANCIENTPOWER,SKULLBASH,NOBLEROAR,PUNISHMENT
+EggGroups     = Bestial,Enchanted
+#-------------------------------
+[ENAMORUS_1]
+EggMoves      = DISABLE,HEALPULSE,HEARTSWAP,SWEETKISS
+EggGroups     = Bestial,Enchanted
+Flags         = InheritFormFromMother
+#-------------------------------
+[GREATTUSK]
+EggMoves      = ANCIENTPOWER,COUNTER,FOCUSENERGY,FISSURE,HIGHHORSEPOWER
+#-------------------------------
+[SCREAMTAIL]
+EggMoves      = COPYCAT,ECHOEDVOICE,COVET,GRAVITY,HEALPULSE,LASTRESORT,PRESENT,ROLLOUT
+#-------------------------------
+[BRUTEBONNET]
+EggMoves      = SWEETSCENT,DEFENSECURL,POISONPOWDER,ROLLOUT,WORRYSEED
+#-------------------------------
+[FLUTTERMANE]
+EggMoves      = CURSE,DESTINYBOND,SCREECH,SHADOWSNEAK,SUCKERPUNCH,WONDERROOM
+#-------------------------------
+[SLITHERWING]
+EggMoves      = DOUBLEEDGE,STRINGSHOT,STRUGGLEBUG,SCREECH,RAGEPOWDER
+#-------------------------------
+[SANDYSHOCKS]
+EggMoves      = ELECTROWEB,EXPLOSION,MAGNETRISE,LOCKON
+#-------------------------------
+[IORNTREADS]
+EggMoves      = FOCUSENERGY,HEADSMASH,PLAYROUGH,FISSURE,HIGHHORSEPOWER
+#-------------------------------
+[IORNBUNDLE]
+EggMoves      = AURORABEAM,COUNTER,DESTINYBOND,MEMENTO,RAPIDSPIN,SPLASH
+#-------------------------------
+[IORNHANDS]
+EggMoves      = BULLETPUNCH,COUNTER,CROSSCHOP,DYNAMICPUNCH,FEINT,HELPINGHAND,WIDEGUARD
+#-------------------------------
+[IORNJUGULIS]
+EggMoves      = ASTONISH,DOUBLEHIT,HEADSMASH,HEADBUTT,DRAGONRUSH
+#-------------------------------
+[IORNMOTH]
+EggMoves      = ABSORB,HARDEN,FLAMEWHEEL,AMNESIA,DUALWINGBEAT
+#-------------------------------
+[IORNTHORNS]
+EggMoves      = FOCUSENERGY,STOMP,OUTRAGE,ASSURANCE,PAYBACK,CURSE
+#-------------------------------
+[WOCHIEN]
+GenderRatio   = Female50Percent
+EggMoves      = DISABLE,MEMENTO,PUNISHMENT,DESTINYBOND,TORMENT,SEEDFLARE
+EggGroups     = Titan
+#-------------------------------
+[CHIENPAO]
+GenderRatio   = Female50Percent
+EggMoves      = DISABLE,MEMENTO,PUNISHMENT,DESTINYBOND,TORMENT,GLACIATE
+EggGroups     = Bestial
+#-------------------------------
+[TINGLU]
+GenderRatio   = Female50Percent
+EggMoves      = DISABLE,MEMENTO,PUNISHMENT,DESTINYBOND,TORMENT,LANDSWRATH
+EggGroups     = Titan,Bestial
+#-------------------------------
+[CHIYU]
+GenderRatio   = Female50Percent
+EggMoves      = DISABLE,MEMENTO,PUNISHMENT,DESTINYBOND,TORMENT,FIERYDANCE
+EggGroups     = Enchanted
+#-------------------------------
+[ROARINGMOON]
+EggMoves      = THRASH,TWISTER,DUALWINGBEAT,DEFENSECURL
+#-------------------------------
+[IORNVALIANT]
+EggMoves      = MEANLOOK,MEMENTO,HEALPULSE,SLASH,SACREDSWORD
+#-------------------------------
+[KORAIDON]
+EggMoves      = AQUATAIL,IRONTAIL,KNOCKOFF,POWERWHIP,QUICKATTACK,SHIFTGEAR,DOUBLEEDGE
+#-------------------------------
+[MIRAIDON]
+EggMoves      = AQUATAIL,IRONTAIL,KNOCKOFF,POWERWHIP,QUICKATTACK,SHIFTGEAR,DOUBLEEDGE
+#-------------------------------
+[WALKINGWAKE]
+EggMoves      = MIST,ICEFANG,EXTRASENSORY,AQUARING,DOUBLEEDGE
+#-------------------------------
+[IORNLEAVES]
+EggMoves      = DOUBLEKICK,GRASSYGLIDE,SUPERPOWER,ZENHEADBUTT
+#-------------------------------
+[MUNKIDORI]
+GenderRatio   = Female50Percent
+EggMoves      = 
+EggGroups     = Bestial
+#-------------------------------
+[OKIDOGI]
+GenderRatio   = Female50Percent
+EggMoves      = 
+EggGroups     = Bestial
+#-------------------------------
+[FEZANDIPITI]
+GenderRatio   = Female50Percent
+EggMoves      = 
+EggGroups     = Skycrest
+#-------------------------------
+[OGERPON]
+GenderRatio   = Female50Percent
+EggMoves      = 
+EggGroups     = Nebulous
+#-------------------------------
+[TERAPAGOS]
+GenderRatio   = Female50Percent
+EggMoves      = 
+EggGroups     = Titan
