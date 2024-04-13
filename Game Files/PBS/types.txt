@@ -15,7 +15,7 @@ Resistances = ROCK,BUG,DARK
 [FLYING]
 Name = Flying
 IconPosition = 2
-Weaknesses = ROCK,ELECTRIC,ICE
+Weaknesses = ROCK,ELECTRIC,ICE,MATRIX
 Resistances = FIGHTING,BUG,GRASS
 Immunities = GROUND
 #-------------------------------
@@ -30,7 +30,7 @@ Name = Ground
 IconPosition = 4
 Weaknesses = WATER,GRASS,ICE
 Resistances = POISON,ROCK
-Immunities = ELECTRIC
+Immunities = ELECTRIC,MATRIX
 #-------------------------------
 [ROCK]
 Name = Rock
@@ -42,12 +42,12 @@ Resistances = NORMAL,FLYING,POISON,FIRE
 Name = Bug
 IconPosition = 6
 Weaknesses = FLYING,ROCK,FIRE
-Resistances = FIGHTING,GROUND,GRASS
+Resistances = FIGHTING,GROUND,GRASS,MATRIX
 #-------------------------------
 [GHOST]
 Name = Ghost
 IconPosition = 7
-Weaknesses = GHOST,DARK
+Weaknesses = GHOST,DARK,MATRIX
 Resistances = POISON,BUG
 Immunities = NORMAL,FIGHTING
 #-------------------------------
@@ -74,7 +74,7 @@ Resistances = BUG,STEEL,FIRE,GRASS,ICE,FAIRY
 Name = Water
 IconPosition = 11
 IsSpecialType = true
-Weaknesses = GRASS,ELECTRIC
+Weaknesses = GRASS,ELECTRIC,MATRIX
 Resistances = STEEL,FIRE,WATER,ICE
 #-------------------------------
 [GRASS]
@@ -82,27 +82,27 @@ Name = Grass
 IconPosition = 12
 IsSpecialType = true
 Weaknesses = FLYING,POISON,BUG,FIRE,ICE
-Resistances = GROUND,WATER,GRASS,ELECTRIC
+Resistances = GROUND,WATER,GRASS,ELECTRIC,MATRIX
 #-------------------------------
 [ELECTRIC]
 Name = Electric
 IconPosition = 13
 IsSpecialType = true
 Weaknesses = GROUND
-Resistances = FLYING,STEEL,ELECTRIC
+Resistances = FLYING,STEEL,ELECTRIC,MATRIX
 #-------------------------------
 [PSYCHIC]
 Name = Psychic
 IconPosition = 14
 IsSpecialType = true
 Weaknesses = BUG,GHOST,DARK
-Resistances = FIGHTING,PSYCHIC
+Resistances = FIGHTING,PSYCHIC,MATRIX
 #-------------------------------
 [ICE]
 Name = Ice
 IconPosition = 15
 IsSpecialType = true
-Weaknesses = FIGHTING,ROCK,STEEL,FIRE
+Weaknesses = FIGHTING,ROCK,STEEL,FIRE,MATRIX,ELECTRIC
 Resistances = ICE
 #-------------------------------
 [DRAGON]
@@ -110,7 +110,7 @@ Name = Dragon
 IconPosition = 16
 IsSpecialType = true
 Weaknesses = ICE,DRAGON,FAIRY
-Resistances = FIRE,WATER,GRASS,ELECTRIC
+Resistances = FIRE,WATER,GRASS,ELECTRIC,MATRIX
 #-------------------------------
 [DARK]
 Name = Dark
@@ -124,6 +124,21 @@ Immunities = PSYCHIC
 Name = Fairy
 IconPosition = 18
 IsSpecialType = true
-Weaknesses = POISON,STEEL
+Weaknesses = POISON,STEEL,MATRIX
 Resistances = FIGHTING,BUG,DARK
 Immunities = DRAGON
+#-------------------------------
+[MATRIX]
+Name = Matrix
+IconPosition = 19
+IsSpecialType = true
+Weaknesses = BUG,FIRE,MATRIX
+Resistances = DRAGON,ELECTRIC,GROUND,ICE,NORMAL,WATER,NUCLEAR
+Immunities = FAIRY
+#-------------------------------
+[NUCLEAR] #From Pokémon: Uranium
+Name = Nuclear 
+IconPosition = 20
+IsSpecialType = true
+Weaknesses = STEEL
+Resistances = NUCLEAR
