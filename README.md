@@ -14,7 +14,7 @@ In the depths of the universe, illegal scientists on a space station created an 
 - Experience a Pokémon Mystery Dungeon-style gameplay
 - Encounter Pokémon from Gen 1 to 9
 - Discover 500+ unique fan-made Pokémon
-- Earn daily/weekly/monthly rewards (based on your gaming time, not your device time)
+- Earn daily/weekly/monthly rewards (based on the game's time, not your device's time)
 - Immerse yourself in an engaging Campaign mode (our very own story!)
 - Enjoy detailed overworld animations & much more!
 ### **Credits:**
