@@ -1,6 +1,6 @@
 class FancyCamera
   # Default camera speed (Default: 1)
-  DEFAULT_SPEED = 2
+  DEFAULT_SPEED = 3
 
   # Increase camera speed when running (Default: true)
   INCREASE_WHEN_RUNNING = true

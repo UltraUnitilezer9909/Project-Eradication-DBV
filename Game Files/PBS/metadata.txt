@@ -13,19 +13,127 @@ SurfBGM = Surfing
 BicycleBGM = Bicycle
 #-------------------------------
 #Male Vee
-[1] 
+[01] 
 TrainerType = Z-PLAYER_Eevee_male
-WalkCharset = Z-PLAYER_Eevee_Walk_male
-RunCharset = Z-PLAYER_Eevee_Run_male
-CycleCharset = Z-PLAYER_Eevee_Hover_male
-SurfCharset = Z-PLAYER_Eevee_Walk_male
-FishCharset = Z-PLAYER_Eevee_Walk_male
+WalkCharset = Z-PLAYER_Eevee_male
+RunCharset = Z-PLAYER_Eevee_male
+CycleCharset = Z-PLAYER_Eevee_male
+SurfCharset = Z-PLAYER_Eevee_male
+FishCharset = Z-PLAYER_Eevee_male
 #-------------------------------
 #Female Vee
-[2] 
+[02] 
 TrainerType = Z-PLAYER_Eevee_female
-WalkCharset = Z-PLAYER_Eevee_Walk_female
-RunCharset = Z-PLAYER_Eevee_Run_female
-CycleCharset = Z-PLAYER_Eevee_Hover_female
-SurfCharset = Z-PLAYER_Eevee_Walk_female
-FishCharset = Z-PLAYER_Eevee_Walk_female
+WalkCharset = Z-PLAYER_Eevee_female
+RunCharset = Z-PLAYER_Eevee_female
+CycleCharset = Z-PLAYER_Eevee_female
+SurfCharset = Z-PLAYER_Eevee_female
+FishCharset = Z-PLAYER_Eevee_female
+#-------------------------------
+#Male Shay
+[03] 
+TrainerType = Z-PLAYER_Shaymin_male
+WalkCharset = Z-PLAYER_Shaymin_male
+RunCharset = Z-PLAYER_Shaymin_male
+CycleCharset = Z-PLAYER_Shaymin_male
+SurfCharset = Z-PLAYER_Shaymin_male
+FishCharset = Z-PLAYER_Shaymin_male
+#-------------------------------
+#Female Shay
+[04] 
+TrainerType = Z-PLAYER_Shaymin_female
+WalkCharset = Z-PLAYER_Shaymin_female
+RunCharset = Z-PLAYER_Shaymin_female
+CycleCharset = Z-PLAYER_Shaymin_female
+SurfCharset = Z-PLAYER_Shaymin_female
+FishCharset = Z-PLAYER_Shaymin_female
+#-------------------------------
+#Male Zor
+[05] 
+TrainerType = Z-PLAYER_Zorua_male
+WalkCharset = Z-PLAYER_Zorua_male
+RunCharset = Z-PLAYER_Zorua_male
+CycleCharset = Z-PLAYER_Zorua_male
+SurfCharset = Z-PLAYER_Zorua_male
+FishCharset = Z-PLAYER_Zorua_male
+#-------------------------------
+#Female Zor
+[06] 
+TrainerType = Z-PLAYER_Zorua_female
+WalkCharset = Z-PLAYER_Zorua_female
+RunCharset = Z-PLAYER_Zorua_female
+CycleCharset = Z-PLAYER_Zorua_female
+SurfCharset = Z-PLAYER_Zorua_female
+FishCharset = Z-PLAYER_Zorua_female
+#-------------------------------
+#Male Fen
+[07] 
+TrainerType = Z-PLAYER_Fennekin_male
+WalkCharset = Z-PLAYER_Fennekin_male
+RunCharset = Z-PLAYER_Fennekin_male
+CycleCharset = Z-PLAYER_Fennekin_male
+SurfCharset = Z-PLAYER_Fennekin_male
+FishCharset = Z-PLAYER_Fennekin_male
+#-------------------------------
+#Female Fen
+[08] 
+TrainerType = Z-PLAYER_Fennekin_female
+WalkCharset = Z-PLAYER_Fennekin_female
+RunCharset = Z-PLAYER_Fennekin_female
+CycleCharset = Z-PLAYER_Fennekin_female
+SurfCharset = Z-PLAYER_Fennekin_female
+FishCharset = Z-PLAYER_Fennekin_female
+#-------------------------------
+#Male Rio
+[09] 
+TrainerType = Z-PLAYER_Riolu_male
+WalkCharset = Z-PLAYER_Riolu_male
+RunCharset = Z-PLAYER_Riolu_male
+CycleCharset = Z-PLAYER_Riolu_male
+SurfCharset = Z-PLAYER_Riolu_male
+FishCharset = Z-PLAYER_Riolu_male
+#-------------------------------
+#Female Rio
+[10] 
+TrainerType = Z-PLAYER_Riolu_female
+WalkCharset = Z-PLAYER_Riolu_female
+RunCharset = Z-PLAYER_Riolu_female
+CycleCharset = Z-PLAYER_Riolu_female
+SurfCharset = Z-PLAYER_Riolu_female
+FishCharset = Z-PLAYER_Riolu_female
+#-------------------------------
+#Male Pix
+[11] 
+TrainerType = Z-PLAYER_Vulpix_male
+WalkCharset = Z-PLAYER_Vulpix_male
+RunCharset = Z-PLAYER_Vulpix_male
+CycleCharset = Z-PLAYER_Vulpix_male
+SurfCharset = Z-PLAYER_Vulpix_male
+FishCharset = Z-PLAYER_Vulpix_male
+#-------------------------------
+#Female Pix
+[12] 
+TrainerType = Z-PLAYER_Vulpix_female
+WalkCharset = Z-PLAYER_Vulpix_female
+RunCharset = Z-PLAYER_Vulpix_female
+CycleCharset = Z-PLAYER_Vulpix_female
+SurfCharset = Z-PLAYER_Vulpix_female
+FishCharset = Z-PLAYER_Vulpix_female
+#-------------------------------
+#Male APix
+[13] 
+TrainerType = Z-PLAYER_AVulpix_male
+WalkCharset = Z-PLAYER_AVulpix_male
+RunCharset = Z-PLAYER_AVulpix_male
+CycleCharset = Z-PLAYER_AVulpix_male
+SurfCharset = Z-PLAYER_AVulpix_male
+FishCharset = Z-PLAYER_AVulpix_male
+#-------------------------------
+#Female APix
+[14] 
+TrainerType = Z-PLAYER_AVulpix_female
+WalkCharset = Z-PLAYER_AVulpix_female
+RunCharset = Z-PLAYER_AVulpix_female
+CycleCharset = Z-PLAYER_AVulpix_female
+SurfCharset = Z-PLAYER_AVulpix_female
+FishCharset = Z-PLAYER_AVulpix_female
