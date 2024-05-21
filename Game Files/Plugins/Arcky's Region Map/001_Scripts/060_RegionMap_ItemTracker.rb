@@ -1,4 +1,4 @@
-if ARMSettings::PROGRESS_COUNTER
+if ARMSettings::PROGRESS_COUNTER && ARMSettings::PROGRESS_COUNT_ITEMS
   #===============================================================================
   # Picking up an item found on the ground
   #===============================================================================
@@ -7,12 +7,10 @@ if ARMSettings::PROGRESS_COUNTER
     return false if !item || quantity < 1
     itemInfo = getItemInfo(item, quantity, false)
     result = getItemMessage(itemInfo)
-    if $item_log
-      if result 
-        ItemLog.showItemScene(item) if $item_log.register(item) != nil
-      end
-      return result
+    if $item_log && result 
+      ItemLog.showItemScene(item) if $item_log.register(item) != nil
     end
+    return result
   end
 
   #===============================================================================
@@ -23,12 +21,10 @@ if ARMSettings::PROGRESS_COUNTER
     return false if !item || quantity < 1
     itemInfo = getItemInfo(item, quantity, true)
     result = getItemMessage(itemInfo)
-    if $item_log 
-      if result 
-        ItemLog.showItemScene(item) if $item_log.register(item) != nil
-      end
-      return result
+    if $item_log && result 
+      ItemLog.showItemScene(item) if $item_log.register(item) != nil
     end
+    return result
   end
 
   #===============================================================================
@@ -85,24 +81,21 @@ if ARMSettings::PROGRESS_COUNTER
   end 
 
   def countItem(itemInfo)
-    $PokemonGlobal.itemTracker ||= {}
-    map = load_data(sprintf("Data/Map%03d.rxdata", @map_id))
-    return if !map.events[@event_id].name[/item/i]
-    map = GameData::MapMetadata.try_get(@map_id)
-    regionMap = PokemonRegionMap_Scene.new 
-    district = regionMap.getDistrict(map.town_map_position)
-    $PokemonGlobal.itemTracker[district] ||= { :total => 0 }
-    $PokemonGlobal.itemTracker[district][:maps] ||= {}
-    $PokemonGlobal.itemTracker[district][:maps][@map_id] ||= {}
-    $PokemonGlobal.itemTracker[district][:maps][@map_id][@event_id] ||= { :found => 0, :items => [] }
-    unless $PokemonGlobal.itemTracker[district][:maps][@map_id][@event_id][:items].include?(itemInfo[:item])
-      $PokemonGlobal.itemTracker[district][:maps][@map_id][@event_id][:items] += [itemInfo[:item]]
-      $PokemonGlobal.itemTracker[district][:maps][@map_id][@event_id][:found] += itemInfo[:quantity]
-      $PokemonGlobal.itemTracker[district][:total] += itemInfo[:quantity]
+    mapID = $game_map.map_id
+    map = load_data(sprintf("Data/Map%03d.rxdata", mapID))
+    eventID = pbMapInterpreter.get_self.id
+    return if map.nil? || !map.events[eventID].name[/item/i]
+    map = GameData::MapMetadata.try_get(mapID)
+    district = getDistrictName(map)
+    $ArckyGlobal.itemTracker[district] ||= { :total => 0 }
+    $ArckyGlobal.itemTracker[district][:maps] ||= {}
+    $ArckyGlobal.itemTracker[district][:maps][mapID] ||= { :found => 0}
+    $ArckyGlobal.itemTracker[district][:maps][mapID][eventID] ||= { :found => 0, :items => [] }
+    unless $ArckyGlobal.itemTracker[district][:maps][mapID][eventID][:items].include?(itemInfo[:item])
+      $ArckyGlobal.itemTracker[district][:maps][mapID][eventID][:items] += [itemInfo[:item]]
+      $ArckyGlobal.itemTracker[district][:maps][mapID][eventID][:found] += itemInfo[:quantity]
+      $ArckyGlobal.itemTracker[district][:total] += itemInfo[:quantity]
+      $ArckyGlobal.itemTracker[district][:maps][mapID][:found] += itemInfo[:quantity]
     end
   end
-
-  class PokemonGlobalMetadata
-    attr_accessor :itemTracker
-  end 
 end 

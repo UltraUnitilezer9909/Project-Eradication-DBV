@@ -1,8 +1,8 @@
-
-Game Files/.dev/Concepts/Fakemons/ARHAXIA.kra
-Game Files/.dev/Concepts/Fakemons/ARHAXIA.png
-Game Files/.dev/Concepts/Fakemons/ARHAXIA.png.kra
-Game Files/exported.kra
-Game Files/exported.kra~
-Game Files/exported.png~
-*.png
+Game Files/errorlog.txt
+Game Files/Game.rxdata
+Game Files/*.rxdata
+Game Files/Saves/*.rxdata
+Game Files/*.png
+Game Files/.dev/Concepts/Fakemons/*.kra
+Game Files/.dev/Concepts/Fakemons/*.png
+Game Files/*.kra~

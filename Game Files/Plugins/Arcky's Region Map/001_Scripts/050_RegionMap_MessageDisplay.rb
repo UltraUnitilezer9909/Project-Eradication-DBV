@@ -46,7 +46,8 @@ class PokemonRegionMap_Scene
         @sprites["cursor"].y = 24 + (@mapY * ARMSettings::SQUARE_HEIGHT)
         showAndUpdateMapInfo
         centerMapOnCursor
-      end 
+        updateMapRange
+      end
       msgwindow&.update
       yield if block_given?
       if Input.trigger?(Input::BACK)

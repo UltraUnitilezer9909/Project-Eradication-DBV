@@ -9,31 +9,50 @@ class PokemonRegionMap_Scene
   end
 
   def convertButtonToString(button)
+    button = [button] unless button.is_a?(Array)
     controlPanel = $PokemonSystem.respond_to?(:game_controls)
-    case button 
-    when 11
-      buttonName = controlPanel ? _INTL("Menu") : _INTL("ACTION")
-    when 12
-      buttonName = controlPanel ? _INTL("Cancel") : _INTL("BACK")
-    when 13 
-      buttonName = controlPanel ? _INTL("Action") : _INTL("USE")
-    when 14 
-      buttonName = controlPanel ? _INTL("Scroll Up") : _INTL("JUMPUP")
-    when 15
-      buttonName = controlPanel ? _INTL("Scroll Down") : _INTL("JUMPDOWN")
-    when 16
-      buttonName = controlPanel ? _INTL("Ready Menu") : _INTL("SPECIAL")
-    when 17
-      buttonName = "AUX1" #Unused 
-    when 18
-      buttonName = "AUX2" #Unused
-    else 
-      return buttonName = "CTRL"
+    names = []
+    button.each do |btn|
+      case btn 
+      when 2
+        buttonName = controlPanel ? _INTL("Down") : _INTL("DOWN")
+      when 4
+        buttonName = controlPanel ? _INTL("Left") : _INTL("LEFT")
+      when 6
+        buttonName = controlPanel ? _INTL("Right") : _INTL("RIGHT")
+      when 8
+        buttonName = controlPanel ? _INTL("Up") : _INTL("UP")
+      when 11
+        buttonName = controlPanel ? _INTL("Menu") : _INTL("ACTION")
+      when 12
+        buttonName = controlPanel ? _INTL("Cancel") : _INTL("BACK")
+      when 13 
+        buttonName = controlPanel ? _INTL("Action") : _INTL("USE")
+      when 14 
+        buttonName = controlPanel ? _INTL("Scroll Up") : _INTL("JUMPUP")
+      when 15
+        buttonName = controlPanel ? _INTL("Scroll Down") : _INTL("JUMPDOWN")
+      when 16
+        buttonName = controlPanel ? _INTL("Ready Menu") : _INTL("SPECIAL")
+      when 17
+        buttonName = "AUX1" #Unused 
+      when 18
+        buttonName = "AUX2" #Unused
+      else 
+        return buttonName = "CTRL"
+      end 
+      names << buttonName
+    end
+    if controlPanel && (!names.any? { |btn| btn == "AUX1" || btn == "AUX2" })
+      newNames = []
+      names.each_with_index do |buttonName, index|
+        buttonName = $PokemonSystem.game_controls.find{|c| c.control_action == buttonName.to_s}.key_name 
+        buttonName = makeButtonNameShorter(buttonName)
+        newNames << buttonName
+      end 
+      names = newNames
     end 
-    if controlPanel
-      buttonName = $PokemonSystem.game_controls.find{|c| c.control_action==buttonName}.key_name 
-      buttonName = makeButtonNameShorter(buttonName)
-    end 
+    buttonName = names.join("/")
     return buttonName
   end 
 
@@ -90,9 +109,9 @@ class PokemonRegionMap_Scene
   def updateButtonInfo(name = "", replaceName = "")
     @timer = 0 if !@timer
     frames = ARMSettings::BUTTON_PREVIEW_TIME_CHANGE * Graphics.frame_rate
-    if @modeCount > 1
+    if @modeCount > 1 && !@previewBox.isExtShown
       textPos = getTextPosition
-      width = @previewShow && @mode == 2 && BOX_TOP_LEFT ? (Graphics.width - @sprites["previewBox"].width) : @sprites["buttonPreview"].width 
+      width = @previewBox.isShown && @mode == 2 && BOX_TOP_LEFT ? (Graphics.width - @sprites["previewBox"].width) : @sprites["buttonPreview"].width 
       x = (textPos[0] + (width / 2)) + ARMSettings::BUTTON_BOX_TEXT_OFFSET_X
       y = (textPos[1] + 14) + ARMSettings::BUTTON_BOX_TEXT_OFFSET_Y
       align = 2
@@ -103,14 +122,15 @@ class PokemonRegionMap_Scene
     end 
     getAvailableActions(name, replaceName)
     avActions = @mapActions.select { |_, action| action[:condition] }.values
-    avActions.sort_by! { |action| action[:priority] ? 0 : 1 }
+    avActions.sort_by! { |action| action[:order] }
     if avActions != @prevAvActions
       @prevAvActions = avActions
       @timer = 0
     end
-    @indActions = (@timer / frames) % avActions.length
+    actionsLength = avActions.length > 0 ? avActions.length : 1
+    @indActions = (@timer / frames) % actionsLength || 0
     if avActions.any?
-      selActions = avActions[@indActions % avActions.length]
+      selActions = avActions[@indActions % actionsLength]
       if selActions[:button]
         button = pbGetMessageFromHash(SCRIPTTEXTS, convertButtonToString(selActions[:button]))
         text = "#{button}: #{selActions[:text]}"
@@ -118,10 +138,10 @@ class PokemonRegionMap_Scene
       @sprites["buttonName"].bitmap.clear
       pbDrawTextPositions(
         @sprites["buttonName"].bitmap,
-        [[text, x, y, align, ARMSettings::BUTTON_BOX_TEXT_MAIN, ARMSettings::BUTTON_BOX_TEXT_SHADOW]]
+        [[text.to_s, x, y, align, ARMSettings::BUTTON_BOX_TEXT_MAIN, ARMSettings::BUTTON_BOX_TEXT_SHADOW]]
         )
         @sprites["buttonName"].visible = true
-      if @modeCount > 1
+      if @modeCount > 1 && !@previewBox.isExtShown
         @sprites["buttonName"].z = 25
       else 
         @sprites["buttonName"].z = 100002
@@ -133,97 +153,166 @@ class PokemonRegionMap_Scene
     getAvailableRegions if !@avRegions
     @mapActions = {
       :ChangeMode => {
-        condition: @modeCount >= 2 && !@searchActive,
+        condition: @modeCount >= 2 && !@searchActive && !@previewBox.isExtShown,
         text: _INTL("Change Mode"),
-        button: ARMSettings::CHANGE_MODE_BUTTON
+        button: ARMSettings::CHANGE_MODE_BUTTON,
+        order: 30
       },
       :ChangeRegion => {
-        condition: @avRegions.length >= 2 && !@previewShow && !@searchActive,
+        condition: @avRegions.length >= 2 && @previewBox.isHidden && !@searchActive && !@flyMap,
         text: _INTL("Change Region"),
-        button: ARMSettings::CHANGE_REGION_BUTTON
+        button: ARMSettings::CHANGE_REGION_BUTTON,
+        order: 40
       },
       :ViewInfo => {
-        condition: (@mode == 0 && !@searchActive && !@previewShow && name != "" && (name != replaceName || ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS) || @lineCount == 0) && !@wallmap,
+        condition: (@mode == 0 && !@searchActive && @previewBox.isHidden && name != "" && (name != replaceName || ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS) || @lineCount == 0) && !@wallmap,
         text: _INTL("View Info"),
         button: ARMSettings::SHOW_LOCATION_BUTTON,
-        priority: true
+        order: 10
       },
       :HideInfo => {
-        condition: @mode == 0 && @previewShow && @lineCount != 0 && @curLocName != "",
+        condition: @mode == 0 && @previewBox.isShown && @lineCount != 0 && @curLocName != "",
         text: _INTL("Hide Info"),
-        button: Input::BACK
+        button: Input::BACK,
+        order: 20
+      },
+      :ViewExtInfo => {
+        condition: (@mode == 0 && @previewBox.isShown) && !@cannotExtPreview, # for v2.6.0
+        text: _INTL("Extend Info"),
+        button: ARMSettings::SHOW_EXTENDED_BUTTON,
+        order: 10
+      },
+      :HideExtInfo => {
+        condition: @previewBox.isExtShown && @extendedBox.isMain,
+        text: _INTL("Hide Info"),
+        button: Input::BACK,
+        order: 35
+      },
+      :ShowEncTable => {
+        condition: @previewBox.isExtShown && !@data.nil? && !@getData.nil? && @getData.values[@dataIndex][:wildAv] && @extendedBox.isMain,
+        text: _INTL("View Encounter Info"),
+        button: ARMSettings::SHOW_EXTENDED_SUB_MENU,
+        order: 10
+      },
+      :ShowEncDetails => {
+        condition: @extendedBox.isSubOne  && !@activeIndex.empty?,
+        text: _INTL("Select Species"),
+        button: ARMSettings::SELECT_SPECIES_BUTTON,
+        order: 10
+      },
+      :RevealSpecies => {
+        condition: !ARMSettings::REVEAL_ALL_SEEN_SPECIES_BUTTON.nil? && @extendedBox.isSubOne && !@revealAllSeen && !updateTypeCount(true)[0].empty? && @typeCount != updateTypeCount(true)[0],
+        text: _INTL("Reveal Seen Species"),
+        button: ARMSettings::REVEAL_ALL_SEEN_SPECIES_BUTTON,
+        order: 20
+      },
+      :HideSpecies => {
+        condition: !ARMSettings::REVEAL_ALL_SEEN_SPECIES_BUTTON.nil? && @extendedBox.isSubOne && @revealAllSeen && @typeCount != updateTypeCount(false)[0],
+        text: _INTL("Hide Seen Species"),
+        button: ARMSettings::REVEAL_ALL_SEEN_SPECIES_BUTTON,
+        order: 20
+      },
+      :ChangePage => {
+        condition: (@previewBox.isExtShown && @getData && @getData.length > 1 && @extendedBox.isMain) || (@extendedBox.isSubOne && @tableData.length > 1) && !@extendedBox.isSubTwo,
+        text: _INTL("Change Page"),
+        button: [Input::LEFT, Input::RIGHT],
+        order: 30
+      },
+      :ChangeSpecies => {
+        condition: @extendedBox.isSubTwo && @activeIndex.length > 1,
+        text: _INTL("Change Species"),
+        button: [Input::JUMPUP, Input::JUMPDOWN],
+        order: 20
+      },
+      :ChangeSpeciesInfo => {
+        condition: @extendedBox.isSubTwo && !@activeIndex.empty? && @activeIndex.include?(@extIndex),
+        text: _INTL("Change Info"),
+        button: ARMSettings::SELECT_SPECIES_BUTTON,
+        order: 10
+      },
+      :GoPreviousPage => {
+        condition: @extendedBox.isSubOne || @extendedBox.isSubTwo,
+        text: _INTL("Go Back"),
+        button: Input::BACK,
+        order: 40
       },
       :SearchLocation => {
-        condition: @mode == 0 && !@previewShow && @listMaps && !@listMaps.empty? && enableMode(ARMSettings::CAN_LOCATION_SEARCH) && @listMaps.length >= ARMSettings::MINIMUM_MAPS_COUNT,
+        condition: @mode == 0 && @previewBox.isHidden && @listMaps && !@listMaps.empty? && enableMode(ARMSettings::CAN_LOCATION_SEARCH) && @listMaps.length >= ARMSettings::MINIMUM_MAPS_COUNT,
         text: _INTL("Search Location"),
-        button: ARMSettings::LOCATION_SEARCH_BUTTON
+        button: ARMSettings::LOCATION_SEARCH_BUTTON,
+        order: 20
       },
       :QuickSearch => {
         condition: @searchActive,
         text: _INTL("Quick Search"),
         button: ARMSettings::QUICK_SEARCH_BUTTON,
-        priority: true
+        order: 10
       },
       :OrderSearch => {
         condition: @searchActive,
         text: _INTL("Sort Search"),
         button: ARMSettings::ORDER_SEARCH_BUTTON,
-        priority: true
+        order: 20
       },
       :QuickFly => {
         condition: @mode == 1 && enableMode(ARMSettings::CAN_QUICK_FLY) && !getFlyLocations.empty?,
         text: _INTL("Quick Fly"),
         button: ARMSettings::QUICK_FLY_BUTTON,
-        priority: true
+        order: 10
       },
       :ShowQuest => {
-        condition: @mode == 2 && @questNames.is_a?(Array) && @questNames.length < 2 && !@previewShow,
+        condition: @mode == 2 && @questNames.is_a?(Array) && @questNames.length < 2 && @previewBox.isHidden,
         text: _INTL("View Quest"),
         button: ARMSettings::SHOW_QUEST_BUTTON,
-        priority: true 
+        order: 10
       },
       :HideQuest => {
-        condition: @mode == 2 && @previewShow,
+        condition: @mode == 2 && @previewBox.isShown,
         text: _INTL("Hide Quest"),
-        button: Input::BACK
+        button: Input::BACK,
+        order: 20
       },
       :ShowQuests => {
-        condition: @mode == 2 && @questNames.is_a?(Array) && @questNames.length >= 2 && !@previewShow,
+        condition: @mode == 2 && @questNames.is_a?(Array) && @questNames.length >= 2 && @previewBox.isHidden,
         text: _INTL("View Quests"),
         button: ARMSettings::SHOW_QUEST_BUTTON,
-        priority: true
+        order: 10
       },
       :ChangeQuest => {
-        condition: @mode == 2 && @questNames.is_a?(Array) && @questNames.length >= 2 && @previewShow,
+        condition: @mode == 2 && @questNames.is_a?(Array) && @questNames.length >= 2 && @previewBox.isShown,
         text: _INTL("Change Quest"),
-        button: ARMSettings::SHOW_QUEST_BUTTON
+        button: ARMSettings::SHOW_QUEST_BUTTON,
+        order: 10
       },
       :ShowBerry => {
-        condition: @mode == 3 && checkBerriesOnPosition && !@previewShow,
+        condition: @mode == 3 && checkBerriesOnPosition && @previewBox.isHidden,
         text: _INTL("Show Berry"),
         button: ARMSettings::SHOW_BERRY_BUTTON,
-        priority: true 
+        order: 10
       },
       :ShowBerries => {
-        condition: @mode == 3 && checkBerriesOnPosition(true) && !@previewShow,
+        condition: @mode == 3 && checkBerriesOnPosition(true) && @previewBox.isHidden,
         text: _INTL("Show Berries"),
         button: ARMSettings::SHOW_BERRY_BUTTON,
-        priority: true 
+        order: 10
       },
       :ChangeBerry => {
-        condition: @mode == 3 && !@berryPlants.nil? && @berryPlants.length >= 2 && @previewShow,
+        condition: @mode == 3 && !@berryPlants.nil? && @berryPlants.length >= 2 && @previewBox.isShown,
         text: _INTL("Change Berry"),
-        button: ARMSettings::SHOW_BERRY_BUTTON
+        button: ARMSettings::SHOW_BERRY_BUTTON,
+        order: 10
       },
       :HideBerry => {
-        condition: @mode == 3 && @previewShow,
+        condition: @mode == 3 && @previewBox.isShown,
         text: _INTL("Hide Berry"),
-        button: Input::BACK
+        button: Input::BACK,
+        order: 20
       },
       :Quit => {
-        condition: !@previewShow && !@searchActive,
+        condition: @previewBox.isHidden && !@searchActive,
         text: _INTL("Close Map"),
-        button: Input::BACK
+        button: Input::BACK,
+        order: 90
       }
     }
   end 

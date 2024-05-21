@@ -39,17 +39,21 @@ class PokemonRegionMap_Scene
     # by default the Alternative Preview Box is used.
     @useAlt = "Alt"
     mapInfo = @mapInfo[@curMapLoc.gsub(" ", "").to_sym] unless @curMapLoc.nil?
-    if !mapInfo.nil? && mapInfo[:mapname] == pbGetMessageFromHash(LOCATIONNAMES, mapInfo[:realname])
+    if !mapInfo.nil? && mapInfo[:mapname] == pbGetMessageFromHash(LOCATIONNAMES, mapInfo[:realname]) && ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS
       name = mapInfo[:realname].gsub(" ", "")
       locDescr = _INTL("No information given.")
       locDescr = pbGetMessageFromHash(SCRIPTTEXTS, locDescr)
+      @cannotExtPreview = true 
       if ARMLocationPreview.const_defined?(name)
-        locObject = ARMLocationPreview.const_get(name)
+        @locObject = ARMLocationPreview.const_get(name)
         key = "#{:description}_#{@mapX}_#{@mapY}".to_sym
-        key = :description unless locObject.key?(key)
-        locDescr = pbGetMessageFromHash(SCRIPTTEXTS, locObject[key]) unless locObject[key].nil?
-        if locObject[:icon]
-          spriteIcon.setBitmap(findUsableUI("LocationPreview/MiniMaps/map#{locObject[:icon]}"))
+        key = :description unless @locObject.key?(key)
+        unless @locObject[key].nil?
+          locDescr = pbGetMessageFromHash(SCRIPTTEXTS, @locObject[key]) 
+          @cannotExtPreview = false if ARMSettings::USE_EXTENDED_PREVIEW
+        end
+        if @locObject[:icon]
+          spriteIcon.setBitmap(findUsableUI("LocationPreview/MiniMaps/map#{@locObject[:icon]}"))
           spriteIcon.x = (spriteBox.x + (spriteBox.width - (20 + spriteIcon.width))) + ARMSettings::ICON_OFFSET_X
           locDescrWidth = spriteIcon.x - (spriteBox.x + 20)
           @locationIcon = true
@@ -60,8 +64,8 @@ class PokemonRegionMap_Scene
         locDirWidth = spriteBox.width - 20
         directions.each do |dir|
           key = "#{dir}_#{@mapX}_#{@mapY}".to_sym
-          key = dir unless locObject.key?(key)
-          loc = locObject[key]
+          key = dir unless @locObject.key?(key)
+          loc = @locObject[key]
           name = ""
           if loc.is_a?(Array) && !loc.nil?
             value = @mapInfo.find { |_, location| location[:positions].any? { |pos| pos[:x] == loc[0] && pos[:y] == loc[1] } }
@@ -71,9 +75,10 @@ class PokemonRegionMap_Scene
               name = pbGetMessageFromHash(SCRIPTTEXTS, _INTL("Invalid Location"))
             end
           else
-            name = loc 
+            name = loc
           end 
-          if locObject.key?(key) && name != ""
+          if @locObject.key?(key) && name != ""
+            name += ' ' * ARMSettings::LOCATION_DIRECTION_SPACES
             dirWidths << (Bitmap.new("Graphics/Icons/#{dir.to_s}").width + spriteText.bitmap.text_size(name.to_s).width)
             getDir << "<icon=#{dir.to_s}>#{name}" 
           end
@@ -83,18 +88,19 @@ class PokemonRegionMap_Scene
         dirWidths.each_with_index do |width, index|
           currSum += width
           if currSum > locDirWidth
-            newLines << index - 1
+            newLines << index
             currSum = width
           end 
-        end 
+        end
         newLines.each do |index|
           getDir[index] = "\n#{getDir[index]}"
         end
-        locDir = "#{getDir.join(' ' * ARMSettings::LOCATION_DIRECTION_SPACES )}"
+        locDir = "#{getDir.join('')}"
       end 
     else 
-      if ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS && name == "???"
+      if ARMSettings::CAN_VIEW_INFO_UNVISITED_MAPS && (name == "???" || !ARMSettings::NO_UNVISITED_MAP_INFO)
         locDescr = pbGetMessageFromHash(SCRIPTTEXTS, ARMSettings::UNVISITED_MAP_INFO_TEXT)
+        @cannotExtPreview = true 
       else     
         return false
       end

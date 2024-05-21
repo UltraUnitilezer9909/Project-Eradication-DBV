@@ -62,7 +62,7 @@ module UnrealTime
   # Time proportion here. 
   # So if it is 100, one second in real time will be 100 seconds in game.
   # If it is 60, one second in real time will be one minute in game.
-  PROPORTION=60
+  PROPORTION = 60 * 2
 
   # Starting on Essentials v17, the map tone only try to refresh tone each 30 
   # real time seconds. 
@@ -73,21 +73,21 @@ module UnrealTime
   # Make this true to time only pass at field (Scene_Map) 
   # A note to scripters: To make time pass on other scenes, put line
   # '$PokemonGlobal.addNewFrameCount' near to line 'Graphics.update'
-  TIME_STOPS=true 
+  TIME_STOPS = false
 
   # Make this true to time pass in battle, during turns and command selection.
   # This won't affect the Pokémon and Bag submenus.
   # Only works if TIME_STOPS=true.
-  BATTLE_PASS=true
+  BATTLE_PASS = true
 
   # Make this true to time pass when the Dialog box or the main menu are open.
   # This won't affect the submenus like Pokémon and Bag.
   # Only works if TIME_STOPS=true.
-  TALK_PASS=true
+  TALK_PASS = true
 
   # Choose switch number that when true the time won't pass (or -1 to cancel). 
   # Only works if TIME_STOPS=true.
-  SWITCH_STOPS=-1
+  SWITCH_STOPS = -1
 
   # Choose variable(s) number(s) that can hold time passage (or -1 to cancel).
   # Look at description for more details.

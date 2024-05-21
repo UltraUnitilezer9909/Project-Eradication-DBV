@@ -11,8 +11,6 @@
 # Name the new  diagonal movement charactersets  the same  as the regular ones,
 # but with a new '_quarter' extension.   As such, you would name a copy of a character 
 #file named "Red" as: Red_quarter.
-#
-#
 #==============================================================================
 # ** Game_Player
 #------------------------------------------------------------------------------
@@ -20,6 +18,13 @@
 #  determinants and map scrolling. Refer to "$game_player" for the one
 #  instance of this class.
 #==============================================================================
+
+#==============================================================================
+# ** Known Bugs
+#------------------------------------------------------------------------------
+#  This Plugin Does not work well while surfing
+#==============================================================================
+
 =begin
  class PokemonMenu_Scene
   def pbShowCommands(commands)
@@ -54,19 +59,18 @@
 end
 =end
 
+
 class Game_Player < Game_Character
   alias update_para_quarter update
   def update
     update_para_quarter
-    unless $game_player.moving? && !pbMapInterpreterRunning? && $game_switches[88] && !@move_route_forcing && $game_temp.message_window_showing && $game_switches[87]
-      if !$game_switches[88] && !$game_temp.message_window_showing && !@move_route_forcing && !pbMapInterpreterRunning? && !$game_player.moving?
-        case Input.dir8
+    unless $game_player.moving? && !pbMapInterpreterRunning? && !@move_route_forcing && $game_temp.message_window_showing 
+		case Input.dir8
         when 1 then move_lower_left
         when 3 then move_lower_right
         when 7 then move_upper_left
         when 9 then move_upper_right
         end
-      end
     end
   end
 end
@@ -129,18 +133,9 @@ class Sprite_Character < RPG::Sprite
   end
 
   def quarter_graphic_exist?(character)
+  alias dash_quarter_graphic_exist? quarter_graphic_exist?
     begin
 	  #RPG::Cache.character(character.character_name.to_s + "_quarter", character.character_hue)
-      RPG::Cache.character(character.character_name.to_s, character.character_hue)
-    rescue
-      return false
-    end
-    return true
-  end
-
-  def dash_quarter_graphic_exist?(character)
-    begin
-	  ##RPG::Cache.character(character.character_name.to_s + "_dash_quarter", character.character_hue)
       RPG::Cache.character(character.character_name.to_s, character.character_hue)
     rescue
       return false

@@ -12,8 +12,7 @@ class PokemonRegionMap_Scene
       @sprites["previewBox"].visible = false
     end 
     return if @mode == 1 || @mode == 4
-    case @mode
-    when 0
+    if @mode == 0
       preview = "LocationPreview/mapLocBox#{@useAlt}"
       @sprites["previewBox"].x = 16
     else
@@ -45,8 +44,8 @@ class PokemonRegionMap_Scene
       @sprites["locationDash"].visible = true if @locationDash
       @sprites["locationIcon"].visible = true if @locationIcon
     end
-    @sprites["locationText"].visible = true 
-    @previewShow = true
+    @sprites["locationText"].visible = true
+    @previewBox.shown
     getPreviewWeather 
     updateButtonInfo
     @previewMode = @mode 
@@ -89,7 +88,7 @@ class PokemonRegionMap_Scene
   end 
 
   def updatePreviewBox
-    return if !@previewShow
+    return if @previewBox.isHidden 
     if @curLocName == pbGetMapLocation(@mapX, @mapY)
       getLocationInfo if @mode == 0 
       height = @sprites["previewBox"].height
@@ -106,13 +105,15 @@ class PokemonRegionMap_Scene
         @sprites["locationIcon"].visible = true if @locationIcon
       end 
       getPreviewWeather 
-    else 
+      @previewBox.shown 
+    else
+      @previewBox.hideIt
       hidePreviewBox
     end 
   end 
 
   def hidePreviewBox
-    return false if !@previewShow && !@previewHide
+    return false if !@previewBox.canHide
     @sprites["previewBox"].visible = false
     @sprites["locationText"].bitmap.clear if @sprites["locationText"]
     if @locationIcon
@@ -139,8 +140,7 @@ class PokemonRegionMap_Scene
         @sprites["buttonName"].y = 0
       end 
     end
-    @previewShow = false
-    @previewHide = false
+    @previewBox.hidden 
     @locationIcon = false
     @locationDash = false
     getPreviewWeather
@@ -151,5 +151,79 @@ class PokemonRegionMap_Scene
     return if @sprites["previewBox"].visible == false
     @sprites["locationText"].bitmap.clear if @sprites["locationText"]
     @sprites["modeName"].visible = true
+  end 
+end 
+
+class PreviewState
+  def initialize
+    @state = :hidden 
+  end 
+
+  def state
+    @state 
+  end 
+
+  def showIt
+    @state = :show 
+  end 
+
+  def shown
+    @state = :shown
+  end 
+
+  def hideIt
+    @state = :hide 
+  end 
+
+  def hidden 
+    @state = :hidden 
+  end 
+
+  def updateIt
+    @state = :update 
+  end 
+
+  def updated
+    @state = :updated 
+  end 
+
+  def isShown
+    return @state == :shown
+  end 
+
+  def isUpdated
+    return @state == :updated
+  end 
+
+  def isHidden
+    return @state == :hidden
+  end  
+
+  def canShow
+    return @state == :show 
+  end 
+
+  def canHide
+    return @state == :hide 
+  end 
+
+  def canUpdate
+    return @state == :update
+  end 
+
+  def isExtShown
+    return @state == :extShown
+  end 
+
+  def isExtHidden 
+    return @state == :extHidden
+  end 
+
+  def extShow 
+    @state = :extShown
+  end 
+
+  def extHide 
+    @state = :extHidden 
   end 
 end 

@@ -1,31 +1,28 @@
-if ARMSettings::PROGRESS_COUNTER
+if ARMSettings::PROGRESS_COUNTER && ARMSettings::PROGRESS_COUNT_TRAINERS
   EventHandlers.add(:on_end_battle, :trainer_tracker,
     proc { |decision, canLose|
       if decision == 1 || canLose
-        $PokemonGlobal.trainerTracker ||= {}
-        mapID = $game_map.map_id
-        map = load_data(sprintf("Data/Map%03d.rxdata", $game_map.map_id))
-        eventID = (pbMapInterpreter.get_self).id
-        if map.events[eventID].name[/trainer/i]
-          map = GameData::MapMetadata.try_get($game_map.map_id)
-          regionMap = PokemonRegionMap_Scene.new 
-          district = regionMap.getDistrict(map.town_map_position)
-          $PokemonGlobal.trainerTracker[district] ||= { :total => 0 }
-          $PokemonGlobal.trainerTracker[district][:maps] ||= {}
-          $PokemonGlobal.trainerTracker[district][:maps][mapID] ||= {}
-          $PokemonGlobal.trainerTracker[district][:maps][mapID][eventID] ||= { :defeated => 0 }
-          unless $PokemonGlobal.trainerTracker[district][:maps][mapID][eventID][:defeated] != 0
-            $PokemonGlobal.trainerTracker[district][:maps][mapID][eventID][:defeated] += $PokemonGlobal.trainerTracker[:trainers]
-            $PokemonGlobal.trainerTracker[district][:total] += $PokemonGlobal.trainerTracker[:trainers]
+        map = $game_map
+        unless map.nil?
+          unless pbMapInterpreter.get_self.nil?
+            eventID = pbMapInterpreter.get_self.id
+            if map.events[eventID].name[/trainer/i]
+              district = getDistrictName(map.metadata)
+              $ArckyGlobal.trainerTracker[district] ||= { :total => 0 }
+              $ArckyGlobal.trainerTracker[district][:maps] ||= {}
+              $ArckyGlobal.trainerTracker[district][:maps][map.map_id] ||= {:defeated => 0}
+              $ArckyGlobal.trainerTracker[district][:maps][map.map_id][eventID] ||= { :defeated => 0 }
+              unless $ArckyGlobal.trainerTracker[district][:maps][map.map_id][eventID][:defeated] != 0
+                $ArckyGlobal.trainerTracker[district][:maps][map.map_id][eventID][:defeated] += $ArckyGlobal.trainerTracker[:trainers]
+                $ArckyGlobal.trainerTracker[district][:total] += $ArckyGlobal.trainerTracker[:trainers]
+                $ArckyGlobal.trainerTracker[district][:maps][map.map_id][:defeated] += $ArckyGlobal.trainerTracker[:trainers]
+              end
+            end 
           end
         end 
       end
     }
   )
-
-  class PokemonGlobalMetadata
-    attr_accessor :trainerTracker
-  end 
 
   class TrainerBattle
     def self.start_core(*args)
@@ -40,9 +37,8 @@ if ARMSettings::PROGRESS_COUNTER
       EventHandlers.trigger(:on_start_battle)
       # Generate information for the foes
       foe_trainers, foe_items, foe_party, foe_party_starts = TrainerBattle.generate_foes(*args)
-      $PokemonGlobal.trainerTracker ||= {}
-      $PokemonGlobal.trainerTracker[:trainers] ||= 0
-      $PokemonGlobal.trainerTracker[:trainers] = foe_trainers.length 
+      $ArckyGlobal.trainerTracker[:trainers] ||= 0
+      $ArckyGlobal.trainerTracker[:trainers] = foe_trainers.length
       # Generate information for the player and partner trainer(s)
       player_trainers, ally_items, player_party, player_party_starts = BattleCreationHelperMethods.set_up_player_trainers(foe_party)
       # Create the battle scene (the visual side of it)

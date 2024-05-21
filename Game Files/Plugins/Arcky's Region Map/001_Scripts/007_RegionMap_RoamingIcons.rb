@@ -5,7 +5,7 @@ class PokemonRegionMap_Scene
       @spritesMap["RoamingIcons"] = BitmapSprite.new(@mapWidth, @mapHeight, @viewportMap)
       @spritesMap["RoamingIcons"].x = @spritesMap["map"].x
       @spritesMap["RoamingIcons"].y = @spritesMap["map"].y
-      @spritesMap["RoamingIcons"].z = 59
+      @spritesMap["RoamingIcons"].z = 89
       @spritesMap["RoamingIcons"].visible = @mode == 4
     end
     $PokemonGlobal.roamPosition.each do |roamPos|
@@ -40,6 +40,7 @@ class PokemonRegionMap_Scene
   end 
 
   def getActiveRoaming(roamPos)
+    return false if roamPos.nil?
     return $game_switches[Settings::ROAMING_SPECIES[roamPos[0]][2]] && (
            $PokemonGlobal.roamPokemon.size <= roamPos[0] || 
            $PokemonGlobal.roamPokemon[roamPos[0]]!=true
@@ -47,7 +48,6 @@ class PokemonRegionMap_Scene
   end 
 
   def getRoamingTownMapPos(roamPos)
-    echoln(roamPos)
     mapPos = GameData::MapMetadata.try_get(roamPos[1])&.town_map_position
     return mapPos if mapPos[0] == @region
   end

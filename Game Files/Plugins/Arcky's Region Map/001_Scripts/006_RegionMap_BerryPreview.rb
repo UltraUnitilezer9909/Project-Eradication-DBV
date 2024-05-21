@@ -126,11 +126,11 @@ class PokemonRegionMap_Scene
       end 
       @sprites["locationText"].bitmap.clear
       if ENGINE20
-        base = colorToRgb16(ARMSettings::QUEST_INFO_MAIN)
-        shadow = colorToRgb16(ARMSettings::QUEST_INFO_SHADOW)
+        base = colorToRgb16(ARMSettings::BERRY_INFO_MAIN)
+        shadow = colorToRgb16(ARMSettings::BERRY_INFO_SHADOW)
       elsif ENGINE21
-        base = (ARMSettings::QUEST_INFO_MAIN).to_rgb15
-        shadow = (ARMSettings::QUEST_INFO_SHADOW).to_rgb15
+        base = (ARMSettings::BERRY_INFO_MAIN).to_rgb15
+        shadow = (ARMSettings::BERRY_INFO_SHADOW).to_rgb15
       end 
       selBerry = @berryPlants[berry]
       amount = selBerry[:amount]
@@ -147,10 +147,10 @@ class PokemonRegionMap_Scene
         drawFormattedChars(@sprites["locationText"].bitmap, chars)
         @lineCount = (y / lineHeight)
       end 
-      @lineCount = ARMSettings::MAX_QUEST_LINES if @lineCount > ARMSettings::MAX_QUEST_LINES
+      @lineCount = ARMSettings::MAX_BERRY_LINES if @lineCount > ARMSettings::MAX_BERRY_LINES
       getPreviewBox
-      @sprites["locationText"].x = Graphics.width - (@sprites["previewBox"].width + UI_BORDER_WIDTH + ARMSettings::QUEST_INFO_OFFSET_X)
-      @sprites["locationText"].y = UI_BORDER_HEIGHT + ARMSettings::QUEST_INFO_OFFSET_Y
+      @sprites["locationText"].x = Graphics.width - (@sprites["previewBox"].width + UI_BORDER_WIDTH + ARMSettings::BERRY_INFO_OFFSET_X)
+      @sprites["locationText"].y = UI_BORDER_HEIGHT + ARMSettings::BERRY_INFO_OFFSET_Y
       @sprites["locationText"].z = 28
     end 
     return choice

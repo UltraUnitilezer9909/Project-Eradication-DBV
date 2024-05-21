@@ -26,6 +26,7 @@ module ARMLocationPreview
     south: [13, 13],
     north: [13, 11],
     west: [12, 12],
+    northEast: "Some Route",
     icon: "LappetTown"
   }
 
@@ -47,7 +48,14 @@ module ARMLocationPreview
     west: [12, 10],
     description_13_10: _INTL("The biggest City in Essen. It has a department store!"),
     description_14_10: _INTL("The biggest City in Essen. It has a department store and what does it not have?"),
-    icon: "LappetTown"
+    icon: "LappetTown",
+    landMarks: {
+      "Pokemon Center" => _INTL("The place to be when you're feeling tired and your Pokémon too of course."),
+      "Department Store" => _INTL("A 6 floor tall building where you can almost buy anything you can imagine."), 
+      "Game Corner" => _INTL("A great place to spend the day but don't be mad if you're broke at the end!"),
+      "Cedolan Gym" => _INTL("Earn the Rainbow Badge by defeating Eric the Bug Type Gym Leader."),
+      "Pokemon Institute" => _INTL("A place for people that like to go to an institute...")
+    }
   }
 
   Route2 = {

@@ -15,7 +15,7 @@ class PokemonRegionMap_Scene
       if !ARMSettings::WEATHER_ON_LOCATION_PREVIEW_ACTIVE
         @sprites["weatherPreview"].visible = ARMSettings::WEATHER_ON_MODES.include?(@mode) && pbGetMapLocation(@mapX, @mapY) != ""
       else 
-        @sprites["weatherPreview"].visible = @mode == 0 && @previewShow || ARMSettings::WEATHER_ON_MODES.include?(@mode) && @mode != 0 && pbGetMapLocation(@mapX, @mapY) != ""
+        @sprites["weatherPreview"].visible = @mode == 0 && @previewBox.state == :shown || ARMSettings::WEATHER_ON_MODES.include?(@mode) && @mode != 0 && pbGetMapLocation(@mapX, @mapY) != ""
       end 
       showPreviewWeather
     end 

@@ -41,8 +41,8 @@ class MapBottomSprite < Sprite
       ],
       [
         @previewName, 
-        Graphics.width - (@previewWidth + PokemonRegionMap_Scene::UI_BORDER_WIDTH + ARMSettings::QUEST_NAME_OFFSET_X - 16), 4 + ARMSettings::QUEST_NAME_OFFSET_Y, 0, 
-        ARMSettings::QUEST_TEXT_MAIN, ARMSettings::QUEST_TEXT_SHADOW
+        Graphics.width - (@previewWidth + PokemonRegionMap_Scene::UI_BORDER_WIDTH + ARMSettings::QUEST_AND_BERRY_NAME_OFFSET_X - 16), 4 + ARMSettings::QUEST_AND_BERRY_NAME_OFFSET_Y, 0, 
+        ARMSettings::QUEST_AND_BERRY_TEXT_MAIN, ARMSettings::QUEST_AND_BERRY_TEXT_SHADOW
       ]
     ]
     pbDrawTextPositions(bitmap, textpos)
@@ -126,6 +126,8 @@ class PokemonRegionMap_Scene
       pbMessage(_INTL("The map data cannot be found."))
       return false
     end
+    @previewBox = PreviewState.new
+    @extendedBox = ExtendedState.new
     main 
     @playerMapName = !(@playerPos.nil?) ? pbGetMapLocation(@playerPos[1], @playerPos[2]) : ""
   end
@@ -140,6 +142,7 @@ class PokemonRegionMap_Scene
     getCounter
     mapModeSwitchInfo
     showAndUpdateMapInfo 
+    getExtendedPreview # for v2.6.0
     addPlayerIconSprite
     addQuestIconSprites
     addBerryIconSprites
@@ -240,7 +243,7 @@ class PokemonRegionMap_Scene
       end
     end
     @spritesMap["map"] = IconSprite.new(0, 0, @viewportMap)
-    @spritesMap["map"].setBitmap("#{FOLDER}Regions/#{@regionFile}")
+    @spritesMap["map"].setBitmap("#{getTimeOfDay}")
     @spritesMap["map"].z = 1
     @mapWidth = @spritesMap["map"].bitmap.width
     @mapHeight = @spritesMap["map"].bitmap.height
@@ -274,6 +277,35 @@ class PokemonRegionMap_Scene
         return "#{FOLDER}UI/Default/#{image}"
       end 
     end 
+  end 
+
+  def getTimeOfDay
+    path = "#{FOLDER}Regions/"
+    return "#{path}#{@regionFile}" if !ARMSettings::TIME_BASED_REGION_MAP 
+    if PBDayNight.isDay?
+      time = "Day"
+    elsif PBDayNight.isNight?
+      time = "Night"
+    elsif PBDayNight.isMorning?
+      time = "Morning"
+    elsif PBDayNight.isAfternoon?
+      time = "Afternoon"
+    elsif PBDayNight.isEvening?
+      time = "Evening"
+    end 
+    file = @regionFile.chomp(".png") << time << ".png"
+    bitmap = pbResolveBitmap("#{path}#{file}")
+    unless bitmap 
+      case time 
+      when /Morning|Afternoon|Evening|Night/
+        time = "Day"
+      else 
+        Console.echoln_li _INTL("There was no file named '#{file}' found.")
+        time = ""
+      end  
+    end
+    file = @regionFile.chomp(".png") << time << ".png"
+    return "#{path}#{file}"
   end 
 
   def locationShown?(point)
@@ -330,18 +362,18 @@ class PokemonRegionMap_Scene
   def replaceMapName(name)
     return name if !ARMSettings::NO_UNVISITED_MAP_INFO
     repName = ARMSettings::UNVISITED_MAP_TEXT
-    GameData::MapMetadata.each do |gameMap|
-      next if gameMap.name != pbGetMessageFromHash(LOCATIONNAMES, name) || !gameMap.announce_location
-      name = $PokemonGlobal.visitedMaps[gameMap.id] ? pbGetMessageFromHash(LOCATIONNAMES, name) : repName
-      break 
-    end
+    oriName = pbGetMessageFromHash(LOCATIONNAMES, name)
+    maps = []
+    GameData::MapMetadata.each { |gameMap| maps << gameMap if gameMap.name == oriName && (gameMap.announce_location || gameMap.outdoor_map) }
+    name = maps.any? { |gameMap| $PokemonGlobal.visitedMaps[gameMap.id] } ? oriName : repName 
     return name
   end 
 
   def replaceMapPOI(mapName, poiName)
     return pbGetMessageFromHash(POINAMES, poiName) if poiName == "" || !ARMSettings::NO_UNVISITED_MAP_INFO
-    if ARMSettings::LINK_POI_TO_MAP.keys.include?(poiName)
-      poiName = ARMSettings::UNVISITED_POI_TEXT if $PokemonGlobal.visitedMaps[ARMSettings::LINK_POI_TO_MAP[poiName]].nil?
+    findPOI = ARMSettings::LINK_POI_TO_MAP.keys.find { |key| key.include?(poiName) }
+    if findPOI
+      poiName = ARMSettings::UNVISITED_POI_TEXT if $PokemonGlobal.visitedMaps[ARMSettings::LINK_POI_TO_MAP[findPOI]].nil?
     else 
       poiName = ARMSettings::UNVISITED_POI_TEXT if mapName == ARMSettings::UNVISITED_MAP_TEXT
     end 
@@ -361,11 +393,10 @@ class PokemonRegionMap_Scene
     end 
   end 
 
-  # problem seems to be here for v20.1
   def getImagePosition(mapPoints, mapData)
     name = "map#{mapData[8]}"
     if mapData[8].nil?
-      Console.echoln_li _INTL("No Highlight Image defined for point '#{mapData[0]}, #{mapData[1]} - #{mapData[2]}' in PBS file: town_map.txt")
+      #Console.echoln_li _INTL("No Highlight Image defined for point '#{mapData[0]}, #{mapData[1]} - #{mapData[2]}' in PBS file: town_map.txt")
       return 
     end 
     points = mapPoints.select { |point| point[8] == mapData[8] && point[2] == mapData[2] }.map { |point| point [0..1] }
@@ -464,24 +495,27 @@ class PokemonRegionMap_Scene
     locations = @mapPoints.map { |mapData| mapData[2] }.uniq
     # separate counter for wild pokemon because different maps can have the same species as another map.
     # They only need to be counted once in a same district.
-    wild = Hash.new { |h, k| h[k] = { seen: 0, caught: 0, total: Hash.new(0) } }
+    wild = Hash.new { |h, k| h[k] = { seen: 0, caught: 0, total: Hash.new(0), map: 0 } }
     # Initialize counters for each district
+    gameMaps = { :trainers => {}, :items => {}, :wild => {} }
     districtCounters = Hash.new { |h, k| h[k] = { :progress => 0, :total => 0,
                                                   :maps => { visited: 0, total: 0 }, 
                                                   :encounters => { pokedex: 0, total: 0 }, 
                                                   :trainers => { defeated: 0, total: 0 }, 
-                                                  :items => { found: 0, total: 0} 
+                                                  :items => { found: 0, total: 0}
                                                 } }
     GameData::MapMetadata.each do |gameMap|
       # check if the gameMap has a town map position and if it's equal to the current region ID.
       next if gameMap.town_map_position.nil? || gameMap.town_map_position[0] != @region
       # get the district name.
-      district = getDistrict(gameMap.town_map_position)
+      district = getDistrictName(gameMap.town_map_position, @map)
       # get the encounter table for the current gameMap
       encounterData = GameData::Encounter.get(gameMap.id, $PokemonGlobal.encounter_version)
       unless encounterData.nil?
         tally = encounterData.types.values.flatten(1).map { |data| data[1] }.tally
         wild[district][:total].update(tally) { |key, oldVal, newVal| oldVal + newVal }
+        gameMaps[:wild][gameMap.id] ||= 0
+        gameMaps[:wild][gameMap.id] = tally.length
       end 
       # Counting events that have an item
       map = load_data(sprintf("Data/Map%03d.rxdata", gameMap.id)) 
@@ -490,18 +524,20 @@ class PokemonRegionMap_Scene
       trainerlist = []
       map.events.each do |event|
         if event[1].name[/item/i]
+          next if !ARMSettings::PROGRESS_COUNT_ITEMS
           event[1].pages.each do |page|
             page.list.each do |line|
               # 111 is conditional, 355 is script command.
               next if line.code.nil? || line.code != 111 && line.code != 355
-              script = line.parameters[1]
-              next if script.nil? || script.is_a?(Numeric) || !(script.include?("pbItemBall") || script.include?("pbReceiveItem"))
+              script = line.code == 111 ? line.parameters[1] : line.parameters[0]
+              next if script.nil? || script.is_a?(Numeric) || !(script.include?("pbItemBall") || script.include?("pbReceiveItem") || script.include?("pbGetKeyItem"))
               split = script.split(',').map { |s| s.split(')')[0] }
               number = !(split[1].nil?) ? split[1].to_i : 1
               items += number
             end
           end 
         elsif event[1].name[/trainer/i]
+          next if !ARMSettings::PROGRESS_COUNT_TRAINERS
           event[1].pages.each do |page|
             page.list.each do |line|
               next if line.code.nil? || line.code != 111
@@ -513,6 +549,7 @@ class PokemonRegionMap_Scene
             end 
           end 
         elsif event[1].name[/wild|static/i]
+          next if !ARMSettings::PROGRESS_COUNT_POKEMON
           event[1].pages.each do |page|
             page.list.each do |line|
               next if line.code.nil? || line.code != 355
@@ -525,7 +562,11 @@ class PokemonRegionMap_Scene
           end 
         end 
       end
+      gameMaps[:items][gameMap.id] ||= 0
+      gameMaps[:items][gameMap.id] += items
       districtCounters[district][:items][:total] += items 
+      gameMaps[:trainers][gameMap.id] ||= 0
+      gameMaps[:trainers][gameMap.id] += trainers
       districtCounters[district][:trainers][:total] += trainers
       # main maps
       map = locations.find { |map| pbGetMessageFromHash(LOCATIONNAMES, map) == gameMap.name && gameMap.outdoor_map }
@@ -541,53 +582,44 @@ class PokemonRegionMap_Scene
       # Check if the map belongs to any district
       unless district.nil?
         # Update district counters
+        next if !ARMSettings::PROGRESS_COUNT_VISITEDLOCATIONS
         districtCounters[district][:maps][:total] += 1
         districtCounters[district][:maps][:visited] += 1 if $PokemonGlobal.visitedMaps[gameMap.id]
       end
     end
     # Wild Encounters
-    wild.each do |district, encounters|
-      districtCounters[district][:encounters][:total] = encounters[:total].count * 2
-      encounters[:total].keys.each do |species|
-        districtCounters[district][:encounters][:pokedex] += 1 if $player.seen?(species)
-        districtCounters[district][:encounters][:pokedex] += 1 if $player.owned?(species)
-      end 
+    if ARMSettings::PROGRESS_COUNT_POKEMON
+      wild.each do |district, encounters|
+        districtCounters[district][:encounters][:total] = encounters[:total].count * 2
+        encounters[:total].keys.each do |species|
+          districtCounters[district][:encounters][:pokedex] += 1 if $player.seen?(species)
+          districtCounters[district][:encounters][:pokedex] += 1 if $player.owned?(species)
+        end 
+      end
     end
     # Create the total count for each district and overall.
     progressCount = totalCount = 0
     districtCounters.each do |district, counters|
-      if $PokemonGlobal.itemTracker
-        districtCounters[district][:items][:found] = $PokemonGlobal.itemTracker[district][:total] if $PokemonGlobal.itemTracker[district]
-      end 
-      if $PokemonGlobal.trainerTracker
-        districtCounters[district][:trainers][:defeated] = $PokemonGlobal.trainerTracker[district][:total] if $PokemonGlobal.trainerTracker[district]
-      end 
+      if !$ArckyGlobal.itemTracker.nil?
+        districtCounters[district][:items][:found] = $ArckyGlobal.itemTracker[district][:total] if $ArckyGlobal.itemTracker[district]
+      end
+      if !$ArckyGlobal.trainerTracker.nil?
+        districtCounters[district][:trainers][:defeated] = $ArckyGlobal.trainerTracker[district][:total] if $ArckyGlobal.trainerTracker[district]
+      end
       total = progress = 0
-      counters.values.each_with_index do |hash, index|
-        next if index < 2
+      counters.each do |key, hash|
+        next if key == :gameMap
+        next if key == :progress || key == :total
         progress += hash.values[0]
-        total += hash.values[1]
+        total += hash[:total]
       end 
       districtCounters[district][:progress] = progress
       districtCounters[district][:total] = total
       progressCount += progress
       totalCount += total 
     end 
-    @globalCounter = { progress: progressCount, total: totalCount, districts: districtCounters }
+    @globalCounter = { progress: progressCount, total: totalCount, districts: districtCounters, gameMaps: gameMaps }
   end
-
-  def getDistrict(position)
-    return if position.nil?
-    if ARMSettings::USE_REGION_DISTRICTS_NAMES
-      ARMSettings::REGION_DISTRICTS.each do |region, rangeX, rangeY, districtName|
-        if position[0] == region && position[1].between?(rangeX[0], rangeX[1]) && position[2].between?(rangeY[0], rangeY[1])
-          return pbGetMessageFromHash(SCRIPTTEXTS, districtName)
-        end
-      end
-    end
-    return pbGetMessage(REGIONNAMES, @region) if ENGINE20
-    return pbGetMessageFromHash(REGIONNAMES, @map.name.to_s) if ENGINE21
-  end  
 
   def showAndUpdateMapInfo
     if !@sprites["mapbottom"]
@@ -604,25 +636,14 @@ class PokemonRegionMap_Scene
   end
 
   def getMapName(x, y)
-    district = pbGetMessage(REGIONNAMES, @region) if ENGINE20
-    district = pbGetMessageFromHash(REGIONNAMES, @map.name.to_s) if ENGINE21
-    if ARMSettings::PROGRESS_COUNTER
-      if ARMSettings::USE_REGION_DISTRICTS_NAMES && !@globalCounter[:districts].empty?
-        ARMSettings::REGION_DISTRICTS.each do |name| 
-          next if name[0] != @region
-          if (x >= name[1][0] && x <= name[1][1]) && (y >= name[2][0] && y <= name[2][1])
-            district = pbGetMessageFromHash(SCRIPTTEXTS, name[3])
-          end 
-        end
-        if (ENGINE20 && district == pbGetMessage(REGIONNAMES, @region)) || (ENGINE21 && district == pbGetMessageFromHash(REGIONNAMES, @map.name.to_s))
-          district = "#{district} - #{(@globalCounter[:progress].to_f / @globalCounter[:total] * 100).round(1)}%" if @mode == 0
-        else 
-          districtData = @globalCounter[:districts][district]
-          district = "#{district} - #{(districtData[:progress].to_f / districtData[:total] * 100).round(1)}%" if districtData && districtData[:total] != 0 && @mode == 0
-        end
-      else
-        district = "#{district} - #{(@globalCounter[:progress].to_f / @globalCounter[:total] * 100).round(1)}%" if @mode == 0
-      end  
+    district = getDistrictName([@region, x, y], @map)
+    if ARMSettings::PROGRESS_COUNTER && !@globalCounter[:districts].empty?
+      if (ENGINE20 && district == pbGetMessage(REGIONNAMES, @region)) || (ENGINE21 && district == pbGetMessageFromHash(REGIONNAMES, @map.name.to_s))
+        district = "#{district} - #{convertIntegerOrFloat((@globalCounter[:progress].to_f / @globalCounter[:total] * 100).round(1))}%" if @mode == 0
+      else 
+        districtData = @globalCounter[:districts][district]
+        district = "#{district} - #{convertIntegerOrFloat((districtData[:progress].to_f / districtData[:total] * 100).round(1))}%" if districtData && districtData[:total] != 0 && @mode == 0
+      end
     end 
     return district
   end 
@@ -682,7 +703,7 @@ class PokemonRegionMap_Scene
         @spritesMap["player"] = BitmapSprite.new(@mapWidth, @mapHeight, @viewportMap)
         @spritesMap["player"].x = @spritesMap["map"].x
         @spritesMap["player"].y = @spritesMap["map"].y
-        @spritesMap["player"].visible = ARMSettings::SHOW_PLAYER_ON_REGION[(@regionName).to_sym]
+        @spritesMap["player"].visible = ARMSettings::SHOW_PLAYER_ON_REGION[(@regionName.gsub(' ','')).to_sym]
       end 
       @spritesMap["player"].z = 60
       pbDrawImagePositions(
@@ -710,7 +731,7 @@ class PokemonRegionMap_Scene
       text2Pos = getTextPosition
       @sprites["buttonPreview"].x = text2Pos[0]
       @sprites["buttonPreview"].y = text2Pos[1]
-    end 
+    end
     unless @flyMap || @wallmap
       return if !@sprites["modeName"] || !@sprites["buttonName"]
       @modeInfo = {
@@ -722,7 +743,7 @@ class PokemonRegionMap_Scene
         :fly => {
           mode: 1,
           text: pbGetMessageFromHash(SCRIPTTEXTS, "#{ARMSettings::MODE_NAMES[:fly]}"),
-          condition: pbCanFly? && (@region == @playerPos[0] || canFlyOtherRegion) && ARMSettings::CAN_FLY_FROM_TOWN_MAP
+          condition: pbCanFly? && ((!@playerPos.nil? && @region == @playerPos[0]) || canFlyOtherRegion) && ARMSettings::CAN_FLY_FROM_TOWN_MAP
         },
         :quest => {
           mode: 2,
@@ -861,10 +882,10 @@ class PokemonRegionMap_Scene
   end 
 
   def updateArrows
-    @sprites["upArrow"].visible = @spritesMap["map"].y < 0
-    @sprites["downArrow"].visible = @spritesMap["map"].y > -1 * (@mapHeight - (Graphics.height - SPECIAL_UI[3]))
-    @sprites["leftArrow"].visible =  @spritesMap["map"].x < 0 
-    @sprites["rightArrow"].visible = @spritesMap["map"].x > -1 * (@mapWidth - (Graphics.width - SPECIAL_UI[1]))
+    @sprites["upArrow"].visible = @spritesMap["map"].y < 0 && !@previewBox.isExtShown
+    @sprites["downArrow"].visible = @spritesMap["map"].y > -1 * (@mapHeight - (Graphics.height - SPECIAL_UI[3])) && !@previewBox.isExtShown
+    @sprites["leftArrow"].visible =  @spritesMap["map"].x < 0 && !@previewBox.isExtShown
+    @sprites["rightArrow"].visible = @spritesMap["map"].x > -1 * (@mapWidth - (Graphics.width - SPECIAL_UI[1])) && !@previewBox.isExtShown
   end 
 
   def refreshFlyScreen
@@ -873,6 +894,7 @@ class PokemonRegionMap_Scene
     if @sprites["previewBox"] && @sprites["previewBox"].visible
       hidePreviewBox 
     end 
+    @previewBox.hideIt
     showAndUpdateMapInfo
     getPreviewWeather
     @spritesMap["FlyIcons"].visible = @mode == 1
@@ -896,13 +918,12 @@ class PokemonRegionMap_Scene
     @FadeViewport = nil
   end  
 
-  # fix image not found on second region or when switching regions seems like this issue is only persisting in v20.1 since the info message shows in v21.1
   def colorCurrentLocation
     addHighlightSprites if !@spritesMap["highlight"]
     return if @curMapLoc.nil?
     curPos = @curMapLoc.gsub(" ", "").to_sym
     highlight = @mapInfo[curPos][:positions].find { |pos| pos[:x] == @mapX && pos[:y] == @mapY}
-    return if highlight[:image].nil?
+    return if highlight.nil? || highlight[:image].nil?
     if @mode != 1 
       image = highlight[:image] 
       mapFolder = getMapFolderName(image)
@@ -934,10 +955,6 @@ class PokemonRegionMap_Scene
     @spritesMap["highlight"].z = 20
   end 
 
-  def convertOpacity(input)
-    return (([0, [100, (input / 5.0).round * 5].min].max) * 2.55).round 
-  end 
-
   def getMapFolderName(image)
     name = image[:name]
     case name
@@ -958,6 +975,7 @@ class PokemonRegionMap_Scene
     lastChoiceFly = 0
     lastChoiceQuest = 0
     lastChoiceBerries = 0
+    updateMapRange
     @distPerFrame = 8 * 20 / Graphics.frame_rate if ENGINE20
     @distPerFrame = System.uptime if ENGINE21
     @uiWidth = @mapWidth < UI_WIDTH ? @mapWidth : UI_WIDTH
@@ -969,8 +987,8 @@ class PokemonRegionMap_Scene
       pbUpdate
       @timer += 1 if @timer
       toggleButtonBox(opacityBox)
-      updateButtonInfo if @previewShow
-      hidePreviewBox if @previewHide && !@previewUpdate
+      updateButtonInfo if @previewBox.isShown
+      hidePreviewBox if @previewBox.canHide
       if cursor[:offsetX] != 0 || cursor[:offsetY] != 0
         updateCursor(cursor)
         updateMap(map) if map[:offsetX] != 0 || map[:offsetY] != 0
@@ -988,29 +1006,34 @@ class PokemonRegionMap_Scene
         lastChoiceBerries = choice if @mode == 3
         choice = nil
       end
-      updateArrows if @mapX != cursor[:oldX] || @mapY != cursor[:oldY]
+      updateArrows #if @mapX != cursor[:oldX] || @mapY != cursor[:oldY] 
       ox, oy, mox, moy = 0, 0, 0, 0
       cursor[:oldX] = @mapX
       cursor[:oldY] = @mapY
       ox, oy, mox, moy = getDirectionInput(ox, oy, mox, moy)
+      ox, oy, mox, moy, lastChoiceQuest, lastChoiceBerries = getMouseInput(ox, oy, mox, moy, lastChoiceQuest, lastChoiceBerries)
       choice = canSearchLocation(lastChoiceLocation, cursor) if @mode == 0
       choice = canActivateQuickFly(lastChoiceFly, cursor) if @mode == 1
       updateCursorPosition(ox, oy, cursor) if ox != 0 || oy != 0
       updateMapPosition(mox, moy, map) if mox != 0 || moy != 0
-      updatePreviewBox if @previewShow && (@mapX != cursor[:oldX] || @mapY != cursor[:oldY])
-      showAndUpdateMapInfo if (@mapX != cursor[:oldX] || @mapY != cursor[:oldY]) || !@previewHide && !@previewShow
-      #showPlayerIconOutsideMap
+      updatePreviewBox if @previewBox.canUpdate && (@mapX != cursor[:oldX] || @mapY != cursor[:oldY])
+      showAndUpdateMapInfo if (@mapX != cursor[:oldX] || @mapY != cursor[:oldY]) || @previewBox.isHidden
       if !@wallmap
-        if (Input.trigger?(ARMSettings::SHOW_LOCATION_BUTTON) && @mode == 0 && ARMSettings::USE_LOCATION_PREVIEW) && getLocationInfo
+        if (Input.trigger?(ARMSettings::SHOW_LOCATION_BUTTON) && @mode == 0 && ARMSettings::USE_LOCATION_PREVIEW) && getLocationInfo && !@previewBox.isShown
+          pbPlayDecisionSE
+          @previewBox.showIt
           showPreviewBox
-        elsif (Input.trigger?(Input::USE) && @mode == 1) || inputFly
+        elsif Input.trigger?(ARMSettings::SHOW_EXTENDED_BUTTON) && @previewBox.isShown && !@cannotExtPreview
+          pbPlayDecisionSE
+          showExtendedPreview
+        elsif ((Input.trigger?(Input::USE) || Input.trigger?(ARMSettings::MOUSE_BUTTON_SELECT_LOCATION)) && @mode == 1) || inputFly
           return @healspot if getFlyLocationAndConfirm { pbUpdate }
         elsif Input.trigger?(ARMSettings::SHOW_QUEST_BUTTON) && QUESTPLUGIN && @mode == 2
           choice = showQuestInformation(lastChoiceQuest)
           showPreviewBox if choice != -1
         elsif Input.trigger?(ARMSettings::CHANGE_MODE_BUTTON) && !@flyMap && @modeCount >= 2
           switchMapMode
-        elsif Input.trigger?(ARMSettings::CHANGE_REGION_BUTTON) && !@previewShow && ((ENGINE20 && @mapData.length >= 2) || (ENGINE21 && GameData::TownMap.count >= 2)) && !@flyMap
+        elsif Input.trigger?(ARMSettings::CHANGE_REGION_BUTTON) && @previewBox.isHidden && ((ENGINE20 && @mapData.length >= 2) || (ENGINE21 && GameData::TownMap.count >= 2)) && !@flyMap
           switchRegionMap
         elsif Input.trigger?(ARMSettings::SHOW_BERRY_BUTTON) && BERRYPLUGIN && @mode == 3
           choice = showBerryInformation(lastChoiceBerries)
@@ -1018,9 +1041,11 @@ class PokemonRegionMap_Scene
         end 
       end 
       if Input.trigger?(Input::BACK)
-        if @previewShow
-          @previewHide = true 
-          @previewUpdate = false
+        if @previewBox.isShown || @previewBox.isUpdated
+          @previewBox.hideIt
+          next 
+        elsif @previewBox.isExtHidden
+          @previewBox.shown
           next 
         else 
           break 
@@ -1031,10 +1056,107 @@ class PokemonRegionMap_Scene
     return nil
   end
 
+  def getMouseInput(ox, oy, mox, moy, lastChoiceQuest, lastChoiceBerries)
+    return if !ARMSettings::USE_MOUSE_ON_REGION_MAP
+    mousePos = Mouse.getMousePos
+    if mousePos
+      convertMouseToMapPos(mousePos)
+      @oldPosX ||= mousePos[0]
+      @oldPosY ||= mousePos[1]
+      if mousePos.none? { |pos| pos < 0 } #checks if the mouse position is not negative.
+        if Input.press?(ARMSettings::MOUSE_BUTTON_MOVE_MAP)
+          if @previewBox.isShown || @previewBox.isUpdated
+            @previewBox.hideIt
+          elsif @previewBox.isExtHidden
+            @previewBox.showIt
+          else 
+            if mousePos[0] < @oldPosX
+              mox = -1 if @spritesMap["map"].x > -1 * (@mapWidth - (Graphics.width - SPECIAL_UI[1]))
+              ox = -1 if @sprites["cursor"].x > @limitCursor[:minX] && mox == -1
+            elsif mousePos[0] > @oldPosX
+              mox = 1 if @spritesMap["map"].x < 0
+              ox = 1 if @sprites["cursor"].x < @limitCursor[:maxX] && mox == 1
+            end 
+            if mousePos[1] < @oldPosY
+              moy = -1 if @spritesMap["map"].y > -1 * (@mapHeight - (Graphics.height - SPECIAL_UI[3]))
+              oy = -1  if @sprites["cursor"].y > @limitCursor[:minY] && moy == -1
+            elsif mousePos[1] > @oldPosY
+              moy = 1 if @spritesMap["map"].y < 0
+              oy = 1  if @sprites["cursor"].y < @limitCursor[:maxY] && moy == 1
+            end
+          end 
+        elsif Input.trigger?(ARMSettings::MOUSE_BUTTON_SELECT_LOCATION)
+          if !(mousePos[0] == @mapX && mousePos[1] == @mapY)
+            if !mousePos[0].between?(@mapRange[:minX], @mapRange[:maxX])
+              if mousePos[0] < @mapRange[:minX]
+                mousePos[0] = @mapRange[:minX]
+              elsif mousePos[0] > @mapRange[:maxX]
+                mousePos[0] = @mapRange[:maxX]
+              end 
+            end 
+            if !mousePos[1].between?(@mapRange[:minY], @mapRange[:maxY])
+              if mousePos[1] < @mapRange[:minY]
+                mousePos[1] = @mapRange[:minY]
+              elsif mousePos[1] > @mapRange[:maxY]
+                mousePos[1] = @mapRange[:maxY]
+              end 
+            end 
+            @mapX = mousePos[0] 
+            @mapY = mousePos[1]
+            @sprites["cursor"].x = (8 + (@mapX * ARMSettings::SQUARE_WIDTH)) + @spritesMap["map"].x
+            @sprites["cursor"].y = (24 + (@mapY * ARMSettings::SQUARE_HEIGHT)) + @spritesMap["map"].y 
+            if @previewBox.isShown
+              @previewBox.updateIt
+            end 
+          else 
+            case @mode 
+            when 0
+              if ARMSettings::USE_LOCATION_PREVIEW && getLocationInfo
+                if @previewBox.isShown && !@cannotExtPreview 
+                  showExtendedPreview
+                else 
+                  @previewBox.showIt
+                  showPreviewBox
+                end
+              end
+            when 2
+              if QUESTPLUGIN
+                choice = showQuestInformation(lastChoiceQuest)
+                if choice != -1
+                  showPreviewBox 
+                  lastChoiceQuest = choice
+                end 
+              end 
+            when 3
+              if BERRYPLUGIN
+                choice = showBerryInformation(lastChoiceBerries)
+                if choice != -1
+                  showPreviewBox 
+                  lastChoiceBerries = choice 
+                end 
+              end 
+            end 
+          end 
+        end 
+      end 
+      @oldPosX = mousePos[0] if mox == 0
+      @oldPosY = mousePos[1] if moy == 0
+    end
+    return ox, oy, mox, moy, lastChoiceQuest, lastChoiceBerries
+  end 
+
+  def convertMouseToMapPos(mousePos)
+    mousePos[0] -= @spritesMap["map"].x + UI_BORDER_WIDTH
+    mousePos[1] -= @spritesMap["map"].y + UI_BORDER_HEIGHT
+    mousePos[0] /= SQUARE_WIDTH
+    mousePos[1] /= SQUARE_HEIGHT
+    return mousePos
+  end 
+
   def canSearchLocation(lastChoiceLocation, cursor)
     @listMaps = getAllLocations
     return if @listMaps.empty? || (@listMaps.length + 1) <= ARMSettings::MINIMUM_MAPS_COUNT
-    if enableMode(ARMSettings::CAN_LOCATION_SEARCH) && Input.trigger?(ARMSettings::LOCATION_SEARCH_BUTTON) && !@previewShow 
+    if enableMode(ARMSettings::CAN_LOCATION_SEARCH) && Input.trigger?(ARMSettings::LOCATION_SEARCH_BUTTON) && @previewBox.isHidden
       match = ARMSettings::LINK_POI_TO_MAP.find { |_,poi| poi == $game_map.map_id }
       findChoice = @listMaps.find_index { |map| match[0] == map[:name] } if !match.nil?
       findChoice = @listMaps.find_index { |map| @curMapLoc == map[:name] } if !findChoice
@@ -1163,7 +1285,7 @@ class PokemonRegionMap_Scene
 
   def toggleButtonBox(opacityBox)
     box = createBoxObject
-    if ((@sprites["cursor"].x >= box[:startX] && @sprites["cursor"].x <= box[:endX]) && (@sprites["cursor"].y >= box[:startY] && @sprites["cursor"].y <= box[:endY])) && @sprites["buttonName"].opacity != opacityBox
+    if (@sprites["cursor"].x.between?(box[:startX], box[:endX]) && @sprites["cursor"].y.between?(box[:startY], box[:endY])) && @sprites["buttonName"].opacity != opacityBox
       if ENGINE20
         @sprites["buttonPreview"].opacity -= (255 - opacityBox) / @distPerFrame
         @sprites["buttonName"].opacity -= (255 - opacityBox) / @distPerFrame
@@ -1171,8 +1293,7 @@ class PokemonRegionMap_Scene
         @sprites["buttonPreview"].opacity = lerp(@sprites["buttonPreview"].opacity, opacityBox, 0.5, @distPerFrame, System.uptime)
         @sprites["buttonName"].opacity = lerp(@sprites["buttonName"].opacity, opacityBox, 0.5, @distPerFrame, System.uptime)
       end
-    end 
-    if ((@sprites["cursor"].x < box[:startX] || @sprites["cursor"].x > box[:endX]) || (@sprites["cursor"].y < box[:startY] || @sprites["cursor"].y > box[:endY])) && @sprites["buttonName"].opacity != 255
+    elsif !(@sprites["cursor"].x.between?(box[:startX], box[:endX]) && @sprites["cursor"].y.between?(box[:startY], box[:endY])) && @sprites["buttonName"].opacity != 255
       if ENGINE20
         @sprites["buttonPreview"].opacity += (255 - opacityBox) / @distPerFrame
         @sprites["buttonName"].opacity += (255 - opacityBox) / @distPerFrame
@@ -1233,7 +1354,7 @@ class PokemonRegionMap_Scene
     end
   end 
 
-  def updateMap(map)
+  def updateMap(map) 
     if ENGINE20 
       map[:offsetX] += (map[:offsetX] > 0) ? -@distPerFrame : (map[:offsetX] < 0) ? @distPerFrame : 0
       map[:offsetY] += (map[:offsetY] > 0) ? -@distPerFrame : (map[:offsetY] < 0) ? @distPerFrame : 0
@@ -1244,18 +1365,31 @@ class PokemonRegionMap_Scene
     elsif ENGINE21
       if map[:offsetX] != 0
         @spritesMap.each do |key, value|
-          next if key == "pointer" && @freezeX
           @spritesMap[key].x = lerp(map[:newX] - map[:offsetX], map[:newX], 0.1, @distPerFrame, System.uptime)
         end
         map[:offsetX] = 0 if @spritesMap["map"].x == map[:newX]
       end 
       if map[:offsetY] != 0
         @spritesMap.each do |key, value|
-          next if key == "pointer" && @freezeY
-          @spritesMap[key].y = lerp(map[:newY] - map[:offsetY], map[:newY], 0.1, @distPerFrame, System.uptime)
+          @spritesMap[key].y = lerp(map[:newY] - map[:offsetY], map[:newY], 0.1, @distPerFrame, System.uptime) 
         end 
-        map[:offsetY] = 0 if @spritesMap["map"].y == map[:newY] 
+        map[:offsetY] = 0 if @spritesMap["map"].y == map[:newY]
       end
+    end 
+    updateMapRange
+  end 
+
+  def updateMapRange
+    offset = ARMSettings::CURSOR_MAP_OFFSET ? 16 : 0 
+    @mapRange = { 
+      :minX => ((@spritesMap["map"].x - offset) / SQUARE_WIDTH).abs, 
+      :maxX => ((@spritesMap["map"].x + offset).abs + (UI_WIDTH - SQUARE_WIDTH)) / SQUARE_WIDTH,
+      :minY => ((@spritesMap["map"].y - offset) / SQUARE_HEIGHT).abs,
+      :maxY => ((@spritesMap["map"].y + offset).abs + (UI_HEIGHT - SQUARE_HEIGHT)) / SQUARE_HEIGHT
+    } 
+    if ARMSettings::CURSOR_MAP_OFFSET
+      @mapRange[:maxX] -= 2 if @spritesMap["map"].x == 0
+      @mapRange[:maxY] -= 2 if @spritesMap["map"].y == 0
     end 
   end 
 
@@ -1323,18 +1457,26 @@ class PokemonRegionMap_Scene
     cursor[:newY] = @sprites["cursor"].y + cursor[:offsetY]
     @distPerFrame = System.uptime if ENGINE21
     # Hide Quest Preview when moving cursor.
-    @previewHide = @mode == 2 || @mode == 3
+    if @mode == 2 || @mode == 3
+      @previewBox.hideIt 
+    elsif @mode == 0 && @previewBox.isShown
+      @previewBox.updateIt
+    end
   end 
 
   def updateMapPosition(mox, moy, map)
-    @mapX -= mox 
+    @mapX -= mox
     @mapY -= moy
     map[:offsetX] = mox * ARMSettings::SQUARE_WIDTH
     map[:offsetY] = moy * ARMSettings::SQUARE_HEIGHT 
     map[:newX] = @spritesMap["map"].x + map[:offsetX]
     map[:newY] = @spritesMap["map"].y + map[:offsetY]
     @distPerFrame = System.uptime if ENGINE21
-    @previewHide = @mode == 2 || @mode == 3
+    if @mode == 2 || @mode == 3
+      @previewBox.hideIt
+    elsif @mode == 0 && @previewBox.isShown
+      @previewBox.updateIt
+    end     
   end 
 
   def getFlyLocationAndConfirm
